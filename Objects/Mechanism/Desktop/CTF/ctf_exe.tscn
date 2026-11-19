@@ -1,0 +1,132 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.gd" id="1_ctf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_normal"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_pressed"]
+bg_color = Color(0.735357, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_hover"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="CTFExe" type="Window"]
+oversampling_override = 1.0
+title = "CTF.exe"
+initial_position = 1
+size = Vector2i(560, 320)
+unresizable = true
+borderless = true
+always_on_top = true
+sharp_corners = true
+script = ExtResource("1_ctf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.12, 1)
+
+[node name="WindowSkeleton" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="PanelContainer" parent="WindowSkeleton"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowSkeleton/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Close" type="Button" parent="WindowSkeleton/TopBar/MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_close_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_close_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_close_hover")
+text = "X"
+
+[node name="Content" type="MarginContainer" parent="WindowSkeleton"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="WindowSkeleton/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="WindowSkeleton/Content/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CTF.exe"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
+text = "Flag format: ..."
+horizontal_alignment = 1
+
+[node name="FlagRow" type="HBoxContainer" parent="WindowSkeleton/Content/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FlagInput" type="LineEdit" parent="WindowSkeleton/Content/Layout/FlagRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "..."
+
+[node name="Submit" type="Button" parent="WindowSkeleton/Content/Layout/FlagRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 36)
+layout_mode = 2
+text = "Submit"
+
+[node name="Status" type="Label" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
+text = "Awaiting flag."
+horizontal_alignment = 1
+
+[node name="Progress" type="Label" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.45, 0.5, 1)
+theme_override_font_sizes/font_size = 14
+text = "FLAG 1 / 1"
+horizontal_alignment = 1
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="WindowSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]

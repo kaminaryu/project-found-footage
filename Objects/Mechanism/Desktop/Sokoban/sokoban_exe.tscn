@@ -3,28 +3,7 @@
 [ext_resource type="Script" uid="uid://2pimahbnxuus" path="res://Objects/Mechanism/Desktop/game_window.gd" id="1_2lwfx"]
 [ext_resource type="PackedScene" uid="uid://c0025nk26hkwu" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_game.tscn" id="2_7yhwk"]
 [ext_resource type="Script" uid="uid://b7clf2eh3d2fg" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_game_control.gd" id="3_ctrl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lwfx"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-corner_detail = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yhwk"]
-bg_color = Color(0.735357, 0, 0, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib7w2"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="4_topbar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_next_normal"]
 bg_color = Color(0.16, 0.5, 0.26, 1)
@@ -73,24 +52,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopBar" type="PanelContainer" parent="WindowSkeleton" unique_id=603028054]
+[node name="TopBar" parent="WindowSkeleton" instance=ExtResource("4_topbar")]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="WindowSkeleton/TopBar" unique_id=1709857675]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Close" type="Button" parent="WindowSkeleton/TopBar/MarginContainer" unique_id=77491525]
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(32, 32)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2lwfx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7yhwk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ib7w2")
-text = "X"
+title_text = "game_final.exe"
 
 [node name="PlayArea" type="SubViewportContainer" parent="WindowSkeleton" unique_id=1153326940]
 layout_mode = 2
@@ -169,7 +133,7 @@ focus_mode = 0
 text = "Undo"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="WindowSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="close_pressed" from="WindowSkeleton/TopBar" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement/Left" to="WindowSkeleton/PlayArea/SubViewport/GameControl" method="_on_left_pressed"]
 [connection signal="pressed" from="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement/Down" to="WindowSkeleton/PlayArea/SubViewport/GameControl" method="_on_down_pressed"]
 [connection signal="pressed" from="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement/Up" to="WindowSkeleton/PlayArea/SubViewport/GameControl" method="_on_up_pressed"]

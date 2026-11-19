@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="6_vskip"]
 [ext_resource type="Texture2D" uid="uid://dw34foohkfjpj" path="res://Assets/UI/Desktop/Icons/Error64.svg" id="7_ywgj1"]
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="9_fiqj7"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.tscn" id="10_ctf"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="11_txt_reader"]
+[ext_resource type="Texture2D" uid="uid://jugr2msfhiba" path="res://Assets/UI/Desktop/Icons/TextFile64.svg" id="12_txt_icon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)
@@ -144,13 +147,17 @@ icon_texture = ExtResource("3_2u6u5")
 icon_name = "Desktop"
 
 [node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("6_vskip")]
+visible = false
 layout_mode = 1
 offset_left = 560.0
 offset_top = 479.0
 offset_right = 626.0
 offset_bottom = 564.0
 icon_texture = ExtResource("7_ywgj1")
-icon_name = "CTF"
+icon_name = "Portal.exe"
+application = ExtResource("10_ctf")
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
 
 [node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=196024873 instance=ExtResource("6_vskip")]
 layout_mode = 1
@@ -164,6 +171,22 @@ application = ExtResource("4_hgxnt")
 blocked_save_flag = "sokoban_finished"
 blocked_message = "game_final.exe has stopped working.
 The file may be corrupted."
+hide_if_save_flag = "ctf_revealed"
+
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("6_vskip")]
+visible = false
+layout_mode = 1
+offset_left = 607.0
+offset_top = 326.0
+offset_right = 673.0
+offset_bottom = 411.0
+icon_texture = ExtResource("12_txt_icon")
+icon_name = "readme.txt"
+application = ExtResource("11_txt_reader")
+launch_file = "res://Resources/Data/CTF/Texts/readme.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 1
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)
@@ -173,3 +196,5 @@ layout_mode = 2
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/CTF" method="reveal"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" method="hide_icon"]
