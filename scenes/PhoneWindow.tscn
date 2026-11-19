@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://n6fkd7dakp3a"]
+
+[ext_resource type="Script" uid="uid://dsx0qtxcklqxv" path="res://scenes/phone_window.gd" id="1_xsha3"]
+
+[node name="PhoneWindow" type="Window" unique_id=540048976]
+oversampling_override = 1.0
+title = "Phone"
+initial_position = 2
+size = Vector2i(450, 780)
+unresizable = true
+borderless = true
+always_on_top = true
+minimize_disabled = true
+maximize_disabled = true
+content_scale_size = Vector2i(150, 260)
+content_scale_mode = 2
+content_scale_stretch = 1
+script = ExtResource("1_xsha3")
+
+[node name="PhoneUI" type="Control" parent="." unique_id=1784535440]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.8524084, 6.4661713)
+
+[node name="Body" type="ColorRect" parent="PhoneUI" unique_id=736353241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0634975, 1.0320399)
+color = Color(0.18120003, 0.18120006, 0.1812, 1)
+
+[node name="ColorRect" type="ColorRect" parent="PhoneUI/Body" unique_id=315779911]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.4589895, 0.5216205, 0.33588693, 1)
