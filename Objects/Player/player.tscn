@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://u81g5owet5ls"]
+
+[ext_resource type="Texture2D" uid="uid://drwd01yyum1h7" path="res://Assets/face.png" id="1_156m4"]
+[ext_resource type="Script" uid="uid://cjprl7dcpg3qa" path="res://Assets/Scripts/player.gd" id="1_yw17q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13qdw"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_13qdw"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrivr"]
+albedo_color = Color(0.6559913, 0.48672473, 0.34778252, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_njqwk"]
+material = SubResource("StandardMaterial3D_xrivr")
+radius = 0.25
+height = 0.7
+
+[node name="Player" type="CharacterBody3D" unique_id=1201435589]
+collision_layer = 2
+script = ExtResource("1_yw17q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1935020504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_13qdw")
+
+[node name="Body" type="Node3D" parent="." unique_id=2020674691]
+
+[node name="Head" type="MeshInstance3D" parent="Body" unique_id=1868383069]
+transform = Transform3D(1.526111, 0, 0, 0, 1.6226568, 0, 0, 0, 1.4448265, 0, 1.62, -0.0020653754)
+layers = 2
+cast_shadow = 3
+mesh = SubResource("SphereMesh_13qdw")
+
+[node name="Decal" type="Decal" parent="Body/Head" unique_id=945320204]
+transform = Transform3D(1.0804725, 0, 0, 0, -0.17483516, -0.9719038, 0, 1.0676547, -0.15915543, 0.004999995, 0.033002198, -0.048954975)
+size = Vector3(0.39999998, 0.31, 0.32999998)
+texture_albedo = ExtResource("1_156m4")
+cull_mask = 1047554
+
+[node name="Torso" type="MeshInstance3D" parent="Body" unique_id=1144672348]
+transform = Transform3D(0.926, 0, 0, 0, 1.489, 0, 0, 0, 0.6, 0, 1.125, 0.029)
+mesh = SubResource("CapsuleMesh_njqwk")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1386383531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=677984352]
+spring_length = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1534046875]
