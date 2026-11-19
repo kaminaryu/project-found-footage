@@ -4893,6 +4893,23 @@ points = PackedVector3Array(-0.7028793, -0.55, -1.2282052, -0.73798716, 0.549784
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lvrak"]
 points = PackedVector3Array(-0.7028793, -0.55, -1.2282052, -0.73798716, 0.5497847, -1.2895523, 0.70273495, -0.55, -1.2282052, -0.7028793, -0.55, 1.2279531, -0.73798716, 1.6500001, -1.2895523, 0.7378428, 0.5497847, -1.2895523, -0.73798716, 0.5497847, 1.2893003, 0.70273495, -0.55, 1.2279531, 0.7378428, 1.6500001, -1.2895523, -0.73798716, 1.6500001, 1.2893003, 0.7378428, 0.5497847, 1.2893003, 0.7378428, 1.6500001, 1.2893003)
 
+[sub_resource type="Environment" id="Environment_xrivr"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.1254902, 0.14117648, 0.18039216, 1)
+ambient_light_energy = 0.63
+reflected_light_source = 1
+tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 3.0
+fog_depth_end = 15.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 0.7
+
 [node name="scaryroom" type="Node3D" unique_id=1464608254]
 
 [node name="BeanBag" type="MeshInstance3D" parent="." unique_id=1423313699]
@@ -5466,3 +5483,30 @@ shape = SubResource("ConvexPolygonShape3D_nul1p")
 [node name="BigShelf3" type="CollisionShape3D" parent="FurnitureCollision" unique_id=1373052902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60496, 0.57208925, 9.154026)
 shape = SubResource("ConvexPolygonShape3D_lvrak")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=251573654]
+environment = SubResource("Environment_xrivr")
+
+[node name="Ceiling light" type="OmniLight3D" parent="." unique_id=1040010028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.626396, 3.2973146, -2)
+light_color = Color(1, 0.7058824, 0.41960785, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Ceiling light2" type="OmniLight3D" parent="." unique_id=341654065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.626396, 3.2973146, 5)
+light_color = Color(1, 0.7058824, 0.41960785, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Ceiling light3" type="OmniLight3D" parent="." unique_id=592043476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37360382, 3.2973146, 7)
+light_color = Color(1, 0.7058824, 0.41960785, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Ceiling light4" type="OmniLight3D" parent="." unique_id=1737669679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37360382, 3.2973146, 1)
+light_color = Color(1, 0.7058824, 0.41960785, 1)
+light_energy = 0.8
+shadow_enabled = true

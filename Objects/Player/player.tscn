@@ -19,6 +19,15 @@ material = SubResource("StandardMaterial3D_xrivr")
 radius = 0.25
 height = 0.7
 
+[sub_resource type="Gradient" id="Gradient_yw17q"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.7058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xrivr"]
+gradient = SubResource("Gradient_yw17q")
+fill = 1
+fill_from = Vector2(0.5, 0.50289017)
+fill_to = Vector2(1, 0.7283237)
+
 [node name="Player" type="CharacterBody3D" unique_id=1201435589]
 collision_layer = 2
 script = ExtResource("1_yw17q")
@@ -31,8 +40,9 @@ shape = SubResource("CapsuleShape3D_13qdw")
 
 [node name="Head" type="MeshInstance3D" parent="Body" unique_id=1868383069]
 transform = Transform3D(1.526111, 0, 0, 0, 1.6226568, 0, 0, 0, 1.4448265, 0, 1.62, -0.0020653754)
+visible = false
 layers = 2
-cast_shadow = 3
+cast_shadow = 0
 mesh = SubResource("SphereMesh_13qdw")
 
 [node name="Decal" type="Decal" parent="Body/Head" unique_id=945320204]
@@ -43,6 +53,7 @@ cull_mask = 1047554
 
 [node name="Torso" type="MeshInstance3D" parent="Body" unique_id=1144672348]
 transform = Transform3D(0.926, 0, 0, 0, 1.489, 0, 0, 0, 0.6, 0, 1.125, 0.029)
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_njqwk")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1386383531]
@@ -52,3 +63,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 spring_length = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1534046875]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/SpringArm3D/Camera3D" unique_id=392065755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.15, -0.3)
+visible = false
+light_color = Color(1, 0.9490196, 0.8509804, 1)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 12.0
+spot_angle = 25.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=800675386]
+
+[node name="Vigenette" type="TextureRect" parent="CanvasLayer" unique_id=418530757]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_xrivr")
+expand_mode = 1
