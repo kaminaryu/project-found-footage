@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://c2oriqeni18c2" path="res://Objects/Mechanism/Desktop/desktopwindow.gd" id="1_glvem"]
 [ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_glvem"]
 [ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="3_2u6u5"]
+[ext_resource type="Texture2D" uid="uid://3oeh2epjap3h" path="res://Assets/UI/Desktop/DesktopWallpaperEVIL.png" id="3_5nmo1"]
 [ext_resource type="Script" uid="uid://b2ql841koyokn" path="res://Objects/Mechanism/Desktop/desktop_icons.gd" id="3_fk1eh"]
 [ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="4_hgxnt"]
 [ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="6_nld5l"]
 [ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="6_vskip"]
+[ext_resource type="Texture2D" uid="uid://dw34foohkfjpj" path="res://Assets/UI/Desktop/Icons/Error64.svg" id="7_ywgj1"]
+[ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="9_fiqj7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)
@@ -30,7 +33,7 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="DesktopWindow" type="Window" unique_id=1278800956]
+[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper")]
 transparent_bg = true
 oversampling_override = 1.0
 title = "Desktop"
@@ -41,14 +44,26 @@ borderless = true
 always_on_top = true
 sharp_corners = true
 script = ExtResource("1_glvem")
+normal_wallpaper = NodePath("Wallpaper")
+EVIL_wallpaper = NodePath("WallpaperEVIL")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1734586397]
+[node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_glvem")
+stretch_mode = 5
+
+[node name="WallpaperEVIL" type="TextureRect" parent="." unique_id=64128670]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5nmo1")
 stretch_mode = 5
 
 [node name="DesktopSkeleton" type="VBoxContainer" parent="." unique_id=621559069]
@@ -85,6 +100,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 script = ExtResource("3_fk1eh")
+cell_size = Vector2(128, 128)
 
 [node name="IconsField" type="Control" parent="DesktopSkeleton/DesktopIconsField" unique_id=882039910]
 layout_mode = 2
@@ -93,26 +109,67 @@ size_flags_vertical = 3
 
 [node name="DesktopIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1375163577 instance=ExtResource("6_vskip")]
 layout_mode = 1
-offset_left = -4.0
-offset_top = -13.0
-offset_right = 62.0
-offset_bottom = 72.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 78.0
+offset_bottom = 97.0
 icon_texture = ExtResource("3_2u6u5")
 icon_name = "Desktop"
 
-[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1524986701 instance=ExtResource("6_vskip")]
+[node name="DesktopIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1524986701 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 242.0
+offset_right = 77.0
+offset_bottom = 327.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="DesktopIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1175456289 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 360.0
+offset_right = 75.0
+offset_bottom = 445.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="DesktopIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=709767547 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 112.0
+offset_right = 71.0
+offset_bottom = 197.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 560.0
+offset_top = 479.0
+offset_right = 626.0
+offset_bottom = 564.0
+icon_texture = ExtResource("7_ywgj1")
+icon_name = "CTF"
+
+[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=196024873 instance=ExtResource("6_vskip")]
 layout_mode = 1
 offset_left = 479.0
 offset_top = 326.0
 offset_right = 545.0
 offset_bottom = 411.0
 icon_texture = ExtResource("6_nld5l")
-icon_name = "Sokoban"
+icon_name = "game_final.exe"
 application = ExtResource("4_hgxnt")
+blocked_save_flag = "sokoban_finished"
+blocked_message = "game_final.exe has stopped working.
+The file may be corrupted."
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)
 layout_mode = 2
+
+[node name="ErrorPopup" parent="." unique_id=2027122457 instance=ExtResource("9_fiqj7")]
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]

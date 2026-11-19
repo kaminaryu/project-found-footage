@@ -222,6 +222,8 @@ func jumpscare() -> void :
 	else:
 		window.queue_free()
 
+	set_desktop_flags()
+
 
 func _find_parent_window() -> Window:
 	var node: Node = get_parent()
@@ -232,3 +234,27 @@ func _find_parent_window() -> Window:
 		node = node.get_parent()
 
 	return null
+
+
+func set_desktop_flags() -> void :
+	var saved_data := load_data()
+
+	saved_data["sokoban_finished"] = true
+
+	save_data(saved_data)
+
+
+func save_data(data: Dictionary) -> void:
+	var file := FileAccess.open("user://save.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
+	file.close()
+
+
+func load_data() -> Dictionary:
+	if not FileAccess.file_exists("user://save.json"):
+		return {}
+
+	var file := FileAccess.open("user://save.json", FileAccess.READ)
+	var parsed = JSON.parse_string(file.get_as_text())
+	file.close()
+	return parsed if parsed is Dictionary else {}

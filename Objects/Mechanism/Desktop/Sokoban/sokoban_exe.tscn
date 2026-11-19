@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djmeefab4wd08"]
 
-[ext_resource type="Script" uid="uid://c2oriqeni18c2" path="res://Objects/Mechanism/Desktop/desktopwindow.gd" id="1_2lwfx"]
+[ext_resource type="Script" uid="uid://2pimahbnxuus" path="res://Objects/Mechanism/Desktop/game_window.gd" id="1_2lwfx"]
 [ext_resource type="PackedScene" uid="uid://c0025nk26hkwu" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_game.tscn" id="2_7yhwk"]
 [ext_resource type="Script" uid="uid://b7clf2eh3d2fg" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_game_control.gd" id="3_ctrl"]
 
@@ -49,7 +49,7 @@ corner_radius_bottom_left = 8
 
 [node name="SokobanExe" type="Window" unique_id=1278800956]
 oversampling_override = 1.0
-title = "Sokoban"
+title = "game_final.exe"
 initial_position = 1
 size = Vector2i(640, 480)
 unresizable = true
