@@ -2,6 +2,31 @@
 
 [ext_resource type="Script" uid="uid://c2oriqeni18c2" path="res://Objects/Mechanism/Desktop/desktopwindow.gd" id="1_glvem"]
 [ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_glvem"]
+[ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="3_2u6u5"]
+[ext_resource type="Script" uid="uid://b2ql841koyokn" path="res://Objects/Mechanism/Desktop/desktop_icons.gd" id="3_fk1eh"]
+[ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="6_vskip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljyij"]
+bg_color = Color(0.735357, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u6u5"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="DesktopWindow" type="Window" unique_id=1278800956]
 transparent_bg = true
@@ -10,7 +35,9 @@ title = "Desktop"
 initial_position = 1
 size = Vector2i(1280, 960)
 unresizable = true
-force_native = true
+borderless = true
+always_on_top = true
+sharp_corners = true
 script = ExtResource("1_glvem")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1734586397]
@@ -22,4 +49,58 @@ grow_vertical = 2
 texture = ExtResource("2_glvem")
 stretch_mode = 5
 
+[node name="DesktopSkeleton" type="VBoxContainer" parent="." unique_id=621559069]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="DesktopSkeleton" unique_id=478386382]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/PanelContainer" unique_id=392474075]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Close" type="Button" parent="DesktopSkeleton/PanelContainer/MarginContainer" unique_id=136315678]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0yitp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ljyij")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2u6u5")
+text = "X"
+
+[node name="DesktopIconsField" type="MarginContainer" parent="DesktopSkeleton" unique_id=1997038611]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("3_fk1eh")
+
+[node name="IconsField" type="Control" parent="DesktopSkeleton/DesktopIconsField" unique_id=882039910]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DesktopIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1375163577 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 251.0
+offset_top = 173.0
+offset_right = 251.0
+offset_bottom = 173.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
+custom_minimum_size = Vector2(0, 118.22)
+layout_mode = 2
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="DesktopSkeleton/PanelContainer/MarginContainer/Close" to="." method="_on_close_pressed"]
