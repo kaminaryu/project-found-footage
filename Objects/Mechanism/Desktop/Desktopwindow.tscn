@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dyo14jwsyibt0"]
+
+[ext_resource type="Script" uid="uid://c2oriqeni18c2" path="res://Objects/Mechanism/Desktop/desktopwindow.gd" id="1_glvem"]
+[ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_glvem"]
+
+[node name="DesktopWindow" type="Window" unique_id=1278800956]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Desktop"
+initial_position = 1
+size = Vector2i(1280, 960)
+unresizable = true
+force_native = true
+script = ExtResource("1_glvem")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1734586397]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_glvem")
+stretch_mode = 5
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
