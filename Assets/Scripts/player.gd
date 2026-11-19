@@ -5,12 +5,19 @@ extends CharacterBody3D
 @export var crouch_speed: float = 1.5
 @export var crouch_transition: float = 10.0 #This is basically signifies how fast you go from crouch to uncrouch
 @export var mouse_sensitivty: float = 0.002
+@export var phone_window_scene: PackedScene
 
 #Load this when the scene finish loading typa shiii
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var camera: Node3D = $CameraPivot
 @onready var body: Node3D = $Body
 @onready var interact_Ray: RayCast3D = $CameraPivot/SpringArm3D/Camera3D/InteractRay
+@onready var interact_label: Label = $CanvasLayer/InteractLabel
+@onready var phone_hint: Label = $CanvasLayer/PhoneHint
+@onready var held_phone: Node3D= $CameraPivot/SpringArm3D/Camera3D/HeldPhone
+@onready var anim: AnimationPlayer = $AnimationPlayer
+
+var inventory: Array[String] = []
 
 #initial value for crouching
 var is_crouching: bool = false
@@ -21,6 +28,7 @@ var looked_at: Node = null
 #getting mouse input
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	held_phone.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if frozen , ignore
@@ -63,6 +71,9 @@ func _physics_process(delta:float)-> void:
 		move_and_slide()
 		update_crouch(delta)
 		update_interaction()
+		#if the phone is in the inventory, then the function plays
+		if "phone" in inventory and Input.is_action_just_pressed("use_phone"):
+			use_phone()
 
 func update_crouch(delta:float)-> void:
 	#eye height: 1.6 standing, 1.0 crouching 
@@ -74,7 +85,7 @@ func update_interaction() -> void:
 	var target: Node = null
 	if interact_Ray.is_colliding():
 		var hit := interact_Ray.get_collider() as Node
-		if hit.has_method("interact"):
+		if hit and hit.has_method("interact"):
 			target = hit
 	
 	#if the player looking at something else, it will swap the glow
@@ -87,7 +98,10 @@ func update_interaction() -> void:
 	
 	#if the player press e while looking at it, it will INTERAAAAKKK
 	if looked_at and Input.is_action_just_pressed("interact"):
-		looked_at.interact(self)
+		var thing := looked_at
+		thing.set_highlight(false)
+		looked_at = null
+		thing.interact(self)
 
 #Freeze function
 func freeze(frozen: bool) -> void:
@@ -101,3 +115,30 @@ func freeze(frozen: bool) -> void:
 	else:
 		get_window().grab_focus()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _process(_delta: float) -> void:
+	interact_label.visible = looked_at != null
+	phone_hint.visible = "phone" in inventory and not is_frozen
+
+func add_item(item:String) -> void:
+	inventory.append(item)
+
+#this is when the user use phone, the main game will freeze temporarily
+func use_phone() -> void:
+	freeze(true)
+	held_phone.visible = true
+	anim.play("open_phone")
+	await anim.animation_finished
+	
+	var window := phone_window_scene.instantiate() as Window
+	window.close_requested.connect(_on_phone_window_closed.bind(window))
+	get_tree().root.add_child(window)
+	
+#when the phone window closed, it will unfreeze and play the animation backward
+func _on_phone_window_closed(window: Window) -> void:
+	window.hide()
+	window.queue_free()
+	anim.play_backwards("open_phone")
+	await anim.animation_finished
+	held_phone.visible = false
+	freeze(false)
