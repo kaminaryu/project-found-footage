@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dj8ii2yytx7tn" path="res://scenes/wolp sleeping.jpg" id="2_nul1p"]
 [ext_resource type="Texture2D" uid="uid://cbd7j18o2rk35" path="res://scenes/wolp tuff.jpg" id="3_lvrak"]
 [ext_resource type="Texture2D" uid="uid://cf40nf2l5458p" path="res://scenes/cutting_mat.avif.png" id="4_4c7m2"]
+[ext_resource type="Script" uid="uid://b8uivajxtj187" path="res://Objects/Phone/flip_phone.gd" id="4_nul1p"]
 [ext_resource type="Texture2D" uid="uid://c6qmu5te8wnod" path="res://scenes/guest.jpg" id="5_jdva5"]
+[ext_resource type="Material" uid="uid://rhc1pyuphad" path="res://Objects/Phone/highlight.tres" id="5_lvrak"]
 [ext_resource type="Texture2D" uid="uid://d2dxg1sav6646" path="res://scenes/chtow.png" id="6_jtyqr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgkjw"]
@@ -2702,6 +2704,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_83jm6")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xrivr"]
+size = Vector3(0.3, 0.2, 0.3)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muba4"]
 resource_name = "Material.001"
 cull_mode = 2
@@ -5217,6 +5222,17 @@ mesh = SubResource("ArrayMesh_m3jel")
 [node name="FlipPhoneCover" type="MeshInstance3D" parent="FlipPhone/FlipPhoneTop" unique_id=1746834519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005256578, -0.026998833, 0.099512376)
 mesh = SubResource("ArrayMesh_cb6uu")
+
+[node name="Interactable" type="Area3D" parent="FlipPhone" unique_id=24768159]
+transform = Transform3D(1.244, 0, 0, 0, 1.832, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_nul1p")
+highlight_material = ExtResource("5_lvrak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlipPhone/Interactable" unique_id=2106322602]
+transform = Transform3D(1, 0, 0, 0, 0.905, 0, 0, 0, 1.859, -0.03705597, 0.100237906, -0.06201172)
+shape = SubResource("BoxShape3D_xrivr")
 
 [node name="FloorTiles" type="MeshInstance3D" parent="." unique_id=445599772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3000002, 0, -3.3000002)
