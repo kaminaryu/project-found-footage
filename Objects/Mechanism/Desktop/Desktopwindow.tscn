@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_glvem"]
 [ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="3_2u6u5"]
 [ext_resource type="Script" uid="uid://b2ql841koyokn" path="res://Objects/Mechanism/Desktop/desktop_icons.gd" id="3_fk1eh"]
+[ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="4_hgxnt"]
+[ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="6_nld5l"]
 [ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="6_vskip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
@@ -56,17 +58,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="DesktopSkeleton" unique_id=478386382]
+[node name="TopBar" type="PanelContainer" parent="DesktopSkeleton" unique_id=478386382]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/PanelContainer" unique_id=392474075]
+[node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/TopBar" unique_id=392474075]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Close" type="Button" parent="DesktopSkeleton/PanelContainer/MarginContainer" unique_id=136315678]
+[node name="Close" type="Button" parent="DesktopSkeleton/TopBar/MarginContainer" unique_id=136315678]
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
@@ -91,16 +93,26 @@ size_flags_vertical = 3
 
 [node name="DesktopIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1375163577 instance=ExtResource("6_vskip")]
 layout_mode = 1
-offset_left = 251.0
-offset_top = 173.0
-offset_right = 251.0
-offset_bottom = 173.0
+offset_left = -4.0
+offset_top = -13.0
+offset_right = 62.0
+offset_bottom = 72.0
 icon_texture = ExtResource("3_2u6u5")
 icon_name = "Desktop"
+
+[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1524986701 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 479.0
+offset_top = 326.0
+offset_right = 545.0
+offset_bottom = 411.0
+icon_texture = ExtResource("6_nld5l")
+icon_name = "Sokoban"
+application = ExtResource("4_hgxnt")
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)
 layout_mode = 2
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="DesktopSkeleton/PanelContainer/MarginContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]

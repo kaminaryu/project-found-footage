@@ -3,6 +3,7 @@ extends Control
 @export_group("Configuration")
 @export var icon_texture: Texture2D
 @export var icon_name: String
+@export var application: PackedScene
 
 @export_group("References")
 @export var thumbnail: TextureButton
@@ -21,11 +22,17 @@ func _ready() -> void :
 func _process(_delta: float) -> void :
 	# double click
 	if (click_counter >= 2) :
+		click_counter = 0
 		_run_program()
 
 
 func _run_program() -> void :
-	get_tree().quit()
+	if (not application) :
+		get_tree().quit()
+		return
+
+	var app := application.instantiate()
+	get_tree().root.add_child(app)
 
 
 func _on_thumbnail_pressed() -> void:
@@ -41,4 +48,5 @@ func _on_thumbnail_pressed() -> void:
 
 func _click_no_longer_double_clicking_idk_what_to_name(timer: Timer) -> void :
 	click_counter -= 1
+	click_counter = max(click_counter, 0)
 	timer.queue_free()
