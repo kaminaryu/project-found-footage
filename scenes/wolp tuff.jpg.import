@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfx45q8jrp2oh"
-path.s3tc="res://.godot/imported/3dswatch.png-c720250a4614aaef3747b8a6b51a8b99.s3tc.ctex"
+uid="uid://cbd7j18o2rk35"
+path.s3tc="res://.godot/imported/wolp tuff.jpg-1315bfb904409187cb328a9db147f6cf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://3dswatch.png"
-dest_files=["res://.godot/imported/3dswatch.png-c720250a4614aaef3747b8a6b51a8b99.s3tc.ctex"]
+source_file="res://scenes/wolp tuff.jpg"
+dest_files=["res://.godot/imported/wolp tuff.jpg-1315bfb904409187cb328a9db147f6cf.s3tc.ctex"]
 
 [params]
 
