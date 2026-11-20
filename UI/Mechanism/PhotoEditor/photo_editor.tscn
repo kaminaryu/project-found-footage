@@ -339,6 +339,15 @@ focus_mode = 0
 theme_type_variation = &"GuideButton"
 text = "GUIDE"
 
+[node name="ResetButton" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/ControlsMargin/Controls" unique_id=514020966]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_type_variation = &"GuideButton"
+text = "RESET"
+
 [node name="GuideDialog" type="AcceptDialog" parent="." unique_id=2048894789]
 unique_name_in_owner = true
 oversampling_override = 1.0
