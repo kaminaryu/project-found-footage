@@ -137,7 +137,7 @@ func _input(event: InputEvent) -> void:
 			else:
 				_back()
 			get_viewport().set_input_as_handled()
-		elif event.button_index == MOUSE_BUTTON_LEFT and _screen_id == "home" and not _popup.visible:
+		elif event.button_index == MOUSE_BUTTON_LEFT and _screen_id == "home" and not _popup.visible and %Screen.get_global_rect().has_point(event.position):
 			_open(_show_menu)
 			get_viewport().set_input_as_handled()
 		return
