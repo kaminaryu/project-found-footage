@@ -6,6 +6,8 @@ const SAVE_DIR := "user://"
 var _data: Dictionary = {}
 var _editors: Dictionary = {}  # key -> editor Control
 var _current_path: String = ""
+var _bad_json: bool = false
+
 
 @onready var _file_picker: OptionButton = %FilePicker
 @onready var _rows: VBoxContainer = %Rows
@@ -53,6 +55,8 @@ func _on_file_selected(index: int) -> void:
 
 
 func _build_rows() -> void:
+	for key in _data:
+		print(key, " -> type ", typeof(_data[key]), " | ", _data[key])
 	_clear_rows()
 	for key in _data:
 		var row := HBoxContainer.new()
@@ -61,6 +65,7 @@ func _build_rows() -> void:
 		var label := Label.new()
 		label.text = str(key)
 		label.custom_minimum_size.x = 200
+		label.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 		row.add_child(label)
 
 		var editor := _make_editor(_data[key])
@@ -87,29 +92,92 @@ func _make_editor(value: Variant) -> Control:
 			var line := LineEdit.new()
 			line.text = value
 			return line
+		TYPE_ARRAY:
+			return _make_array_editor(value)
+		TYPE_DICTIONARY:
+			return _make_dict_editor(value)
 		_:
-			# Arrays, nested dictionaries, null -> edited as raw JSON text
+			# Nested dictionaries, null -> edited as raw JSON text
 			var json_line := LineEdit.new()
 			json_line.text = JSON.stringify(value)
+			json_line.set_meta("json", true)
 			return json_line
+
+
+func _make_array_editor(items: Array) -> VBoxContainer:
+	print('SDIdifhsufhsufhuzdfh')
+	var list := VBoxContainer.new()
+	list.set_meta("array", true)
+	list.set_meta("sample", items[0] if items.size() > 0 else "")
+
+	for item in items:
+		_add_array_row(list, item)
+
+	var add_button := Button.new()
+	add_button.text = "+ Add"
+	add_button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	add_button.pressed.connect(_on_add_item.bind(list))
+	list.add_child(add_button)
+	return list
+
+func _make_dict_editor(dict: Dictionary) -> VBoxContainer:
+	var box := VBoxContainer.new()
+	box.set_meta("dict", true)
+
+	for key in dict:
+		var row := HBoxContainer.new()
+		box.add_child(row)
+
+		var label := Label.new()
+		label.text = str(key)
+		label.custom_minimum_size.x = 120
+		label.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		row.add_child(label)
+
+		var item_editor := _make_editor(dict[key])
+		item_editor.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(item_editor)
+	return box
+
+
+func _add_array_row(list: VBoxContainer, item: Variant) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	list.add_child(row)
+
+	var item_editor := _make_editor(item)
+	item_editor.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(item_editor)
+
+	var remove_button := Button.new()
+	remove_button.text = "X"
+	remove_button.pressed.connect(row.queue_free)
+	row.add_child(remove_button)
+	return row
+
+
+func _on_add_item(list: VBoxContainer) -> void:
+	var row := _add_array_row(list, _default_like(list.get_meta("sample")))
+	list.move_child(row, list.get_child_count() - 2)
+
+
+func _default_like(sample: Variant) -> Variant:
+	match typeof(sample):
+		TYPE_BOOL:
+			return false
+		TYPE_INT, TYPE_FLOAT:
+			return 0
+		_:
+			return ""
 
 
 func _on_save_pressed() -> void:
 	var out := {}
 	for key in _editors:
-		var editor: Control = _editors[key]
-		if editor is CheckBox:
-			out[key] = editor.button_pressed
-		elif editor is SpinBox:
-			out[key] = editor.value
-		elif typeof(_data[key]) == TYPE_STRING:
-			out[key] = editor.text
-		else:
-			var parsed = JSON.parse_string(editor.text)
-			if parsed == null and editor.text.strip_edges() != "null":
-				_set_status("Bad JSON in '%s', nothing saved" % key)
-				return
-			out[key] = parsed
+		_bad_json = false
+		out[key] = _read_editor(_editors[key])
+		if _bad_json:
+			_set_status("Bad JSON in '%s', nothing saved" % key)
+			return
 
 	var file := FileAccess.open(_current_path, FileAccess.WRITE)
 	if file == null:
@@ -120,6 +188,29 @@ func _on_save_pressed() -> void:
 	file.close()
 	_data = out
 	_set_status("Saved " + _current_path)
+
+func _read_editor(editor: Control) -> Variant:
+	if editor is CheckBox:
+		return editor.button_pressed
+	if editor is SpinBox:
+		return editor.value
+	if editor.has_meta("array"):
+		var result := []
+		for row in editor.get_children():
+			if row is HBoxContainer and not row.is_queued_for_deletion():
+				result.append(_read_editor(row.get_child(0)))
+		return result
+	if editor.has_meta("dict"):
+		var result := {}
+		for row in editor.get_children():
+			result[row.get_child(0).text] = _read_editor(row.get_child(1))
+		return result
+	if editor.has_meta("json"):
+		var parsed = JSON.parse_string(editor.text)
+		if parsed == null and editor.text.strip_edges() != "null":
+			_bad_json = true
+		return parsed
+	return editor.text
 
 
 func _clear_rows() -> void:
