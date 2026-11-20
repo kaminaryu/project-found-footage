@@ -107,6 +107,7 @@ shape = SubResource("ConcavePolygonShape3D_fjp6n")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.6618118, 0, 0)
 script = ExtResource("3_pslot")
 accepted_type = &"memory_card"
+extraction_flag = &"extracted_memcard"
 
 [node name="MemoryCard" parent="MemoryCardSlot" unique_id=1001385312 instance=ExtResource("1_xdwt5")]
 material_overlay = SubResource("StandardMaterial3D_tahaa")

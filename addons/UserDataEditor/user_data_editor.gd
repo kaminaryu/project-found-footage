@@ -105,7 +105,6 @@ func _make_editor(value: Variant) -> Control:
 
 
 func _make_array_editor(items: Array) -> VBoxContainer:
-	print('SDIdifhsufhsufhuzdfh')
 	var list := VBoxContainer.new()
 	list.set_meta("array", true)
 	list.set_meta("sample", items[0] if items.size() > 0 else "")
@@ -188,6 +187,7 @@ func _on_save_pressed() -> void:
 	file.close()
 	_data = out
 	_set_status("Saved " + _current_path)
+
 
 func _read_editor(editor: Control) -> Variant:
 	if editor is CheckBox:

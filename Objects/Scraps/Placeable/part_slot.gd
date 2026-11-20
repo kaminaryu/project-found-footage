@@ -4,6 +4,7 @@ extends Node3D
 signal part_attached(part: Node3D)
 
 @export var accepted_type: StringName
+@export var extraction_flag: StringName
 
 var attached_part: Node3D
 var attached_transform := Transform3D.IDENTITY
@@ -78,5 +79,10 @@ func _on_child_entered(node: Node) -> void :
 
 
 func _on_child_exiting(node: Node) -> void :
-	if (node == attached_part) :
-		attached_part = null
+	if (node != attached_part) :
+		return
+
+	attached_part = null
+
+	if (extraction_flag != &"" and node.is_in_group("inventory_items")) :
+		GameMaster.raise_flag(extraction_flag)

@@ -25,6 +25,9 @@ signal blocked_launch_attempted
 @export_group("Stage Visibility")
 @export var show_from_flag_stage: int = -1
 
+@export_group("Unlock")
+@export var unlock_game_flag: StringName = &""
+
 @export_group("References")
 @export var thumbnail: TextureButton
 @export var name_label: Label
@@ -49,7 +52,7 @@ func _process(_delta: float) -> void :
 
 func _run_program() -> void :
 	if (not application) :
-		get_tree().quit()
+		# get_tree().quit()
 		return
 
 	if (_blocked_by_save_flag()) :
@@ -99,6 +102,11 @@ func reveal() -> void :
 	get_tree().call_group("desktop_icon", "refresh_visibility")
 
 
+func reveal_and_launch() -> void :
+	reveal()
+	_run_program()
+
+
 func refresh_visibility() -> void:
 	var saved_data := _load_save_data()
 	var should_show := true
@@ -113,6 +121,9 @@ func refresh_visibility() -> void:
 		var current_stage := int(saved_data.get("ctf_flag_index", 0)) + 1
 		if current_stage < show_from_flag_stage:
 			should_show = false
+
+	if unlock_game_flag != &"" and not GameMaster.is_flag_raised(unlock_game_flag):
+		should_show = false
 
 	if should_show:
 		_show_icon()
