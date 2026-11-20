@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c0025nk26hkwu"]
+
+[ext_resource type="Script" uid="uid://bwqwy3pf4nplk" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_game.gd" id="1_game"]
+[ext_resource type="PackedScene" uid="uid://ciiu0qbcxdc4c" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_4.tscn" id="2_5v005"]
+[ext_resource type="PackedScene" uid="uid://lpas1di3dsjn" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_1.tscn" id="2_16ng5"]
+[ext_resource type="PackedScene" uid="uid://beeqdpqvm3fs5" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_2.tscn" id="3_5v005"]
+[ext_resource type="PackedScene" uid="uid://owqaylkkxq0r" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_3.tscn" id="4_jnkp4"]
+[ext_resource type="PackedScene" uid="uid://m4173v05ihn3" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_5.tscn" id="6_jnkp4"]
+[ext_resource type="AudioStream" uid="uid://bkjhmbfbdqxpr" path="res://Assets/SFX/GlitchSounds.mp3" id="7_1xgnn"]
+
+[node name="SokobanGame" type="Node2D" unique_id=707352675]
+script = ExtResource("1_game")
+
+[node name="Levels" type="Node2D" parent="." unique_id=1800000001]
+
+[node name="Level1" parent="Levels" unique_id=1784424536 instance=ExtResource("2_16ng5")]
+
+[node name="Level2" parent="Levels" unique_id=573334959 instance=ExtResource("3_5v005")]
+visible = false
+
+[node name="Level3" parent="Levels" unique_id=136954073 instance=ExtResource("4_jnkp4")]
+visible = false
+
+[node name="Level4" parent="Levels" unique_id=511485388 instance=ExtResource("2_5v005")]
+visible = false
+
+[node name="Level5(fake)" parent="Levels" unique_id=1894106336 instance=ExtResource("6_jnkp4")]
+visible = false
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1800000005]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+text = "Level 1 / 67"
+
+[node name="WinLabel" type="Label" parent="." unique_id=964097719]
+visible = false
+offset_left = 224.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.35, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "Solved!"
+horizontal_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=344123596]
+offset_right = 640.0
+offset_bottom = 352.0
+border_color = Color(0.3, 0.3, 0.4, 1)
+border_width = 2.0
+
+[node name="Glitch" type="AudioStreamPlayer" parent="." unique_id=600962870]
+stream = ExtResource("7_1xgnn")
