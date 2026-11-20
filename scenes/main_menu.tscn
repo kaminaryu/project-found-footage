@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://sdm4yfj3wgm2"]
+
+[ext_resource type="PackedScene" uid="uid://c2mp7uwqtluom" path="res://scaryroom.tscn" id="1_l6cm7"]
+[ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="2_ekxnf"]
+
+[sub_resource type="Gradient" id="Gradient_yw17q"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.7058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqqt6"]
+gradient = SubResource("Gradient_yw17q")
+fill = 1
+fill_from = Vector2(0.5, 0.50289017)
+fill_to = Vector2(1, 0.7283237)
+
+[node name="MainMenu" type="Node3D" unique_id=1174019499]
+
+[node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("1_l6cm7")]
+
+[node name="Camera3D" type="Camera3D" parent="scaryroom" unique_id=1139492500]
+transform = Transform3D(-0.4098671, -4.580622e-09, -0.91214526, 0.05870843, 0.9979266, -0.026380293, 0.91025394, -0.06436303, -0.4090173, 4.592174, 1.3362297, -3.5497332)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1348227183]
+layer = 2
+
+[node name="Title" type="Label" parent="CanvasLayer2" unique_id=1973910244]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = 1.0
+offset_right = 23.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "game_final.exe"
+label_settings = ExtResource("2_ekxnf")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494729830]
+
+[node name="Vigenette" type="TextureRect" parent="CanvasLayer" unique_id=188956709]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_bqqt6")
+expand_mode = 1
