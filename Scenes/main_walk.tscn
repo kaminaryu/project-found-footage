@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://u81g5owet5ls" path="res://Objects/Player/player.tscn" id="1_2cquo"]
 [ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="2_7nbji"]
 [ext_resource type="Script" uid="uid://cf7b8mxsiovk" path="res://Objects/MainRoom/monitor.gd" id="3_a38jh"]
+[ext_resource type="PackedScene" uid="uid://3tkk8jmhphx7" path="res://Scenes/Menu/pause_menu.tscn" id="3_jmp2u"]
 [ext_resource type="PackedScene" uid="uid://egqbwamw85dm" path="res://Objects/Interactable/interaction_cube.tscn" id="4_yoy7x"]
 [ext_resource type="Script" uid="uid://cxxrc7ynywjgt" path="res://Objects/MainRoom/radio.gd" id="5_6jfsw"]
 [ext_resource type="Script" uid="uid://3cv5bbcv8c28" path="res://Objects/MainRoom/pc.gd" id="5_kavjp"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" uid="uid://ky0f8ouuocyy" path="res://Objects/MainRoom/door.gd" id="10_m8vig"]
 [ext_resource type="Script" uid="uid://se144jw1i7lo" path="res://Objects/MainRoom/box_of_scraps.gd" id="11_6bi8x"]
 [ext_resource type="PackedScene" uid="uid://bj3m16a0y1gu1" path="res://Assets/Models/Scraps/cash register.glb" id="12_tde24"]
+[ext_resource type="PackedScene" uid="uid://cyccm0vqbwimc" path="res://Assets/Models/Customer/Customer.tscn" id="13_customer"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -820,9 +822,6 @@ points = PackedVector3Array(-0.36891943, -0.32047486, -0.34702742, -0.36891943, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m12bj"]
 points = PackedVector3Array(1.0828118, 0.24135643, 2.113734, 0.77826583, -0.5198596, -0.32263398, 1.0828118, -0.5198596, -0.32263398, 0.77826583, -0.5198596, 2.113734, 0.77826583, 0.24135643, -0.32263398, 1.0828118, 0.24135643, -0.32263398, 1.0828118, -0.5198596, 2.113734, 0.77826583, 0.24135643, 2.113734)
 
-[ext_resource type="PackedScene" uid="uid://3tkk8jmhphx7" path="res://Scenes/Menu/pause_menu.tscn" id="3_jmp2u"]
-[ext_resource type="PackedScene" uid="uid://cyccm0vqbwimc" path="res://Assets/Models/Customer/Customer.tscn" id="3_jmp2u"]
-
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 
 [node name="Player" parent="." unique_id=1201435589 instance=ExtResource("1_2cquo")]
@@ -936,7 +935,7 @@ root_node = NodePath("../Door")
 libraries/ = SubResource("AnimationLibrary_5183e")
 
 [node name="BoxOfScraps" type="MeshInstance3D" parent="." unique_id=269796254 node_paths=PackedStringArray("pile")]
-transform = Transform3D(0.23482127, 0, -0.97203857, 0, 1, 0, 0.97203857, 0, 0.23482127, 6.921489, 0.3425644, -1.4459596)
+transform = Transform3D(0.27045217, 0, -0.96273345, 0, 1, 0, 0.96273345, 0, 0.27045217, 6.3254414, 0.3425644, -0.9341446)
 mesh = SubResource("ArrayMesh_tb03s")
 script = ExtResource("11_6bi8x")
 pile = NodePath("Pile")
@@ -962,18 +961,18 @@ transform = Transform3D(-1.1250001, 0, -0.3195634, 0, 1.659, 0, 1.9485571, 0, -0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cash register/StaticBody3D" unique_id=828484544]
 shape = SubResource("ConvexPolygonShape3D_m12bj")
 
-[connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
-[connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]
-
-[editable path="monitor/InteractionCube"]
-[editable path="pc/InteractionCube"]
-[editable path="Radio/InteractionCube"]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=197105867]
 layer = 4
 follow_viewport_enabled = true
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1951878830 instance=ExtResource("3_jmp2u")]
 
-[node name="Customer" parent="." unique_id=2090849478 instance=ExtResource("3_jmp2u")]
+[node name="Customer" parent="." unique_id=2090849478 instance=ExtResource("13_customer")]
 transform = Transform3D(0.010331284, 0, -0.99994665, 0, 1, 0, 0.99994665, 0, 0.010331284, 8.110053, 0.022089481, -2.1014986)
+
+[connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
+[connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]
+
+[editable path="monitor/InteractionCube"]
+[editable path="pc/InteractionCube"]
+[editable path="Radio/InteractionCube"]
