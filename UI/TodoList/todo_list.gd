@@ -1,12 +1,9 @@
 extends PanelContainer
 
-const SAVE_PATH := "user://save.json"
-const SAVE_KEY := "todo"
 const ITEM_SCENE := preload("res://UI/TodoList/todo_item.tscn")
 
 @export var data: TodoData
 @export var start_expanded := true
-@export var save_progress := true
 
 @onready var count_label: Label = %Count
 @onready var divider: ColorRect = %Divider
@@ -15,44 +12,36 @@ const ITEM_SCENE := preload("res://UI/TodoList/todo_item.tscn")
 @onready var task_list: VBoxContainer = %TaskList
 @onready var empty_label: Label = %EmptyLabel
 
-var _raised_flags: Dictionary = {}
 var _rows: Array[TodoItem] = []
 var _expanded := true
 var _shown_task_index := -1
 var _content_tween: Tween
-var _ui_tween: Tween
 
 
 func _ready() -> void:
 	_expanded = start_expanded
 	_validate_data()
-	_load_progress()
 
 	GameMaster.flag_raised.connect(_on_flag_raised)
+	GameMaster.flags_cleared.connect(_on_flags_cleared)
 
 	_refresh(false)
 
 
 func reset_progress() -> void:
-	_raised_flags.clear()
-	_shown_task_index = -1
-	_save_progress()
-
-	if is_node_ready():
-		_refresh(false)
+	GameMaster.clear_flags()
 
 
 func _on_flag_raised(flag: StringName) -> void:
 	if not _uses_flag(flag):
 		return
 
-	if _raised_flags.has(flag):
-		return
-
-	_raised_flags[flag] = true
-	_save_progress()
 	_refresh(true)
 
+
+func _on_flags_cleared() -> void:
+	_shown_task_index = -1
+	_refresh(false)
 
 
 func _refresh(animate: bool) -> void:
@@ -86,7 +75,7 @@ func _show_task(animate: bool) -> void:
 func _update_task() -> void:
 	for row in _rows:
 		if is_instance_valid(row):
-			row.set_completed(_raised_flags.has(row.flag))
+			row.set_completed(GameMaster.is_flag_raised(row.flag))
 
 
 func _apply_current_task() -> void:
@@ -139,7 +128,7 @@ func _apply_current_task() -> void:
 func _add_row(text: String, flag: StringName) -> void:
 	var row := ITEM_SCENE.instantiate() as TodoItem
 	task_list.add_child(row)
-	row.setup(text, flag, _raised_flags.has(flag))
+	row.setup(text, flag, GameMaster.is_flag_raised(flag))
 	_rows.append(row)
 
 
@@ -170,10 +159,10 @@ func _is_task_complete(task: TodoTask) -> bool:
 		return true
 
 	if task.subtasks.is_empty():
-		return task.flag != &"" and _raised_flags.has(task.flag)
+		return task.flag != &"" and GameMaster.is_flag_raised(task.flag)
 
 	for sub in task.subtasks:
-		if sub == null or sub.flag == &"" or not _raised_flags.has(sub.flag):
+		if sub == null or sub.flag == &"" or not GameMaster.is_flag_raised(sub.flag):
 			return false
 
 	return true
@@ -224,65 +213,3 @@ func _validate_data() -> void:
 		for sub in task.subtasks:
 			if sub == null or sub.flag == &"":
 				push_warning("TodoList: '%s' has a subtask with no flag." % task.text)
-
-
-func _load_progress() -> void:
-	_raised_flags.clear()
-
-	if not save_progress:
-		return
-
-	var saved := _read_save()
-	var todo = saved.get(SAVE_KEY, {})
-
-	if not (todo is Dictionary):
-		return
-
-	var flags = todo.get("flags", [])
-
-	if not (flags is Array):
-		return
-
-	for flag in flags:
-		if flag is String and not flag.is_empty():
-			_raised_flags[StringName(flag)] = true
-
-
-func _save_progress() -> void:
-	if not save_progress:
-		return
-
-	var saved := _read_save()
-	var flags: Array[String] = []
-
-	for flag in _raised_flags.keys():
-		flags.append(String(flag))
-
-	flags.sort()
-	saved[SAVE_KEY] = {"flags": flags}
-	_write_save(saved)
-
-
-func _read_save() -> Dictionary:
-	if not FileAccess.file_exists(SAVE_PATH):
-		return {}
-
-	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-
-	if file == null:
-		return {}
-
-	var parsed: Variant = JSON.parse_string(file.get_as_text())
-	file.close()
-
-	return parsed if parsed is Dictionary else {}
-
-
-func _write_save(saved: Dictionary) -> void:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-
-	if file == null:
-		return
-
-	file.store_string(JSON.stringify(saved))
-	file.close()

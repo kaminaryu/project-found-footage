@@ -713,6 +713,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5183e")
 
+[sub_resource type="BoxMesh" id="BoxMesh_0yitp"]
+size = Vector3(0.706604, 0.30517578, 0.73046875)
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ern13"]
 points = PackedVector3Array(-0.36891943, -0.32047486, -0.34702742, -0.36891943, 0.38506997, -0.48126152, 0.36884725, -0.32047486, -0.34702742, -0.36891943, -0.32047486, 0.34432134, -0.2951789, 0.41107786, -0.44071263, 0.36884725, 0.38506997, -0.48126152, -0.36891943, 0.39224207, 0.5003673, -0.2951789, 0.41955394, 0.46058705, 0.36884725, -0.32047486, 0.34432134, 0.2951067, 0.41107786, -0.44071263, 0.2951067, 0.41955394, 0.46058705, 0.36884725, 0.39224207, 0.5003673)
 
@@ -820,10 +823,15 @@ transform = Transform3D(1.2016671, 0, 0, 0, 1.8763483, 0, 0, 0, 0.40146554, -0.6
 root_node = NodePath("../Door")
 libraries/ = SubResource("AnimationLibrary_5183e")
 
-[node name="BoxOfScraps" type="MeshInstance3D" parent="." unique_id=269796254]
-transform = Transform3D(0.97619116, 0, -0.21691224, 0, 1, 0, 0.21691224, 0, 0.97619116, 6.921489, 0.3425644, -1.4459596)
+[node name="BoxOfScraps" type="MeshInstance3D" parent="." unique_id=269796254 node_paths=PackedStringArray("pile")]
+transform = Transform3D(0.23482127, 0, -0.97203857, 0, 1, 0, 0.97203857, 0, 0.23482127, 6.921489, 0.3425644, -1.4459596)
 mesh = SubResource("ArrayMesh_tb03s")
 script = ExtResource("11_6bi8x")
+pile = NodePath("Pile")
+
+[node name="Pile" type="MeshInstance3D" parent="BoxOfScraps" unique_id=163122219]
+transform = Transform3D(0.9999997, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 0.9999997, -0.0134654045, -0.13568938, 0.0008957386)
+mesh = SubResource("BoxMesh_0yitp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BoxOfScraps" unique_id=1411519161]
 
