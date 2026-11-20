@@ -26,3 +26,13 @@ func pause() -> void:
 		get_tree().paused = false;
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		paused = false;
+
+
+func _on_resume_pressed() -> void:
+	pause()
+
+
+func _on_exit_pressed() -> void:
+	get_tree().paused = false;
+	paused = false;
+	get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn");

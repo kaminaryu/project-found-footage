@@ -165,5 +165,8 @@ text = "exit to main menu"
 [node name="Transition" type="AnimationPlayer" parent="." unique_id=1719839414]
 libraries/ = SubResource("AnimationLibrary_0km3y")
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Resume/Label" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Exit/Label" to="." method="_on_exit_pressed"]
+
 [editable path="MarginContainer/VBoxContainer/Buttons/Resume"]
 [editable path="MarginContainer/VBoxContainer/Buttons/Exit"]
