@@ -820,6 +820,8 @@ points = PackedVector3Array(-0.36891943, -0.32047486, -0.34702742, -0.36891943, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m12bj"]
 points = PackedVector3Array(1.0828118, 0.24135643, 2.113734, 0.77826583, -0.5198596, -0.32263398, 1.0828118, -0.5198596, -0.32263398, 0.77826583, -0.5198596, 2.113734, 0.77826583, 0.24135643, -0.32263398, 1.0828118, 0.24135643, -0.32263398, 1.0828118, -0.5198596, 2.113734, 0.77826583, 0.24135643, 2.113734)
 
+[ext_resource type="PackedScene" uid="uid://3tkk8jmhphx7" path="res://Scenes/Menu/pause_menu.tscn" id="3_jmp2u"]
+
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 
 [node name="Player" parent="." unique_id=1201435589 instance=ExtResource("1_2cquo")]
@@ -965,3 +967,9 @@ shape = SubResource("ConvexPolygonShape3D_m12bj")
 [editable path="monitor/InteractionCube"]
 [editable path="pc/InteractionCube"]
 [editable path="Radio/InteractionCube"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=197105867]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1951878830 instance=ExtResource("3_jmp2u")]

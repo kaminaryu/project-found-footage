@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d0apmagpe61a"]
+
+[ext_resource type="Theme" uid="uid://b75gwc06xe8kx" path="res://Themes/main_menu.tres" id="1_aih7k"]
+[ext_resource type="Script" uid="uid://1pujfswsbtn3" path="res://Scenes/Menu/menu_button.gd" id="2_ndj5l"]
+
+[node name="Button" type="HBoxContainer" unique_id=976781313]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+theme_override_constants/separation = 10
+
+[node name="Arrow" type="Label" parent="." unique_id=1526840432]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("1_aih7k")
+text = ">"
+
+[node name="Label" type="Button" parent="." unique_id=1652507557]
+layout_mode = 2
+theme = ExtResource("1_aih7k")
+text = "Button"
+alignment = 2
+
+[node name="AnimationHandler" type="Control" parent="." unique_id=1456803011]
+layout_mode = 2
+script = ExtResource("2_ndj5l")
+
+[connection signal="mouse_entered" from="Label" to="AnimationHandler" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Label" to="AnimationHandler" method="_on_mouse_exited"]
