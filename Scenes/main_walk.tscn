@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://detum0opvrvf2"]
 
 [ext_resource type="PackedScene" uid="uid://u81g5owet5ls" path="res://Objects/Player/player.tscn" id="1_2cquo"]
-[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="2_7nbji"]
+[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://scenes/scaryroom.scn" id="2_7nbji"]
 
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 
