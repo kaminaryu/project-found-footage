@@ -2,13 +2,14 @@ extends GameWindow
 
 const FLAGS_PATH := "res://Resources/Data/CTF/ctf_flags.json"
 const SAVE_PATH := "user://save.json"
-const FLAG_PREFIX := "Final"
+const FLAG_FORMAT := "game{%s}"
 
-@onready var _flag_input: LineEdit = %FlagInput
-@onready var _submit: Button = %Submit
-@onready var _status: Label = %Status
-@onready var _progress: Label = %Progress
-@onready var _subtitle: Label = %Subtitle
+@export var _flag_input: LineEdit
+@export var _submit:     Button
+@export var _status:     Label
+@export var _progress:   Label
+@export var _subtitle:   Label
+@export var _scream_mp3: AudioStreamPlayer
 
 var _flags: Array = []
 var _flag_index := 0
@@ -78,6 +79,9 @@ func _refresh_ui() -> void:
 		_status.add_theme_color_override("font_color", Color(0.35, 0.85, 0.4, 1))
 		_flag_input.editable = false
 		_submit.disabled = true
+		
+		handle_demo_end()
+
 	else:
 		_progress.text = "FLAG %d / %d" % [_flag_index + 1, _flags.size()]
 		_flag_input.editable = true
@@ -150,8 +154,12 @@ func _save_save_data(data: Dictionary) -> void:
 
 
 func _format_flag(body: String) -> String:
-	return "%s{%s}" % [FLAG_PREFIX, body]
+	return FLAG_FORMAT % body
 
 
 func _normalize_flag(value: String) -> String:
 	return value.replace(" ", "").replace("\t", "").replace("\n", "").replace("\r", "").strip_edges().to_lower()
+
+
+func handle_demo_end() -> void :
+	_scream_mp3.play()
