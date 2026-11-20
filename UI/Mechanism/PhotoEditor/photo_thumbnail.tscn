@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cbjt780cv5n3o"]
+
+[ext_resource type="Theme" uid="uid://c7u17ufe863ta" path="res://UI/Mechanism/PhotoEditor/photo_editor_theme.tres" id="1_v6ic8"]
+[ext_resource type="Texture2D" uid="uid://brcvcstix3fee" path="res://Assets/UI/PhotoEditor/Icons/check.png" id="2_ispka"]
+[ext_resource type="Script" uid="uid://cmom8pwqudho" path="res://UI/Mechanism/PhotoEditor/photo_thumbnail.gd" id="2_yjp8v"]
+
+[node name="PhotoThumbnail" type="Button" unique_id=766262252]
+custom_minimum_size = Vector2(0, 182)
+focus_mode = 0
+theme = ExtResource("1_v6ic8")
+theme_type_variation = &"Thumbnail"
+toggle_mode = true
+script = ExtResource("2_yjp8v")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=963471818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Frame" type="PanelContainer" parent="Center" unique_id=191369870]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Polaroid"
+
+[node name="Picture" type="TextureRect" parent="Center/Frame" unique_id=1367707400]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Check" type="TextureRect" parent="." unique_id=2057390670]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -34.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_ispka")
