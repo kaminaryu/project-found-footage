@@ -3,16 +3,16 @@ extends GameWindow
 
 @export var normal_wallpaper: TextureRect
 @export var EVIL_wallpaper: TextureRect
-
+@export var game_exe: VBoxContainer
 
 
 func _window_ready() -> void:
 	var saved_data := load_data_from_saves()
 	var sokoban_finished: bool = saved_data.get("sokoban_finished", false)
-
-	print(saved_data)
+	var ctf_revealed: bool = saved_data.get("ctf_revealed", false)
 
 	set_wallpaper(sokoban_finished)
+	game_exe.visible = GameMaster.is_flag_raised(&"uploaded_data_to_pc") and not ctf_revealed
 
 
 func load_data_from_saves() -> Dictionary :
@@ -33,3 +33,8 @@ func set_wallpaper(sokoban_finished: bool) -> void :
 	else :
 		normal_wallpaper.show()
 		EVIL_wallpaper.hide()
+
+
+func _on_close_requested() -> void:
+	GameMaster.freezing_main_window.emit(false)
+	super()

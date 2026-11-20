@@ -2,7 +2,7 @@ extends Node2D
 
 @export var window_size: Vector2
 
-@onready var desktop_window_scene := preload("res://Objects/Mechanism/Desktop/Desktopwindow.tscn")
+@onready var desktop_window_scene := preload("res://Scenes/Mechanism/Desktop/Desktopwindow.tscn")
 
 var desktop_win: Window
 

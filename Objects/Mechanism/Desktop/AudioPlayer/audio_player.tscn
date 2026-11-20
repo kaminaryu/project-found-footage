@@ -1,0 +1,101 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/AudioPlayer/audio_player.gd" id="1_audio"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="2_topbar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]
+bg_color = Color(0.12, 0.12, 0.14, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_fill"]
+bg_color = Color(0.35, 0.75, 0.45, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="AudioPlayer" type="Window"]
+oversampling_override = 1.0
+title = "Audio Player"
+initial_position = 1
+size = Vector2i(480, 260)
+unresizable = true
+borderless = true
+always_on_top = true
+sharp_corners = true
+script = ExtResource("1_audio")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+
+[node name="WindowSkeleton" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" parent="WindowSkeleton" instance=ExtResource("2_topbar")]
+unique_name_in_owner = true
+layout_mode = 2
+title_text = "audio_player.exe"
+
+[node name="Content" type="MarginContainer" parent="WindowSkeleton"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="WindowSkeleton/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="TrackLabel" type="Label" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "NO TRACK"
+horizontal_alignment = 1
+
+[node name="Progress" type="ProgressBar" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_progress_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_progress_fill")
+show_percentage = false
+
+[node name="TimeLabel" type="Label" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.65, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "0:00 / 0:00"
+horizontal_alignment = 1
+
+[node name="PlayPause" type="Button" parent="WindowSkeleton/Content/Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "PLAY"
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="close_pressed" from="WindowSkeleton/TopBar" to="." method="_on_close_pressed"]
