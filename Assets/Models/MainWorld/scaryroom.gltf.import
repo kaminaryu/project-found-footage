@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://fgp7jqcwd6rv"
-path="res://.godot/imported/scaryroom.gltf-2893cd71b10b30553832e0adc49babdb.scn"
+valid=false
 
 [deps]
 
-source_file="res://scenes/scaryroom.gltf"
-dest_files=["res://.godot/imported/scaryroom.gltf-2893cd71b10b30553832e0adc49babdb.scn"]
+source_file="res://Assets/Models/MainWorld/scaryroom.gltf"
 
 [params]
 

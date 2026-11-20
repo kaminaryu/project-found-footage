@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b310xgf1o7xyg" path="res://Scenes/Mechanism/WorkBench/work_bench.gd" id="1_g7fgb"]
 [ext_resource type="PackedScene" uid="uid://ev3tha4llmm7" path="res://Objects/Scraps/Camera/camera.tscn" id="2_qqd2t"]
-[ext_resource type="Script" uid="uid://jkog7c1d5kkd" path="res://Scenes/Mechanism/WorkBench/placed_objects_container.gd" id="3_g7fgb"]
+[ext_resource type="Script" uid="uid://jkog7c1d5kkd" path="res://Objects/Mechanism/Workbench/placed_objects_container.gd" id="3_g7fgb"]
 [ext_resource type="PackedScene" uid="uid://b8gep7u308tk6" path="res://Objects/Scraps/GameBoy/game_boy.tscn" id="4_5b40s"]
 [ext_resource type="PackedScene" uid="uid://qra8jbaw7do8" path="res://UI/Mechanism/WorkBench/inventory.tscn" id="5_6kq4i"]
 
