@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6qmu5te8wnod"
-path.s3tc="res://.godot/imported/guest.jpg-9d0fae13547f29e5acc05ec1535167d1.s3tc.ctex"
+uid="uid://dj8ii2yytx7tn"
+path.s3tc="res://.godot/imported/wolp sleeping.jpg-5ab4a466aab47ea26a6fc40951b1864a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/guest.jpg"
-dest_files=["res://.godot/imported/guest.jpg-9d0fae13547f29e5acc05ec1535167d1.s3tc.ctex"]
+source_file="res://Assets/MainWorld/FramedPhotos/wolp sleeping.jpg"
+dest_files=["res://.godot/imported/wolp sleeping.jpg-5ab4a466aab47ea26a6fc40951b1864a.s3tc.ctex"]
 
 [params]
 

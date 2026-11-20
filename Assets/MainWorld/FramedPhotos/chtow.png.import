@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf40nf2l5458p"
-path.s3tc="res://.godot/imported/cutting_mat.avif.png-333253e58e59091b293c10a7841f731f.s3tc.ctex"
+uid="uid://d2dxg1sav6646"
+path.s3tc="res://.godot/imported/chtow.png-81ead55aa3b4de4f02e40ad676418c3b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/cutting_mat.avif.png"
-dest_files=["res://.godot/imported/cutting_mat.avif.png-333253e58e59091b293c10a7841f731f.s3tc.ctex"]
+source_file="res://Assets/MainWorld/FramedPhotos/chtow.png"
+dest_files=["res://.godot/imported/chtow.png-81ead55aa3b4de4f02e40ad676418c3b.s3tc.ctex"]
 
 [params]
 

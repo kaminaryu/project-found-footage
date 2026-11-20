@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b8gep7u308tk6"]
 
 [ext_resource type="Script" uid="uid://bcd0xnkpsifjh" path="res://Objects/Scraps/hover_detector.gd" id="2_xhgr8"]
-[ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_dialog.tscn" id="3_cxhpb"]
-[ext_resource type="Script" uid="uid://7ai7wd03owc3" path="res://Objects/Placeable/part_slot.gd" id="4_pslot"]
-[ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Placeable/placeable_part.gd" id="5_ppart"]
+[ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_hint.tscn" id="3_cxhpb"]
+[ext_resource type="Script" uid="uid://7ai7wd03owc3" path="res://Objects/Scraps/Placeable/part_slot.gd" id="4_pslot"]
+[ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Scraps/Placeable/placeable_part.gd" id="5_ppart"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at2u3"]
 albedo_color = Color(1, 0.41960785, 1, 1)
