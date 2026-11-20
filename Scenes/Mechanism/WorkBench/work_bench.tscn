@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://b310xgf1o7xyg" path="res://Scenes/Mechanism/WorkBench/work_bench.gd" id="1_g7fgb"]
 [ext_resource type="PackedScene" uid="uid://ev3tha4llmm7" path="res://Objects/Scraps/camera.tscn" id="2_qqd2t"]
 [ext_resource type="Script" uid="uid://jkog7c1d5kkd" path="res://Objects/Mechanism/Workbench/placed_objects_container.gd" id="3_g7fgb"]
-[ext_resource type="PackedScene" uid="uid://b8gep7u308tk6" path="res://Objects/Scraps/GameBoy/game_boy.tscn" id="4_5b40s"]
 [ext_resource type="PackedScene" uid="uid://qra8jbaw7do8" path="res://UI/Mechanism/WorkBench/inventory.tscn" id="5_6kq4i"]
-[ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="6_lbl"]
+[ext_resource type="PackedScene" uid="uid://boqa1mbupdrxn" path="res://Objects/Scraps/flip_phone.tscn" id="5_jkqup"]
+[ext_resource type="PackedScene" uid="uid://ca5guyu6ju62h" path="res://Objects/Scraps/floppy_disk.tscn" id="6_5b40s"]
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="8_6kq4i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wdbe"]
 albedo_color = Color(0.9802256, 0.4903891, 0.10155138, 1)
@@ -13,6 +14,44 @@ albedo_color = Color(0.9802256, 0.4903891, 0.10155138, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_l26sq"]
 material = SubResource("StandardMaterial3D_4wdbe")
 size = Vector3(1.9412842, 6.5631104, 0.064941406)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ion0l"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drvdr"]
+bg_color = Color(0.45, 0.45, 0.45, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akqla"]
+bg_color = Color(0.75, 0.75, 0.75, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkqup"]
+font = ExtResource("8_6kq4i")
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="WorkBench" type="Node3D" unique_id=1899705844 node_paths=PackedStringArray("selected_object_container", "placed_objects_container")]
 script = ExtResource("1_g7fgb")
@@ -29,10 +68,13 @@ left_anchor = -1.5
 table_surface_z = -0.29
 
 [node name="Camera" parent="PlacedObjects" unique_id=588382207 instance=ExtResource("2_qqd2t")]
-transform = Transform3D(1, 0, 0, 0, 0.012704702, -0.9999193, 0, 0.9999193, 0.012704702, 3.5542724, -3.3222804, 2.056107)
+transform = Transform3D(1, 0, 0, 0, 0.012704702, -0.9999193, 0, 0.9999193, 0.012704702, 2.6033003, -0.2559197, 0.5211743)
 
-[node name="GameBoy" parent="PlacedObjects" unique_id=1570495470 instance=ExtResource("4_5b40s")]
-transform = Transform3D(1, 0, 0, 0, -4.377216e-08, -1, 0, 1, -4.377216e-08, 0, 0.004847765, 0.38153824)
+[node name="FlipPhone" parent="PlacedObjects" unique_id=1844535022 instance=ExtResource("5_jkqup")]
+transform = Transform3D(-4.82963, 0.016441096, 1.2939912, 1.2541548, -1.1730671, 4.695851, 0.3190287, 4.860417, 1.1289719, 0, -1.2116823, 0.0153953135)
+
+[node name="FloppyDisk" parent="PlacedObjects" unique_id=830575782 instance=ExtResource("6_5b40s")]
+transform = Transform3D(2, 0, 0, 0, -0.9606457, -1.7541835, 0, 1.7541835, -0.9606457, 0, 1.2017231, -0.015268624)
 
 [node name="Table" type="MeshInstance3D" parent="." unique_id=1884373960]
 transform = Transform3D(5.3998747, 0.0044851, 0.015369012, -0.028084768, 0.01752994, 2.9994984, 0.023730595, -0.99983627, 0.052658577, 0, 0, -2.4992363)
@@ -47,21 +89,31 @@ transform = Transform3D(1, 0, 0, 0, 0.9186756, 0.39501283, 0, -0.39501294, 0.918
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241949235]
-visible = false
 
-[node name="PutDownButton" type="Button" parent="CanvasLayer" unique_id=513856702]
+[node name="PutDownButton" type="MarginContainer" parent="CanvasLayer" unique_id=903987360]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -79.0
-offset_top = 61.0
-offset_right = 80.0
-offset_bottom = 114.0
+offset_left = -131.5
+offset_right = 131.5
+offset_bottom = 57.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 64
+
+[node name="PutDownButton" type="Button" parent="CanvasLayer/PutDownButton" unique_id=1325034599]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("8_6kq4i")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ion0l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_drvdr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_akqla")
 text = "Put Down"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer" unique_id=1098535491]
+visible = false
 offset_left = 24.0
 offset_top = 20.0
 offset_right = 154.0
@@ -70,13 +122,20 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 24
 text = "Exit [Q]"
 
-[node name="ExitHint" type="Label" parent="CanvasLayer" unique_id=1616191999]
-offset_left = 24.0
-offset_top = 68.0
-offset_right = 324.0
-offset_bottom = 92.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=810393809]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 432.0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ExitHint" type="Label" parent="CanvasLayer/MarginContainer" unique_id=1616191999]
+layout_mode = 2
 text = "Press Q or Esc to leave"
-label_settings = ExtResource("6_lbl")
+label_settings = SubResource("LabelSettings_jkqup")
 
 [node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=97168378]
 layer = 100
@@ -93,5 +152,5 @@ color = Color(0, 0, 0, 1)
 
 [connection signal="child_entered_tree" from="PlacedObjects" to="PlacedObjects" method="_on_children_changed"]
 [connection signal="child_exiting_tree" from="PlacedObjects" to="PlacedObjects" method="_on_children_changed"]
-[connection signal="pressed" from="CanvasLayer/PutDownButton" to="." method="_on_put_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PutDownButton/PutDownButton" to="." method="_on_put_down_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_exit_button_pressed"]

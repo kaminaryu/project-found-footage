@@ -6,10 +6,15 @@ signal part_attached(part: Node3D)
 @export var accepted_type: StringName
 
 var attached_part: Node3D
+var attached_transform := Transform3D.IDENTITY
 
 
 func _ready() -> void :
 	attached_part = find_attached_part()
+
+	if (attached_part != null) :
+		attached_transform = attached_part.transform
+
 	InventoryManager.removing_item.connect(_try_attach)
 	child_entered_tree.connect(_on_child_entered)
 	child_exiting_tree.connect(_on_child_exiting)
@@ -33,7 +38,7 @@ func _try_attach(mesh: Node3D) -> void :
 
 	mesh.remove_from_group("inventory_items")
 	mesh.reparent(self, false)
-	mesh.transform = Transform3D.IDENTITY
+	mesh.transform = attached_transform
 
 	part_attached.emit(mesh)
 

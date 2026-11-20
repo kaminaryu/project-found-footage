@@ -7,6 +7,12 @@ extends StaticBody3D
 func _ready() -> void :
 	add_to_group("hover_detectors")
 
+	if (hover_label != null) :
+		var object := get_parent() as Node3D
+
+		if (object is PlaceablePart) :
+			hover_label.text = "Press [Left Click]\nto remove %s" % (object as PlaceablePart).get_friendly_name()
+
 
 func _physics_process(_delta: float) -> void:
 	var object := get_parent() as Node3D

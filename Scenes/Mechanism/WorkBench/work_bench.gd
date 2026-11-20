@@ -11,7 +11,7 @@ const FADE_DURATION := 0.22
 @onready var camera: Camera3D = $Camera3D
 @onready var inventory: Control = $Inventory
 @onready var ui_layer: CanvasLayer = $CanvasLayer
-@onready var put_down_button: Button = $CanvasLayer/PutDownButton
+@onready var put_down_button: Button = $CanvasLayer/PutDownButton/PutDownButton
 @onready var fade_rect: ColorRect = $TransitionLayer/Fade
 
 var is_active := false
@@ -129,7 +129,7 @@ func _input(event: InputEvent) -> void:
 	if (not is_active or is_transitioning) :
 		return
 
-	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("use_phone")) :
+	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("quit")) :
 		get_viewport().set_input_as_handled()
 		deactivate()
 		return
@@ -143,7 +143,8 @@ func _input(event: InputEvent) -> void:
 		if (selected_obj == null) :
 			return
 
-		selected_obj.rotate_object_local(Vector3.UP, event.relative.x * rotation_sensitivity)
+		var table_up: Vector3 = placed_objects_container.global_basis.z.normalized()
+		selected_obj.global_rotate(table_up, event.relative.x * rotation_sensitivity)
 
 
 func _unhandled_input(event: InputEvent) -> void :
@@ -201,10 +202,12 @@ func select_placed_object(obj: Node3D) -> void :
 	if (selected_object_container.get_child_count() > 0) :
 		return
 
+	var world_basis := obj.global_basis
+
 	obj.add_to_group("selected_item")
 	obj.reparent(selected_object_container, false)
 	obj.position = Vector3.ZERO
-	obj.rotation = Vector3.ZERO
+	obj.global_basis = world_basis
 	_update_put_down_button()
 
 
@@ -222,8 +225,10 @@ func _on_put_down_button_pressed() -> void:
 	if (selected_obj == null) :
 		return
 
+	placed_objects_container.store_rotation_from_world(selected_obj)
 	selected_obj.reparent(placed_objects_container, false)
 	selected_obj.remove_from_group("selected_item")
+	placed_objects_container.layout_children()
 	_update_put_down_button()
 
 

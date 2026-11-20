@@ -122,7 +122,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	# Q or Esc always puts the phone away, even while it boots.
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("use_phone"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("quit") or event.is_action_pressed("use_phone"):
 		close_requested.emit()
 		get_viewport().set_input_as_handled()
 		return

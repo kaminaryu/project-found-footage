@@ -16,8 +16,6 @@ extends CharacterBody3D
 @onready var held_phone: Node3D= $CameraPivot/SpringArm3D/Camera3D/HeldPhone
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-var inventory: Array[String] = []
-
 #initial value for crouching
 var is_crouching: bool = false
 #value if the player is frozen and what the player is lookat
@@ -29,6 +27,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	held_phone.visible = false
 	GameMaster.freezing_main_window.connect(_on_main_window_freezing)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if frozen , ignore
@@ -71,9 +70,10 @@ func _physics_process(delta:float)-> void:
 		move_and_slide()
 		update_crouch(delta)
 		update_interaction()
-		#if the phone is in the inventory, then the function plays
-		if "phone" in inventory and Input.is_action_just_pressed("use_phone"):
+
+		if GameMaster.is_flag_raised(&"Fixed_Phone") and Input.is_action_just_pressed("use_phone"):
 			use_phone()
+
 
 func update_crouch(delta:float)-> void:
 	#eye height: 1.6 standing, 1.0 crouching 
@@ -109,9 +109,6 @@ func update_interaction() -> void:
 func _process(_delta: float) -> void:
 	interact_label.visible = looked_at != null
 
-
-func add_item(item:String) -> void:
-	inventory.append(item)
 
 
 #this is when the user use phone, the main game will freeze temporarily

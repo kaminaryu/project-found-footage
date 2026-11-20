@@ -714,7 +714,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5183e")
 
 [sub_resource type="BoxMesh" id="BoxMesh_0yitp"]
-size = Vector3(0.706604, 0.30517578, 0.73046875)
+size = Vector3(0.706604, 0.30517578, 0.657959)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ern13"]
 points = PackedVector3Array(-0.36891943, -0.32047486, -0.34702742, -0.36891943, 0.38506997, -0.48126152, 0.36884725, -0.32047486, -0.34702742, -0.36891943, -0.32047486, 0.34432134, -0.2951789, 0.41107786, -0.44071263, 0.36884725, 0.38506997, -0.48126152, -0.36891943, 0.39224207, 0.5003673, -0.2951789, 0.41955394, 0.46058705, 0.36884725, -0.32047486, 0.34432134, 0.2951067, 0.41107786, -0.44071263, 0.2951067, 0.41955394, 0.46058705, 0.36884725, 0.39224207, 0.5003673)
@@ -722,7 +722,7 @@ points = PackedVector3Array(-0.36891943, -0.32047486, -0.34702742, -0.36891943, 
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 
 [node name="Player" parent="." unique_id=1201435589 instance=ExtResource("1_2cquo")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.9784446, 0.1, -2.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2899895, 0.09999994, -1.4832668)
 
 [node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("2_7nbji")]
 
@@ -830,7 +830,7 @@ script = ExtResource("11_6bi8x")
 pile = NodePath("Pile")
 
 [node name="Pile" type="MeshInstance3D" parent="BoxOfScraps" unique_id=163122219]
-transform = Transform3D(0.9999997, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 0.9999997, -0.0134654045, -0.13568938, 0.0008957386)
+transform = Transform3D(0.99999917, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999917, -0.013465524, -0.13568938, 0.00052785873)
 mesh = SubResource("BoxMesh_0yitp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BoxOfScraps" unique_id=1411519161]
