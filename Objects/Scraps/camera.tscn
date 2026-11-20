@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://ev3tha4llmm7"]
 
 [ext_resource type="Script" uid="uid://bcd0xnkpsifjh" path="res://Objects/Scraps/hover_detector.gd" id="1_03xx8"]
-[ext_resource type="PackedScene" uid="uid://cukm2r8i0b4tu" path="res://Assets/Models/MemoryCard.glb" id="1_xdwt5"]
+[ext_resource type="PackedScene" uid="uid://cukm2r8i0b4tu" path="res://Assets/Models/Scraps/MemoryCard.glb" id="1_xdwt5"]
 [ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_hint.tscn" id="2_aqnh6"]
 [ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Scraps/Placeable/placeable_part.gd" id="3_1flq7"]
 [ext_resource type="Script" uid="uid://7ai7wd03owc3" path="res://Objects/Scraps/Placeable/part_slot.gd" id="3_pslot"]
+[ext_resource type="Material" uid="uid://rhc1pyuphad" path="res://Assets/Shaders/interactable_highlight.tres" id="5_d37ek"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihc1y"]
 albedo_color = Color(0.58909595, 0.5890955, 0.5890956, 1)
@@ -50,6 +51,8 @@ size = Vector3(0.28112793, 0.5234375, 0.1015625)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fjp6n"]
 data = PackedVector3Array(-0.1406, 0.2617, 0.0508, 0.1406, 0.2617, 0.0508, -0.1406, -0.2617, 0.0508, 0.1406, 0.2617, 0.0508, 0.1406, -0.2617, 0.0508, -0.1406, -0.2617, 0.0508, 0.1406, 0.2617, -0.0508, -0.1406, 0.2617, -0.0508, 0.1406, -0.2617, -0.0508, -0.1406, 0.2617, -0.0508, -0.1406, -0.2617, -0.0508, 0.1406, -0.2617, -0.0508, 0.1406, 0.2617, 0.0508, 0.1406, 0.2617, -0.0508, 0.1406, -0.2617, 0.0508, 0.1406, 0.2617, -0.0508, 0.1406, -0.2617, -0.0508, 0.1406, -0.2617, 0.0508, -0.1406, 0.2617, -0.0508, -0.1406, 0.2617, 0.0508, -0.1406, -0.2617, -0.0508, -0.1406, 0.2617, 0.0508, -0.1406, -0.2617, 0.0508, -0.1406, -0.2617, -0.0508, 0.1406, 0.2617, 0.0508, -0.1406, 0.2617, 0.0508, 0.1406, 0.2617, -0.0508, -0.1406, 0.2617, 0.0508, -0.1406, 0.2617, -0.0508, 0.1406, 0.2617, -0.0508, -0.1406, -0.2617, 0.0508, 0.1406, -0.2617, 0.0508, -0.1406, -0.2617, -0.0508, 0.1406, -0.2617, 0.0508, 0.1406, -0.2617, -0.0508, -0.1406, -0.2617, -0.0508)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tahaa"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1flq7"]
 data = PackedVector3Array(-0.1511, 0.29009998, 0.0251, 0.1511, 0.29009998, 0.0251, -0.1511, -0.29009998, 0.0251, 0.1511, 0.29009998, 0.0251, 0.1511, -0.29009998, 0.0251, -0.1511, -0.29009998, 0.0251, 0.1511, 0.29009998, -0.0251, -0.1511, 0.29009998, -0.0251, 0.1511, -0.29009998, -0.0251, -0.1511, 0.29009998, -0.0251, -0.1511, -0.29009998, -0.0251, 0.1511, -0.29009998, -0.0251, 0.1511, 0.29009998, 0.0251, 0.1511, 0.29009998, -0.0251, 0.1511, -0.29009998, 0.0251, 0.1511, 0.29009998, -0.0251, 0.1511, -0.29009998, -0.0251, 0.1511, -0.29009998, 0.0251, -0.1511, 0.29009998, -0.0251, -0.1511, 0.29009998, 0.0251, -0.1511, -0.29009998, -0.0251, -0.1511, 0.29009998, 0.0251, -0.1511, -0.29009998, 0.0251, -0.1511, -0.29009998, -0.0251, 0.1511, 0.29009998, 0.0251, -0.1511, 0.29009998, 0.0251, 0.1511, 0.29009998, -0.0251, -0.1511, 0.29009998, 0.0251, -0.1511, 0.29009998, -0.0251, 0.1511, 0.29009998, -0.0251, -0.1511, -0.29009998, 0.0251, 0.1511, -0.29009998, 0.0251, -0.1511, -0.29009998, -0.0251, 0.1511, -0.29009998, 0.0251, 0.1511, -0.29009998, -0.0251, -0.1511, -0.29009998, -0.0251)
@@ -104,14 +107,18 @@ shape = SubResource("ConcavePolygonShape3D_fjp6n")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.6618118, 0, 0)
 script = ExtResource("3_pslot")
 accepted_type = &"memory_card"
+extraction_flag = &"extracted_memcard"
 
 [node name="MemoryCard" parent="MemoryCardSlot" unique_id=1001385312 instance=ExtResource("1_xdwt5")]
+material_overlay = SubResource("StandardMaterial3D_tahaa")
 script = ExtResource("3_1flq7")
 part_type = &"memory_card"
+display_name = "Memory Card"
 
 [node name="HoverDetector" type="StaticBody3D" parent="MemoryCardSlot/MemoryCard" unique_id=836926083 node_paths=PackedStringArray("hover_label")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.058298e-08, 0.24211025, 0)
 script = ExtResource("1_03xx8")
+highlight_material = ExtResource("5_d37ek")
 hover_label = NodePath("../InteractionDialog")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MemoryCardSlot/MemoryCard/HoverDetector" unique_id=780771032]
@@ -122,4 +129,4 @@ shape = SubResource("ConcavePolygonShape3D_1flq7")
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.39004898, 0, -0.6835488)
 visible = false
 text = "Press [Left Click]
-to remove {Memory Card}"
+to remove Memory Card"

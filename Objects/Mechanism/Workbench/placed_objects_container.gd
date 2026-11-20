@@ -1,5 +1,7 @@
 extends Node3D
 
+const PLACED_ROTATION_META := &"placed_rotation"
+
 @export var separation := 0.25
 @export var left_anchor := -2.0
 @export var row_depth := 0.0
@@ -7,7 +9,24 @@ extends Node3D
 
 
 func _ready() -> void :
+	for child in get_children() :
+		if (child is Node3D) :
+			_remember_rotation(child as Node3D)
+
 	layout_children()
+
+
+func _remember_rotation(obj: Node3D) -> void :
+	if (not obj.has_meta(PLACED_ROTATION_META)) :
+		obj.set_meta(PLACED_ROTATION_META, obj.quaternion)
+
+
+func store_rotation_from_world(obj: Node3D) -> void :
+	var container_rotation := global_basis.orthonormalized()
+	var world_rotation := obj.global_basis.orthonormalized()
+	var local_rotation := container_rotation.inverse() * world_rotation
+
+	obj.set_meta(PLACED_ROTATION_META, local_rotation.get_rotation_quaternion())
 
 
 func layout_children() -> void :
@@ -18,7 +37,10 @@ func layout_children() -> void :
 			continue
 
 		var obj := child as Node3D
-		obj.rotation = Vector3.ZERO
+		_remember_rotation(obj)
+
+		var placed_rotation: Quaternion = obj.get_meta(PLACED_ROTATION_META, Quaternion.IDENTITY)
+		obj.quaternion = placed_rotation
 
 		# Axis-Aligned Bounding Box
 		var aabb := get_aabb_in_container_space(obj)
