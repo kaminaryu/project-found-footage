@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://248yi8cn0qom" path="res://Assets/UI/PhoneIcons/signal_bars.png" id="23_ylwaw"]
 [ext_resource type="Texture2D" uid="uid://3ann8pnc8kpb" path="res://Assets/UI/PhoneIcons/battery.png" id="24_8up3g"]
 [ext_resource type="Shader" uid="uid://c1hvxdklbgmc3" path="res://Assets/UI/phone_lcd.gdshader" id="25_vt1cm"]
+[ext_resource type="AudioStream" uid="uid://1uf7ci4yhboo" path="res://Assets/SFX/phone_boot.wav" id="26_mb35u"]
+[ext_resource type="AudioStream" uid="uid://dwpgum54j54t8" path="res://Assets/SFX/ButtonSelect.wav" id="27_yqmkd"]
 
 [sub_resource type="Resource" id="Resource_e1ove"]
 script = ExtResource("4_rjvtr")
@@ -641,3 +643,11 @@ offset_top = 2.0
 offset_right = 2.0
 offset_bottom = 5.0
 color = Color(0.49803922, 0.69803923, 1, 1)
+
+[node name="BootSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=443344335]
+unique_name_in_owner = true
+stream = ExtResource("26_mb35u")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1373182081]
+unique_name_in_owner = true
+stream = ExtResource("27_yqmkd")

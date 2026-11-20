@@ -1,0 +1,76 @@
+[Intro]
+YOU: What a long day | 2
+YOU: ...Oh Who am I kidding, it was a whole day of doing nothing! | 4
+YOU: There had been almost no customers as of late.\nHow am I going to keep running this shop? | 6
+YOU: ...Maybe mom was right, I can't carry Dad's business \nas well as I had thought. | 5
+YOU: ... | 1
+YOU: Alright, enough wallowing. Time to close up the shop! | 2
+@wait 3
+(bell rings)
+@event Customer_walk_in
+YOU: !... A customer? Hello, sir! | 2
+CUSTOMER: ...Ah, were you about to close up already? | 2
+YOU: No no it's fine! We can take in one more customer! | 3
+YOU: What are you looking for, sir? | 1
+@event box_on_table
+CUSTOMER: Here's a buncha junk I'm looking to sell off. | 2
+CUSTOMER: Just bought a house round'here for a pretty good deal | 2
+CUSTOMER: Got these stuff lying around up in the attic.\nProbably from the previous owners of the house. | 3
+CUSTOMER: Well, How much can I get for these? | 2
+YOU: I see... let me take a look, sir | 1
+@wait 2
+YOU: Hmm... I would say about RM 60. | 2
+@event cust_angry
+CUSTOMER: RM 60?! What?! These are all antique stuff right here! | 2
+CUSTOMER Surely it goes for a higher price, no? | 2
+YOU: I'm really sorry sir, but as you said, these are all broken. | 2
+YOU: We'll have to repair them before we can even begin to put them on the shelves. | 3
+@event cust_argue
+CUSTOMER: tch, fine. just get these junk off of my hands | 2
+YOU: We'll also need you to fill out your name and contact information. Just for the record keeping, sir. | 3
+CUSTOMER : Alright Whatever. | 1
+(writing sounds)
+CUSTOMER: There. | 1
+@wait 1
+(YOU give money to the CUSTOMER)
+YOU: Thank you, sir! Come again! | 2
+@event cust_leave
+@wait 1
+YOU: There's that... Time to close up the shop | 2
+
+[Close_Shop]
+YOU: Let's see what do we got here.... | 1
+
+[Restoration_complete]
+YOU: Good as new! | 1
+YOU: hmm Floppy disk... maybe I should check this out. | 2
+#The phone won't turn on yet or player can't pickup the phone yet
+
+[Scawy_Application]
+YOU: Huh... an Application? I guess it's a game of some sorts | 2
+
+[Spooky_happen]
+YOU: ?! | 1
+YOU: Oh no. Oh no no! What's happening to my computer?! | 2
+YOU: Darn it! it's a virus! | 1
+@event PhoneVibrate
+YOU: !!!GOODNESS! | 1
+YOU: Okay... calm down, it must be that cellphone I just repair | 2
+
+[Reading_complete]
+YOU: this is tragic.. | 1
+YOU: Hang on a moment... So this phone belongs to someone that's missing? | 2
+YOU: ...Creepy, but let's see what else I can find. | 2
+YOU: I know this is must be an old case btu maybe I still can help | 2
+YOU: I remember theres SD card in the camera. maybe I should see what's inside. | 2
+
+[JUMPSCARE_PIC]
+YOU: What the hell?! | 1
+YOU: Am I being watched? | 2
+
+[Sus_ending]
+YOU: This is too creepy! | 1
+YOU: Everything on me belongs to the victim... I doubt this is a coincidence | 2
+YOU: I need to go call the police
+
+#player goes to the cash register then mild Jumpscare.
