@@ -38,6 +38,7 @@ func _ready() -> void:
 	%ResetButton.pressed.connect(_on_reset_pressed)
 	
 func _on_photo_picked(entry: PhotoEntry) -> void:
+	current_entry = entry
 	photo.texture = entry.image
 	caption.text = entry.caption
 	_show_edits()
