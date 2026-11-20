@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://b75gwc06xe8kx"]
+
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_kg4np"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kg4np"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p686c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbk5l"]
+
+[resource]
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_kg4np")
+Button/styles/hover = SubResource("StyleBoxEmpty_kg4np")
+Button/styles/normal = SubResource("StyleBoxEmpty_p686c")
+Button/styles/pressed = SubResource("StyleBoxEmpty_bbk5l")
+Label/font_sizes/font_size = 34
+Label/fonts/font = ExtResource("1_kg4np")
