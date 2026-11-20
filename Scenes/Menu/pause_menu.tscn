@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3tkk8jmhphx7"]
 
 [ext_resource type="Shader" uid="uid://dn65v51yuci1m" path="res://Scenes/Menu/pause_menu.gdshader" id="1_i0al5"]
+[ext_resource type="Script" uid="uid://cc3titvugpmtf" path="res://Scenes/Menu/pause_menu.gd" id="1_mux1j"]
 [ext_resource type="Theme" uid="uid://b75gwc06xe8kx" path="res://Themes/main_menu.tres" id="2_jnmi5"]
 [ext_resource type="PackedScene" uid="uid://d0apmagpe61a" path="res://Scenes/Menu/menu_button.tscn" id="3_mux1j"]
 
@@ -106,6 +107,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_mux1j")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=357186011]
 modulate = Color(1, 1, 1, 0)

@@ -33,11 +33,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	#if frozen , ignore
 	if is_frozen:
 		return
-	#pressing Escape will free the mouse (for the pause menu)
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		#shit will left and turn the whole player

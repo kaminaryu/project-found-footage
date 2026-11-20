@@ -962,6 +962,7 @@ transform = Transform3D(-1.1250001, 0, -0.3195634, 0, 1.659, 0, 1.9485571, 0, -0
 shape = SubResource("ConvexPolygonShape3D_m12bj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=197105867]
+process_mode = 3
 layer = 4
 follow_viewport_enabled = true
 
