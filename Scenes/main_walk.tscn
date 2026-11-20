@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u81g5owet5ls" path="res://Objects/Player/player.tscn" id="1_2cquo"]
 [ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="2_7nbji"]
+[ext_resource type="PackedScene" uid="uid://3tkk8jmhphx7" path="res://Scenes/Menu/pause_menu.tscn" id="3_jmp2u"]
 
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 
@@ -9,3 +10,9 @@
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.9784446, 0.1, -2.5)
 
 [node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("2_7nbji")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=197105867]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1951878830 instance=ExtResource("3_jmp2u")]

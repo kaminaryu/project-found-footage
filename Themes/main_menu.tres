@@ -14,5 +14,6 @@ Button/fonts/font = ExtResource("1_kg4np")
 Button/styles/hover = SubResource("StyleBoxEmpty_kg4np")
 Button/styles/normal = SubResource("StyleBoxEmpty_p686c")
 Button/styles/pressed = SubResource("StyleBoxEmpty_bbk5l")
-Label/font_sizes/font_size = 34
+Label/font_sizes/font_size = 33
 Label/fonts/font = ExtResource("1_kg4np")
+RichTextLabel/fonts/normal_font = ExtResource("1_kg4np")
