@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dw34foohkfjpj" path="res://Assets/UI/Desktop/Icons/Error64.svg" id="7_ywgj1"]
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="9_fiqj7"]
 [ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.tscn" id="10_ctf"]
-[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="11_txt_reader"]
+[ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="11_txt_reader"]
 [ext_resource type="Texture2D" uid="uid://jugr2msfhiba" path="res://Assets/UI/Desktop/Icons/TextFile64.svg" id="12_txt_icon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
@@ -146,25 +146,12 @@ offset_bottom = 197.0
 icon_texture = ExtResource("3_2u6u5")
 icon_name = "Desktop"
 
-[node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("6_vskip")]
-visible = false
-layout_mode = 1
-offset_left = 560.0
-offset_top = 479.0
-offset_right = 626.0
-offset_bottom = 564.0
-icon_texture = ExtResource("7_ywgj1")
-icon_name = "Portal.exe"
-application = ExtResource("10_ctf")
-hidden_until_revealed = true
-reveal_save_flag = "ctf_revealed"
-
 [node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=196024873 instance=ExtResource("6_vskip")]
 layout_mode = 1
-offset_left = 479.0
-offset_top = 326.0
-offset_right = 545.0
-offset_bottom = 411.0
+offset_left = 570.0
+offset_top = 172.0
+offset_right = 636.0
+offset_bottom = 257.0
 icon_texture = ExtResource("6_nld5l")
 icon_name = "game_final.exe"
 application = ExtResource("4_hgxnt")
@@ -173,13 +160,24 @@ blocked_message = "game_final.exe has stopped working.
 The file may be corrupted."
 hide_if_save_flag = "ctf_revealed"
 
-[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("6_vskip")]
-visible = false
+[node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("6_vskip")]
 layout_mode = 1
-offset_left = 607.0
-offset_top = 326.0
-offset_right = 673.0
-offset_bottom = 411.0
+offset_left = 484.0
+offset_top = 353.0
+offset_right = 550.0
+offset_bottom = 438.0
+icon_texture = ExtResource("7_ywgj1")
+icon_name = "Portal.exe"
+application = ExtResource("10_ctf")
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 629.0
+offset_top = 350.0
+offset_right = 695.0
+offset_bottom = 435.0
 icon_texture = ExtResource("12_txt_icon")
 icon_name = "readme.txt"
 application = ExtResource("11_txt_reader")

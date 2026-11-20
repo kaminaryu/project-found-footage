@@ -26,7 +26,7 @@ corner_radius_bottom_left = 32
 
 [node name="CTFExe" type="Window"]
 oversampling_override = 1.0
-title = "CTF.exe"
+title = "Portal.exe"
 initial_position = 1
 size = Vector2i(560, 320)
 unresizable = true
@@ -86,7 +86,7 @@ alignment = 1
 [node name="Title" type="Label" parent="WindowSkeleton/Content/Layout"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "CTF.exe"
+text = "Portal.exe"
 horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="WindowSkeleton/Content/Layout"]

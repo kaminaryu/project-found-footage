@@ -54,7 +54,6 @@ func _run_program() -> void :
 
 	if (_blocked_by_save_flag()) :
 		_show_blocked_popup()
-		blocked_launch_attempted.emit()
 		return
 
 	var app := application.instantiate()
@@ -80,6 +79,13 @@ func _show_blocked_popup() -> void:
 		add_child(_launch_popup)
 
 	_launch_popup.trigger(blocked_message, blocked_icon, blocked_title)
+
+	if not _launch_popup.closed.is_connected(_on_blocked_popup_closed):
+		_launch_popup.closed.connect(_on_blocked_popup_closed, CONNECT_ONE_SHOT)
+
+
+func _on_blocked_popup_closed() -> void :
+	blocked_launch_attempted.emit()
 
 
 func reveal() -> void :

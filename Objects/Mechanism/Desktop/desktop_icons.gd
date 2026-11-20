@@ -11,6 +11,7 @@ var _cells := {}
 var _occupied := {}
 var _snap_tweens := {}
 var _dragging_icon: Control = null
+var _connected_icons := {}
 
 
 func _ready() -> void:
@@ -33,19 +34,38 @@ func _register_icon(icon_node: Node) -> void:
 	if icon == null or _cells.has(icon):
 		return
 
+	_connect_icon(icon)
+
+	if not icon.visible:
+		return
+
+	_place_icon(icon)
+
+
+func _connect_icon(icon: Control) -> void:
+	if _connected_icons.has(icon):
+		return
+
+	_connected_icons[icon] = true
+	icon.gui_input.connect(_on_icon_gui_input.bind(icon))
+	icon.visibility_changed.connect(_on_icon_visibility_changed.bind(icon))
+	icon.tree_exited.connect(_unregister_icon.bind(icon))
+
+
+func _place_icon(icon: Control) -> void:
+	if _cells.has(icon):
+		return
+
 	var cell := _nearest_free_cell(_cell_from_position(icon))
 	if cell == INVALID_CELL:
 		return
-
-	icon.gui_input.connect(_on_icon_gui_input.bind(icon))
-	icon.tree_exited.connect(_unregister_icon.bind(icon))
 
 	_cells[icon] = cell
 	_occupied[cell] = icon
 	icon.position = _cell_position(cell, icon)
 
 
-func _unregister_icon(icon: Control) -> void:
+func _release_icon(icon: Control) -> void:
 	var cell: Vector2i = _cells.get(icon, INVALID_CELL)
 	if cell != INVALID_CELL and _occupied.get(cell) == icon:
 		_occupied.erase(cell)
@@ -55,6 +75,18 @@ func _unregister_icon(icon: Control) -> void:
 
 	if _dragging_icon == icon:
 		_dragging_icon = null
+
+
+func _unregister_icon(icon: Control) -> void:
+	_release_icon(icon)
+	_connected_icons.erase(icon)
+
+
+func _on_icon_visibility_changed(icon: Control) -> void:
+	if icon.visible:
+		_place_icon(icon)
+	else:
+		_release_icon(icon)
 
 
 func _on_icon_gui_input(event: InputEvent, icon: Control) -> void:
