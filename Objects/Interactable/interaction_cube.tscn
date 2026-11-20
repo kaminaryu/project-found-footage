@@ -10,3 +10,4 @@ script = ExtResource("1_8uivw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=347223418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15466309, 0)
 shape = SubResource("BoxShape3D_0yitp")
+debug_color = Color(0.38866654, 0, 0.53, 1)

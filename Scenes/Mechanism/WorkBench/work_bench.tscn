@@ -13,18 +13,6 @@ albedo_color = Color(0.9802256, 0.4903891, 0.10155138, 1)
 material = SubResource("StandardMaterial3D_4wdbe")
 size = Vector3(1.9412842, 6.5631104, 0.064941406)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gubgk"]
-sky_curve = 13.113984
-
-[sub_resource type="Sky" id="Sky_dl6sj"]
-sky_material = SubResource("ProceduralSkyMaterial_gubgk")
-
-[sub_resource type="Environment" id="Environment_0yitp"]
-sky = SubResource("Sky_dl6sj")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 16.0
-
 [node name="WorkBench" type="Node3D" unique_id=1899705844 node_paths=PackedStringArray("selected_object_container", "placed_objects_container")]
 script = ExtResource("1_g7fgb")
 selected_object_container = NodePath("SelectedObject")
@@ -47,19 +35,14 @@ transform = Transform3D(1, 0, 0, 0, -4.377216e-08, -1, 0, 1, -4.377216e-08, 0, 0
 
 [node name="Table" type="MeshInstance3D" parent="." unique_id=1884373960]
 transform = Transform3D(5.3998747, 0.0044851, 0.015369012, -0.028084768, 0.01752994, 2.9994984, 0.023730595, -0.99983627, 0.052658577, 0, 0, -2.4992363)
+visible = false
 mesh = SubResource("BoxMesh_l26sq")
 
 [node name="Inventory" parent="." unique_id=193845220 instance=ExtResource("5_6kq4i")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=176995229]
 transform = Transform3D(1, 0, 0, 0, 0.9186756, 0.39501283, 0, -0.39501294, 0.9186756, 0, 3.5979438, 2.3622136)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1879482976]
-environment = SubResource("Environment_0yitp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=616324184]
-transform = Transform3D(0.9302982, -0.13450803, 0.34125185, -0.09738968, 0.80637056, 0.58333683, -0.35363895, -0.5759115, 0.7370655, 6.624681, 11.976128, 10.004433)
-shadow_enabled = true
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241949235]
 
