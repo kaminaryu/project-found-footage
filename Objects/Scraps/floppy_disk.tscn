@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ca5guyu6ju62h"]
+
+[ext_resource type="PackedScene" uid="uid://8g0o7du3bhpc" path="res://Assets/Models/Scraps/floppy disk.glb" id="1_m88tl"]
+
+[node name="FloppyDisk" type="MeshInstance3D" unique_id=830575782]
+
+[node name="floppy disk" parent="." unique_id=1712711645 instance=ExtResource("1_m88tl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6869148, -0.8413781, 0.97523403)

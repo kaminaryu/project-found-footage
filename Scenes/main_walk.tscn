@@ -831,7 +831,7 @@ script = ExtResource("11_6bi8x")
 shape = SubResource("ConvexPolygonShape3D_ern13")
 
 [node name="InteractionCube" parent="BoxOfScraps" unique_id=721345843 instance=ExtResource("4_yoy7x")]
-transform = Transform3D(0.7392796, 0, -1.4901161e-08, 0, 0.8064046, 0, 1.4901161e-08, 0, 0.93668896, -0.013400078, 0, -7.1525574e-07)
+transform = Transform3D(0.8667456, 0, -1.4901161e-08, 0, 0.8064046, 0, 2.9802322e-08, 0, 1.0124017, -0.013400555, 0, -9.536743e-07)
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]
