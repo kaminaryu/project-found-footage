@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cwihiafwpcc2" path="res://Assets/3dswatch.png" id="3_o1rty"]
 [ext_resource type="Script" uid="uid://bxtv6sklpappb" path="res://Objects/Player/canvas_layer.gd" id="5_u7612"]
 [ext_resource type="PackedScene" uid="uid://c7x0bsrp6ghss" path="res://Scenes/showcase_scraps.tscn" id="7_bpp7x"]
+[ext_resource type="PackedScene" path="res://UI/TodoList/todo_list.tscn" id="8_todo"]
+[ext_resource type="Resource" path="res://Resources/Data/todo_data.tres" id="9_todo_data"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13qdw"]
 radius = 0.35
@@ -474,6 +476,13 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_xrivr")
 expand_mode = 1
+
+[node name="TodoList" parent="CanvasLayer" instance=ExtResource("8_todo")]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 364.0
+offset_bottom = 24.0
+data = ExtResource("9_todo_data")
 
 [node name="InteractLabel" type="Label" parent="CanvasLayer" unique_id=2098897655]
 anchors_preset = 8

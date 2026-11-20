@@ -117,6 +117,7 @@ func add_item(item:String) -> void:
 #this is when the user use phone, the main game will freeze temporarily
 func use_phone() -> void:
 	GameMaster.freeze_main_window(true)
+	GameMaster.raise_flag(&"phone_opened")
 	held_phone.visible = true
 	anim.play("open_phone")
 	await anim.animation_finished

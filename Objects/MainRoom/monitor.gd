@@ -14,6 +14,7 @@ func run(_player: Node) -> void:
 		return
 
 	GameMaster.freezing_main_window.emit(true)
+	GameMaster.raise_flag(&"monitor_opened")
 
 	desktop_win = desktop_window_scene.instantiate()
 	add_child(desktop_win)

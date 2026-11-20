@@ -59,6 +59,7 @@ func activate() -> void :
 	_update_put_down_button()
 
 	is_active = true
+	GameMaster.raise_flag(&"workbench_opened")
 	await _fade_to(0.0)
 	is_transitioning = false
 
