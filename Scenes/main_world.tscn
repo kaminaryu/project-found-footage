@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://do1u5fsvv8ujv"]
+
+[ext_resource type="PackedScene" uid="uid://b8gep7u308tk6" path="res://Objects/Scraps/GameBoy/game_boy.tscn" id="1_at2u3"]
+[ext_resource type="PackedScene" uid="uid://qra8jbaw7do8" path="res://UI/Mechanism/WorkBench/inventory.tscn" id="2_ekhe2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wdbe"]
+albedo_color = Color(0.9802256, 0.4903891, 0.10155138, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l26sq"]
+material = SubResource("StandardMaterial3D_4wdbe")
+size = Vector3(1.9412842, 6.5631104, 0.064941406)
+
+[node name="MainWorld" type="Node3D" unique_id=1899705844]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=176995229]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3.5979438, 2.3622134)
+
+[node name="GameBoy" parent="." unique_id=1570495470 instance=ExtResource("1_at2u3")]
+transform = Transform3D(1, 0, 0, 0, 0.76521397, 0.643776, 0, -0.643776, 0.76521397, 0, 1.9563295, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1044024301]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2, 3.3130226, 3)
+light_energy = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1884373960]
+transform = Transform3D(5.3998747, 0.0044851, 0.015369012, -0.028084768, 0.01752994, 2.9994984, 0.023730595, -0.99983627, 0.052658577, 0, 0, -2.4992363)
+mesh = SubResource("BoxMesh_l26sq")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=545158280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
+
+[node name="Inventory" parent="." unique_id=193845220 instance=ExtResource("2_ekhe2")]
