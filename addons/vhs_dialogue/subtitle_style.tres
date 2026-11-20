@@ -1,0 +1,15 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c8oyyhl78vh0f"]
+
+[sub_resource type="SystemFont" id="SystemFont_subtitle"]
+font_names = PackedStringArray("Arial", "Helvetica", "Liberation Sans", "DejaVu Sans", "Sans-Serif")
+font_weight = 700
+
+[resource]
+font = SubResource("SystemFont_subtitle")
+font_size = 30
+font_color = Color(1, 0.91, 0.16, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_offset = Vector2(2, 3)
