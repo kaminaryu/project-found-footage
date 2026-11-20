@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://dyo14jwsyibt0"]
+
+[ext_resource type="Script" uid="uid://c2oriqeni18c2" path="res://Objects/Mechanism/Desktop/desktopwindow.gd" id="1_glvem"]
+[ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_glvem"]
+[ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="3_2u6u5"]
+[ext_resource type="Texture2D" uid="uid://3oeh2epjap3h" path="res://Assets/UI/Desktop/DesktopWallpaperEVIL.png" id="3_5nmo1"]
+[ext_resource type="Script" uid="uid://b2ql841koyokn" path="res://Objects/Mechanism/Desktop/desktop_icons.gd" id="3_fk1eh"]
+[ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="4_hgxnt"]
+[ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="6_nld5l"]
+[ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="6_vskip"]
+[ext_resource type="Texture2D" uid="uid://dw34foohkfjpj" path="res://Assets/UI/Desktop/Icons/Error64.svg" id="7_ywgj1"]
+[ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="9_fiqj7"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.tscn" id="10_ctf"]
+[ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="11_txt_reader"]
+[ext_resource type="Texture2D" uid="uid://jugr2msfhiba" path="res://Assets/UI/Desktop/Icons/TextFile64.svg" id="12_txt_icon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljyij"]
+bg_color = Color(0.735357, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u6u5"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper")]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Desktop"
+initial_position = 1
+size = Vector2i(1280, 960)
+unresizable = true
+borderless = true
+always_on_top = true
+sharp_corners = true
+script = ExtResource("1_glvem")
+normal_wallpaper = NodePath("Wallpaper")
+EVIL_wallpaper = NodePath("WallpaperEVIL")
+
+[node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_glvem")
+stretch_mode = 5
+
+[node name="WallpaperEVIL" type="TextureRect" parent="." unique_id=64128670]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5nmo1")
+stretch_mode = 5
+
+[node name="DesktopSkeleton" type="VBoxContainer" parent="." unique_id=621559069]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="PanelContainer" parent="DesktopSkeleton" unique_id=478386382]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/TopBar" unique_id=392474075]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Close" type="Button" parent="DesktopSkeleton/TopBar/MarginContainer" unique_id=136315678]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0yitp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ljyij")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2u6u5")
+text = "X"
+
+[node name="DesktopIconsField" type="MarginContainer" parent="DesktopSkeleton" unique_id=1997038611]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("3_fk1eh")
+cell_size = Vector2(128, 128)
+
+[node name="IconsField" type="Control" parent="DesktopSkeleton/DesktopIconsField" unique_id=882039910]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DesktopIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1375163577 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 78.0
+offset_bottom = 97.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="DesktopIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1524986701 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 242.0
+offset_right = 77.0
+offset_bottom = 327.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="DesktopIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1175456289 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 360.0
+offset_right = 75.0
+offset_bottom = 445.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="DesktopIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=709767547 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 112.0
+offset_right = 71.0
+offset_bottom = 197.0
+icon_texture = ExtResource("3_2u6u5")
+icon_name = "Desktop"
+
+[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=196024873 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 570.0
+offset_top = 172.0
+offset_right = 636.0
+offset_bottom = 257.0
+icon_texture = ExtResource("6_nld5l")
+icon_name = "game_final.exe"
+application = ExtResource("4_hgxnt")
+blocked_save_flag = "sokoban_finished"
+blocked_message = "game_final.exe has stopped working.
+The file may be corrupted."
+hide_if_save_flag = "ctf_revealed"
+
+[node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 484.0
+offset_top = 353.0
+offset_right = 550.0
+offset_bottom = 438.0
+icon_texture = ExtResource("7_ywgj1")
+icon_name = "Portal.exe"
+application = ExtResource("10_ctf")
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("6_vskip")]
+layout_mode = 1
+offset_left = 629.0
+offset_top = 350.0
+offset_right = 695.0
+offset_bottom = 435.0
+icon_texture = ExtResource("12_txt_icon")
+icon_name = "readme.txt"
+application = ExtResource("11_txt_reader")
+launch_file = "res://Resources/Data/CTF/Texts/readme.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 1
+
+[node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
+custom_minimum_size = Vector2(0, 118.22)
+layout_mode = 2
+
+[node name="ErrorPopup" parent="." unique_id=2027122457 instance=ExtResource("9_fiqj7")]
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/CTF" method="reveal"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" method="hide_icon"]
