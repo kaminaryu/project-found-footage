@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://d0gm6tcufmd2y"]
+
+[ext_resource type="Script" uid="uid://b310xgf1o7xyg" path="res://Scenes/Mechanism/WorkBench/work_bench.gd" id="1_g7fgb"]
+[ext_resource type="PackedScene" uid="uid://ev3tha4llmm7" path="res://Objects/Scraps/Camera/camera.tscn" id="2_qqd2t"]
+[ext_resource type="Script" uid="uid://jkog7c1d5kkd" path="res://Objects/Mechanism/Workbench/placed_objects_container.gd" id="3_g7fgb"]
+[ext_resource type="PackedScene" uid="uid://b8gep7u308tk6" path="res://Objects/Scraps/GameBoy/game_boy.tscn" id="4_5b40s"]
+[ext_resource type="PackedScene" uid="uid://qra8jbaw7do8" path="res://UI/Mechanism/WorkBench/inventory.tscn" id="5_6kq4i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wdbe"]
+albedo_color = Color(0.9802256, 0.4903891, 0.10155138, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l26sq"]
+material = SubResource("StandardMaterial3D_4wdbe")
+size = Vector3(1.9412842, 6.5631104, 0.064941406)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gubgk"]
+sky_curve = 13.113984
+
+[sub_resource type="Sky" id="Sky_dl6sj"]
+sky_material = SubResource("ProceduralSkyMaterial_gubgk")
+
+[sub_resource type="Environment" id="Environment_0yitp"]
+sky = SubResource("Sky_dl6sj")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+
+[node name="WorkBench" type="Node3D" unique_id=1899705844 node_paths=PackedStringArray("selected_object_container", "placed_objects_container")]
+script = ExtResource("1_g7fgb")
+selected_object_container = NodePath("SelectedObject")
+placed_objects_container = NodePath("PlacedObjects")
+
+[node name="SelectedObject" type="Node3D" parent="." unique_id=765573909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4303634, 0)
+
+[node name="PlacedObjects" type="Node3D" parent="." unique_id=1620388524]
+transform = Transform3D(1, 0, 0, 0, 0.012704702, 0.9999193, 0, -0.9999193, 0.012704702, -3.5542724, 0.41663086, -3.3481345)
+script = ExtResource("3_g7fgb")
+left_anchor = -1.5
+table_surface_z = -0.29
+
+[node name="Camera" parent="PlacedObjects" unique_id=588382207 instance=ExtResource("2_qqd2t")]
+transform = Transform3D(1, 0, 0, 0, 0.012704702, -0.9999193, 0, 0.9999193, 0.012704702, 3.5542724, -3.3222804, 2.056107)
+
+[node name="GameBoy" parent="PlacedObjects" unique_id=1570495470 instance=ExtResource("4_5b40s")]
+transform = Transform3D(1, 0, 0, 0, -4.377216e-08, -1, 0, 1, -4.377216e-08, 0, 0.004847765, 0.38153824)
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=1884373960]
+transform = Transform3D(5.3998747, 0.0044851, 0.015369012, -0.028084768, 0.01752994, 2.9994984, 0.023730595, -0.99983627, 0.052658577, 0, 0, -2.4992363)
+mesh = SubResource("BoxMesh_l26sq")
+
+[node name="Inventory" parent="." unique_id=193845220 instance=ExtResource("5_6kq4i")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=176995229]
+transform = Transform3D(1, 0, 0, 0, 0.9186756, 0.39501283, 0, -0.39501294, 0.9186756, 0, 3.5979438, 2.3622136)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1879482976]
+environment = SubResource("Environment_0yitp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=616324184]
+transform = Transform3D(0.9302982, -0.13450803, 0.34125185, -0.09738968, 0.80637056, 0.58333683, -0.35363895, -0.5759115, 0.7370655, 6.624681, 11.976128, 10.004433)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241949235]
+
+[node name="PutDownButton" type="Button" parent="CanvasLayer" unique_id=513856702]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = 61.0
+offset_right = 80.0
+offset_bottom = 114.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Put Down"
+
+[connection signal="child_entered_tree" from="PlacedObjects" to="PlacedObjects" method="_on_children_changed"]
+[connection signal="child_exiting_tree" from="PlacedObjects" to="PlacedObjects" method="_on_children_changed"]
+[connection signal="pressed" from="CanvasLayer/PutDownButton" to="." method="_on_put_down_button_pressed"]

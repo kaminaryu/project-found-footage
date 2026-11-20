@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://byebhuic5a6ig"]
+
+[ext_resource type="Script" uid="uid://bdy7wlqsqjykq" path="res://Objects/InteractionDialog/interaction_hint.gd" id="1_jyyrt"]
+
+[node name="InteractionHint" type="Label3D" unique_id=1457287106]
+billboard = 1
+no_depth_test = true
+text = "Hello World"
+script = ExtResource("1_jyyrt")

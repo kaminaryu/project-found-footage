@@ -1,0 +1,643 @@
+[gd_scene format=3 uid="uid://n6fkd7dakp3a"]
+
+[ext_resource type="Script" uid="uid://dsx0qtxcklqxv" path="res://Objects/Mechanism/Phone/phone_window.gd" id="1_fkelp"]
+[ext_resource type="Theme" uid="uid://cqp6dvddp0mjj" path="res://Assets/UI/phone_theme.tres" id="2_bejpn"]
+[ext_resource type="Script" uid="uid://csr2qg7byls5c" path="res://Objects/Mechanism/Phone/phone_ui.gd" id="3_qwjnn"]
+[ext_resource type="Script" uid="uid://srfv8mmmso4d" path="res://Objects/Mechanism/Phone/phone_app.gd" id="4_rjvtr"]
+[ext_resource type="Texture2D" uid="uid://b82dl841bcxdg" path="res://Assets/UI/PhoneIcons/Apps/calls.png" id="5_6kulj"]
+[ext_resource type="Texture2D" uid="uid://l25y2ghj1pt2" path="res://Assets/UI/PhoneIcons/Apps/messages.png" id="6_osihj"]
+[ext_resource type="Texture2D" uid="uid://b55yqxre1a708" path="res://Assets/UI/PhoneIcons/Apps/contacts.png" id="7_dpa08"]
+[ext_resource type="Texture2D" uid="uid://cm1n62ud0n281" path="res://Assets/UI/PhoneIcons/Apps/gallery.png" id="8_1x37v"]
+[ext_resource type="Texture2D" uid="uid://d1a2khltw1ph4" path="res://Assets/UI/PhoneIcons/Apps/email.png" id="9_ttc44"]
+[ext_resource type="Texture2D" uid="uid://cc56f2mred3y6" path="res://Assets/UI/PhoneIcons/Apps/music.png" id="10_i67im"]
+[ext_resource type="Texture2D" uid="uid://c548w8m4oa0k0" path="res://Assets/UI/PhoneIcons/Apps/browser.png" id="11_t8kdg"]
+[ext_resource type="Texture2D" uid="uid://l124jfvn5umh" path="res://Assets/UI/PhoneIcons/Apps/snake.png" id="12_fe0hb"]
+[ext_resource type="Texture2D" uid="uid://b0tqf8u3t42kr" path="res://Assets/UI/PhoneIcons/Apps/novaapp.png" id="13_i5c2n"]
+[ext_resource type="Texture2D" uid="uid://b6k76r27l3ic5" path="res://Assets/UI/PhoneIcons/envelope_new.png" id="14_h1q7y"]
+[ext_resource type="Texture2D" uid="uid://cginfytno0647" path="res://Assets/UI/PhoneIcons/envelope_read.png" id="15_6whkw"]
+[ext_resource type="Texture2D" uid="uid://bm4av25jomvd8" path="res://Assets/UI/PhoneIcons/call_missed.png" id="16_un6y2"]
+[ext_resource type="Texture2D" uid="uid://ds8uuiwnem7pk" path="res://Assets/UI/PhoneIcons/call_incoming.png" id="17_yt1vn"]
+[ext_resource type="Texture2D" uid="uid://duxitiw6n4skg" path="res://Assets/UI/PhoneIcons/call_outgoing.png" id="18_qs0uv"]
+[ext_resource type="Texture2D" uid="uid://e3ef561sol1k" path="res://Assets/UI/PhoneIcons/contact.png" id="19_2uo6k"]
+[ext_resource type="Texture2D" uid="uid://d3va1jya2hnsv" path="res://Assets/UI/PhoneIcons/avatar.png" id="20_7vd65"]
+[ext_resource type="Texture2D" uid="uid://dc6ivgj8bjqse" path="res://Assets/UI/PhoneIcons/warning.png" id="21_3c558"]
+[ext_resource type="Texture2D" uid="uid://brkvjp2wcd72o" path="res://Assets/UI/PhoneIcons/boot_logo.png" id="22_lhvha"]
+[ext_resource type="Texture2D" uid="uid://248yi8cn0qom" path="res://Assets/UI/PhoneIcons/signal_bars.png" id="23_ylwaw"]
+[ext_resource type="Texture2D" uid="uid://3ann8pnc8kpb" path="res://Assets/UI/PhoneIcons/battery.png" id="24_8up3g"]
+[ext_resource type="Shader" uid="uid://c1hvxdklbgmc3" path="res://Assets/UI/phone_lcd.gdshader" id="25_vt1cm"]
+
+[sub_resource type="Resource" id="Resource_e1ove"]
+script = ExtResource("4_rjvtr")
+title = "Call History"
+color = Color(0.18431373, 0.61960787, 0.30980393, 1)
+icon = ExtResource("5_6kulj")
+opens = "calls"
+
+[sub_resource type="Resource" id="Resource_rbcot"]
+script = ExtResource("4_rjvtr")
+title = "Messages"
+color = Color(0.8784314, 0.6039216, 0.08627451, 1)
+icon = ExtResource("6_osihj")
+opens = "messages"
+
+[sub_resource type="Resource" id="Resource_b8kp8"]
+script = ExtResource("4_rjvtr")
+title = "Contacts"
+color = Color(0.8745098, 0.35686275, 0.16470589, 1)
+icon = ExtResource("7_dpa08")
+opens = "contacts"
+
+[sub_resource type="Resource" id="Resource_fhkah"]
+script = ExtResource("4_rjvtr")
+title = "Gallery"
+color = Color(0.5411765, 0.32156864, 0.8117647, 1)
+icon = ExtResource("8_1x37v")
+opens = "gallery"
+
+[sub_resource type="Resource" id="Resource_y5pcr"]
+script = ExtResource("4_rjvtr")
+title = "E-mail"
+icon = ExtResource("9_ttc44")
+
+[sub_resource type="Resource" id="Resource_fjape"]
+script = ExtResource("4_rjvtr")
+title = "Music"
+color = Color(0.8235294, 0.2627451, 0.5411765, 1)
+icon = ExtResource("10_i67im")
+
+[sub_resource type="Resource" id="Resource_23kfx"]
+script = ExtResource("4_rjvtr")
+title = "Browser"
+color = Color(0.101960786, 0.6039216, 0.6509804, 1)
+icon = ExtResource("11_t8kdg")
+
+[sub_resource type="Resource" id="Resource_lesbk"]
+script = ExtResource("4_rjvtr")
+title = "Snake"
+color = Color(0.42352942, 0.56078434, 0.14117648, 1)
+icon = ExtResource("12_fe0hb")
+
+[sub_resource type="Resource" id="Resource_s0eir"]
+script = ExtResource("4_rjvtr")
+title = "NovaApp"
+color = Color(0.78431374, 0.19607843, 0.22745098, 1)
+icon = ExtResource("13_i5c2n")
+
+[sub_resource type="Gradient" id="Gradient_sl82c"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.16, 0.22, 0.55, 0.85)
+colors = PackedColorArray(0.1882353, 0.2, 0.23137255, 1, 0.23529412, 0.2509804, 0.28627452, 1, 0.1882353, 0.2, 0.23137255, 1, 0.16470589, 0.17254902, 0.2, 1, 0.13725491, 0.14509805, 0.16862746, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lfpqn"]
+gradient = SubResource("Gradient_sl82c")
+width = 192
+height = 288
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54ywa"]
+shader = ExtResource("25_vt1cm")
+shader_parameter/color_levels = 12.0
+shader_parameter/show_static = false
+shader_parameter/static_cells = Vector2(44, 33)
+shader_parameter/static_brightness = 0.6
+
+[sub_resource type="Gradient" id="Gradient_38rwi"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(0.015686275, 0.03137255, 0.09019608, 1, 0.06666667, 0.16078432, 0.3529412, 1, 0.16862746, 0.11372549, 0.3137255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80tei"]
+gradient = SubResource("Gradient_38rwi")
+width = 4
+height = 232
+fill_to = Vector2(0, 1)
+
+[node name="PhoneWindow" type="Window" unique_id=496691829]
+oversampling_override = 1.0
+title = "NovaKia"
+initial_position = 2
+size = Vector2i(576, 864)
+unresizable = true
+borderless = true
+always_on_top = true
+minimize_disabled = true
+maximize_disabled = true
+content_scale_size = Vector2i(192, 288)
+content_scale_mode = 2
+content_scale_aspect = 1
+content_scale_stretch = 1
+script = ExtResource("1_fkelp")
+
+[node name="PhoneUI" type="Control" parent="." unique_id=106204696]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bejpn")
+script = ExtResource("3_qwjnn")
+apps = Array[ExtResource("4_rjvtr")]([SubResource("Resource_e1ove"), SubResource("Resource_rbcot"), SubResource("Resource_b8kp8"), SubResource("Resource_fhkah"), SubResource("Resource_y5pcr"), SubResource("Resource_fjape"), SubResource("Resource_23kfx"), SubResource("Resource_lesbk"), SubResource("Resource_s0eir")])
+icon_envelope_new = ExtResource("14_h1q7y")
+icon_envelope_read = ExtResource("15_6whkw")
+icon_call_missed = ExtResource("16_un6y2")
+icon_call_incoming = ExtResource("17_yt1vn")
+icon_call_outgoing = ExtResource("18_qs0uv")
+icon_contact = ExtResource("19_2uo6k")
+icon_avatar = ExtResource("20_7vd65")
+icon_warning = ExtResource("21_3c558")
+icon_boot_logo = ExtResource("22_lhvha")
+signal_strip = ExtResource("23_ylwaw")
+battery_strip = ExtResource("24_8up3g")
+
+[node name="Body" type="TextureRect" parent="PhoneUI" unique_id=1730984047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_lfpqn")
+expand_mode = 1
+
+[node name="BodyEdge" type="Panel" parent="PhoneUI" unique_id=440069356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"BodyEdge"
+
+[node name="Earpiece" type="Panel" parent="PhoneUI" unique_id=1651004455]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 9.0
+offset_right = 116.0
+offset_bottom = 14.0
+theme_type_variation = &"Earpiece"
+
+[node name="Led" type="ColorRect" parent="PhoneUI" unique_id=688287527]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 166.0
+offset_top = 10.0
+offset_right = 169.0
+offset_bottom = 13.0
+color = Color(0.105882354, 0.16470589, 0.12156863, 1)
+
+[node name="ScreenFrame" type="Panel" parent="PhoneUI" unique_id=319021202]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 187.0
+offset_bottom = 259.0
+theme_type_variation = &"ScreenFrame"
+
+[node name="Logo" type="Label" parent="PhoneUI" unique_id=1008602744]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 263.0
+offset_right = 192.0
+offset_bottom = 286.0
+theme_type_variation = &"BezelLogo"
+text = "NOVAKIA"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="PhoneUI" unique_id=591807451]
+layout_mode = 0
+offset_top = 276.0
+offset_right = 192.0
+offset_bottom = 299.0
+theme_type_variation = &"BezelHint"
+text = "Q / ESC  PUT AWAY"
+horizontal_alignment = 1
+
+[node name="Screen" type="Control" parent="PhoneUI" unique_id=318029276]
+unique_name_in_owner = true
+clip_contents = true
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 256.0
+
+[node name="Wallpaper" type="TextureRect" parent="PhoneUI/Screen" unique_id=623938695]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_54ywa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_80tei")
+expand_mode = 1
+
+[node name="StatusBar" type="Panel" parent="PhoneUI/Screen" unique_id=286626149]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 12.0
+theme_type_variation = &"StatusBar"
+
+[node name="Signal" type="TextureRect" parent="PhoneUI/Screen/StatusBar" unique_id=1539256379]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 10.0
+
+[node name="StatusTime" type="Label" parent="PhoneUI/Screen/StatusBar" unique_id=1001721925]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 2.0
+offset_right = 176.0
+offset_bottom = 25.0
+theme_type_variation = &"SmallLabel"
+text = "11:32 PM"
+horizontal_alignment = 1
+
+[node name="Battery" type="TextureRect" parent="PhoneUI/Screen/StatusBar" unique_id=839413241]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 156.0
+offset_top = 3.0
+offset_right = 173.0
+offset_bottom = 10.0
+
+[node name="Pages" type="Control" parent="PhoneUI/Screen" unique_id=984940463]
+anchors_preset = 0
+offset_top = 12.0
+offset_right = 176.0
+offset_bottom = 216.0
+
+[node name="Home" type="Control" parent="PhoneUI/Screen/Pages" unique_id=788051764]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Carrier" type="Label" parent="PhoneUI/Screen/Pages/Home" unique_id=1770819093]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 12.0
+offset_right = 176.0
+offset_bottom = 35.0
+theme_type_variation = &"DimLabel"
+text = "NOVATEL"
+horizontal_alignment = 1
+
+[node name="ClockRow" type="HBoxContainer" parent="PhoneUI/Screen/Pages/Home" unique_id=812997285]
+layout_mode = 0
+offset_top = 34.0
+offset_right = 176.0
+offset_bottom = 71.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ClockHours" type="Label" parent="PhoneUI/Screen/Pages/Home/ClockRow" unique_id=677171445]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "11"
+
+[node name="ClockColon" type="Label" parent="PhoneUI/Screen/Pages/Home/ClockRow" unique_id=568782507]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = ":"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="ClockMinutes" type="Label" parent="PhoneUI/Screen/Pages/Home/ClockRow" unique_id=1064491793]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "32"
+
+[node name="Gap" type="Control" parent="PhoneUI/Screen/Pages/Home/ClockRow" unique_id=2014313285]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+
+[node name="ClockAmPm" type="Label" parent="PhoneUI/Screen/Pages/Home/ClockRow" unique_id=631750155]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "PM"
+
+[node name="Date" type="Label" parent="PhoneUI/Screen/Pages/Home" unique_id=1213845841]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 76.0
+offset_right = 176.0
+offset_bottom = 99.0
+text = "WED 13 NOV 2002"
+horizontal_alignment = 1
+
+[node name="Notices" type="VBoxContainer" parent="PhoneUI/Screen/Pages/Home" unique_id=342696207]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 132.0
+offset_right = 168.0
+offset_bottom = 172.0
+theme_override_constants/separation = 4
+
+[node name="Menu" type="Control" parent="PhoneUI/Screen/Pages" unique_id=1208223892]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 204.0
+
+[node name="MenuGrid" type="GridContainer" parent="PhoneUI/Screen/Pages/Menu" unique_id=1790664303]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 175.0
+offset_bottom = 187.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="AppPage" type="Panel" parent="PhoneUI/Screen/Pages" unique_id=735365504]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 204.0
+theme_type_variation = &"AppBg"
+
+[node name="Tabs" type="HBoxContainer" parent="PhoneUI/Screen/Pages/AppPage" unique_id=963694716]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 13.0
+theme_override_constants/separation = 0
+
+[node name="TabAll" type="Button" parent="PhoneUI/Screen/Pages/AppPage/Tabs" unique_id=2046293671]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"TabButton"
+text = "ALL"
+
+[node name="TabMissed" type="Button" parent="PhoneUI/Screen/Pages/AppPage/Tabs" unique_id=133977813]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"TabButton"
+text = "MISSED"
+
+[node name="Scroll" type="ScrollContainer" parent="PhoneUI/Screen/Pages/AppPage" unique_id=792754965]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="PhoneUI/Screen/Pages/AppPage/Scroll" unique_id=168833827]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="Header" type="Panel" parent="PhoneUI/Screen/Pages" unique_id=1590766007]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 16.0
+theme_type_variation = &"Header"
+
+[node name="HeaderTitle" type="Label" parent="PhoneUI/Screen/Pages/Header" unique_id=1969162699]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 124.0
+offset_bottom = 26.0
+text = "Messages"
+text_overrun_behavior = 3
+
+[node name="HeaderRight" type="Label" parent="PhoneUI/Screen/Pages/Header" unique_id=1526929097]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 124.0
+offset_top = 4.0
+offset_right = 173.0
+offset_bottom = 27.0
+theme_type_variation = &"SmallLabel"
+horizontal_alignment = 2
+
+[node name="SoftBar" type="Panel" parent="PhoneUI/Screen" unique_id=1433419752]
+layout_mode = 0
+offset_top = 216.0
+offset_right = 176.0
+offset_bottom = 232.0
+theme_type_variation = &"SoftBar"
+
+[node name="SoftLeft" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=389528316]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 1.0
+offset_right = 58.0
+offset_bottom = 16.0
+focus_mode = 0
+theme_type_variation = &"SoftKey"
+alignment = 0
+
+[node name="SoftCenter" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=1827115703]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 58.0
+offset_top = 1.0
+offset_right = 118.0
+offset_bottom = 16.0
+focus_mode = 0
+theme_type_variation = &"SoftKey"
+text = "MENU"
+
+[node name="SoftRight" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=347483784]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 118.0
+offset_top = 1.0
+offset_right = 176.0
+offset_bottom = 16.0
+focus_mode = 0
+theme_type_variation = &"SoftKey"
+alignment = 2
+
+[node name="Popup" type="Control" parent="PhoneUI/Screen" unique_id=1741489280]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="PhoneUI/Screen/Popup" unique_id=1842992522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="DialogHolder" type="Control" parent="PhoneUI/Screen/Popup" unique_id=1922179937]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dialog" type="PanelContainer" parent="PhoneUI/Screen/Popup/DialogHolder" unique_id=77506137]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -30.0
+offset_right = 74.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Dialog"
+
+[node name="DialogBox" type="VBoxContainer" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog" unique_id=1017805712]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DialogTitleBar" type="PanelContainer" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox" unique_id=1227141908]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"DialogTitle"
+
+[node name="DialogTitle" type="Label" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogTitleBar" unique_id=2060938967]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Snake"
+
+[node name="DialogMargin" type="MarginContainer" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox" unique_id=2011313981]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="DialogInner" type="VBoxContainer" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogMargin" unique_id=732054184]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="DialogRow" type="HBoxContainer" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogMargin/DialogInner" unique_id=1756785474]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="DialogIcon" type="TextureRect" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogMargin/DialogInner/DialogRow" unique_id=924122118]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="DialogText" type="Label" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogMargin/DialogInner/DialogRow" unique_id=392678706]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.043137256, 0.0627451, 0.13333334, 1)
+text = "App stopped working."
+autowrap_mode = 3
+
+[node name="DialogOk" type="Button" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogMargin/DialogInner" unique_id=1141581870]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DialogButton"
+text = "OK"
+
+[node name="Splash" type="ColorRect" parent="PhoneUI/Screen" unique_id=1009961434]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SplashStarBox" type="CenterContainer" parent="PhoneUI/Screen/Splash" unique_id=494489263]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 176.0
+offset_bottom = 94.0
+mouse_filter = 2
+
+[node name="SplashStar" type="TextureRect" parent="PhoneUI/Screen/Splash/SplashStarBox" unique_id=1432310431]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+expand_mode = 1
+
+[node name="SplashName" type="Label" parent="PhoneUI/Screen/Splash" unique_id=839371821]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 104.0
+offset_right = 176.0
+offset_bottom = 127.0
+theme_type_variation = &"MediumLabel"
+text = "NOVAKIA"
+horizontal_alignment = 1
+
+[node name="SplashTagline" type="Label" parent="PhoneUI/Screen/Splash" unique_id=806192816]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 126.0
+offset_right = 176.0
+offset_bottom = 149.0
+theme_type_variation = &"DimLabel"
+horizontal_alignment = 1
+
+[node name="SplashBar" type="Panel" parent="PhoneUI/Screen/Splash" unique_id=941035870]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 168.0
+offset_right = 128.0
+offset_bottom = 175.0
+theme_type_variation = &"SplashBar"
+
+[node name="SplashFill" type="ColorRect" parent="PhoneUI/Screen/Splash/SplashBar" unique_id=846982144]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 5.0
+color = Color(0.49803922, 0.69803923, 1, 1)

@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://qra8jbaw7do8"]
+
+[ext_resource type="Script" uid="uid://c8f35v5pmedig" path="res://UI/Mechanism/WorkBench/inventory.gd" id="1_tu4p1"]
+
+[node name="Inventory" type="Control" unique_id=193845220 node_paths=PackedStringArray("slot_container", "popup_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tu4p1")
+slot_container = NodePath("MarginContainer/SlotsContainer")
+popup_container = NodePath("MarginContainer2/PanelContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=366730138]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -287.5
+offset_bottom = 287.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 32
+
+[node name="SlotsContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2104813047]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="Slot1" type="PanelContainer" parent="MarginContainer/SlotsContainer" unique_id=494800593]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/SlotsContainer/Slot1" unique_id=180887978]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SlotsContainer/Slot1/SubViewportContainer" unique_id=1164552450]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/SlotsContainer/Slot1/SubViewportContainer/SubViewport" unique_id=278550889]
+transform = Transform3D(1, 0, 0, 0, 0.91249466, 0.40908876, 0, -0.40908876, 0.91249466, 0, 1, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MarginContainer/SlotsContainer/Slot1/SubViewportContainer/SubViewport/Camera3D" unique_id=1852206886]
+transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.91249454, 0, 0, 0)
+
+[node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot1" unique_id=1537534342]
+layout_mode = 2
+flat = true
+
+[node name="Slot2" type="PanelContainer" parent="MarginContainer/SlotsContainer" unique_id=327353058]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/SlotsContainer/Slot2" unique_id=1793975933]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SlotsContainer/Slot2/SubViewportContainer" unique_id=1599152982]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/SlotsContainer/Slot2/SubViewportContainer/SubViewport" unique_id=1792215828]
+transform = Transform3D(1, 0, 0, 0, 0.91249466, 0.40908876, 0, -0.40908876, 0.91249466, 0, 1, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MarginContainer/SlotsContainer/Slot2/SubViewportContainer/SubViewport/Camera3D" unique_id=540002951]
+transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.91249454, 0, 0, 0)
+
+[node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot2" unique_id=435666462]
+layout_mode = 2
+flat = true
+
+[node name="Slot3" type="PanelContainer" parent="MarginContainer/SlotsContainer" unique_id=210194546]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/SlotsContainer/Slot3" unique_id=2034152652]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SlotsContainer/Slot3/SubViewportContainer" unique_id=1972823087]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/SlotsContainer/Slot3/SubViewportContainer/SubViewport" unique_id=1861623881]
+transform = Transform3D(1, 0, 0, 0, 0.91249466, 0.40908876, 0, -0.40908876, 0.91249466, 0, 1, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MarginContainer/SlotsContainer/Slot3/SubViewportContainer/SubViewport/Camera3D" unique_id=1022149489]
+transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.91249454, 0, 0, 0)
+
+[node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot3" unique_id=31196433]
+layout_mode = 2
+flat = true
+
+[node name="Slot4" type="PanelContainer" parent="MarginContainer/SlotsContainer" unique_id=59341691]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/SlotsContainer/Slot4" unique_id=788431214]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SlotsContainer/Slot4/SubViewportContainer" unique_id=73781434]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/SlotsContainer/Slot4/SubViewportContainer/SubViewport" unique_id=1396339245]
+transform = Transform3D(1, 0, 0, 0, 0.91249466, 0.40908876, 0, -0.40908876, 0.91249466, 0, 1, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MarginContainer/SlotsContainer/Slot4/SubViewportContainer/SubViewport/Camera3D" unique_id=1402821046]
+transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.91249454, 0, 0, 0)
+
+[node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot4" unique_id=515537119]
+layout_mode = 2
+flat = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1767214103]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -93.5
+offset_top = -23.0
+offset_right = 93.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 64
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2" unique_id=1528379634]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer2/PanelContainer" unique_id=840363560]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "The Inventory is full LOL"
