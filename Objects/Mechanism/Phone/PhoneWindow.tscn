@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://cnd3r55xfljd5" path="res://Assets/SFX/call_ringing.wav" id="29_ring"]
 [ext_resource type="AudioStream" uid="uid://c8aibp0gbtdof" path="res://Assets/SFX/call_unavailable.wav" id="30_unavailable"]
 [ext_resource type="AudioStream" uid="uid://cy0l51vf0gp7b" path="res://Assets/SFX/sms_received.wav" id="31_sms"]
+[ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/SFX/WomanScreaming.mp3" id="32_scream"]
 
 [sub_resource type="Resource" id="Resource_e1ove"]
 script = ExtResource("4_rjvtr")
@@ -99,7 +100,7 @@ colors = PackedColorArray(0.1882353, 0.2, 0.23137255, 1, 0.23529412, 0.2509804, 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lfpqn"]
 gradient = SubResource("Gradient_sl82c")
 width = 192
-height = 288
+height = 320
 fill_to = Vector2(1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54ywa"]
@@ -116,20 +117,20 @@ colors = PackedColorArray(0.015686275, 0.03137255, 0.09019608, 1, 0.06666667, 0.
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_80tei"]
 gradient = SubResource("Gradient_38rwi")
 width = 4
-height = 232
+height = 256
 fill_to = Vector2(0, 1)
 
 [node name="PhoneWindow" type="Window" unique_id=496691829]
 oversampling_override = 1.0
 title = "NovaKia"
 initial_position = 2
-size = Vector2i(576, 864)
+size = Vector2i(576, 960)
 unresizable = true
 borderless = true
 always_on_top = true
 minimize_disabled = true
 maximize_disabled = true
-content_scale_size = Vector2i(192, 288)
+content_scale_size = Vector2i(192, 320)
 content_scale_mode = 2
 content_scale_aspect = 1
 content_scale_stretch = 1
@@ -201,24 +202,24 @@ layout_mode = 0
 offset_left = 5.0
 offset_top = 21.0
 offset_right = 187.0
-offset_bottom = 259.0
+offset_bottom = 283.0
 theme_type_variation = &"ScreenFrame"
 
 [node name="Logo" type="Label" parent="PhoneUI" unique_id=1008602744]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = 263.0
+offset_top = 289.0
 offset_right = 192.0
-offset_bottom = 286.0
+offset_bottom = 312.0
 theme_type_variation = &"BezelLogo"
 text = "NOVAKIA"
 horizontal_alignment = 1
 
 [node name="Hint" type="Label" parent="PhoneUI" unique_id=591807451]
 layout_mode = 0
-offset_top = 276.0
+offset_top = 303.0
 offset_right = 192.0
-offset_bottom = 299.0
+offset_bottom = 326.0
 theme_type_variation = &"BezelHint"
 text = "Q / ESC  PUT AWAY"
 horizontal_alignment = 1
@@ -230,7 +231,7 @@ anchors_preset = 0
 offset_left = 8.0
 offset_top = 24.0
 offset_right = 184.0
-offset_bottom = 256.0
+offset_bottom = 280.0
 
 [node name="Wallpaper" type="TextureRect" parent="PhoneUI/Screen" unique_id=623938695]
 unique_name_in_owner = true
@@ -280,7 +281,7 @@ offset_bottom = 10.0
 anchors_preset = 0
 offset_top = 12.0
 offset_right = 176.0
-offset_bottom = 216.0
+offset_bottom = 240.0
 
 [node name="Home" type="Control" parent="PhoneUI/Screen/Pages" unique_id=788051764]
 unique_name_in_owner = true
@@ -353,9 +354,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
-offset_top = 132.0
+offset_top = 144.0
 offset_right = 168.0
-offset_bottom = 172.0
+offset_bottom = 184.0
 theme_override_constants/separation = 4
 
 [node name="Menu" type="Control" parent="PhoneUI/Screen/Pages" unique_id=1208223892]
@@ -363,7 +364,7 @@ unique_name_in_owner = true
 anchors_preset = 0
 offset_top = 16.0
 offset_right = 176.0
-offset_bottom = 204.0
+offset_bottom = 228.0
 
 [node name="MenuGrid" type="GridContainer" parent="PhoneUI/Screen/Pages/Menu" unique_id=1790664303]
 unique_name_in_owner = true
@@ -371,7 +372,7 @@ layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 175.0
-offset_bottom = 187.0
+offset_bottom = 211.0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
@@ -381,7 +382,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_top = 16.0
 offset_right = 176.0
-offset_bottom = 204.0
+offset_bottom = 228.0
 theme_type_variation = &"AppBg"
 
 [node name="Tabs" type="HBoxContainer" parent="PhoneUI/Screen/Pages/AppPage" unique_id=963694716]
@@ -453,9 +454,9 @@ horizontal_alignment = 2
 
 [node name="SoftBar" type="Panel" parent="PhoneUI/Screen" unique_id=1433419752]
 layout_mode = 0
-offset_top = 216.0
+offset_top = 240.0
 offset_right = 176.0
-offset_bottom = 232.0
+offset_bottom = 256.0
 theme_type_variation = &"SoftBar"
 
 [node name="SoftLeft" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=389528316]
@@ -602,9 +603,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="SplashStarBox" type="CenterContainer" parent="PhoneUI/Screen/Splash" unique_id=494489263]
 layout_mode = 0
-offset_top = 44.0
+offset_top = 56.0
 offset_right = 176.0
-offset_bottom = 94.0
+offset_bottom = 106.0
 mouse_filter = 2
 
 [node name="SplashStar" type="TextureRect" parent="PhoneUI/Screen/Splash/SplashStarBox" unique_id=1432310431]
@@ -616,9 +617,9 @@ expand_mode = 1
 [node name="SplashName" type="Label" parent="PhoneUI/Screen/Splash" unique_id=839371821]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = 104.0
+offset_top = 116.0
 offset_right = 176.0
-offset_bottom = 127.0
+offset_bottom = 139.0
 theme_type_variation = &"MediumLabel"
 text = "NOVAKIA"
 horizontal_alignment = 1
@@ -626,9 +627,9 @@ horizontal_alignment = 1
 [node name="SplashTagline" type="Label" parent="PhoneUI/Screen/Splash" unique_id=806192816]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = 126.0
+offset_top = 138.0
 offset_right = 176.0
-offset_bottom = 149.0
+offset_bottom = 161.0
 theme_type_variation = &"DimLabel"
 horizontal_alignment = 1
 
@@ -636,9 +637,9 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 48.0
-offset_top = 168.0
+offset_top = 180.0
 offset_right = 128.0
-offset_bottom = 175.0
+offset_bottom = 187.0
 theme_type_variation = &"SplashBar"
 
 [node name="SplashFill" type="ColorRect" parent="PhoneUI/Screen/Splash/SplashBar" unique_id=846982144]
@@ -673,3 +674,10 @@ stream = ExtResource("30_unavailable")
 [node name="SmsSound" type="AudioStreamPlayer" parent="PhoneUI"]
 unique_name_in_owner = true
 stream = ExtResource("31_sms")
+
+[node name="CallerSound" type="AudioStreamPlayer" parent="PhoneUI"]
+unique_name_in_owner = true
+
+[node name="ScreamSound" type="AudioStreamPlayer" parent="PhoneUI"]
+unique_name_in_owner = true
+stream = ExtResource("32_scream")

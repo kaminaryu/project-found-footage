@@ -51,14 +51,22 @@ const WASD := {
 const KEYPAD := ["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"]
 const KEY_LETTERS := {"2": "ABC", "3": "DEF", "4": "GHI", "5": "JKL", "6": "MNO", "7": "PQRS", "8": "TUV", "9": "WXYZ"}
 const MAX_DIGITS := 20
-## How long the right code rings before the line goes dead and its text arrives.
-const SECRET_RING_TIME := 2.2
+## How long a secret code rings before someone picks up (and before the scare starts).
+const ONE_RING_TIME := 2.2
+## The scare: after this many wrong numbers, for about this many seconds. Once per game.
+const SCARE_AFTER := 3
+const SCARE_TIME := 5.0
+const SCARE_RED := Color("#ff1414")
+const SCARE_TEXT := "I SEE YOU"
+const SCARE_GLITCHES := ["I S EE YOU", "I SEE Y0U", "I 5EE YOU", "1 SEE YOU", "I SEE  YOU", "I SE3 YOU", "I SEE YO U", "I SEE YOU I SEE", "SEE YOU"]
 
 # "static" = remembered for the whole game, even after the phone window closes.
 static var _booted := false
 static var _read_threads := {}          # sender name -> true once the thread was opened
 static var _seen_missed_calls := false
 static var _sms_received: Array[Dictionary] = []   # secret texts the Call app already sent
+static var _wrong_calls := 0              # wrong numbers dialled this game
+static var _scared := false               # the "I SEE YOU" scare already happened
 
 @onready var _header: Panel = %Header
 @onready var _header_title: Label = %HeaderTitle
@@ -91,6 +99,13 @@ var _dialed := ""                        # what is typed on the Call keypad
 var _dial_display: Label
 var _call_status: Label
 var _call_tween: Tween
+var _call_connected_at := -1             # when someone picked up (ms); -1 = not connected
+var _scare: ColorRect                    # the black screen while the scare is on
+var _scare_noise: ColorRect
+var _scare_lines: Array[Label] = []
+var _scare_tick := 0.0
+var _screaming := false
+var _window_home := Vector2i.ZERO
 
 
 func _ready() -> void:
@@ -131,6 +146,11 @@ func _process(delta: float) -> void:
 	# The little light above the screen flashes while something is unread.
 	var something_new := _unread_count() + _missed_count() > 0
 	%Led.color = LED_ON if something_new and fmod(_clock, 2.0) < 0.12 else LED_OFF
+	if _call_connected_at >= 0:   # call timer, like 00:07
+		var seconds := int((Time.get_ticks_msec() - _call_connected_at) / 1000.0)
+		_call_status.text = "%02d:%02d" % [floori(seconds / 60.0), seconds % 60]
+	if _screaming:
+		_glitch_scare(delta)
 
 
 # ---------------------------------------------------------------- input
@@ -140,6 +160,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("use_phone"):
 		close_requested.emit()
 		get_viewport().set_input_as_handled()
+		return
+	if _scare:
+		get_viewport().set_input_as_handled()   # nothing works while it screams
 		return
 	if _booting:
 		return
@@ -595,7 +618,7 @@ func _show_dial(focus: int) -> void:
 	grid.add_theme_constant_override("v_separation", 0)
 	_content.add_child(grid)
 	for key: String in KEYPAD:
-		var button := _add_key(grid, key, KEY_LETTERS.get(key, " "), 30)
+		var button := _add_key(grid, key, KEY_LETTERS.get(key, " "), 34)
 		button.pressed.connect(_dial_press.bind(key))
 
 	var bottom := _margin(0, 2, 0, 0)
@@ -689,8 +712,9 @@ func _place_call() -> void:
 		_open(_show_calling.bind(_dialed))
 
 
-## The calling screen. A wrong number rings, then says it is unavailable.
-## A secret code from phone_data.json rings once, goes dead and sends its text.
+## The calling screen. A wrong number rings, then says it is unavailable
+## (the 3rd wrong number sets off the scare instead, once per game).
+## A secret code from phone_data.json rings once, then plays its sound and/or sends its text.
 func _show_calling(_focus: int, number: String) -> void:
 	_begin_app("dial", "calling", "Call")
 	_set_softkeys("", "", "END")
@@ -706,22 +730,42 @@ func _show_calling(_focus: int, number: String) -> void:
 	_call_tween = create_tween()
 	_call_tween.tween_callback(%RingSound.play)
 	if secret.is_empty():
+		_wrong_calls += 1
+		if _wrong_calls >= SCARE_AFTER and not _scared:
+			_call_tween.tween_interval(ONE_RING_TIME)
+			_call_tween.tween_callback(_start_scare)
+			return
 		_call_tween.tween_interval(_sound_length(%RingSound))
 		_call_tween.tween_callback(_set_call_status.bind("Number unavailable", MISSED))
 		_call_tween.tween_callback(%UnavailableSound.play)
 		_call_tween.tween_interval(_sound_length(%UnavailableSound))
 	else:
-		_call_tween.tween_interval(SECRET_RING_TIME)
+		_call_tween.tween_interval(ONE_RING_TIME)
 		_call_tween.tween_callback(%RingSound.stop)
-		_call_tween.tween_callback(_receive_sms.bind(secret))
+		var sound := _load_sound(str(secret.get("sound", "")))
+		if sound:   # someone picks up: the line is quiet for a moment, then the sound plays
+			%CallerSound.stream = sound
+			_call_tween.tween_callback(_connect_call)
+			_call_tween.tween_interval(float(secret.get("wait", 0.0)))
+			_call_tween.tween_callback(%CallerSound.play)
+			_call_tween.tween_interval(sound.get_length())
+		if str(secret.get("text", "")) != "":
+			_call_tween.tween_callback(_receive_sms.bind(secret))
 	_call_tween.tween_callback(_set_call_status.bind("Call ended", TEXT_DIM))
 	_call_tween.tween_interval(1.0)
 	_call_tween.tween_callback(_back)
 
 
 func _set_call_status(text: String, colour: Color) -> void:
+	_call_connected_at = -1   # stops the call timer
 	_call_status.text = text
 	_call_status.add_theme_color_override("font_color", colour)
+
+
+## Someone picked up: the status shows how long the call has lasted.
+func _connect_call() -> void:
+	_set_call_status("00:00", TEXT)
+	_call_connected_at = Time.get_ticks_msec()
 
 
 ## Hangs up: stops the call sounds and whatever the call was about to do.
@@ -729,13 +773,25 @@ func _end_call() -> void:
 	if _call_tween:
 		_call_tween.kill()
 		_call_tween = null
+	_call_connected_at = -1
 	%RingSound.stop()
 	%UnavailableSound.stop()
+	%CallerSound.stop()
 
 
 ## How long a sound plays, or 2 seconds when no sound file is set yet.
 func _sound_length(player: AudioStreamPlayer) -> float:
 	return player.stream.get_length() if player.stream else 2.0
+
+
+## The sound a secret code plays on the call ("sound" in phone_data.json), or null.
+func _load_sound(path: String) -> AudioStream:
+	if path == "":
+		return null
+	if not ResourceLoader.exists(path):
+		push_warning("Phone data: there is no sound file at " + path)
+		return null
+	return load(path) as AudioStream
 
 
 ## The secret in phone_data.json whose code was dialled, or {} for a wrong number.
@@ -820,6 +876,84 @@ func _announce_sms(secret: Dictionary) -> void:
 	%DialogOk.grab_focus()
 	_set_softkeys("", "OK", "")
 	_buzz()
+
+
+# ---------------------------------------------------------------- the "I SEE YOU" scare
+
+## The 3rd wrong number: the whole phone goes black, red "I SEE YOU" fills it from top
+## to bottom, everything glitches and a woman screams. Then it is all back to normal.
+func _start_scare() -> void:
+	_scared = true
+	%RingSound.stop()
+	_window_home = get_window().position
+	_scare = ColorRect.new()                 # covers the whole phone and eats the clicks
+	_scare.color = Color.BLACK
+	_fill(_scare)
+	add_child(_scare)
+	_scare_noise = ColorRect.new()           # TV static that flashes now and then
+	_scare_noise.material = _static_material
+	_scare_noise.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_scare_noise.modulate.a = 0.5
+	_scare_noise.visible = false
+	_fill(_scare_noise)
+	_scare.add_child(_scare_noise)
+	_scare_lines.clear()
+
+	var line_height := get_theme_font("font", "Label").get_height(20) + 2.0
+	var lines := ceili(size.y / line_height)
+	var tw := create_tween()
+	tw.tween_interval(0.6)                   # a moment of black and silence...
+	tw.tween_callback(_scream)               # ...then the scream
+	for i in lines:                          # "I SEE YOU" fills the phone, top to bottom
+		tw.tween_callback(_add_scare_line.bind(i * line_height))
+		tw.tween_interval(0.07)
+	tw.tween_interval(maxf(SCARE_TIME - lines * 0.07, 0.0))
+	tw.tween_callback(_end_scare)
+
+
+func _scream() -> void:
+	%ScreamSound.play()
+	_screaming = true
+
+
+func _add_scare_line(y: float) -> void:
+	var line := _label(SCARE_TEXT, 20, SCARE_RED)
+	line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	line.position.y = y
+	line.size.x = size.x
+	line.add_theme_color_override("font_shadow_color", Color(0, 1, 1, 0.5))   # colour fringe
+	_scare.add_child(line)
+	_scare_lines.append(line)
+
+
+## Every few frames: lines jump sideways, letters break, colours flip, static flashes
+## and the phone window shakes.
+func _glitch_scare(delta: float) -> void:
+	_scare_tick -= delta
+	if _scare_tick > 0.0:
+		return
+	_scare_tick = 0.05
+	var flip := randf() < 0.1                # a frame of red screen with black words
+	_scare.color = SCARE_RED if flip else Color.BLACK
+	_scare_noise.visible = randf() < 0.15
+	for line in _scare_lines:
+		line.position.x = randi_range(-10, 10) if randf() < 0.35 else 0
+		line.text = SCARE_GLITCHES.pick_random() if randf() < 0.2 else SCARE_TEXT
+		line.visible = randf() > 0.05
+		line.add_theme_color_override("font_color", Color.BLACK if flip else SCARE_RED)
+		line.add_theme_constant_override("shadow_offset_x", randi_range(-3, 3))
+	get_window().position = _window_home + Vector2i(randi_range(-6, 6), randi_range(-6, 6))
+
+
+func _end_scare() -> void:
+	_screaming = false
+	%ScreamSound.stop()
+	get_window().position = _window_home
+	_scare.queue_free()
+	_scare = null
+	_scare_lines.clear()
+	if _screen_id == "calling":
+		_back()   # the call is over: back on the keypad as if nothing happened
 
 
 # ---------------------------------------------------------------- contacts

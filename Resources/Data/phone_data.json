@@ -199,9 +199,10 @@
 	},
 
 	"dial": {
-		"_readme": "The Call app. Any number that is not a code below rings, then says the number is unavailable. Dialling a code rings once, the line goes dead, and its text arrives in Messages (once per game). A code can be digits or a WORD: each letter is the keypad key it is printed on, like old phones (WOLF = 9653). from = who the text comes from (a new name gets its own chat at the top).",
+		"_readme": "The Call app. Any number that is not a code below rings, then says the number is unavailable (the 3rd wrong number in a game sets off the I SEE YOU scare instead, only once). A code rings once, then: sound = someone picks up, the line stays quiet for wait seconds, then that sound file plays. text = after the call that text arrives in Messages (once per game), from = who sends it (a new name gets its own chat at the top), with its date and time. A code can be digits or a WORD: each letter is the keypad key it is printed on, like old phones (WOLF = 9653).",
 		"secrets": [
-			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0Lf_is_45L33P}" }
+			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0Lf_is_45L33P}" },
+			{ "code": "7812", "sound": "res://Assets/SFX/crying.wav", "wait": 3 }
 		]
 	},
 
