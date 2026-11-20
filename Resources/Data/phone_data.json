@@ -1,0 +1,79 @@
+{
+	"_readme": "Everything the NovaKia phone shows comes from this file. Edit the text, keep the quotes, commas and brackets. Messages: from_me true = the player sent it. Calls: type is incoming, outgoing or missed. Gallery: image is a res:// path to a picture (leave it empty for TV static). signal and battery go from 0 to 4 bars.",
+
+	"phone": {
+		"brand": "NOVAKIA",
+		"boot_tagline": "",
+		"carrier": "NOVATEL",
+		"time": "11:32",
+		"ampm": "PM",
+		"date": "WED 13 NOV 2002",
+		"signal": 1,
+		"battery": 2
+	},
+
+	"messages": [
+		{
+			"from": "Mom",
+			"time": "11:20 PM",
+			"unread": true,
+			"messages": [
+				{ "from_me": false, "time": "11:02 PM", "text": "Placeholder: first message from Mom." },
+				{ "from_me": true,  "time": "11:05 PM", "text": "Placeholder: the player's reply." },
+				{ "from_me": false, "time": "11:20 PM", "text": "Placeholder: a longer message so you can see how the text wraps inside the bubble on the tiny screen." }
+			]
+		},
+		{
+			"from": "Unknown",
+			"time": "10:47 PM",
+			"unread": true,
+			"messages": [
+				{ "from_me": false, "time": "10:47 PM", "text": "Placeholder: a message from an unknown number." }
+			]
+		},
+		{
+			"from": "Friend A",
+			"time": "9:15 PM",
+			"unread": false,
+			"messages": [
+				{ "from_me": false, "time": "9:10 PM", "text": "Placeholder message." },
+				{ "from_me": true,  "time": "9:15 PM", "text": "Placeholder reply." }
+			]
+		},
+		{
+			"from": "Friend B",
+			"time": "YESTERDAY",
+			"unread": false,
+			"messages": [
+				{ "from_me": false, "time": "YESTERDAY", "text": "Placeholder message from yesterday." }
+			]
+		}
+	],
+
+	"calls": [
+		{ "name": "Unknown",  "number": "PRIVATE",  "type": "missed",   "time": "11:31 PM" },
+		{ "name": "Mom",      "number": "555-0142", "type": "missed",   "time": "11:10 PM" },
+		{ "name": "Friend A", "number": "555-0187", "type": "outgoing", "time": "9:40 PM" },
+		{ "name": "Friend B", "number": "555-0123", "type": "incoming", "time": "8:02 PM" },
+		{ "name": "Mom",      "number": "555-0142", "type": "incoming", "time": "YESTERDAY" }
+	],
+
+	"contacts": {
+		"me": { "name": "My Profile", "number": "555-0100", "note": "Placeholder: who the player is." },
+		"friends": [
+			{ "name": "Mom",      "number": "555-0142", "note": "Placeholder note." },
+			{ "name": "Friend A", "number": "555-0187", "note": "Placeholder note." },
+			{ "name": "Friend B", "number": "555-0123", "note": "Placeholder note." },
+			{ "name": "Friend C", "number": "555-0164", "note": "Placeholder note." }
+		]
+	},
+
+	"gallery": [
+		{ "title": "IMG_0001", "date": "12 NOV 2002", "image": "" },
+		{ "title": "IMG_0002", "date": "12 NOV 2002", "image": "" },
+		{ "title": "IMG_0003", "date": "13 NOV 2002", "image": "" },
+		{ "title": "IMG_0004", "date": "13 NOV 2002", "image": "" },
+		{ "title": "IMG_0005", "date": "13 NOV 2002", "image": "" },
+		{ "title": "IMG_0006", "date": "13 NOV 2002", "image": "" }
+	]
+}

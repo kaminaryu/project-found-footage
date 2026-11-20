@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bkmccuuyfk5qu"]
+
+[ext_resource type="Script" uid="uid://dfjm8xpo2fvwo" path="res://Objects/Mechanism/Desktop/desktop_icon.gd" id="1_1e36j"]
+[ext_resource type="Texture2D" uid="uid://bib1j72nk2v3q" path="res://Assets/UI/Desktop/Icons/DefaultIcon64.png" id="2_ul37v"]
+
+[node name="DesktopIcon" type="VBoxContainer" unique_id=1524986701 node_paths=PackedStringArray("thumbnail", "name_label")]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+script = ExtResource("1_1e36j")
+thumbnail = NodePath("Thumbnail")
+name_label = NodePath("Name")
+
+[node name="Thumbnail" type="TextureButton" parent="." unique_id=970115271]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+texture_normal = ExtResource("2_ul37v")
+
+[node name="Name" type="Label" parent="." unique_id=1946541256]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Application"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Thumbnail" to="." method="_on_thumbnail_pressed"]
