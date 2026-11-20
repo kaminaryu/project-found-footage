@@ -13,7 +13,6 @@ extends CharacterBody3D
 @onready var body: Node3D = $Body
 @onready var interact_Ray: RayCast3D = $CameraPivot/SpringArm3D/Camera3D/InteractRay
 @onready var interact_label: Label = $CanvasLayer/InteractLabel
-@onready var phone_hint: Label = $CanvasLayer/PhoneHint
 @onready var held_phone: Node3D= $CameraPivot/SpringArm3D/Camera3D/HeldPhone
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -109,10 +108,11 @@ func update_interaction() -> void:
 
 func _process(_delta: float) -> void:
 	interact_label.visible = looked_at != null
-	phone_hint.visible = "phone" in inventory and not is_frozen
+
 
 func add_item(item:String) -> void:
 	inventory.append(item)
+
 
 #this is when the user use phone, the main game will freeze temporarily
 func use_phone() -> void:
