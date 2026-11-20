@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://detum0opvrvf2"]
 
 [ext_resource type="PackedScene" uid="uid://u81g5owet5ls" path="res://Objects/Player/player.tscn" id="1_2cquo"]
-[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="2_7nbji"]
+[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://scenes/scaryroom.scn" id="2_7nbji"]
+[ext_resource type="PackedScene" uid="uid://cyccm0vqbwimc" path="res://Assets/Models/Customer/Customer.tscn" id="3_jmp2u"]
 
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 
@@ -9,3 +10,6 @@
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.9784446, 0.1, -2.5)
 
 [node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("2_7nbji")]
+
+[node name="Customer" parent="." unique_id=2090849478 instance=ExtResource("3_jmp2u")]
+transform = Transform3D(0.010331284, 0, -0.99994665, 0, 1, 0, 0.99994665, 0, 0.010331284, 8.110053, 0.022089481, -2.1014986)
