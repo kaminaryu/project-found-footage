@@ -29,6 +29,7 @@ var looked_at: Node = null
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	held_phone.visible = false
+	GameMaster.freezing_main_window.connect(_on_main_window_freezing)
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if frozen , ignore
@@ -103,18 +104,8 @@ func update_interaction() -> void:
 		looked_at = null
 		thing.interact(self)
 
-#Freeze function
-func freeze(frozen: bool) -> void:
-	is_frozen = frozen
-	velocity = Vector3.ZERO
-	if frozen:
-		if looked_at:
-			looked_at.set_highlight(false)
-			looked_at = null
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		get_window().grab_focus()
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 
 func _process(_delta: float) -> void:
 	interact_label.visible = looked_at != null
@@ -125,7 +116,7 @@ func add_item(item:String) -> void:
 
 #this is when the user use phone, the main game will freeze temporarily
 func use_phone() -> void:
-	freeze(true)
+	GameMaster.freeze_main_window(true)
 	held_phone.visible = true
 	anim.play("open_phone")
 	await anim.animation_finished
@@ -141,4 +132,18 @@ func _on_phone_window_closed(window: Window) -> void:
 	anim.play_backwards("open_phone")
 	await anim.animation_finished
 	held_phone.visible = false
-	freeze(false)
+	GameMaster.freeze_main_window(false)
+
+
+# Freeze signal listener
+func _on_main_window_freezing(frozen: bool) -> void:
+	is_frozen = frozen
+	velocity = Vector3.ZERO
+	if frozen:
+		if looked_at:
+			looked_at.set_highlight(false)
+			looked_at = null
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		get_window().grab_focus()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

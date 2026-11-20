@@ -5,7 +5,6 @@ extends GameWindow
 @export var EVIL_wallpaper: TextureRect
 
 
-
 func _window_ready() -> void:
 	var saved_data := load_data_from_saves()
 	var sokoban_finished: bool = saved_data.get("sokoban_finished", false)
@@ -33,3 +32,8 @@ func set_wallpaper(sokoban_finished: bool) -> void :
 	else :
 		normal_wallpaper.show()
 		EVIL_wallpaper.hide()
+
+
+func _on_close_requested() -> void:
+	GameMaster.freezing_main_window.emit(false)
+	super()
