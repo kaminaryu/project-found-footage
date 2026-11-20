@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://3tkk8jmhphx7"]
+
+[ext_resource type="Shader" uid="uid://dn65v51yuci1m" path="res://Scenes/Menu/pause_menu.gdshader" id="1_i0al5"]
+[ext_resource type="Theme" uid="uid://b75gwc06xe8kx" path="res://Themes/main_menu.tres" id="2_jnmi5"]
+[ext_resource type="PackedScene" uid="uid://d0apmagpe61a" path="res://Scenes/Menu/menu_button.tscn" id="3_mux1j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]
+shader = ExtResource("1_i0al5")
+shader_parameter/lod = 1.450000068875
+
+[sub_resource type="Animation" id="Animation_jnmi5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0km3y"]
+resource_name = "close"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(2.928173, 0.2176377),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(2.928173, 0.2176377),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(900, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mux1j"]
+resource_name = "open"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(0.2176377, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(0.2176377, 1),
+"update": 0,
+"values": [Vector2(900, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0km3y"]
+_data = {
+&"RESET": SubResource("Animation_jnmi5"),
+&"close": SubResource("Animation_0km3y"),
+&"open": SubResource("Animation_mux1j")
+}
+
+[node name="PauseMenu" type="Control" unique_id=1951878830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=357186011]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_xrivr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1781483960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 900.0
+offset_right = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 265
+theme_override_constants/margin_top = 68
+theme_override_constants/margin_right = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1018779022]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1788451635]
+custom_minimum_size = Vector2(0, 90.95)
+layout_mode = 2
+theme = ExtResource("2_jnmi5")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "[wave]paused"
+horizontal_alignment = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1076233356]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Resume" parent="MarginContainer/VBoxContainer/Buttons" unique_id=976781313 instance=ExtResource("3_mux1j")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Buttons/Resume" index="1" unique_id=1652507557]
+text = "resume"
+
+[node name="Exit" parent="MarginContainer/VBoxContainer/Buttons" unique_id=157554636 instance=ExtResource("3_mux1j")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Buttons/Exit" index="1" unique_id=1652507557]
+text = "exit to main menu"
+
+[node name="Transition" type="AnimationPlayer" parent="." unique_id=1719839414]
+libraries/ = SubResource("AnimationLibrary_0km3y")
+
+[editable path="MarginContainer/VBoxContainer/Buttons/Resume"]
+[editable path="MarginContainer/VBoxContainer/Buttons/Exit"]

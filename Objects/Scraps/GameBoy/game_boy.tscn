@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b8gep7u308tk6"]
+
+[ext_resource type="Script" uid="uid://bcd0xnkpsifjh" path="res://Objects/Scraps/hover_detector.gd" id="2_xhgr8"]
+[ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_hint.tscn" id="3_cxhpb"]
+[ext_resource type="Script" uid="uid://7ai7wd03owc3" path="res://Objects/Scraps/Placeable/part_slot.gd" id="4_pslot"]
+[ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Scraps/Placeable/placeable_part.gd" id="5_ppart"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_at2u3"]
+albedo_color = Color(1, 0.41960785, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ihc1y"]
+material = SubResource("StandardMaterial3D_at2u3")
+size = Vector3(1.7254639, 1.053833, 0.21392822)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p0arp"]
+data = PackedVector3Array(-0.8627, 0.5269, 0.107, 0.8627, 0.5269, 0.107, -0.8627, -0.5269, 0.107, 0.8627, 0.5269, 0.107, 0.8627, -0.5269, 0.107, -0.8627, -0.5269, 0.107, 0.8627, 0.5269, -0.107, -0.8627, 0.5269, -0.107, 0.8627, -0.5269, -0.107, -0.8627, 0.5269, -0.107, -0.8627, -0.5269, -0.107, 0.8627, -0.5269, -0.107, 0.8627, 0.5269, 0.107, 0.8627, 0.5269, -0.107, 0.8627, -0.5269, 0.107, 0.8627, 0.5269, -0.107, 0.8627, -0.5269, -0.107, 0.8627, -0.5269, 0.107, -0.8627, 0.5269, -0.107, -0.8627, 0.5269, 0.107, -0.8627, -0.5269, -0.107, -0.8627, 0.5269, 0.107, -0.8627, -0.5269, 0.107, -0.8627, -0.5269, -0.107, 0.8627, 0.5269, 0.107, -0.8627, 0.5269, 0.107, 0.8627, 0.5269, -0.107, -0.8627, 0.5269, 0.107, -0.8627, 0.5269, -0.107, 0.8627, 0.5269, -0.107, -0.8627, -0.5269, 0.107, 0.8627, -0.5269, 0.107, -0.8627, -0.5269, -0.107, 0.8627, -0.5269, 0.107, 0.8627, -0.5269, -0.107, -0.8627, -0.5269, -0.107)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekhe2"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l26sq"]
+material = SubResource("StandardMaterial3D_ekhe2")
+size = Vector3(0.83984375, 0.5439453, 0.13183594)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cxhpb"]
+data = PackedVector3Array(-0.4199, 0.27199998, 0.0659, 0.4199, 0.27199998, 0.0659, -0.4199, -0.27199998, 0.0659, 0.4199, 0.27199998, 0.0659, 0.4199, -0.27199998, 0.0659, -0.4199, -0.27199998, 0.0659, 0.4199, 0.27199998, -0.0659, -0.4199, 0.27199998, -0.0659, 0.4199, -0.27199998, -0.0659, -0.4199, 0.27199998, -0.0659, -0.4199, -0.27199998, -0.0659, 0.4199, -0.27199998, -0.0659, 0.4199, 0.27199998, 0.0659, 0.4199, 0.27199998, -0.0659, 0.4199, -0.27199998, 0.0659, 0.4199, 0.27199998, -0.0659, 0.4199, -0.27199998, -0.0659, 0.4199, -0.27199998, 0.0659, -0.4199, 0.27199998, -0.0659, -0.4199, 0.27199998, 0.0659, -0.4199, -0.27199998, -0.0659, -0.4199, 0.27199998, 0.0659, -0.4199, -0.27199998, 0.0659, -0.4199, -0.27199998, -0.0659, 0.4199, 0.27199998, 0.0659, -0.4199, 0.27199998, 0.0659, 0.4199, 0.27199998, -0.0659, -0.4199, 0.27199998, 0.0659, -0.4199, 0.27199998, -0.0659, 0.4199, 0.27199998, -0.0659, -0.4199, -0.27199998, 0.0659, 0.4199, -0.27199998, 0.0659, -0.4199, -0.27199998, -0.0659, 0.4199, -0.27199998, 0.0659, 0.4199, -0.27199998, -0.0659, -0.4199, -0.27199998, -0.0659)
+
+[node name="GameBoy" type="Node3D" unique_id=1570495470]
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1188030561]
+mesh = SubResource("BoxMesh_ihc1y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Body" unique_id=1815218791]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/StaticBody3D" unique_id=1710115422]
+shape = SubResource("ConcavePolygonShape3D_p0arp")
+
+[node name="BatterySlot" type="Node3D" parent="." unique_id=149780762]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.01972866, -0.16953826)
+script = ExtResource("4_pslot")
+accepted_type = &"battery"
+
+[node name="Battery" type="MeshInstance3D" parent="BatterySlot" unique_id=268927038]
+mesh = SubResource("BoxMesh_l26sq")
+script = ExtResource("5_ppart")
+part_type = &"battery"
+display_name = "Battery"
+
+[node name="HoverDetector" type="StaticBody3D" parent="BatterySlot/Battery" unique_id=59384571 node_paths=PackedStringArray("hover_label")]
+script = ExtResource("2_xhgr8")
+hover_label = NodePath("../InteractionDialog")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BatterySlot/Battery/HoverDetector" unique_id=1083409677]
+shape = SubResource("ConcavePolygonShape3D_cxhpb")
+
+[node name="InteractionDialog" parent="BatterySlot/Battery" unique_id=1457287106 instance=ExtResource("3_cxhpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39004898, -0.6835488)
+visible = false
+text = "Press [Left Click]
+to remove Battery"

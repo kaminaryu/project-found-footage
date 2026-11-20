@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://dyo14jwsyibt0"]
+
+[ext_resource type="Script" uid="uid://c2oriqeni18c2" path="res://Scenes/Mechanism/Desktop/desktopwindow.gd" id="1_ih84g"]
+[ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_oflmd"]
+[ext_resource type="Texture2D" uid="uid://3oeh2epjap3h" path="res://Assets/UI/Desktop/DesktopWallpaperEVIL.png" id="3_kp0gs"]
+[ext_resource type="Script" uid="uid://b2ql841koyokn" path="res://Objects/Mechanism/Desktop/desktop_icons.gd" id="4_cx4bc"]
+[ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="5_t60eu"]
+[ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="6_olv04"]
+[ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="7_6b82k"]
+[ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="8_0muut"]
+[ext_resource type="Texture2D" uid="uid://cem7qjjdo2jui" path="res://Assets/UI/Desktop/Icons/Explorer64.png" id="9_cx4bc"]
+[ext_resource type="Texture2D" uid="uid://dw34foohkfjpj" path="res://Assets/UI/Desktop/Icons/Error64.svg" id="9_nu7vc"]
+[ext_resource type="PackedScene" uid="uid://dfgv76qrdoe7f" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.tscn" id="10_dk0mw"]
+[ext_resource type="Texture2D" uid="uid://do5m6poe7jobb" path="res://Assets/UI/Desktop/Icons/Trash64.png" id="10_kp0gs"]
+[ext_resource type="Texture2D" uid="uid://jugr2msfhiba" path="res://Assets/UI/Desktop/Icons/TextFile64.svg" id="11_42mr4"]
+[ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="12_roya5"]
+[ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="13_hsarr"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljyij"]
+bg_color = Color(0.735357, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u6u5"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe")]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Desktop"
+initial_position = 1
+size = Vector2i(1280, 960)
+unresizable = true
+borderless = true
+always_on_top = true
+sharp_corners = true
+script = ExtResource("1_ih84g")
+normal_wallpaper = NodePath("Wallpaper")
+EVIL_wallpaper = NodePath("WallpaperEVIL")
+game_exe = NodePath("DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon")
+
+[node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oflmd")
+stretch_mode = 5
+
+[node name="WallpaperEVIL" type="TextureRect" parent="." unique_id=64128670]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kp0gs")
+stretch_mode = 5
+
+[node name="DesktopSkeleton" type="VBoxContainer" parent="." unique_id=621559069]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="PanelContainer" parent="DesktopSkeleton" unique_id=478386382]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/TopBar" unique_id=392474075]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Close" type="Button" parent="DesktopSkeleton/TopBar/MarginContainer" unique_id=136315678]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0yitp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ljyij")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2u6u5")
+text = "X"
+
+[node name="DesktopIconsField" type="MarginContainer" parent="DesktopSkeleton" unique_id=1997038611]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("4_cx4bc")
+cell_size = Vector2(128, 128)
+
+[node name="IconsField" type="Control" parent="DesktopSkeleton/DesktopIconsField" unique_id=882039910]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DesktopIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1375163577 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 78.0
+offset_bottom = 97.0
+icon_texture = ExtResource("6_olv04")
+icon_name = "Desktop"
+
+[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=196024873 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 552.0
+offset_top = 236.0
+offset_right = 618.0
+offset_bottom = 321.0
+icon_texture = ExtResource("7_6b82k")
+icon_name = "game_final.exe"
+application = ExtResource("8_0muut")
+blocked_save_flag = "sokoban_finished"
+blocked_message = "game_final.exe has stopped working.
+The file may be corrupted."
+hide_if_save_flag = "ctf_revealed"
+
+[node name="FileExplorerIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1845627310 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 149.0
+offset_right = 81.0
+offset_bottom = 234.0
+icon_texture = ExtResource("9_cx4bc")
+icon_name = "File Explorer"
+application = ExtResource("14_fileexp")
+unlock_game_flag = &"uploaded_data_to_pc"
+
+[node name="Trash" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1524986701 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 627.0
+offset_right = 77.0
+offset_bottom = 712.0
+icon_texture = ExtResource("10_kp0gs")
+icon_name = "Trash"
+unlock_game_flag = &"uploaded_data_to_pc"
+
+[node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 484.0
+offset_top = 353.0
+offset_right = 550.0
+offset_bottom = 438.0
+icon_texture = ExtResource("9_nu7vc")
+icon_name = "Portal.exe"
+application = ExtResource("10_dk0mw")
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 629.0
+offset_top = 350.0
+offset_right = 695.0
+offset_bottom = 435.0
+icon_texture = ExtResource("11_42mr4")
+icon_name = "readme.txt"
+application = ExtResource("12_roya5")
+launch_file = "res://Resources/Data/CTF/Texts/readme.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 1
+
+[node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
+custom_minimum_size = Vector2(0, 118.22)
+layout_mode = 2
+
+[node name="ErrorPopup" parent="." unique_id=2027122457 instance=ExtResource("13_hsarr")]
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" method="hide_icon"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/CTF" method="reveal_and_launch"]

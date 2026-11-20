@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="TodoData" format=3 uid="uid://chymbebf8pogw"]
+
+[ext_resource type="Script" uid="uid://drrspj47e8n5d" path="res://UI/TodoList/todo_data.gd" id="1_data"]
+[ext_resource type="Script" uid="uid://b2dro6hkki0ke" path="res://UI/TodoList/todo_task.gd" id="2_task"]
+[ext_resource type="Script" uid="uid://dmklceuvapesk" path="res://UI/TodoList/todo_subtask.gd" id="3_subtask"]
+
+[sub_resource type="Resource" id="Resource_scrap"]
+script = ExtResource("3_subtask")
+text = "Collect scraps from the box"
+flag = &"scrap_collected"
+
+[sub_resource type="Resource" id="Resource_workbench"]
+script = ExtResource("3_subtask")
+text = "Open the workbench"
+flag = &"workbench_opened"
+
+[sub_resource type="Resource" id="Resource_phone"]
+script = ExtResource("3_subtask")
+text = "Open your flip phone"
+flag = &"phone_opened"
+
+[sub_resource type="Resource" id="Resource_task1"]
+script = ExtResource("2_task")
+text = "GET YOUR BEARINGS"
+subtasks = Array[ExtResource("3_subtask")]([SubResource("Resource_scrap"), SubResource("Resource_workbench"), SubResource("Resource_phone")])
+
+[sub_resource type="Resource" id="Resource_task2"]
+script = ExtResource("2_task")
+text = "CHECK THE DESKTOP"
+flag = &"monitor_opened"
+
+[sub_resource type="Resource" id="Resource_task3"]
+script = ExtResource("2_task")
+text = "LEAVE THE ROOM"
+flag = &"door_opened"
+
+[resource]
+script = ExtResource("1_data")
+tasks = Array[ExtResource("2_task")]([SubResource("Resource_task1"), SubResource("Resource_task2"), SubResource("Resource_task3")])

@@ -1,0 +1,220 @@
+{
+	"_readme": "Everything the NovaKia phone shows comes from this file. Edit the text, keep the quotes, commas and brackets. Messages: each chat has days; each day has a date and its own messages (from_me true = the player sent it). Mark the first unread message of a chat with new: true, and it plus every message after it count as new. Calls: type is incoming, outgoing or missed. Gallery: image is a res:// path to a picture (leave it empty for TV static). signal and battery go from 0 to 4 bars.",
+
+	"phone": {
+		"brand": "NOVAKIA",
+		"boot_tagline": "",
+		"carrier": "NOVATEL",
+		"time": "11:32",
+		"ampm": "PM",
+		"date": "WED 13 NOV 2002",
+		"signal": 1,
+		"battery": 1
+	},
+
+	"messages": [
+		{
+			"from": "Dad",
+			"time": "4:19 PM",
+			"days": [
+				{
+					"date": "6/10/2002",
+					"messages": [
+						{ "from_me": false, "time": "10:47 PM", "text": "Natalia, honey. I don't know if we did anything wrong. I don't know if you ran away because of us. But please, we love you. We miss you. the family's in shambles after months of not a word from you, your mom especially. the police aren't doing anything, said that they can't do much if the runaway is above 18", "new": true }
+					]
+				},
+				{
+					"date": "6/7/2005",
+					"messages": [
+						{ "from_me": false, "time": "4:19 PM", "text": "nat, if by chance you're seeing this. Just know that, wherever you may be, we are still thinking about you and looking for you. dad, mom, Johan all misses you.", "new": true }
+					]
+				}
+			]
+		},
+		{
+			"from": "Mom",
+			"time": "12:10 AM",
+			"days": [
+				{
+					"date": "13/1/2001",
+					"messages": [
+						{ "from_me": false, "time": "11:02 AM", "text": "Like your New Phone?" },
+						{ "from_me": true,  "time": "1:05 PM", "text": "Yes. Thank you mom!" },
+						{ "from_me": false, "time": "1:06 PM", "text": "Happy Birthday Sweetie! <3" }
+					]
+				},
+				{
+					"date": "20/1/2001",
+					"messages": [
+						{ "from_me": false, "time": "6:10 PM", "text": "We will be home in an hour. The rice better be cooked." },
+						{ "from_me": true,  "time": "6:25 PM", "text": "on it mom." },
+						{ "from_me": false, "time": "6:26 PM", "text": "xoxo <3" }
+					]
+				},
+				{
+					"date": "3/3/2001",
+					"messages": [
+						{ "from_me": false, "time": "11:02 PM", "text": "Johan's rehearsal tomorrow. Wear something nice." },
+						{ "from_me": true,  "time": "11:05 PM", "text": "Is T-shirt okay?" },
+						{ "from_me": false, "time": "11:20 PM", "text": "No. Wear the one that I bought you" },
+						{ "from_me": false, "time": "11:20 PM", "text": "The one with the dress." }
+					]
+				},
+				{
+					"date": "4/3/2001",
+					"messages": [
+						{ "from_me": false, "time": "2:12 PM", "text": "Grocery on the table xoxo." },
+						{ "from_me": true,  "time": "3:11 PM", "text": "ok." }
+					]
+				},
+				{
+					"date": "18/1/2002",
+					"messages": [
+						{ "from_me": false, "time": "11:02 PM", "text": "Natalia, come down a second, dad wants to talk." }
+					]
+				},
+				{
+					"date": "2/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "8:02 PM", "text": "Honey, what did we say about coming home late?", "new": true },
+						{ "from_me": false, "time": "10:02 PM", "text": "It is already 10 PM. Where are you?!" },
+						{ "from_me": false, "time": "10:32 PM", "text": "Natalia!? reply!" }
+					]
+				},
+				{
+					"date": "3/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "10:42 AM", "text": "We have filed a missing person's report on you to the police." }
+					]
+				},
+				{
+					"date": "4/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "8:02 AM", "text": "Your brother said he does not know where you are either." },
+						{ "from_me": false, "time": "8:02 AM", "text": "Nat, It has been two days! answer us!" }
+					]
+				},
+				{
+					"date": "5/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "1:02 PM", "text": "Natalia, this isn't funny. we are worried about you. The police are working their hardest to help us find you." }
+					]
+				},
+				{
+					"date": "8/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "12:02 AM", "text": "Nat, please." },
+						{ "from_me": false, "time": "12:03 AM", "text": "please just talk to us..." },
+						{ "from_me": false, "time": "12:02 AM", "text": "please..." },
+						{ "from_me": false, "time": "12:10 AM", "text": "I miss you Honey..." }
+					]
+				},
+			]
+		},
+		{
+			"from": "Troy",
+			"time": "3:15 PM",
+			"days": [
+				{
+					"date": "5/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "2:10 PM", "text": "dude where tf r u?", "new": true },
+						{ "from_me": false, "time": "2:11 PM", "text": "ur parents looking for u" },
+						{ "from_me": false, "time": "2:20 PM", "text": "dont tell me u went out with that dude online" },
+						{ "from_me": false, "time": "3:15 PM", "text": "dude!" }
+					]
+				}
+			]
+		},
+		{
+			"from": "Afif",
+			"time": "11:24PM",
+			"days": [
+				{
+					"date": "4/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "1:02PM", "text": "Nat??", "New": true},
+						{ "from_me": false, "time": "4:12PM", "text": "Helllooouuu?????" },
+						{ "from_me": false, "time": "11:24PM", "text": "Umm,, I guess u don't want to talk." }
+					]
+				}
+			]
+		},
+		{
+			"from": "Unknown",
+			"time": "6:58PM",
+			"days": [
+				{
+					"date": "2/2/2002",
+					"messages": [
+						{ "from_me": false, "time": "6:48 PM", "text": "I am outside, by your window. Hurry before your parents arrive"},
+						{ "from_me": true, "time": "6:50 PM", "text": "hang on I'm coming!"},
+						{ "from_me": true, "time": "6:51 PM", "text": "you sure this is okay?"},
+						{ "from_me": false, "time": "6:52 PM", "text": "c'mon, we already discussed this for months! you aren't going back down on me, are you??"},
+						{ "from_me": true, "time": "6:58PM", "text": "yeah, you're right... sorry. Hang on I'm packing my bags, I'm coming down in a minute."}
+					]
+				}
+			]
+		},
+		{
+			"from": "Izz",
+			"time": "5:53 PM",
+			"days": [
+				{
+					"date": "4/1/2002",
+					"messages": [
+						{ "from_me": false, "time": "4:36 PM", "text": "hi nat. can I copy your project? I forgot to do it and it is due tomorrow teehee!" },
+						{ "from_me": false, "time": "4:36 PM", "text": "this is last I swear pinky promsie!" },
+						{ "from_me": true, "time": "5:50 PM", "text": "Sure. come to my house to get it" },
+						{ "from_me": true, "time": "5:53 PM", "text": "Thank you! you are life saviour!" }
+					]
+				}
+			]
+		}
+	],
+
+	"calls": [
+		{ "name": "Unknown",  "number": "PRIVATE",  "type": "incoming",   "time": "6:21 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "8:20 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "10:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
+		{ "name": "Troy", "number": "+6017-1727-1717", "type": "missed", "time": "9:40 PM" },
+		{ "name": "Troy", "number": "+6017-1727-1717", "type": "missed", "time": "10:02 PM" },
+		{ "name": "Afif", "number": "+6012-4664-1823", "type": "missed", "time": "4:11 PM" },
+		{ "name": "Dad",      "number": "+6011-1721-1827", "type": "missed", "time": "3:02 PM" },
+	],
+
+	"contacts": {
+		"me": { "name": "My Profile", "number": "+6011-2716-3472", "note": "I am that girl! Y2K!" },
+		"friends": [
+			{ "name": "Mom",      "number": "+6011-1721-1222", "note": "my Queen <3" },
+			{ "name": "Troy", "number": "+6017-1727-1717", "note": "My Bestie. always with me" },
+			{ "name": "Afif", "number": "+6012-4664-1823", "note": "Classmate from High school" },
+			{ "name": "Izz", "number": "+6011-2713-1128", "note": "Classmate from University." },
+			{ "name": "Dad", "number": "+6011-1721-1827", "note": "The Lone Wolf, My dad" }
+		]
+	},
+
+	"gallery": [
+		{ "title": "IMG_1123", "date": "4 APR 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1123.png" },
+		{ "title": "IMG_1232", "date": "1 MAY 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1232.png" },
+		{ "title": "IMG_1623", "date": "6 JUNE 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1623.png" },
+		{ "title": "IMG_1722", "date": "17 JUNE 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1722.png" },
+		{ "title": "IMG_1723", "date": "8 AUG 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1723.png" },
+		{ "title": "IMG_1782", "date": "27 AUG 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1782.png" },
+		{ "title": "IMG_2371", "date": "23 SEP 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img2371.png" },
+		{ "title": "IMG_1337", "date": "13 NOV 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img5232.png" },
+		{ "title": "IMG_7734", "date": "7 DEC 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img7734.png" },
+		{ "title": "IMG_1231", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176547_w.png" },
+		{ "title": "IMG_7812", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176546_w.png" },
+		{ "title": "IMG_7862", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176544_w.png" },
+		{ "title": "IMG_6428", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176543_w.png" },
+		{ "title": "IMG_6482", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176542_w.png" },
+		{ "title": "IMG_9172", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176541_w.png" },
+		{ "title": "IMG_0178", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176540_w.png" },
+		{ "title": "IMG_0133", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176548_w.png" }
+	]
+}

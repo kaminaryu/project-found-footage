@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://crmyfoshsn37b"]
+
+[ext_resource type="Script" uid="uid://dlftdhwgy53n6" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.gd" id="1_explorer"]
+[ext_resource type="Texture2D" uid="uid://c2fg0r20fk52y" path="res://Assets/UI/Desktop/FileExplorer.png" id="2_background"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/FileExplorer/file_entry.tscn" id="3_entry"]
+[ext_resource type="Texture2D" uid="uid://b8qr6tj5eb3lm" path="res://Assets/UI/Desktop/Icons/Music64.svg" id="4_music"]
+[ext_resource type="AudioStream" uid="uid://bmlcuxw02brdb" path="res://Assets/Musics/Misery.mp3" id="5_track"]
+
+[node name="FileExplorer" type="Window" unique_id=1240173975]
+oversampling_override = 1.0
+title = "File Explorer"
+initial_position = 1
+size = Vector2i(640, 451)
+unresizable = true
+borderless = true
+always_on_top = true
+sharp_corners = true
+script = ExtResource("1_explorer")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1350185496]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+
+[node name="ContentArea" type="MarginContainer" parent="." unique_id=1179730091]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 97.0
+offset_right = -20.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ContentArea" unique_id=1864714922]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ContentArea/MarginContainer" unique_id=1557777644]
+layout_mode = 2
+
+[node name="FileGrid" type="GridContainer" parent="ContentArea/MarginContainer/ScrollContainer" unique_id=1931717686]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 5
+
+[node name="MiseryMp3" parent="ContentArea/MarginContainer/ScrollContainer/FileGrid" unique_id=1112608346 instance=ExtResource("3_entry")]
+layout_mode = 2
+file_texture = ExtResource("4_music")
+file_name = "misery.mp3"
+audio_stream = ExtResource("5_track")
+
+[node name="EmptyLabel" type="Label" parent="ContentArea" unique_id=1853744010]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.55, 0.58, 1)
+theme_override_font_sizes/font_size = 16
+text = "NO FILES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="." unique_id=1374464353]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = 3.0
+offset_right = -11.0
+offset_bottom = 43.0
+grow_horizontal = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_pressed"]
