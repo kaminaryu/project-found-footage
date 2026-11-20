@@ -6,7 +6,7 @@ extends MeshInstance3D
 
 var desktop_win: Window
 
-func run() -> void:
+func run(_player: Node) -> void:
 	# if the window is already opened
 	if (is_instance_valid(desktop_win) and not desktop_win.is_queued_for_deletion()) :
 		desktop_win.move_to_foreground()

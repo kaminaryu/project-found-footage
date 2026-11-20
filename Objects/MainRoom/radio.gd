@@ -1,6 +1,6 @@
 extends MeshInstance3D
 
-func run() -> void :
+func run(_player: Node) -> void :
 	if ($AudioStreamPlayer.playing) :
 		$AudioStreamPlayer.stop()
 		$CPUParticles3D.emitting = false

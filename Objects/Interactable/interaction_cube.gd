@@ -27,7 +27,7 @@ func interact(player: Node) -> void:
 		obj = find_child_runner(obj)
 
 	if (obj != null and obj.has_method("run")) :
-		obj.run()
+		obj.run(player)
 
 
 func find_child_runner(obj: Node) -> Node :
@@ -36,7 +36,3 @@ func find_child_runner(obj: Node) -> Node :
 			return child
 
 	return null
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.

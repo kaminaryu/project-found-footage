@@ -3,7 +3,7 @@ extends Node3D
 var _is_door_open := false
 var _is_animation_running := false
 
-func run() -> void :
+func run(_player: Node) -> void :
 	if (_is_animation_running) :
 		return
 

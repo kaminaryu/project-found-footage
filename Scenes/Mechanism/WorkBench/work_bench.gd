@@ -35,7 +35,7 @@ func _ready() -> void :
 		call_deferred("activate")
 
 
-func run() -> void :
+func run(_player: Node) -> void :
 	activate()
 
 
