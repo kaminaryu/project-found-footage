@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://jkog7c1d5kkd" path="res://Objects/Mechanism/Workbench/placed_objects_container.gd" id="3_g7fgb"]
 [ext_resource type="PackedScene" uid="uid://b8gep7u308tk6" path="res://Objects/Scraps/GameBoy/game_boy.tscn" id="4_5b40s"]
 [ext_resource type="PackedScene" uid="uid://qra8jbaw7do8" path="res://UI/Mechanism/WorkBench/inventory.tscn" id="5_6kq4i"]
+[ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="6_lbl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wdbe"]
 albedo_color = Color(0.9802256, 0.4903891, 0.10155138, 1)
@@ -39,12 +40,14 @@ visible = false
 mesh = SubResource("BoxMesh_l26sq")
 
 [node name="Inventory" parent="." unique_id=193845220 instance=ExtResource("5_6kq4i")]
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=176995229]
 transform = Transform3D(1, 0, 0, 0, 0.9186756, 0.39501283, 0, -0.39501294, 0.9186756, 0, 3.5979438, 2.3622136)
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241949235]
+visible = false
 
 [node name="PutDownButton" type="Button" parent="CanvasLayer" unique_id=513856702]
 anchors_preset = 5
@@ -58,6 +61,37 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Put Down"
 
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 154.0
+offset_bottom = 60.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "Exit [Q]"
+
+[node name="ExitHint" type="Label" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 68.0
+offset_right = 324.0
+offset_bottom = 92.0
+text = "Press Q or Esc to leave"
+label_settings = ExtResource("6_lbl")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Fade" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+modulate = Color(1, 1, 1, 0)
+
 [connection signal="child_entered_tree" from="PlacedObjects" to="PlacedObjects" method="_on_children_changed"]
 [connection signal="child_exiting_tree" from="PlacedObjects" to="PlacedObjects" method="_on_children_changed"]
 [connection signal="pressed" from="CanvasLayer/PutDownButton" to="." method="_on_put_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_exit_button_pressed"]

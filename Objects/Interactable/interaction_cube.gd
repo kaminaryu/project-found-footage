@@ -23,8 +23,19 @@ func set_highlight(on:bool) -> void:
 func interact(player: Node) -> void:
 	var obj := get_parent()
 
-	if (obj.has_method("run")) :
+	if (not obj.has_method("run")) :
+		obj = find_child_runner(obj)
+
+	if (obj != null and obj.has_method("run")) :
 		obj.run()
+
+
+func find_child_runner(obj: Node) -> Node :
+	for child in obj.get_children() :
+		if (child.has_method("run")) :
+			return child
+
+	return null
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
