@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" format=3]
+[gd_resource type="LabelSettings" format=3 uid="uid://c8oyyhl78vh0f"]
 
 [sub_resource type="SystemFont" id="SystemFont_subtitle"]
 font_names = PackedStringArray("Arial", "Helvetica", "Liberation Sans", "DejaVu Sans", "Sans-Serif")

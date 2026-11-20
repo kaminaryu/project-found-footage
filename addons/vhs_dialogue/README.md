@@ -72,9 +72,9 @@ Save the file (Ctrl+S). That's all, no other setup.
 3. In the Inspector of CollisionShape3D: Shape > New BoxShape3D.
    Move/resize the box to where the player should walk in.
 4. Select the DialogueTrigger. In the Inspector:
-       Conversation   type or pick the name, e.g.  kitchen_scare
-       Only Once      ON  = plays one time per game
-       Delay          seconds to wait after the player walks in
+	   Conversation   type or pick the name, e.g.  kitchen_scare
+	   Only Once      ON  = plays one time per game
+	   Delay          seconds to wait after the player walks in
 
 Play the game, walk into the box, the subtitles appear.
 
@@ -85,20 +85,20 @@ Play the game, walk into the box, the subtitles appear.
 
 Anywhere in any script:
 
-    Dialogue.play("kitchen_scare")
+	Dialogue.play("kitchen_scare")
 
 If the next thing should wait until the talking is over, put await in front:
 
-    func _on_objective_completed() -> void:
-        await Dialogue.play("objective_1_done")
-        # this line runs AFTER the last subtitle is gone
-        start_next_objective()
+	func _on_objective_completed() -> void:
+		await Dialogue.play("objective_1_done")
+		# this line runs AFTER the last subtitle is gone
+		start_next_objective()
 
 One quick line without writing it in a file:
 
-    Dialogue.say("I need to find the key.")
-    Dialogue.say("Who's there?", "NATALIA")        # with a speaker
-    Dialogue.say("...", "", 3.0)                    # stays 3 seconds
+	Dialogue.say("I need to find the key.")
+	Dialogue.say("Who's there?", "NATALIA")        # with a speaker
+	Dialogue.say("...", "", 3.0)                    # stays 3 seconds
 
 Playing a new conversation stops the one that is playing.
 
@@ -109,19 +109,19 @@ Playing a new conversation stops the one that is playing.
 
 In the dialogue file:
 
-    [power_back]
-    NATALIA: There, the fuse is in.
-    @event lights_on
-    NATALIA: ...finally.
+	[power_back]
+	NATALIA: There, the fuse is in.
+	@event lights_on
+	NATALIA: ...finally.
 
 In the script of the thing that should react (e.g. the room):
 
-    func _ready() -> void:
-        Dialogue.event.connect(_on_dialogue_event)
+	func _ready() -> void:
+		Dialogue.event.connect(_on_dialogue_event)
 
-    func _on_dialogue_event(event_name: String) -> void:
-        if event_name == "lights_on":
-            $Lights.visible = true
+	func _on_dialogue_event(event_name: String) -> void:
+		if event_name == "lights_on":
+			$Lights.visible = true
 
 When the subtitles reach "@event lights_on", that function runs.
 
@@ -130,15 +130,15 @@ When the subtitles reach "@event lights_on", that function runs.
 ## 5. Useful checks for the story
 ===================================================================
 
-    Dialogue.has_played("intro")    true if "intro" was already played this game
-    Dialogue.is_playing()           true while subtitles are running
-    Dialogue.stop()                 hide the subtitle right now
-    Dialogue.reload()               read the .txt files again (after editing mid-game)
+	Dialogue.has_played("intro")    true if "intro" was already played this game
+	Dialogue.is_playing()           true while subtitles are running
+	Dialogue.stop()                 hide the subtitle right now
+	Dialogue.reload()               read the .txt files again (after editing mid-game)
 
 Example - only say something the first time:
 
-    if not Dialogue.has_played("first_time_in_basement"):
-        Dialogue.play("first_time_in_basement")
+	if not Dialogue.has_played("first_time_in_basement"):
+		Dialogue.play("first_time_in_basement")
 
 
 ===================================================================
@@ -147,13 +147,13 @@ Example - only say something the first time:
 
 Double-click  addons/vhs_dialogue/subtitle_style.tres  and change in the Inspector:
 
-    Font > Font Size      bigger / smaller text (now 30)
-    Font > Font Color     the yellow
-    Outline > Size        thickness of the black edge (now 8)
-    Shadow                the soft shadow under the text
-    Font                  Arial right now. To use your own font, drag a
-                          .ttf file (e.g. Assets/Fonts/VCR_OSD_MONO_1.001.ttf)
-                          onto the Font slot.
+	Font > Font Size      bigger / smaller text (now 30)
+	Font > Font Color     the yellow
+	Outline > Size        thickness of the black edge (now 8)
+	Shadow                the soft shadow under the text
+	Font                  Arial right now. To use your own font, drag a
+						  .ttf file (e.g. Assets/Fonts/VCR_OSD_MONO_1.001.ttf)
+						  onto the Font slot.
 
 Position: open  addons/vhs_dialogue/dialogue.tscn, select "Bottom", and change
 Theme Overrides > Constants > Margin Bottom (higher = subtitles sit higher up),
@@ -166,13 +166,13 @@ Margin Left / Margin Right (higher = narrower, wraps sooner).
 
 Open  addons/vhs_dialogue/dialogue.tscn, click the top node "Dialogue":
 
-    Min Time              every subtitle stays at least this long (1.5 s)
-    Time Per Letter       extra time per letter, for long lines (0.055 s)
-    Letters Per Second    0 = whole line at once. 30 = typewriter effect
-    Gap                   tiny blank moment between two subtitles
-    Show Speaker Names    OFF = hide the "NATALIA:" part
-    Skip Action           ui_accept = Enter/Space skips to the next line.
-                          Empty = players can't skip.
+	Min Time              every subtitle stays at least this long (1.5 s)
+	Time Per Letter       extra time per letter, for long lines (0.055 s)
+	Letters Per Second    0 = whole line at once. 30 = typewriter effect
+	Gap                   tiny blank moment between two subtitles
+	Show Speaker Names    OFF = hide the "NATALIA:" part
+	Skip Action           ui_accept = Enter/Space skips to the next line.
+						  Empty = players can't skip.
 
 
 ===================================================================
@@ -202,13 +202,13 @@ Yellow warnings in Output when the game starts
 
 ## Commands cheat sheet
 
-    In a .txt file                     In a script
-    --------------------------------   ------------------------------------
-    [name]          new conversation   Dialogue.play("name")
-    NAME: text      subtitle           await Dialogue.play("name")
-    text            no speaker         Dialogue.say("text", "NAME")
-    ... | 4         stay 4 seconds     Dialogue.stop()
-    \n              new line           Dialogue.has_played("name")
-    @wait 2         pause 2 seconds    Dialogue.is_playing()
-    @event name     message to code    Dialogue.event.connect(my_function)
-    # note          ignored
+	In a .txt file                     In a script
+	--------------------------------   ------------------------------------
+	[name]          new conversation   Dialogue.play("name")
+	NAME: text      subtitle           await Dialogue.play("name")
+	text            no speaker         Dialogue.say("text", "NAME")
+	... | 4         stay 4 seconds     Dialogue.stop()
+	\n              new line           Dialogue.has_played("name")
+	@wait 2         pause 2 seconds    Dialogue.is_playing()
+	@event name     message to code    Dialogue.event.connect(my_function)
+	# note          ignored
