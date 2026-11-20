@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://do7mwg3v6b46m" path="res://Assets/SFX/BeanBag.wav" id="9_6bi8x"]
 [ext_resource type="Script" uid="uid://ky0f8ouuocyy" path="res://Objects/MainRoom/door.gd" id="10_m8vig"]
 [ext_resource type="Script" uid="uid://se144jw1i7lo" path="res://Objects/MainRoom/box_of_scraps.gd" id="11_6bi8x"]
+[ext_resource type="PackedScene" uid="uid://bj3m16a0y1gu1" path="res://Assets/Models/Scraps/cash register.glb" id="12_tde24"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -840,6 +841,9 @@ shape = SubResource("ConvexPolygonShape3D_ern13")
 
 [node name="InteractionCube" parent="BoxOfScraps" unique_id=721345843 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(0.8667456, 0, -1.4901161e-08, 0, 0.8064046, 0, 2.9802322e-08, 0, 1.0124017, -0.013400555, 0, -9.536743e-07)
+
+[node name="cash register" parent="." unique_id=311263691 instance=ExtResource("12_tde24")]
+transform = Transform3D(0.24999999, 0, -0.43301272, 0, 0.5, 0, 0.43301272, 0, 0.24999999, 5.364916, 1.1246004, -3.2510345)
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]
