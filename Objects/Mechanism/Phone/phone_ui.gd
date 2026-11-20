@@ -70,6 +70,7 @@ var _menu_buttons: Array[Control] = []
 var _photo_index := 0
 var _booting := false
 var _stick_to_bottom := false
+var _start_at: Control = null           # where a chat with new messages opens
 var _popup_focus := 0
 var _popup_tween: Tween
 var _clock := 0.0
@@ -137,7 +138,7 @@ func _input(event: InputEvent) -> void:
 			else:
 				_back()
 			get_viewport().set_input_as_handled()
-		elif event.button_index == MOUSE_BUTTON_LEFT and _screen_id == "home" and not _popup.visible:
+		elif event.button_index == MOUSE_BUTTON_LEFT and _screen_id == "home" and not _popup.visible and %Screen.get_global_rect().has_point(event.position):
 			_open(_show_menu)
 			get_viewport().set_input_as_handled()
 		return
@@ -269,6 +270,7 @@ func _play_boot() -> void:
 
 	var tw := create_tween()
 	tw.tween_interval(0.4)                                    # screen still off
+	tw.tween_callback(%BootSound.play)						#boot sound play
 	tw.tween_callback(_splash.set.bind("color", BACKLIGHT))   # backlight flicks on...
 	tw.tween_interval(0.06)
 	tw.tween_callback(_splash.set.bind("color", Color.BLACK)) # ...and settles
@@ -377,6 +379,7 @@ func _on_menu_focus(button: Control, app: PhoneApp, on: bool) -> void:
 	icon.custom_minimum_size = _scaled(app.icon, 3 if on else 2)
 	if on:
 		_set_header(app.title, app.color)
+		%SelectSound.play()
 
 
 func _show_menu(focus: int) -> void:
@@ -409,7 +412,8 @@ func _show_messages(focus: int) -> void:
 	_set_softkeys("", "OPEN", "BACK")
 	for i in threads.size():
 		var thread: Dictionary = threads[i]
-		var texts: Array = thread.get("messages", [])
+		var days: Array = thread.get("days", [])
+		var texts: Array = days[-1].get("messages", []) if not days.is_empty() else []
 		var preview := str(texts[-1].get("text", "")) if not texts.is_empty() else ""
 		var icon := icon_envelope_new if _is_unread(thread) else icon_envelope_read
 		var row := _add_row(str(thread.get("from", "?")), preview, str(thread.get("time", "")), icon)
@@ -421,12 +425,18 @@ func _show_messages(focus: int) -> void:
 
 func _show_thread(_focus: int, index: int) -> void:
 	var thread: Dictionary = _data.get("messages", [])[index]
+	var has_new := _is_unread(thread)   # check before the chat counts as read
 	_read_threads[str(thread.get("from", ""))] = true
 	_begin_app("messages", "thread", str(thread.get("from", "?")))
 	_set_softkeys("", "", "BACK")
-	for text: Dictionary in thread.get("messages", []):
-		_add_bubble(str(text.get("text", "")), bool(text.get("from_me", false)), str(text.get("time", "")))
-	_stick_to_bottom = true   # open at the newest message
+	for day: Dictionary in thread.get("days", []):
+		var date_tag := _add_date(str(day.get("date", "")))
+		for text: Dictionary in day.get("messages", []):
+			if has_new and _start_at == null and text.get("new", false):
+				_add_section("NEW MESSAGES")
+				_start_at = date_tag   # open on the day the new messages begin
+			_add_bubble(str(text.get("text", "")), bool(text.get("from_me", false)), str(text.get("time", "")))
+	_stick_to_bottom = _start_at == null   # nothing new: open at the newest message
 
 
 func _add_bubble(text: String, mine: bool, time: String) -> void:
@@ -456,8 +466,22 @@ func _add_bubble(text: String, mine: bool, time: String) -> void:
 	_content.add_child(side)
 
 
+## A small date tag in the middle of the chat, like "11/2/2001".
+func _add_date(date: String) -> Control:
+	var pad := _margin(0, 6, 0, 2)
+	var tag := PanelContainer.new()
+	tag.add_theme_stylebox_override("panel", _flat(SECTION, 4, 1, 2))
+	tag.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	tag.add_child(_label(date, 10, TEXT_DIM))
+	pad.add_child(tag)
+	_content.add_child(pad)
+	return pad
+
+
 func _on_scroll_range_changed() -> void:
-	if _stick_to_bottom:
+	if _start_at:
+		_scroll.scroll_vertical = int(_start_at.position.y)
+	elif _stick_to_bottom:
 		_scroll.scroll_vertical = int(_scroll.get_v_scroll_bar().max_value)
 
 
@@ -725,6 +749,7 @@ func _begin_app(app_screen: String, screen_id: String, title: String, right := "
 	_scroll.offset_top = 0
 	_scroll.scroll_vertical = 0
 	_stick_to_bottom = false
+	_start_at = null
 	_clear(_content)
 	_items = []
 
@@ -814,6 +839,8 @@ func _on_item_focus(item: Control, on: bool) -> void:
 	var glow := item.get_node_or_null("Highlight") as CanvasItem
 	if glow:
 		glow.visible = on
+	if on:
+		%SelectSound.play()
 	var ink := _ink_on(_accent)
 	for label: Label in item.find_children("*", "Label", true, false):
 		label.add_theme_color_override("font_color", ink if on else label.get_meta("colour", TEXT))
@@ -989,14 +1016,26 @@ func _app_color(app_screen: String) -> Color:
 
 
 func _is_unread(thread: Dictionary) -> bool:
-	return bool(thread.get("unread", false)) and not _read_threads.has(str(thread.get("from", "")))
+	return _new_count(thread) > 0
+
+
+## How many messages in this chat are new: the one marked "new": true and every one after it.
+## Once the chat has been opened, none of them are new any more.
+func _new_count(thread: Dictionary) -> int:
+	if _read_threads.has(str(thread.get("from", ""))):
+		return 0
+	var count := 0
+	for day: Dictionary in thread.get("days", []):
+		for text: Dictionary in day.get("messages", []):
+			if count > 0 or text.get("new", false):
+				count += 1
+	return count
 
 
 func _unread_count() -> int:
 	var count := 0
 	for thread: Dictionary in _data.get("messages", []):
-		if _is_unread(thread):
-			count += 1
+		count += _new_count(thread)
 	return count
 
 

@@ -1,0 +1,30 @@
+# ===================================================================
+#  DIALOGUE FILE  -  every line here becomes a yellow VHS subtitle.
+#  You can make as many .txt files in this folder as you like
+#  (one per chapter, one per room...). They are all read together.
+#
+#  [name]              starts a conversation. Play it from a script:
+#                          Dialogue.play("name")
+#  NAME: text          a subtitle. Speaker names in CAPITALS.
+#  text                a subtitle with no speaker (sounds, thoughts...)
+#  NAME: text | 4      keep this subtitle up for 4 seconds
+#                      (without "| 4" the time is worked out from
+#                      how long the line is)
+#  one\ntwo            \n breaks the subtitle onto a second line
+#  @wait 1.5           1.5 seconds with no subtitle
+#  @event lights_off   tells your scripts "lights_off" happened
+#                      (they listen with Dialogue.event)
+#  # note              lines starting with # are ignored
+# ===================================================================
+
+[example_intro]
+NATALIA: Placeholder: the first thing Natalia says.
+NATALIA: Placeholder: a longer line, so you can see how a subtitle wraps onto two lines at the bottom of the screen.
+@wait 1
+(static crackles)
+???: Placeholder: someone else talking. | 4
+
+[example_objective_done]
+NATALIA: Placeholder: that was the first one.
+@event example_objective_done
+NATALIA: Placeholder: now where is the next one?
