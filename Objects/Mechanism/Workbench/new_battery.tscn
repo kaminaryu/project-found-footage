@@ -1,0 +1,61 @@
+[gd_scene format=4 uid="uid://cemhwonajq17w"]
+
+[ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Scraps/Placeable/placeable_part.gd" id="1_sqmko"]
+[ext_resource type="Script" uid="uid://bcd0xnkpsifjh" path="res://Objects/Scraps/hover_detector.gd" id="2_mtq0y"]
+[ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_hint.tscn" id="3_y66x5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rr51"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4c7m2"]
+_surfaces = [{
+"aabb": AABB(-0.030154767, -0.025623426, 0.025853029, 0.060026113, 0.017505035, 0.08800829),
+"attribute_data": PackedByteArray("q469PgAAgD5unQs+AACAPm6dCz4AAIA+q469PgAAgD5unQs+AACAPusLKz4AAIA+6wsrPgAAgD5unQs+AACAPiegrD4AAIA+RwifPgAAgD4noKw+AACAPpL9oT4AAIA+6wsrPgAAgD5HCJ8+AACAPpL9oT4AAIA+6wsrPgAAgD4noKw+AACAPm6dCz4AAIA+q469PgAAgD5HCJ8+AACAPusLKz4AAIA+J6CsPgAAgD6rjr0+AACAPquOvT4AAIA+J6CsPgAAgD5unQs+AACAPiegrD4AAIA+q469PgAAgD7rCys+AACAPpL9oT4AAIA+nr94PgAAgD4QtXo+AACAPp6/eD4AAIA+nr94PgAAgD4QtXo+AACAPhC1ej4AAIA+nr94PgAAgD4QtXo+AACAPg=="),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("HgARABQAHgAUAB8AHgAfABMAHgATABAAEAASAB4AIAACAAEAIAABACEAAAAgACEAAAAhAAMADAAjACIADAAiAA8AIwANACIAIwAOAA0ABAAGAAUABAAFAAcACAAKAAkACAAJAAsAFQAXABYAFQAWABgAJAAlABwAJAAcABkAGgAlACQAJAAbABoAGgAdACUA"),
+"material": SubResource("StandardMaterial3D_1rr51"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("rgb3vDjo0by/ydM8wbT0PAEDBby7ydM8wbT0PDjo0by7ydM8rgb3vAEDBby/ydM8wbT0PDjo0by7ydM8bbT0PAEDBbwgMOk9bbT0PDjo0bwgMOk9wbT0PAEDBby7ydM8IQf3vDjo0bwoNtg9Sx+zvAEDBbwgMOk9IQf3vAEDBbwoNtg9Sx+zvDjo0bwgMOk9bbT0PDjo0bwgMOk9Sx+zvAEDBbwgMOk9Sx+zvDjo0bwgMOk9bbT0PAEDBbwgMOk9IQf3vAEDBbwoNtg9wbT0PAEDBby7ydM8rgb3vAEDBby/ydM8Sx+zvAEDBbwgMOk9bbT0PAEDBbwgMOk9IQf3vDjo0bwoNtg9rgb3vAEDBby/ydM8rgb3vDjo0by/ydM8IQf3vAEDBbwoNtg9wbT0PDjo0by7ydM8IQf3vDjo0bwoNtg9rgb3vDjo0by/ydM8bbT0PDjo0bwgMOk9Sx+zvDjo0bwgMOk9/XviOgEDBby7ydM8nHbiOgEDBbwgMOk9/XviOjjo0by7ydM8/XviOgEDBby7ydM8nHbiOgEDBbwgMOk9nHbiOjjo0bwgMOk9/XviOjjo0by7ydM8nHbiOjjo0bwgMOk9/v/+/////z/+//7/////P/7//v////8//v/+/////z/+//9/////v/7//3////+//v//f////7/+//9/////v/8//3////+//z//f////7//P/9/////v/8//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/7/////v/9//v////+//3/+/////7//f/7/////v/9//v////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//3/+/////7//f/7/////v/7//v////8//v/+/////z//f/9/////v/9//3////+//38AAP///7//fwAA////vw==")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs6yn"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yitp"]
+albedo_color = Color(1, 0.98333335, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0yitp"]
+material = SubResource("StandardMaterial3D_0yitp")
+size = Vector3(0.014277344, 0.0064648436, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tahaa"]
+size = Vector3(0.060026113, 0.017505035, 0.08800829)
+
+[node name="NewBattery" type="MeshInstance3D" unique_id=632198288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0037142113, -0.001472678)
+mesh = SubResource("ArrayMesh_4c7m2")
+surface_material_override/0 = SubResource("StandardMaterial3D_bs6yn")
+script = ExtResource("1_sqmko")
+part_type = &"FlipPhoneBattery"
+display_name = "Flip Phone Battery"
+fixes_phone = true
+
+[node name="Charger" type="MeshInstance3D" parent="." unique_id=914976538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016407074, -0.016976789, 0.027669966)
+mesh = SubResource("BoxMesh_0yitp")
+
+[node name="HoverDetector" type="StaticBody3D" parent="." unique_id=1208852429 node_paths=PackedStringArray("hover_label")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00014171004, -0.016870908, 0.06985717)
+script = ExtResource("2_mtq0y")
+hover_label = NodePath("../InteractionDialog")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HoverDetector" unique_id=1765133209]
+shape = SubResource("BoxShape3D_tahaa")
+
+[node name="InteractionDialog" parent="." unique_id=1457287106 instance=ExtResource("3_y66x5")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.3711392e-08, 0, 0, -1.7763568e-15, 1, -0.3954469, -0.016546614, -0.61973006)
+visible = false
+text = "Press [Left Click]
+to remove Flip Phone Battery"
