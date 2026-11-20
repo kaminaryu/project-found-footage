@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" format=3 uid="uid://vpvb46eouey8"]
+
+[ext_resource type="Texture2D" uid="uid://xnonrxewv240" path="res://Assets/UI/Desktop/Sokoban/sokoban_tiles.png" id="1_6si4i"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5rbi"]
+texture = ExtResource("1_6si4i")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/custom_data_1 = true
+
+[resource]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "solid"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "goal"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_b5rbi")
