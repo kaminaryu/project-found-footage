@@ -198,6 +198,13 @@
 		]
 	},
 
+	"dial": {
+		"_readme": "The Call app. Any number that is not a code below rings, then says the number is unavailable. Dialling a code rings once, the line goes dead, and its text arrives in Messages (once per game). A code can be digits or a WORD: each letter is the keypad key it is printed on, like old phones (WOLF = 9653). from = who the text comes from (a new name gets its own chat at the top).",
+		"secrets": [
+			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0Lf_is_45L33P}" }
+		]
+	},
+
 	"gallery": [
 		{ "title": "IMG_1123", "date": "4 APR 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1123.png" },
 		{ "title": "IMG_1232", "date": "1 MAY 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1232.png" },

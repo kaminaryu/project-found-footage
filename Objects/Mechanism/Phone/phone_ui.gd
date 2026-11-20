@@ -47,10 +47,18 @@ const WASD := {
 	"move_right": "ui_right",
 }
 
+## The Call app keypad, row by row, and the letters printed on each key.
+const KEYPAD := ["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"]
+const KEY_LETTERS := {"2": "ABC", "3": "DEF", "4": "GHI", "5": "JKL", "6": "MNO", "7": "PQRS", "8": "TUV", "9": "WXYZ"}
+const MAX_DIGITS := 20
+## How long the right code rings before the line goes dead and its text arrives.
+const SECRET_RING_TIME := 2.2
+
 # "static" = remembered for the whole game, even after the phone window closes.
 static var _booted := false
 static var _read_threads := {}          # sender name -> true once the thread was opened
 static var _seen_missed_calls := false
+static var _sms_received: Array[Dictionary] = []   # secret texts the Call app already sent
 
 @onready var _header: Panel = %Header
 @onready var _header_title: Label = %HeaderTitle
@@ -79,10 +87,16 @@ var _lcd_material: ShaderMaterial
 var _static_material: ShaderMaterial
 var _header_style: StyleBoxFlat
 var _title_style: StyleBoxFlat
+var _dialed := ""                        # what is typed on the Call keypad
+var _dial_display: Label
+var _call_status: Label
+var _call_tween: Tween
 
 
 func _ready() -> void:
 	_data = _load_data()
+	for sms: Dictionary in _sms_received:   # texts that already arrived earlier in the game
+		_put_sms_in_inbox(sms)
 	_lcd_material = _make_lcd_material(false)
 	_static_material = _make_lcd_material(true)
 
@@ -144,7 +158,10 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventKey and event.pressed and event.keycode == KEY_BACKSPACE:
-		_back()
+		if _screen_id == "dial" and _dialed != "" and not _popup.visible:
+			_dial_delete()   # on the keypad, Backspace rubs out the last digit first
+		elif not event.echo:
+			_back()
 		get_viewport().set_input_as_handled()
 		return
 
@@ -163,6 +180,15 @@ func _input(event: InputEvent) -> void:
 		for arrow: String in ["ui_up", "ui_down", "ui_left", "ui_right"]:
 			if event.is_action_pressed(arrow, true):
 				get_viewport().set_input_as_handled()
+		return
+
+	# Number keys on the keyboard type on the Call keypad.
+	var typed := _typed_key(event)
+	if _screen_id == "dial" and typed != "":
+		_dial_press(typed)
+		if not _items[-1].has_focus():
+			_items[-1].grab_focus()   # jump to CALL, so Enter rings the number
+		get_viewport().set_input_as_handled()
 		return
 
 	var handled := true
@@ -189,6 +215,8 @@ func _input(event: InputEvent) -> void:
 func _on_soft_left() -> void:
 	if _screen_id == "photo":
 		_step_photo(-1)
+	elif _screen_id == "dial":
+		_dial_delete()
 
 
 func _on_soft_center() -> void:
@@ -201,6 +229,8 @@ func _on_soft_center() -> void:
 			_open(_show_menu)
 		"photo":
 			_step_photo(1)
+		"dial":
+			_place_call()
 		_:
 			var focused := get_viewport().gui_get_focus_owner()
 			if focused is BaseButton and focused in _items:
@@ -399,6 +429,9 @@ func _open_app(app: PhoneApp) -> void:
 			_open(_show_contacts)
 		"gallery":
 			_open(_show_gallery)
+		"dial":
+			_dialed = ""
+			_open(_show_dial)
 		_:
 			_show_crash(app)
 
@@ -540,6 +573,253 @@ func _call_icon(kind: String) -> Texture2D:
 		"outgoing":
 			return icon_call_outgoing
 	return icon_call_incoming
+
+
+# ---------------------------------------------------------------- call (dial a number)
+
+func _show_dial(focus: int) -> void:
+	_begin_app("dial", "dial", "Call")
+	_set_softkeys("", "CALL", "BACK")
+
+	var pad := _margin(4, 4, 4, 2)
+	_dial_display = _label("")
+	_dial_display.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_dial_display.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_dial_display.custom_minimum_size.y = 26
+	pad.add_child(_dial_display)
+	_content.add_child(pad)
+
+	var grid := GridContainer.new()
+	grid.columns = 3
+	grid.add_theme_constant_override("h_separation", 0)
+	grid.add_theme_constant_override("v_separation", 0)
+	_content.add_child(grid)
+	for key: String in KEYPAD:
+		var button := _add_key(grid, key, KEY_LETTERS.get(key, " "), 30)
+		button.pressed.connect(_dial_press.bind(key))
+
+	var bottom := _margin(0, 2, 0, 0)
+	_content.add_child(bottom)
+	var call_key := _add_key(bottom, "CALL", "", 18, LED_ON)
+	call_key.pressed.connect(_place_call)
+
+	_update_dial_display()
+	_focus_item(focus)
+
+
+## A keypad key you can highlight and press: a big character with small letters under it.
+func _add_key(parent: Control, top: String, bottom: String, height: int, colour := TEXT) -> Button:
+	var key := Button.new()
+	key.theme_type_variation = "PhoneItem"
+	key.focus_mode = Control.FOCUS_ALL
+	key.custom_minimum_size.y = height
+	key.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+	var face := Panel.new()                # the key itself
+	face.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	face.add_theme_stylebox_override("panel", _flat(SECTION, 0, 0, 3))
+	_fill(face, 1, 1, 1, 1)
+	key.add_child(face)
+
+	var glow := Panel.new()                # coloured when highlighted
+	glow.name = "Highlight"
+	glow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	glow.add_theme_stylebox_override("panel", _flat(_accent, 0, 0, 3))
+	glow.visible = false
+	_fill(glow, 1, 1, 1, 1)
+	key.add_child(glow)
+
+	var stack := VBoxContainer.new()
+	stack.alignment = BoxContainer.ALIGNMENT_CENTER
+	stack.add_theme_constant_override("separation", 0)
+	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_fill(stack)
+	key.add_child(stack)
+	var big := _label(top, 12, colour)
+	big.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	stack.add_child(big)
+	if bottom != "":
+		var small := _label(bottom, 10, TEXT_DIM)
+		small.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		stack.add_child(small)
+
+	parent.add_child(key)
+	_register_item(key)
+	return key
+
+
+## Shows the typed number (smaller when it gets long) and the CLEAR softkey.
+func _update_dial_display() -> void:
+	var empty := _dialed == ""
+	var size := 10 if empty else 20
+	var font := get_theme_font("font", "Label")
+	if not empty and font.get_string_size(_dialed, HORIZONTAL_ALIGNMENT_LEFT, -1, 20).x > 166:
+		size = 12
+	_dial_display.text = "Enter number" if empty else _dialed
+	_dial_display.add_theme_font_size_override("font_size", size)
+	_dial_display.add_theme_color_override("font_color", TEXT_DIM if empty else TEXT)
+	%SoftLeft.text = "" if empty else "CLEAR"
+
+
+## Adds one key to the number.
+func _dial_press(key: String) -> void:
+	if _dialed.length() < MAX_DIGITS:
+		_dialed += key
+		%KeySound.play()
+	_update_dial_display()
+
+
+## Rubs out the last key (CLEAR softkey or Backspace).
+func _dial_delete() -> void:
+	_dialed = _dialed.left(-1)
+	_update_dial_display()
+
+
+## The keypad key a keyboard key types ("0" to "9", "*", "#"), or "" for any other key.
+func _typed_key(event: InputEvent) -> String:
+	if event is InputEventKey and event.pressed and event.unicode > 0:
+		var typed := char(event.unicode)
+		if typed in KEYPAD:
+			return typed
+	return ""
+
+
+func _place_call() -> void:
+	if _dialed != "":
+		_open(_show_calling.bind(_dialed))
+
+
+## The calling screen. A wrong number rings, then says it is unavailable.
+## A secret code from phone_data.json rings once, goes dead and sends its text.
+func _show_calling(_focus: int, number: String) -> void:
+	_begin_app("dial", "calling", "Call")
+	_set_softkeys("", "", "END")
+	var who := _contact_name(number)
+	_add_profile(who if who != "" else number, number if who != "" else "")
+	var pad := _margin(0, 8, 0, 0)
+	_call_status = _label("Calling...", 12, TEXT_DIM)
+	_call_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	pad.add_child(_call_status)
+	_content.add_child(pad)
+
+	var secret := _find_secret(number)
+	_call_tween = create_tween()
+	_call_tween.tween_callback(%RingSound.play)
+	if secret.is_empty():
+		_call_tween.tween_interval(_sound_length(%RingSound))
+		_call_tween.tween_callback(_set_call_status.bind("Number unavailable", MISSED))
+		_call_tween.tween_callback(%UnavailableSound.play)
+		_call_tween.tween_interval(_sound_length(%UnavailableSound))
+	else:
+		_call_tween.tween_interval(SECRET_RING_TIME)
+		_call_tween.tween_callback(%RingSound.stop)
+		_call_tween.tween_callback(_receive_sms.bind(secret))
+	_call_tween.tween_callback(_set_call_status.bind("Call ended", TEXT_DIM))
+	_call_tween.tween_interval(1.0)
+	_call_tween.tween_callback(_back)
+
+
+func _set_call_status(text: String, colour: Color) -> void:
+	_call_status.text = text
+	_call_status.add_theme_color_override("font_color", colour)
+
+
+## Hangs up: stops the call sounds and whatever the call was about to do.
+func _end_call() -> void:
+	if _call_tween:
+		_call_tween.kill()
+		_call_tween = null
+	%RingSound.stop()
+	%UnavailableSound.stop()
+
+
+## How long a sound plays, or 2 seconds when no sound file is set yet.
+func _sound_length(player: AudioStreamPlayer) -> float:
+	return player.stream.get_length() if player.stream else 2.0
+
+
+## The secret in phone_data.json whose code was dialled, or {} for a wrong number.
+func _find_secret(number: String) -> Dictionary:
+	var dial: Dictionary = _data.get("dial", {})
+	for secret: Dictionary in dial.get("secrets", []):
+		var code := _to_keypad(str(secret.get("code", "")))
+		if code != "" and code == number:
+			return secret
+	return {}
+
+
+## Turns a word into the keys you press for it, like on old phones: "WOLF" -> "9653".
+## Digits, * and # stay as they are; spaces, + and - are dropped.
+func _to_keypad(text: String) -> String:
+	var keys := ""
+	for letter in text.to_upper():
+		if letter in KEYPAD:
+			keys += letter
+		else:
+			for key: String in KEY_LETTERS:
+				if letter in KEY_LETTERS[key]:
+					keys += key
+	return keys
+
+
+## The contact saved with this number ("Dad"), or "" when nobody is.
+## Works with or without the country code: 01117211827 finds +6011-1721-1827.
+func _contact_name(number: String) -> String:
+	var book: Dictionary = _data.get("contacts", {})
+	for person: Dictionary in book.get("friends", []):
+		var saved := _to_keypad(str(person.get("number", "")))
+		if number.length() >= 7 and saved.ends_with(number):
+			return str(person.get("name", ""))
+	return ""
+
+
+## The right code was dialled: its text arrives in Messages (only the first time).
+func _receive_sms(secret: Dictionary) -> void:
+	for sms: Dictionary in _sms_received:
+		if sms.get("code") == secret.get("code"):
+			return
+	_sms_received.append(secret)
+	_put_sms_in_inbox(secret)
+	_read_threads.erase(str(secret.get("from", "")))   # that chat has something new again
+	var tw := create_tween()
+	tw.tween_interval(1.8)   # a moment after "Call ended", the phone beeps
+	tw.tween_callback(_announce_sms.bind(secret))
+
+
+## Puts a received text into Messages. Its chat moves to the top of the list.
+func _put_sms_in_inbox(sms: Dictionary) -> void:
+	var from := str(sms.get("from", "Unknown"))
+	var time := str(sms.get("time", ""))
+	var threads: Array = _data.get_or_add("messages", [])
+	var thread := {"from": from, "days": []}
+	for i in threads.size():
+		if str(threads[i].get("from", "")) == from:
+			thread = threads.pop_at(i)
+			break
+	threads.push_front(thread)
+	thread["time"] = time
+	var days: Array = thread.get_or_add("days", [])
+	for day: Dictionary in days:   # older texts in this chat stop counting as new
+		for text: Dictionary in day.get("messages", []):
+			text.erase("new")
+	var date := str(sms.get("date", ""))
+	if days.is_empty() or str(days[-1].get("date", "")) != date:
+		days.append({"date": date, "messages": []})
+	days[-1].get_or_add("messages", []).append(
+			{"from_me": false, "time": time, "text": str(sms.get("text", "")), "new": true})
+
+
+## Beep, buzz and a "1 new message" popup.
+func _announce_sms(secret: Dictionary) -> void:
+	%SmsSound.play()
+	if _popup.visible or _screen_id == "calling":
+		return   # no popup now, the LED and the home screen still show it
+	_open_popup("Messages", _app_color("messages"), icon_envelope_new,
+			"1 new message\n" + str(secret.get("from", "")))
+	%DialogOk.visible = true
+	%DialogOk.grab_focus()
+	_set_softkeys("", "OK", "")
+	_buzz()
 
 
 # ---------------------------------------------------------------- contacts
@@ -694,16 +974,8 @@ func _photo_texture(path: String, box: Vector2i) -> Texture2D:
 # ---------------------------------------------------------------- "App stopped working"
 
 func _show_crash(app: PhoneApp) -> void:
-	_popup_focus = _focus_index()
-	_popup.visible = true
-	_title_style.bg_color = app.color
-	%DialogTitle.text = app.title
-	%DialogTitle.add_theme_color_override("font_color", _ink_on(app.color))
-	%DialogIcon.texture = app.icon
-	%DialogIcon.custom_minimum_size = _scaled(app.icon, 2)
-	%DialogText.text = "Loading"
+	_open_popup(app.title, app.color, app.icon, "Loading")
 	%DialogOk.visible = false
-	get_viewport().gui_release_focus()
 	_set_softkeys("", "", "")
 
 	_popup_tween = create_tween()
@@ -721,7 +993,24 @@ func _show_crash_message() -> void:
 	%DialogOk.visible = true
 	%DialogOk.grab_focus()
 	_set_softkeys("", "OK", "")
-	# A quick buzz, like the phone vibrating.
+	_buzz()
+
+
+## The little window in the middle of the screen, with a coloured title bar.
+func _open_popup(title: String, colour: Color, icon: Texture2D, text: String) -> void:
+	_popup_focus = _focus_index()
+	_popup.visible = true
+	_title_style.bg_color = colour
+	%DialogTitle.text = title
+	%DialogTitle.add_theme_color_override("font_color", _ink_on(colour))
+	%DialogIcon.texture = icon
+	%DialogIcon.custom_minimum_size = _scaled(icon, 2)
+	%DialogText.text = text
+	get_viewport().gui_release_focus()
+
+
+## A quick shake of the popup, like the phone vibrating.
+func _buzz() -> void:
 	var holder: Control = %DialogHolder
 	var start := holder.position.x
 	var tw := create_tween()
@@ -755,6 +1044,7 @@ func _begin_app(app_screen: String, screen_id: String, title: String, right := "
 
 
 func _show_page(page: Control, with_header: bool) -> void:
+	_end_call()
 	for each: Control in [%Home, %Menu, %AppPage]:
 		each.visible = each == page
 	_header.visible = with_header
