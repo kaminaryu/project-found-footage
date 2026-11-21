@@ -804,7 +804,8 @@ func _find_secret(number: String) -> Dictionary:
 	return {}
 
 
-## Turns a word into the keys you press for it, like on old phones: "WOLF" -> "9653".
+## Turns a word into the keys you press for it with multi-tap, like on old phones:
+## "WOLF" -> "9666555333" (W=9, O=666, L=555, F=333).
 ## Digits, * and # stay as they are; spaces, + and - are dropped.
 func _to_keypad(text: String) -> String:
 	var keys := ""
@@ -813,8 +814,10 @@ func _to_keypad(text: String) -> String:
 			keys += letter
 		else:
 			for key: String in KEY_LETTERS:
-				if letter in KEY_LETTERS[key]:
-					keys += key
+				var index: int = KEY_LETTERS[key].find(letter)
+				if index != -1:
+					keys += key.repeat(index + 1)
+					break
 	return keys
 
 

@@ -108,7 +108,7 @@
 						{ "from_me": false, "time": "12:02 AM", "text": "please..." },
 						{ "from_me": false, "time": "12:10 AM", "text": "I miss you Honey..." }
 					]
-				},
+				}
 			]
 		},
 		{
@@ -184,7 +184,7 @@
 		{ "name": "Troy", "number": "+6017-1727-1717", "type": "missed", "time": "9:40 PM" },
 		{ "name": "Troy", "number": "+6017-1727-1717", "type": "missed", "time": "10:02 PM" },
 		{ "name": "Afif", "number": "+6012-4664-1823", "type": "missed", "time": "4:11 PM" },
-		{ "name": "Dad",      "number": "+6011-1721-1827", "type": "missed", "time": "3:02 PM" },
+		{ "name": "Dad",      "number": "+6011-1721-1827", "type": "missed", "time": "3:02 PM" }
 	],
 
 	"contacts": {
@@ -199,9 +199,9 @@
 	},
 
 	"dial": {
-		"_readme": "The Call app. Any number that is not a code below rings, then says the number is unavailable (the 3rd wrong number in a game sets off the I SEE YOU scare instead, only once). A code rings once, then: sound = someone picks up, the line stays quiet for wait seconds, then that sound file plays. text = after the call that text arrives in Messages (once per game), from = who sends it (a new name gets its own chat at the top), with its date and time. A code can be digits or a WORD: each letter is the keypad key it is printed on, like old phones (WOLF = 9653).",
+		"_readme": "The Call app. Any number that is not a code below rings, then says the number is unavailable (the 3rd wrong number in a game sets off the I SEE YOU scare instead, only once). A code rings once, then: sound = someone picks up, the line stays quiet for wait seconds, then that sound file plays. text = after the call that text arrives in Messages (once per game), from = who sends it (a new name gets its own chat at the top), with its date and time. A code can be digits or a WORD: each letter is typed with multi-tap, like old phones (WOLF = 9666555333).",
 		"secrets": [
-			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0Lf_is_45L33P}" },
+			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0lf_is_4sl33p}" },
 			{ "code": "7812", "sound": "res://Assets/SFX/crying.wav", "wait": 3 }
 		]
 	},

@@ -21,7 +21,7 @@ func freeze_player(state: bool) -> void:
 #start of the game
 func start_game() -> void:
 	freeze_player(true);
-	Dialogue.play("Intro");
+	Dialogue.play("Close_Shop");
 
 func freeze_main_window(frozen: bool) -> void:
 	freezing_main_window.emit(frozen)

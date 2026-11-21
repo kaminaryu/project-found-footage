@@ -123,7 +123,15 @@ func _play_steps(conversation: String, steps: Array) -> void:
 				event.emit(step.name)
 				if run != _run:
 					return   # whoever listened to the event started something else
+	stop_dialogue(conversation)
 
+
+func _process(delta: float) -> void :
+	if (Input.is_action_pressed("stop_dialogue")) :
+		stop_dialogue(_current)
+
+
+func stop_dialogue(conversation) -> void :
 	_current = ""
 	_playing = false
 	print("stopping dialog", _playing)

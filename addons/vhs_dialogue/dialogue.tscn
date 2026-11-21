@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bhulqyt01c2py"]
+[gd_scene format=3 uid="uid://cgnq0j34jugvt"]
 
 [ext_resource type="Script" uid="uid://73au1w6t474m" path="res://addons/vhs_dialogue/dialogue.gd" id="1_script"]
 [ext_resource type="LabelSettings" uid="uid://c8oyyhl78vh0f" path="res://addons/vhs_dialogue/subtitle_style.tres" id="2_style"]

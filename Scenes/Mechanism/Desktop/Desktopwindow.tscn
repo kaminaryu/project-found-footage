@@ -170,12 +170,17 @@ application = ExtResource("10_dk0mw")
 hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 
-[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("5_t60eu")]
+[node name="Control" type="Control" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1403576233]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=552116334 instance=ExtResource("5_t60eu")]
 layout_mode = 1
-offset_left = 629.0
-offset_top = 350.0
-offset_right = 695.0
-offset_bottom = 435.0
+offset_left = 627.0
+offset_top = 352.0
+offset_right = 693.0
+offset_bottom = 437.0
 icon_texture = ExtResource("11_42mr4")
 icon_name = "readme.txt"
 application = ExtResource("12_roya5")
@@ -183,6 +188,62 @@ launch_file = "res://Resources/Data/CTF/Texts/readme.txt"
 hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 1
+
+[node name="ReadmeIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=372084808 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 925.0
+offset_top = 324.0
+offset_right = 991.0
+offset_bottom = 409.0
+icon_texture = ExtResource("11_42mr4")
+icon_name = "second.txt"
+application = ExtResource("12_roya5")
+launch_file = "res://Resources/Data/CTF/Texts/second.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 2
+
+[node name="ReadmeIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=1124866041 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 725.0
+offset_top = 515.0
+offset_right = 791.0
+offset_bottom = 600.0
+icon_texture = ExtResource("11_42mr4")
+icon_name = "third.txt"
+application = ExtResource("12_roya5")
+launch_file = "res://Resources/Data/CTF/Texts/third.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 3
+
+[node name="ReadmeIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=1940885511 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 888.0
+offset_top = 671.0
+offset_right = 954.0
+offset_bottom = 756.0
+icon_texture = ExtResource("11_42mr4")
+icon_name = "fourth.txt"
+application = ExtResource("12_roya5")
+launch_file = "res://Resources/Data/CTF/Texts/fourth.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 4
+
+[node name="ReadmeIcon5" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=754127801 instance=ExtResource("5_t60eu")]
+layout_mode = 1
+offset_left = 516.0
+offset_top = 683.0
+offset_right = 582.0
+offset_bottom = 768.0
+icon_texture = ExtResource("11_42mr4")
+icon_name = "fifth.txt"
+application = ExtResource("12_roya5")
+launch_file = "res://Resources/Data/CTF/Texts/fifth.txt"
+hidden_until_revealed = true
+reveal_save_flag = "ctf_revealed"
+show_from_flag_stage = 5
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)

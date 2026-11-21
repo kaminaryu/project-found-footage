@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpc78c15m3ewo" path="res://Assets/Photos/Foods.jpg" id="4_57x68"]
 [ext_resource type="Texture2D" uid="uid://hhmv6j47eshk" path="res://Assets/Photos/Golf.jpg" id="5_lkb6o"]
 [ext_resource type="Texture2D" uid="uid://cxnk362gwhsiq" path="res://Assets/Photos/TwinTowers.jpg" id="6_lug1x"]
-[ext_resource type="Texture2D" uid="uid://cb1yb7ys86qpp" path="res://Assets/Photos/house.png" id="7_4l8iu"]
+[ext_resource type="Texture2D" uid="uid://c7mnfsr173paf" path="res://Assets/Photos/house_new_final.png" id="7_lug1x"]
 [ext_resource type="Shader" uid="uid://ducjrp6x5w5wc" path="res://UI/Mechanism/PhotoEditor/photo_filter.gdshader" id="8_57x68"]
 
 [sub_resource type="Resource" id="Resource_6si4i"]
@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://ciahgydn4fvj4"
 
 [sub_resource type="Resource" id="Resource_07njj"]
 script = ExtResource("2_v7s4r")
-image = ExtResource("7_4l8iu")
+image = ExtResource("7_lug1x")
 caption = "25 Apr 2000 - Home sweet home."
 metadata/_custom_type_script = "uid://ciahgydn4fvj4"
 
