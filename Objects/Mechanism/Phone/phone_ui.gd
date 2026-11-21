@@ -156,7 +156,16 @@ func _process(delta: float) -> void:
 # ---------------------------------------------------------------- input
 
 func _input(event: InputEvent) -> void:
-	# Q or Esc always puts the phone away, even while it boots.
+	# Number keys type on the Call keypad. This comes first because 1 also
+	# opens/closes the phone (use_phone), and on the keypad it should type a 1.
+	var typed := _typed_key(event)
+	if typed != "" and _screen_id == "dial" and not (_popup.visible or _scare or _booting):
+		_dial_press(typed)
+		if not _items[-1].has_focus():
+			_items[-1].grab_focus()   # jump to CALL, so Enter rings the number
+		get_viewport().set_input_as_handled()
+		return
+	# Q, Esc, Tab or 1 put the phone away, even while it boots.
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("quit") or event.is_action_pressed("use_phone"):
 		close_requested.emit()
 		get_viewport().set_input_as_handled()
@@ -203,15 +212,6 @@ func _input(event: InputEvent) -> void:
 		for arrow: String in ["ui_up", "ui_down", "ui_left", "ui_right"]:
 			if event.is_action_pressed(arrow, true):
 				get_viewport().set_input_as_handled()
-		return
-
-	# Number keys on the keyboard type on the Call keypad.
-	var typed := _typed_key(event)
-	if _screen_id == "dial" and typed != "":
-		_dial_press(typed)
-		if not _items[-1].has_focus():
-			_items[-1].grab_focus()   # jump to CALL, so Enter rings the number
-		get_viewport().set_input_as_handled()
 		return
 
 	var handled := true
