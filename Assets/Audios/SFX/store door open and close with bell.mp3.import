@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3qv3qsqt11bn"
+path="res://.godot/imported/store door open and close with bell.mp3-6a20f7a9f77f3e6a631e2308641213a0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audios/SFX/store door open and close with bell.mp3"
+dest_files=["res://.godot/imported/store door open and close with bell.mp3-6a20f7a9f77f3e6a631e2308641213a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

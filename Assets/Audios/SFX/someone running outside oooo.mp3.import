@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d217s2t1q2um7"
+path="res://.godot/imported/someone running outside oooo.mp3-f21391a6ac81f9adb95a38a5936e73ab.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audios/SFX/someone running outside oooo.mp3"
+dest_files=["res://.godot/imported/someone running outside oooo.mp3-f21391a6ac81f9adb95a38a5936e73ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -9,6 +9,7 @@ func _ready() -> void :
 
 
 func run(_player: Node) -> void :
+	$AudioStreamPlayer.play();
 	if (GameMaster.is_flag_raised(&"scrap_collected")) :
 		GameMaster.show_hint("Box is empty.")
 		return

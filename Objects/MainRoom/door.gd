@@ -8,7 +8,7 @@ func run(_player: Node) -> void :
 		return
 
 	_is_animation_running = true
-
+	$AudioStreamPlayer.play()
 	if (_is_door_open) :
 		$AnimationPlayer.play("DoorClose")
 		_is_door_open = false

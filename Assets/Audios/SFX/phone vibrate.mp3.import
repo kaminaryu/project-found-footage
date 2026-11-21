@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bps3qqgbgnpsh"
+path="res://.godot/imported/phone vibrate.mp3-83badcae1d2ae19793747130d4910bff.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audios/SFX/phone vibrate.mp3"
+dest_files=["res://.godot/imported/phone vibrate.mp3-83badcae1d2ae19793747130d4910bff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
