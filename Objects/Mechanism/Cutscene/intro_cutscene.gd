@@ -65,6 +65,7 @@ var _door_home: Array[Transform3D] = []
 var _door_hinge: Array[Vector3] = []
 var _door_sign: Array[float] = []
 var _door_open := 0.0                  # 0 = closed, 1 = open
+var _door_tween: Tween
 var _hidden: Array[CanvasItem] = []    # what we hid, to show again at the end
 
 
@@ -133,6 +134,9 @@ func _on_started(conversation: String) -> void:
 func _on_finished(conversation: String) -> void:
 	if conversation != CONVERSATION or not _running:
 		return
+	# dialogue.gd lets the player move whenever any conversation ends, but the customer
+	# may still be walking out: keep the player still until the cutscene is really over.
+	GameMaster.freeze_player(true)
 	while _customer_busy:   # let him finish walking out first
 		await get_tree().process_frame
 	_end()
@@ -148,6 +152,8 @@ func _end() -> void:
 		pivot.rotation.x = clampf(asin(clampf(forward.y, -1.0, 1.0)), deg_to_rad(-80.0), deg_to_rad(80.0))
 	_player_camera.make_current()
 	customer.hide()
+	if _door_tween:
+		_door_tween.kill()
 	_set_door(0.0)
 	box.global_transform = _box_home
 	box.show()
@@ -230,8 +236,8 @@ func _walk_out() -> void:
 	await _walk_to(_outside.global_position)
 	customer.hide()
 	_anim.play("idle")
-	_swing_door(false)
 	box.global_transform = _box_home   # the box goes back on the floor
+	await _swing_door(false)           # the cutscene ends once the door has shut
 	_customer_busy = false
 
 
@@ -328,8 +334,11 @@ func _global_box(node: Node3D) -> AABB:
 
 
 func _swing_door(open: bool) -> void:
-	var swing := create_tween()
-	swing.tween_method(_set_door, _door_open, 1.0 if open else 0.0, 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	if _door_tween:
+		_door_tween.kill()   # a new swing takes over from the one still moving
+	_door_tween = create_tween()
+	_door_tween.tween_method(_set_door, _door_open, 1.0 if open else 0.0, 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await _door_tween.finished
 
 
 func _open_door_later(seconds: float) -> void:
