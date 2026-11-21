@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://jugr2msfhiba" path="res://Assets/UI/Desktop/Icons/TextFile64.svg" id="11_42mr4"]
 [ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="12_roya5"]
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="13_hsarr"]
-[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
+[ext_resource type="PackedScene" uid="uid://crmyfoshsn37b" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)

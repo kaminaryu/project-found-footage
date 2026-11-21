@@ -1,3 +1,4 @@
+@tool
 class_name FileExplorerEntry
 extends VBoxContainer
 
@@ -5,8 +6,16 @@ signal activated(entry: FileExplorerEntry)
 
 const DEFAULT_TEXTURE := preload("res://Assets/UI/Desktop/Icons/DefaultIcon64.png")
 
-@export var file_texture: Texture2D = DEFAULT_TEXTURE
-@export var file_name: String = "file"
+@export var file_texture: Texture2D = DEFAULT_TEXTURE:
+	set(value):
+		file_texture = value
+		if is_node_ready():
+			_apply()
+@export var file_name: String = "file":
+	set(value):
+		file_name = value
+		if is_node_ready():
+			_apply()
 @export var audio_stream: AudioStream
 
 @onready var _thumbnail: TextureButton = $Thumbnail
@@ -28,11 +37,14 @@ func setup(texture: Texture2D, display_name: String, audio: AudioStream = null) 
 
 
 func _apply() -> void:
-	_thumbnail.texture_normal = file_texture
+	_thumbnail.texture_normal = file_texture if file_texture != null else DEFAULT_TEXTURE
 	_name.text = file_name
 
 
 func _on_thumbnail_gui_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint():
+		return
+
 	if (
 		event is InputEventMouseButton
 		and event.button_index == MOUSE_BUTTON_LEFT

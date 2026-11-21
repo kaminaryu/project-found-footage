@@ -22,9 +22,11 @@ func _ready() -> void:
 		gallery_list.add_child(thumb) #this will add more thumbnail child in the gallery
 		thumb.setup(entry)
 		thumb.picked.connect(_on_photo_picked)
+
 	if gallery_list.get_child_count() > 0:
 		var first: PhotoThumbnail = gallery_list.get_child(0)
 		first.button_pressed = true
+
 	%ExposureSlider.value_changed.connect(_on_slider_changed.bind("exposure"))
 	%ContrastSlider.value_changed.connect(_on_slider_changed.bind("contrast"))
 	%NoiseSlider.value_changed.connect(_on_slider_changed.bind("noise"))

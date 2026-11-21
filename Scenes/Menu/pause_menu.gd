@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("quit"):
 		pause();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
