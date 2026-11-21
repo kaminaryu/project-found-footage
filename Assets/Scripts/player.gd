@@ -22,11 +22,15 @@ var is_crouching: bool = false
 var is_frozen: bool = false
 var looked_at: Node = null
 
+func freeze(state: bool) -> void:
+	is_frozen = state;
+
 #getting mouse input
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	held_phone.visible = false
 	GameMaster.freezing_main_window.connect(_on_main_window_freezing)
+	GameMaster.freezeplayer.connect(freeze)
 
 
 func _unhandled_input(event: InputEvent) -> void:
