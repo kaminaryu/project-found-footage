@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://c7x0bsrp6ghss"]
+
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_62mn0"]
+[ext_resource type="Script" uid="uid://caccrtlin3qbr" path="res://Scenes/showcase_scraps.gd" id="1_lbrjt"]
+[ext_resource type="PackedScene" uid="uid://ca5guyu6ju62h" path="res://Objects/Scraps/floppy_disk.tscn" id="1_qpb4t"]
+[ext_resource type="PackedScene" uid="uid://boqa1mbupdrxn" path="res://Objects/Scraps/flip_phone.tscn" id="3_ipe5y"]
+[ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="3_sgu5d"]
+[ext_resource type="Script" uid="uid://dkwddmr4kq0qd" path="res://Objects/Scraps/scrap_spinning.gd" id="4_62mn0"]
+[ext_resource type="PackedScene" uid="uid://ev3tha4llmm7" path="res://Objects/Scraps/camera.tscn" id="4_sgu5d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbrjt"]
+font = ExtResource("1_62mn0")
+font_size = 64
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgu5d"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpp7x"]
+bg_color = Color(0.45, 0.45, 0.45, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jllbl"]
+bg_color = Color(0.75, 0.75, 0.75, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[node name="ShowcaseScraps" type="Control" unique_id=1028987499]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lbrjt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=49309596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
+
+[node name="Skeleton" type="VBoxContainer" parent="." unique_id=2069607120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="MarginContainer" parent="Skeleton" unique_id=1307070108]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Label" type="Label" parent="Skeleton/Title" unique_id=486263342]
+layout_mode = 2
+text = "Box of Scraps"
+label_settings = SubResource("LabelSettings_lbrjt")
+horizontal_alignment = 1
+
+[node name="Scraps" type="HBoxContainer" parent="Skeleton" unique_id=937863127]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 135
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Skeleton/Scraps" unique_id=1756761222]
+layout_mode = 2
+
+[node name="ScrapSlot1" type="SubViewportContainer" parent="Skeleton/Scraps/VBoxContainer" unique_id=1932057549]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Skeleton/Scraps/VBoxContainer/ScrapSlot1" unique_id=1325578819]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="FloppyDisk" parent="Skeleton/Scraps/VBoxContainer/ScrapSlot1/SubViewport" unique_id=830575782 instance=ExtResource("1_qpb4t")]
+transform = Transform3D(1, 0, 0, 0, 0.93434703, -0.3563645, 0, 0.3563645, 0.93434703, -0.01780662, 0, 0)
+script = ExtResource("4_62mn0")
+speed = -1.6
+
+[node name="Camera3D" type="Camera3D" parent="Skeleton/Scraps/VBoxContainer/ScrapSlot1/SubViewport" unique_id=1511188926]
+transform = Transform3D(1, 0, 0, 0, 0.75355744, 0.65738213, 0, -0.65738213, 0.75355744, 0, 0.4276849, 0.6577319)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Skeleton/Scraps/VBoxContainer/ScrapSlot1/SubViewport/Camera3D" unique_id=106210843]
+light_energy = 0.5
+
+[node name="Label" type="Label" parent="Skeleton/Scraps/VBoxContainer" unique_id=1056130926]
+layout_mode = 2
+text = "Floppy Disk"
+label_settings = ExtResource("3_sgu5d")
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Skeleton/Scraps" unique_id=1595243982]
+layout_mode = 2
+
+[node name="ScrapSlot2" type="SubViewportContainer" parent="Skeleton/Scraps/VBoxContainer2" unique_id=859269365]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Skeleton/Scraps/VBoxContainer2/ScrapSlot2" unique_id=843481392]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="FlipPhone" parent="Skeleton/Scraps/VBoxContainer2/ScrapSlot2/SubViewport" unique_id=1844535022 instance=ExtResource("3_ipe5y")]
+transform = Transform3D(-1, 0, -8.742278e-08, -6.106901e-08, 0.7155631, 0.6985481, 6.2556516e-08, 0.6985481, -0.7155631, 0, 0.057928838, -0.01746282)
+script = ExtResource("4_62mn0")
+speed = 2.0
+
+[node name="FlipPhoneTop" parent="Skeleton/Scraps/VBoxContainer2/ScrapSlot2/SubViewport/FlipPhone" index="0" unique_id=1489906509]
+transform = Transform3D(1, -8.2532e-08, 1.196361e-07, -8.079334e-08, -0.9998954, -0.014460772, 1.2081708e-07, 0.014460772, -0.9998954, 0, 0.011396527, 0.09836497)
+
+[node name="Camera3D" type="Camera3D" parent="Skeleton/Scraps/VBoxContainer2/ScrapSlot2/SubViewport" unique_id=404106547]
+transform = Transform3D(1, 0, 0, 0, 0.75355744, 0.65738213, 0, -0.65738213, 0.75355744, 0, 0.22537363, 0.14439178)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Skeleton/Scraps/VBoxContainer2/ScrapSlot2/SubViewport/Camera3D" unique_id=458520353]
+light_energy = 0.5
+
+[node name="Label" type="Label" parent="Skeleton/Scraps/VBoxContainer2" unique_id=1542025115]
+layout_mode = 2
+text = "Flip Phone"
+label_settings = ExtResource("3_sgu5d")
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Skeleton/Scraps" unique_id=813204796]
+layout_mode = 2
+
+[node name="ScrapSlot3" type="SubViewportContainer" parent="Skeleton/Scraps/VBoxContainer3" unique_id=433990924]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Skeleton/Scraps/VBoxContainer3/ScrapSlot3" unique_id=1363518768]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Camera" parent="Skeleton/Scraps/VBoxContainer3/ScrapSlot3/SubViewport" unique_id=588382207 instance=ExtResource("4_sgu5d")]
+script = ExtResource("4_62mn0")
+speed = 14.0
+
+[node name="Camera3D" type="Camera3D" parent="Skeleton/Scraps/VBoxContainer3/ScrapSlot3/SubViewport" unique_id=1685179928]
+transform = Transform3D(1, 0, 0, 0, 0.75355744, 0.65738213, 0, -0.65738213, 0.75355744, 0, 1.0737214, 1.3683733)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Skeleton/Scraps/VBoxContainer3/ScrapSlot3/SubViewport/Camera3D" unique_id=897703034]
+light_energy = 0.5
+
+[node name="Label" type="Label" parent="Skeleton/Scraps/VBoxContainer3" unique_id=1384253706]
+layout_mode = 2
+text = "Digicam"
+label_settings = ExtResource("3_sgu5d")
+horizontal_alignment = 1
+
+[node name="ExitButton" type="MarginContainer" parent="Skeleton" unique_id=1982739396]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 64
+
+[node name="CloseButton" type="Button" parent="Skeleton/ExitButton" unique_id=1314678982]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_62mn0")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_sgu5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bpp7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jllbl")
+text = "Collect"
+
+[connection signal="pressed" from="Skeleton/ExitButton/CloseButton" to="." method="_on_close_button_pressed"]
+
+[editable path="Skeleton/Scraps/VBoxContainer2/ScrapSlot2/SubViewport/FlipPhone"]

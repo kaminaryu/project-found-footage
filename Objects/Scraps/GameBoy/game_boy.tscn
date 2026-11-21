@@ -44,6 +44,7 @@ accepted_type = &"battery"
 mesh = SubResource("BoxMesh_l26sq")
 script = ExtResource("5_ppart")
 part_type = &"battery"
+display_name = "Battery"
 
 [node name="HoverDetector" type="StaticBody3D" parent="BatterySlot/Battery" unique_id=59384571 node_paths=PackedStringArray("hover_label")]
 script = ExtResource("2_xhgr8")
@@ -56,4 +57,4 @@ shape = SubResource("ConcavePolygonShape3D_cxhpb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39004898, -0.6835488)
 visible = false
 text = "Press [Left Click]
-to remove {Battery}"
+to remove Battery"

@@ -52,7 +52,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopBar" parent="WindowSkeleton" instance=ExtResource("4_topbar")]
+[node name="TopBar" parent="WindowSkeleton" unique_id=942722350 instance=ExtResource("4_topbar")]
 layout_mode = 2
 title_text = "game_final.exe"
 

@@ -3,23 +3,23 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cukm2r8i0b4tu"
-path="res://.godot/imported/MemoryCard.glb-6320a9ee2dc2f3e866aa4380f4c69f7e.scn"
+uid="uid://bsrwmu4yemarq"
+path="res://.godot/imported/door.gltf-cb17d4cb230946f9c2955ea4bcd3b551.scn"
 
 [deps]
 
-source_file="res://Assets/Models/MemoryCard.glb"
-dest_files=["res://.godot/imported/MemoryCard.glb-6320a9ee2dc2f3e866aa4380f4c69f7e.scn"]
+source_file="res://Assets/MainWorld/Door/door.gltf"
+dest_files=["res://.godot/imported/door.gltf-cb17d4cb230946f9c2955ea4bcd3b551.scn"]
 
 [params]
 
-nodes/root_type="MeshInstance3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
-nodes/root_scale=0.3
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true

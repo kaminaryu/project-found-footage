@@ -33,7 +33,7 @@ func glitch(duration: float = 1.0, strength: float = 1.0) -> void:
 func glitch_and_close(duration: float = 1.0, strength: float = 1.0) -> void:
 	glitch(duration, strength)
 	await get_tree().create_timer(duration + 0.15).timeout
-	queue_free()
+	_on_close_requested()
 
 
 func _window_ready() -> void:
