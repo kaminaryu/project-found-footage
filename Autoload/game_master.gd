@@ -8,6 +8,7 @@ signal showing_hint(text: String)
 signal collecting_scrap
 signal flag_raised(flag: StringName)
 signal flags_cleared
+signal pause
 
 var _raised_flags: Dictionary = {}
 
