@@ -2,7 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://vpvb46eouey8" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_tileset.tres" id="1_stp5j"]
 [ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_box.tscn" id="2_b1uxc"]
+[ext_resource type="Texture2D" uid="uid://cwasgvyvpisg5" path="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/Box.png" id="3_l7w8q"]
 [ext_resource type="PackedScene" uid="uid://du0wdt73xfmga" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_player.tscn" id="3_sqvit"]
+[ext_resource type="Texture2D" uid="uid://cfiu78ekxd2pw" path="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/Player.png" id="5_o166i"]
 
 [node name="Level4" type="Node2D" unique_id=511485388]
 
@@ -16,20 +18,26 @@ tile_set = ExtResource("1_stp5j")
 
 [node name="Box1" parent="Boxes" unique_id=344144912 instance=ExtResource("2_b1uxc")]
 position = Vector2(336, 144)
+texture = ExtResource("3_l7w8q")
 
 [node name="Box2" parent="Boxes" unique_id=1239864760 instance=ExtResource("2_b1uxc")]
 position = Vector2(304, 144)
+texture = ExtResource("3_l7w8q")
 
 [node name="Box3" parent="Boxes" unique_id=1175172857 instance=ExtResource("2_b1uxc")]
 position = Vector2(304, 272)
+texture = ExtResource("3_l7w8q")
 
 [node name="Box4" parent="Boxes" unique_id=877761053 instance=ExtResource("2_b1uxc")]
 position = Vector2(400, 240)
+texture = ExtResource("3_l7w8q")
 
 [node name="Box5" parent="Boxes" unique_id=1854368983 instance=ExtResource("2_b1uxc")]
 position = Vector2(336, 240)
+texture = ExtResource("3_l7w8q")
 
 [node name="Player" parent="." unique_id=1665978972 instance=ExtResource("3_sqvit")]
 texture_filter = 0
 position = Vector2(368, 240)
 scale = Vector2(1, 1)
+texture = ExtResource("5_o166i")

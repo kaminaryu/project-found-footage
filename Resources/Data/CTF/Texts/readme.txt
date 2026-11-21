@@ -1,8 +1,11 @@
-PROJECT: FOUND FOOTAGE
-CASE 0042 - RECOVERED NOTE
+You are an idiot for mendling with data that are not YOURS.
 
-The previous operator left this behind:
+ST4Y B4CK.
 
-Final{welcome_initial}
+Or be a curious little cat and dig deeper.
+I know you can not resist the tempation.
+To uncover the mysteries of the world -- more interesting than whatever is going on in this small pawn shop of yours.
 
-Submit it through Portal.exe.
+Get what it take? Find all the codes and feed it to *Portal.exe*
+Here, I give you the first one for free:
+Game{h3ll0w_0rld}

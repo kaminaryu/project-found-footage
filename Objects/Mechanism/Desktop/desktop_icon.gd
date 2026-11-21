@@ -1,13 +1,25 @@
+@tool
 extends Control
 
 const CLICK_BUFFER_TIME_S := 0.3
 const ERROR_POPUP_SCENE := preload("res://Objects/Mechanism/Desktop/ErrorPopup.tscn")
+const DEFAULT_TEXTURE := preload("res://Assets/UI/Desktop/Icons/DefaultIcon64.png")
 
 signal blocked_launch_attempted
 
 @export_group("Configuration")
-@export var icon_texture: Texture2D
-@export var icon_name: String
+@export var icon_texture: Texture2D = DEFAULT_TEXTURE:
+	set(value):
+		icon_texture = value
+		_apply_visuals()
+@export var icon_name: String = "Application":
+	set(value):
+		icon_name = value
+		_apply_visuals()
+@export var text_color: Color = Color.WHITE:
+	set(value):
+		text_color = value
+		_apply_visuals()
 @export var application: PackedScene
 @export_file("*.txt") var launch_file: String = ""
 
@@ -37,13 +49,29 @@ var _launch_popup: ErrorPopup
 
 
 func _ready() -> void :
-	thumbnail.texture_normal = icon_texture
-	name_label.text = icon_name
+	_apply_visuals()
+
+	if Engine.is_editor_hint():
+		set_process(false)
+		return
+
 	add_to_group("desktop_icon")
 	refresh_visibility()
 
 
+func _apply_visuals() -> void:
+	if thumbnail == null or name_label == null:
+		return
+
+	thumbnail.texture_normal = icon_texture if icon_texture != null else DEFAULT_TEXTURE
+	name_label.text = icon_name
+	name_label.add_theme_color_override("font_color", text_color)
+
+
 func _process(_delta: float) -> void :
+	if Engine.is_editor_hint():
+		return
+
 	# double click
 	if (click_counter >= 2) :
 		click_counter = 0
@@ -166,6 +194,9 @@ func _save_save_data(data: Dictionary) -> void:
 
 
 func _on_thumbnail_pressed() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	click_counter += 1
 
 	var timer = Timer.new()
