@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bx1u5yd4gt84w"
-path="res://.godot/imported/Standing Arguing.fbx-97b655cfcee003c9119cd52d6c948629.scn"
+uid="uid://d2tbqjcaogsce"
+path="res://.godot/imported/Angry Point customer.fbx-12b6c33af705d1545ace0bce4abb493e.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Customer/Standing Arguing.fbx"
-dest_files=["res://.godot/imported/Standing Arguing.fbx-97b655cfcee003c9119cd52d6c948629.scn"]
+source_file="res://Assets/Models/Customer/Angry Point customer.fbx"
+dest_files=["res://.godot/imported/Angry Point customer.fbx-12b6c33af705d1545ace0bce4abb493e.scn"]
 
 [params]
 
@@ -19,7 +19,7 @@ nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
-nodes/root_scale=30.0
+nodes/root_scale=0.3
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -43,9 +43,9 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Models/Customer/Animation/arguing.res",
+"save_to_file/fallback_path": "res://Assets/Models/Customer/Animation/angry_point.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://dxgj5lsnc6rfu",
+"save_to_file/path": "uid://c22nrelxllmwq",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

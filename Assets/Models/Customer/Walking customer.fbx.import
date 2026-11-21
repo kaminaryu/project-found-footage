@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjafipj6oab8g"
-path="res://.godot/imported/Standing Idle.fbx-07fabc115941a4ee4c541597eb15a40b.scn"
+uid="uid://sjjohrrwk2qg"
+path="res://.godot/imported/Walking customer.fbx-396df1855dd2cac736570aa0a1dd8bc1.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Customer/Standing Idle.fbx"
-dest_files=["res://.godot/imported/Standing Idle.fbx-07fabc115941a4ee4c541597eb15a40b.scn"]
+source_file="res://Assets/Models/Customer/Walking customer.fbx"
+dest_files=["res://.godot/imported/Walking customer.fbx-396df1855dd2cac736570aa0a1dd8bc1.scn"]
 
 [params]
 
@@ -19,7 +19,7 @@ nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
-nodes/root_scale=30.0
+nodes/root_scale=0.3
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -43,9 +43,9 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Models/Customer/Animation/idle.res",
+"save_to_file/fallback_path": "res://Assets/Models/Customer/Animation/walk.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://b6st0thcohkm",
+"save_to_file/path": "uid://cmu4wl2pdy61x",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
