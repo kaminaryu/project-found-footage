@@ -2,29 +2,43 @@
 
 [ext_resource type="Script" uid="uid://doftwquijh778" path="res://UI/Mechanism/PhotoEditor/photo_editor.gd" id="1_1wgmq"]
 [ext_resource type="Theme" uid="uid://c7u17ufe863ta" path="res://UI/Mechanism/PhotoEditor/photo_editor_theme.tres" id="1_cvkhc"]
-[ext_resource type="Texture2D" uid="uid://h6hv2pebrr4i" path="res://Assets/UI/PhotoEditor/Icons/app_icon.png" id="2_1wgmq"]
 [ext_resource type="Script" uid="uid://ciahgydn4fvj4" path="res://Assets/UI/Mechanism/PhotoEditor/photo_entry.gd" id="2_v7s4r"]
-[ext_resource type="Texture2D" uid="uid://dld2jsinwxdlu" path="res://Assets/Photos/family.png" id="3_57x68"]
-[ext_resource type="Texture2D" uid="uid://b6x2bx5e5p7dv" path="res://Assets/Photos/drawing.png" id="4_lkb6o"]
-[ext_resource type="Texture2D" uid="uid://cfxwc80n4v0hg" path="res://Assets/Photos/GuestPic.png" id="5_lug1x"]
+[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="3_topbar"]
+[ext_resource type="Texture2D" uid="uid://dy8t0u50nho64" path="res://Assets/Photos/coffee.png" id="3_tuteu"]
+[ext_resource type="Texture2D" uid="uid://bpc78c15m3ewo" path="res://Assets/Photos/Foods.jpg" id="4_57x68"]
+[ext_resource type="Texture2D" uid="uid://hhmv6j47eshk" path="res://Assets/Photos/Golf.jpg" id="5_lkb6o"]
+[ext_resource type="Texture2D" uid="uid://cxnk362gwhsiq" path="res://Assets/Photos/TwinTowers.jpg" id="6_lug1x"]
+[ext_resource type="Texture2D" uid="uid://cb1yb7ys86qpp" path="res://Assets/Photos/house.png" id="7_4l8iu"]
 [ext_resource type="Shader" uid="uid://ducjrp6x5w5wc" path="res://UI/Mechanism/PhotoEditor/photo_filter.gdshader" id="8_57x68"]
 
-[sub_resource type="Resource" id="Resource_xrivr"]
+[sub_resource type="Resource" id="Resource_6si4i"]
 script = ExtResource("2_v7s4r")
-image = ExtResource("3_57x68")
-caption = "11 April 2000 - Family photos together <3"
+image = ExtResource("3_tuteu")
+caption = "15 Oct 2001 - I just bought coffee. It tasted soooo good <3"
 metadata/_custom_type_script = "uid://ciahgydn4fvj4"
 
-[sub_resource type="Resource" id="Resource_13qdw"]
+[sub_resource type="Resource" id="Resource_lug1x"]
 script = ExtResource("2_v7s4r")
-image = ExtResource("4_lkb6o")
-caption = "3 October 2000 - My drawing of ShedletSky. So cool!"
+image = ExtResource("4_57x68")
+caption = "24 Feb 2001 - Picnic together!!"
 metadata/_custom_type_script = "uid://ciahgydn4fvj4"
 
-[sub_resource type="Resource" id="Resource_b1lj4"]
+[sub_resource type="Resource" id="Resource_b5rbi"]
 script = ExtResource("2_v7s4r")
-image = ExtResource("5_lug1x")
-caption = "How does this get here? *blush *"
+image = ExtResource("5_lkb6o")
+caption = "10 Jan 2001 - Golfing... I'm kinda bad at it tho </3"
+metadata/_custom_type_script = "uid://ciahgydn4fvj4"
+
+[sub_resource type="Resource" id="Resource_4l8iu"]
+script = ExtResource("2_v7s4r")
+image = ExtResource("6_lug1x")
+caption = "31 Aug 1996 - The new Twin Towers in KL! It is soooo tall omg???"
+metadata/_custom_type_script = "uid://ciahgydn4fvj4"
+
+[sub_resource type="Resource" id="Resource_07njj"]
+script = ExtResource("2_v7s4r")
+image = ExtResource("7_4l8iu")
+caption = "25 Apr 2000 - Home sweet home."
 metadata/_custom_type_script = "uid://ciahgydn4fvj4"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4l8iu"]
@@ -39,14 +53,24 @@ shader_parameter/filter_mode = 0
 [sub_resource type="SystemFont" id="SystemFont_guide_bold"]
 font_names = PackedStringArray("Segoe UI")
 font_weight = 700
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_guide_italic"]
 font_names = PackedStringArray("Segoe UI")
 font_italic = true
+subpixel_positioning = 0
 
-[node name="PhotoEditor" type="CanvasLayer" unique_id=350349810]
+[node name="PhotoEditor" type="Window" unique_id=350349810]
+oversampling_override = 1.0
+title = "PhotoLab 2.1"
+initial_position = 1
+size = Vector2i(1000, 720)
+unresizable = true
+borderless = true
+always_on_top = true
+sharp_corners = true
 script = ExtResource("1_1wgmq")
-photos = Array[ExtResource("2_v7s4r")]([SubResource("Resource_xrivr"), SubResource("Resource_13qdw"), SubResource("Resource_b1lj4")])
+photos = Array[ExtResource("2_v7s4r")]([SubResource("Resource_6si4i"), SubResource("Resource_lug1x"), SubResource("Resource_b5rbi"), SubResource("Resource_4l8iu"), SubResource("Resource_07njj")])
 
 [node name="AppWindow" type="Panel" parent="." unique_id=510781523]
 anchors_preset = 15
@@ -64,24 +88,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TitleBar" type="PanelContainer" parent="AppWindow/Layout" unique_id=264194515]
-layout_mode = 2
-theme_type_variation = &"TitleBar"
-
-[node name="TitleRow" type="HBoxContainer" parent="AppWindow/Layout/TitleBar" unique_id=1940893687]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="AppIcon" type="TextureRect" parent="AppWindow/Layout/TitleBar/TitleRow" unique_id=848769437]
-layout_mode = 2
-texture = ExtResource("2_1wgmq")
-stretch_mode = 3
-
-[node name="Title" type="Label" parent="AppWindow/Layout/TitleBar/TitleRow" unique_id=1346808509]
+[node name="TopBar" parent="AppWindow/Layout" unique_id=1092220020 instance=ExtResource("3_topbar")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"TitleText"
-text = "PhotoLab 2.1"
+title_text = "PhotoLab 2.1"
 
 [node name="BodyMargin" type="MarginContainer" parent="AppWindow/Layout" unique_id=1239520655]
 layout_mode = 2
@@ -376,3 +386,6 @@ Filters change the whole look of the photo.
 [color=#ffd27f]Noise[/color] – old film grain[/ul]
 
 [i]Hint: Play around to reveal the secret behind the image![/i]"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="close_pressed" from="AppWindow/Layout/TopBar" to="." method="_on_close_pressed"]

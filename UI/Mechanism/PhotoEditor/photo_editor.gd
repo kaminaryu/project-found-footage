@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends GameWindow
 enum Filter { NORMAL, GRAYSCALE, NEGATIVE, SEPIA, BLUR } #normal is 0, grayscale is 1 and so on
 
 const THUMBNAIL_SCENE: PackedScene = preload("res://UI/Mechanism/PhotoEditor/photo_thumbnail.tscn")
@@ -13,7 +13,7 @@ var current_entry: PhotoEntry
 @onready var filter_material: ShaderMaterial = %Photo.material
 @onready var filter_tabs: Array[Button] = [%NormalTab, %GrayscaleTab, %NegativeTab, %SepiaTab, %BlurTab]
 
-func _ready() -> void:
+func _window_ready() -> void:
 	for entry in photos:
 		if entry == null:
 			continue
@@ -26,6 +26,8 @@ func _ready() -> void:
 	if gallery_list.get_child_count() > 0:
 		var first: PhotoThumbnail = gallery_list.get_child(0)
 		first.button_pressed = true
+		if current_entry == null:
+			_on_photo_picked(first.entry)
 
 	%ExposureSlider.value_changed.connect(_on_slider_changed.bind("exposure"))
 	%ContrastSlider.value_changed.connect(_on_slider_changed.bind("contrast"))
