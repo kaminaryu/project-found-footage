@@ -59,6 +59,8 @@ Extras you can add:
     first\nsecond         \n = break the subtitle onto two lines
     @event lights_off     sends a message "lights_off" to your scripts (see 4.)
     # a note              lines that start with # are ignored
+    NATALIA: Hi | 2  # note   a note at the end of a line is ignored too
+                          (a # with a space before it; write \# to show a real #)
 
 Save the file (Ctrl+S). That's all, no other setup.
 
@@ -211,4 +213,4 @@ Yellow warnings in Output when the game starts
 	\n              new line           Dialogue.has_played("name")
 	@wait 2         pause 2 seconds    Dialogue.is_playing()
 	@event name     message to code    Dialogue.event.connect(my_function)
-	# note          ignored
+	# note          ignored (also at line end)

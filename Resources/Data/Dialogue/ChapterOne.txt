@@ -1,76 +1,93 @@
 [Intro]
-YOU: What a long day | 2
-YOU: ...Oh Who am I kidding, it was a whole day of doing nothing! | 4
-YOU: There had been almost no customers as of late.\nHow am I going to keep running this shop? | 6
-YOU: ...Maybe mom was right, I can't carry Dad's business \nas well as I had thought. | 5
+# Chapter One opening (Objects/Mechanism/Cutscene/intro_cutscene.gd).
+# The player can't move and the camera turns on its own. The @event lines drive it:
+#   @event look_<name>   turn the camera to the marker IntroCutscene/LookAt/<name> in main_walk
+#                        (look_customer follows his face, look_box looks at the box of scraps)
+@event look_counter
+@wait 4
+@event look_door
+YOU: What a long day. | 2
+@event look_shelves
+YOU: ...Oh, who am I kidding? It was a whole day of doing nothing! | 4
+@event look_floor
+YOU: There have been almost no customers lately.\nHow am I going to keep this shop running? | 6
+@event look_painting
+YOU: ...Maybe Mom was right. I can't carry Dad's business\nas well as I thought I could. | 5
+@event look_counter
 YOU: ... | 1
-YOU: Alright, enough wallowing. Time to close up the shop! | 2
+@event look_door
+YOU: Alright, enough wallowing. Time to close up the shop! | 3.5
 @wait 3
-(bell rings)
-@event Customer_walk_in
+@event Customer_walk_in    # bell rings, the main door opens, the customer walks to the counter
+(bell rings) | 1.5
 YOU: !... A customer? Hello, sir! | 2
-CUSTOMER: ...Ah, were you about to close up already? | 2
-YOU: No no it's fine! We can take in one more customer! | 3
-YOU: What are you looking for, sir? | 1
-@event box_on_table
-CUSTOMER: Here's a buncha junk I'm looking to sell off. | 2
-CUSTOMER: Just bought a house round'here for a pretty good deal | 2
-CUSTOMER: Got these stuff lying around up in the attic.\nProbably from the previous owners of the house. | 3
-CUSTOMER: Well, How much can I get for these? | 2
-YOU: I see... let me take a look, sir | 1
+@wait 1                    # gives him time to reach the counter (then he idles)
+CUSTOMER: ...Ah, were you about to close up already? | 3
+YOU: No, no, it's fine! We can take in one more customer! | 3.5
+YOU: What are you looking for, sir? | 2
+@event box_on_table        # his box of scraps lands on the counter (not interactable yet)
+CUSTOMER: Here's a bunch of junk I'm looking to sell off. | 3
+CUSTOMER: Just bought a house 'round here for a pretty good deal. | 3.5
+CUSTOMER: Got all this stuff lying around up in the attic.\nProbably from the previous owners of the house. | 5.5
+CUSTOMER: Well, how much can I get for these? | 2.5
+YOU: I see... Let me take a look, sir. | 2
+@event look_box
 @wait 2
-YOU: Hmm... I would say about RM 60. | 2
-@event cust_angry
-CUSTOMER: RM 60?! What?! These are all antique stuff right here! | 2
-CUSTOMER Surely it goes for a higher price, no? | 2
-YOU: I'm really sorry sir, but as you said, these are all broken. | 2
-YOU: We'll have to repair them before we can even begin to put them on the shelves. | 3
-@event cust_argue
-CUSTOMER: tch, fine. just get these junk off of my hands | 2
-YOU: We'll also need you to fill out your name and contact information. Just for the record keeping, sir. | 3
-CUSTOMER : Alright Whatever. | 1
-(writing sounds)
+@event look_customer
+YOU: Hmm... I'd say about RM 60. | 2
+@event cust_angry          # he points angrily (angry_point), then idles again
+CUSTOMER: RM 60?! What?! These are all antiques right here! | 3
+CUSTOMER: Surely they go for a higher price, no? | 2.5
+YOU: I'm really sorry, sir, but as you said, these are all broken. | 4
+YOU: We'll have to repair them before we can even begin\nto put them on the shelves. | 5
+@event cust_argue          # angry point again
+CUSTOMER: Tch, fine. Just get this junk off my hands. | 3
+YOU: We'll also need you to fill in your name and contact information.\nJust for record keeping, sir. | 6
+CUSTOMER: Alright, whatever. | 1.5
+@event writing             # writing sound effect
+(writing sounds) | 2.5
 CUSTOMER: There. | 1
 @wait 1
-(YOU give money to the CUSTOMER)
+(You hand him the money) | 2
 YOU: Thank you, sir! Come again! | 2
-@event cust_leave
+@event cust_leave          # he walks out through the main door, then the box goes back on the floor
 @wait 1
-YOU: There's that... Time to close up the shop | 2
+YOU: Well, that's that... Time to close up the shop. | 3
+# The cutscene ends here: the player can move again.
 
 [Close_Shop]
-YOU: Let's see what do we got here.... | 1
+YOU: Let's see what we've got here... | 2
 
 [Restoration_complete]
-YOU: Good as new! | 1
-YOU: hmm Floppy disk... maybe I should check this out. | 2
-#The phone won't turn on yet or player can't pickup the phone yet
+YOU: Good as new! | 1.5
+YOU: Hmm, a floppy disk... Maybe I should check this out. | 3
+# The phone won't turn on yet, and the player can't pick up the phone yet.
 
 [Scawy_Application]
-YOU: Huh... an Application? I guess it's a game of some sorts | 2
+YOU: Huh... an application? I guess it's some sort of game. | 3
 
 [Spooky_happen]
 YOU: ?! | 1
-YOU: Oh no. Oh no no! What's happening to my computer?! | 2
-YOU: Darn it! it's a virus! | 1
+YOU: Oh no. Oh no, no! What's happening to my computer?! | 3
+YOU: Darn it! It's a virus! | 1.5
 @event PhoneVibrate
-YOU: !!!GOODNESS! | 1
-YOU: Okay... calm down, it must be that cellphone I just repair | 2
+YOU: !!! GOODNESS! | 1.5
+YOU: Okay... calm down. It must be that cellphone I just repaired. | 3.5
 
 [Reading_complete]
-YOU: this is tragic.. | 1
-YOU: Hang on a moment... So this phone belongs to someone that's missing? | 2
-YOU: ...Creepy, but let's see what else I can find. | 2
-YOU: I know this is must be an old case btu maybe I still can help | 2
-YOU: I remember theres SD card in the camera. maybe I should see what's inside. | 2
+YOU: This is tragic... | 1.5
+YOU: Hang on a moment... So this phone belongs to someone who's missing? | 4
+YOU: ...Creepy, but let's see what else I can find. | 3
+YOU: I know this must be an old case, but maybe I can still help. | 3.5
+YOU: I remember there's an SD card in the camera. Maybe I should see what's inside. | 4.5
 
 [JUMPSCARE_PIC]
-YOU: What the hell?! | 1
+YOU: What the hell?! | 1.5
 YOU: Am I being watched? | 2
 
 [Sus_ending]
-YOU: This is too creepy! | 1
-YOU: Everything on me belongs to the victim... I doubt this is a coincidence | 2
-YOU: I need to go call the police
+YOU: This is too creepy! | 1.5
+YOU: Everything on me belongs to the victim... I doubt this is a coincidence. | 4
+YOU: I need to go call the police. | 2
 
-#player goes to the cash register then mild Jumpscare.
+# The player goes to the cash register, then a mild jumpscare.

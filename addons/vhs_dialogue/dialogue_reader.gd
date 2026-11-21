@@ -9,7 +9,8 @@ extends RefCounted
 ##   NAME: text | 4      this subtitle stays up for 4 seconds
 ##   @wait 1.5           1.5 seconds with no subtitle
 ##   @event lights_off   sends Dialogue.event("lights_off") to your scripts
-##   # note              ignored
+##   # note              ignored, on its own line or at the end of a line ("... | 2  # note")
+##   \#                  a real # inside a subtitle
 
 ## Where the dialogue files live. Subfolders are read too.
 const FOLDER := "res://Resources/Data/Dialogue"
@@ -42,7 +43,7 @@ static func read_file(path: String, into: Dictionary, quiet := false) -> void:
 	var line_number := 0
 	for raw in FileAccess.get_file_as_string(path).split("\n"):
 		line_number += 1
-		var line := raw.strip_edges()
+		var line := _without_note(raw).strip_edges()
 		if line.is_empty() or line.begins_with("#"):
 			continue
 		var where := "%s line %d" % [path.get_file(), line_number]
@@ -62,6 +63,17 @@ static func read_file(path: String, into: Dictionary, quiet := false) -> void:
 		var step := _read_line(line, where, quiet)
 		if not step.is_empty():
 			into[current].append(step)
+
+
+## Cuts off a note at the end of a line: "YOU: Hi | 2   # waves" -> "YOU: Hi | 2".
+## A note starts at a # that has a space (or tab) before it. Write \# for a real #.
+static func _without_note(raw: String) -> String:
+	var line := raw.replace("\\#", char(1))
+	for i in range(1, line.length()):
+		if line[i] == "#" and (line[i - 1] == " " or line[i - 1] == "\t"):
+			line = line.substr(0, i)
+			break
+	return line.replace(char(1), "#")
 
 
 static func _read_line(line: String, where: String, quiet: bool) -> Dictionary:
