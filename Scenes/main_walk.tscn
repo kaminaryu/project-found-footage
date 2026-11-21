@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://se144jw1i7lo" path="res://Objects/MainRoom/box_of_scraps.gd" id="11_6bi8x"]
 [ext_resource type="PackedScene" uid="uid://bj3m16a0y1gu1" path="res://Assets/Models/Scraps/cash register.glb" id="12_tde24"]
 [ext_resource type="PackedScene" uid="uid://cyccm0vqbwimc" path="res://Assets/Models/Customer/Customer.tscn" id="13_customer"]
-[ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://scenes/game_effect.gdshader" id="14_nx73i"]
+[ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"

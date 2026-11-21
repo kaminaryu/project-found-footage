@@ -199,6 +199,7 @@ fill_to = Vector2(1, 0.7283237)
 
 [node name="FlipPhone" parent="scaryroom" index="39" unique_id=1279445078]
 transform = Transform3D(1, 0, 0, 0, 0.5819464, 0.8132273, 0, -0.8132273, 0.5819464, 5.4171433, 1.0120014, -1.971276)
+visible = true
 
 [node name="FlipPhoneTop" parent="scaryroom/FlipPhone" index="0" unique_id=554474369]
 transform = Transform3D(1, 0, 0, 0, 0.9351623, 0.3542195, 0, -0.3542195, 0.9351623, 0, 0.0113966465, 0.09836489)
