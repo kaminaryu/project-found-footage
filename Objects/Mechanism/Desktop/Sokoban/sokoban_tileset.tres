@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://vpvb46eouey8"]
 
-[ext_resource type="Texture2D" uid="uid://xnonrxewv240" path="res://Assets/UI/Desktop/Sokoban/sokoban_tiles.png" id="1_6si4i"]
+[ext_resource type="Texture2D" uid="uid://bxpsll5wirrua" path="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/GameSprite.png" id="1_6si4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5rbi"]
 texture = ExtResource("1_6si4i")
@@ -9,6 +9,7 @@ texture_region_size = Vector2i(32, 32)
 1:0/0/custom_data_0 = true
 2:0/0 = 0
 2:0/0/custom_data_1 = true
+0:0/0 = 0
 
 [resource]
 tile_size = Vector2i(32, 32)

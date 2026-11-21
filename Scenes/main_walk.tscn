@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://detum0opvrvf2"]
 
 [ext_resource type="PackedScene" uid="uid://u81g5owet5ls" path="res://Objects/Player/player.tscn" id="1_2cquo"]
+[ext_resource type="Script" uid="uid://bxidlob8jslr1" path="res://scenes/main_walk.gd" id="1_eea32"]
 [ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="2_7nbji"]
 [ext_resource type="Script" uid="uid://cf7b8mxsiovk" path="res://Objects/MainRoom/monitor.gd" id="3_a38jh"]
 [ext_resource type="PackedScene" uid="uid://3tkk8jmhphx7" path="res://Scenes/Menu/pause_menu.tscn" id="3_jmp2u"]
@@ -832,6 +833,7 @@ shader_parameter/levels = 3
 shader_parameter/spread = 0.01
 
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
+script = ExtResource("1_eea32")
 
 [node name="Player" parent="." unique_id=1201435589 instance=ExtResource("1_2cquo")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2899895, 0.09999994, -1.4832668)
@@ -990,7 +992,7 @@ follow_viewport_enabled = true
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1951878830 instance=ExtResource("3_jmp2u")]
 
 [node name="Customer" parent="." unique_id=2090849478 instance=ExtResource("13_customer")]
-transform = Transform3D(0.010331284, 0, -0.99994665, 0, 1, 0, 0.99994665, 0, 0.010331284, 8.110053, 0.022089481, -2.1014986)
+transform = Transform3D(0.010331284, 0, -0.99994665, 0, 1, 0, 0.99994665, 0, 0.010331284, 6.272659, -0.0035892725, -1.5860918)
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]

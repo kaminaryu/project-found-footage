@@ -1,13 +1,13 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bhulqyt01c2py"]
 
-[ext_resource type="Script" path="res://addons/vhs_dialogue/dialogue.gd" id="1_script"]
-[ext_resource type="LabelSettings" path="res://addons/vhs_dialogue/subtitle_style.tres" id="2_style"]
+[ext_resource type="Script" uid="uid://73au1w6t474m" path="res://addons/vhs_dialogue/dialogue.gd" id="1_script"]
+[ext_resource type="LabelSettings" uid="uid://c8oyyhl78vh0f" path="res://addons/vhs_dialogue/subtitle_style.tres" id="2_style"]
 
-[node name="Dialogue" type="CanvasLayer"]
-layer = 50
+[node name="Dialogue" type="CanvasLayer" unique_id=83153873]
+layer = 3
 script = ExtResource("1_script")
 
-[node name="Bottom" type="MarginContainer" parent="."]
+[node name="Bottom" type="MarginContainer" parent="." unique_id=715395433]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -20,7 +20,7 @@ theme_override_constants/margin_left = 140
 theme_override_constants/margin_right = 140
 theme_override_constants/margin_bottom = 44
 
-[node name="Subtitle" type="Label" parent="Bottom"]
+[node name="Subtitle" type="Label" parent="Bottom" unique_id=1021617672]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8

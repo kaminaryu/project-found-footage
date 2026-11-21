@@ -1,11 +1,9 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://c8oyyhl78vh0f"]
 
-[sub_resource type="SystemFont" id="SystemFont_subtitle"]
-font_names = PackedStringArray("Arial", "Helvetica", "Liberation Sans", "DejaVu Sans", "Sans-Serif")
-font_weight = 700
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_mv5ua"]
 
 [resource]
-font = SubResource("SystemFont_subtitle")
+font = ExtResource("1_mv5ua")
 font_size = 30
 font_color = Color(1, 0.91, 0.16, 1)
 outline_size = 8

@@ -8,13 +8,20 @@ signal showing_hint(text: String)
 signal collecting_scrap
 signal flag_raised(flag: StringName)
 signal flags_cleared
-signal pause
+signal freezeplayer(state: bool)
 
 var _raised_flags: Dictionary = {}
 
 func _ready() -> void:
 	_load_flags()
 
+func freeze_player(state: bool) -> void:
+	freezeplayer.emit(state);
+
+#start of the game
+func start_game() -> void:
+	freeze_player(true);
+	Dialogue.play("Intro");
 
 func freeze_main_window(frozen: bool) -> void:
 	freezing_main_window.emit(frozen)
