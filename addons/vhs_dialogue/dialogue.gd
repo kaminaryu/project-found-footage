@@ -126,6 +126,8 @@ func _play_steps(conversation: String, steps: Array) -> void:
 
 	_current = ""
 	_playing = false
+	print("stopping dialog", _playing)
+	GameMaster.freeze_main_window(false)
 	finished.emit(conversation)
 
 
