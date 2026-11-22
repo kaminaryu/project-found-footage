@@ -19,7 +19,6 @@ tile_set = ExtResource("1_2e60j")
 position = Vector2(368, 208)
 
 [node name="Player" parent="." unique_id=950850473 instance=ExtResource("3_wl100")]
-texture_filter = 0
 position = Vector2(368, 240)
 scale = Vector2(1, 1)
 texture = ExtResource("5_44vit")
