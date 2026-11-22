@@ -110,6 +110,7 @@ func _show_blocked_popup() -> void:
 		add_child(_launch_popup)
 
 	_launch_popup.trigger(blocked_message, blocked_icon, blocked_title)
+	GameMaster.raise_flag(&"rerun_the_game")
 
 	if not _launch_popup.closed.is_connected(_on_blocked_popup_closed):
 		_launch_popup.closed.connect(_on_blocked_popup_closed, CONNECT_ONE_SHOT)

@@ -156,7 +156,8 @@ offset_right = 77.0
 offset_bottom = 712.0
 icon_texture = ExtResource("10_kp0gs")
 icon_name = "Trash"
-unlock_game_flag = &"uploaded_data_to_pc"
+blocked_title = "Trash is empty."
+blocked_message = "There is no trash inside the trash can."
 
 [node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("5_t60eu")]
 layout_mode = 1

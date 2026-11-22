@@ -4,6 +4,7 @@ signal state_changed(won: bool)
 
 const BOX_OFF_GOAL := Color(0.9, 0.55, 0.2)
 const BOX_ON_GOAL := Color(0.35, 0.85, 0.4)
+const FINAL_LEVEL_INDEX := 3
 
 @export var play_area_size := Vector2(640.0, 352.0)
 
@@ -194,7 +195,8 @@ func _check_win() -> void:
 		if not _goals.has(cell):
 			return
 
-	if (_level_index == 3) :
+	if (_level_index == FINAL_LEVEL_INDEX) :
+		GameMaster.raise_flag(&"sokoban_completed")
 		jumpscare()
 
 	_won = true
@@ -223,6 +225,8 @@ func jumpscare() -> void :
 		window.queue_free()
 
 	set_desktop_flags()
+	await get_tree().create_timer(2.0).timeout
+	GameMaster.show_hint("Maybe I should re-run the game..")
 
 
 func _find_parent_window() -> Window:
