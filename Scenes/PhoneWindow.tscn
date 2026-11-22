@@ -1,88 +1,8 @@
 [gd_scene format=3 uid="uid://c5av0ob560ijf"]
 
-[ext_resource type="Script" path="res://scenes/phone_window.gd" id="1_ya6sc"]
 [ext_resource type="Theme" uid="uid://cqp6dvddp0mjj" path="res://Assets/UI/phone_theme.tres" id="2_p88io"]
-[ext_resource type="Script" path="res://Objects/Phone/phone_ui.gd" id="3_g42w0"]
-[ext_resource type="Script" path="res://Objects/Phone/phone_app.gd" id="4_fvy15"]
-[ext_resource type="Texture2D" uid="uid://b82dl841bcxdg" path="res://Assets/UI/PhoneIcons/Apps/calls.png" id="5_tcqen"]
-[ext_resource type="Texture2D" uid="uid://l25y2ghj1pt2" path="res://Assets/UI/PhoneIcons/Apps/messages.png" id="6_qa77h"]
-[ext_resource type="Texture2D" uid="uid://b55yqxre1a708" path="res://Assets/UI/PhoneIcons/Apps/contacts.png" id="7_ogmhh"]
-[ext_resource type="Texture2D" uid="uid://cm1n62ud0n281" path="res://Assets/UI/PhoneIcons/Apps/gallery.png" id="8_fi45s"]
-[ext_resource type="Texture2D" uid="uid://d1a2khltw1ph4" path="res://Assets/UI/PhoneIcons/Apps/email.png" id="9_54vel"]
-[ext_resource type="Texture2D" uid="uid://cc56f2mred3y6" path="res://Assets/UI/PhoneIcons/Apps/music.png" id="10_hcgls"]
-[ext_resource type="Texture2D" uid="uid://c548w8m4oa0k0" path="res://Assets/UI/PhoneIcons/Apps/browser.png" id="11_smo2a"]
-[ext_resource type="Texture2D" uid="uid://l124jfvn5umh" path="res://Assets/UI/PhoneIcons/Apps/snake.png" id="12_3w1fu"]
-[ext_resource type="Texture2D" uid="uid://b0tqf8u3t42kr" path="res://Assets/UI/PhoneIcons/Apps/novaapp.png" id="13_y56vh"]
-[ext_resource type="Texture2D" uid="uid://b6k76r27l3ic5" path="res://Assets/UI/PhoneIcons/envelope_new.png" id="14_w52ao"]
-[ext_resource type="Texture2D" uid="uid://cginfytno0647" path="res://Assets/UI/PhoneIcons/envelope_read.png" id="15_4divw"]
-[ext_resource type="Texture2D" uid="uid://bm4av25jomvd8" path="res://Assets/UI/PhoneIcons/call_missed.png" id="16_ojm1d"]
-[ext_resource type="Texture2D" uid="uid://ds8uuiwnem7pk" path="res://Assets/UI/PhoneIcons/call_incoming.png" id="17_1dog2"]
-[ext_resource type="Texture2D" uid="uid://duxitiw6n4skg" path="res://Assets/UI/PhoneIcons/call_outgoing.png" id="18_7vs3c"]
-[ext_resource type="Texture2D" uid="uid://e3ef561sol1k" path="res://Assets/UI/PhoneIcons/contact.png" id="19_cc02l"]
-[ext_resource type="Texture2D" uid="uid://d3va1jya2hnsv" path="res://Assets/UI/PhoneIcons/avatar.png" id="20_not0s"]
-[ext_resource type="Texture2D" uid="uid://dc6ivgj8bjqse" path="res://Assets/UI/PhoneIcons/warning.png" id="21_tic0y"]
-[ext_resource type="Texture2D" uid="uid://brkvjp2wcd72o" path="res://Assets/UI/PhoneIcons/boot_logo.png" id="22_xcrwa"]
-[ext_resource type="Texture2D" uid="uid://248yi8cn0qom" path="res://Assets/UI/PhoneIcons/signal_bars.png" id="23_bpuxi"]
-[ext_resource type="Texture2D" uid="uid://3ann8pnc8kpb" path="res://Assets/UI/PhoneIcons/battery.png" id="24_doluk"]
 [ext_resource type="Shader" uid="uid://c1hvxdklbgmc3" path="res://Assets/UI/phone_lcd.gdshader" id="25_qgd46"]
 [ext_resource type="AudioStream" uid="uid://1uf7ci4yhboo" path="res://Assets/SFX/phone_boot.wav" id="26_p88io"]
-
-[sub_resource type="Resource" id="Resource_e1ove"]
-script = ExtResource("4_fvy15")
-title = "Call History"
-color = Color(0.18431373, 0.61960787, 0.30980393, 1)
-icon = ExtResource("5_tcqen")
-opens = "calls"
-
-[sub_resource type="Resource" id="Resource_rbcot"]
-script = ExtResource("4_fvy15")
-title = "Messages"
-color = Color(0.8784314, 0.6039216, 0.08627451, 1)
-icon = ExtResource("6_qa77h")
-opens = "messages"
-
-[sub_resource type="Resource" id="Resource_b8kp8"]
-script = ExtResource("4_fvy15")
-title = "Contacts"
-color = Color(0.8745098, 0.35686275, 0.16470589, 1)
-icon = ExtResource("7_ogmhh")
-opens = "contacts"
-
-[sub_resource type="Resource" id="Resource_fhkah"]
-script = ExtResource("4_fvy15")
-title = "Gallery"
-color = Color(0.5411765, 0.32156864, 0.8117647, 1)
-icon = ExtResource("8_fi45s")
-opens = "gallery"
-
-[sub_resource type="Resource" id="Resource_y5pcr"]
-script = ExtResource("4_fvy15")
-title = "E-mail"
-icon = ExtResource("9_54vel")
-
-[sub_resource type="Resource" id="Resource_fjape"]
-script = ExtResource("4_fvy15")
-title = "Music"
-color = Color(0.8235294, 0.2627451, 0.5411765, 1)
-icon = ExtResource("10_hcgls")
-
-[sub_resource type="Resource" id="Resource_23kfx"]
-script = ExtResource("4_fvy15")
-title = "Browser"
-color = Color(0.101960786, 0.6039216, 0.6509804, 1)
-icon = ExtResource("11_smo2a")
-
-[sub_resource type="Resource" id="Resource_lesbk"]
-script = ExtResource("4_fvy15")
-title = "Snake"
-color = Color(0.42352942, 0.56078434, 0.14117648, 1)
-icon = ExtResource("12_3w1fu")
-
-[sub_resource type="Resource" id="Resource_s0eir"]
-script = ExtResource("4_fvy15")
-title = "NovaApp"
-color = Color(0.78431374, 0.19607843, 0.22745098, 1)
-icon = ExtResource("13_y56vh")
 
 [sub_resource type="Gradient" id="Gradient_sl82c"]
 interpolation_mode = 1
@@ -126,7 +46,6 @@ content_scale_size = Vector2i(192, 288)
 content_scale_mode = 2
 content_scale_aspect = 1
 content_scale_stretch = 1
-script = ExtResource("1_ya6sc")
 
 [node name="PhoneUI" type="Control" parent="." unique_id=106204696]
 texture_filter = 1
@@ -137,19 +56,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_p88io")
-script = ExtResource("3_g42w0")
-apps = Array[ExtResource("4_fvy15")]([SubResource("Resource_e1ove"), SubResource("Resource_rbcot"), SubResource("Resource_b8kp8"), SubResource("Resource_fhkah"), SubResource("Resource_y5pcr"), SubResource("Resource_fjape"), SubResource("Resource_23kfx"), SubResource("Resource_lesbk"), SubResource("Resource_s0eir")])
-icon_envelope_new = ExtResource("14_w52ao")
-icon_envelope_read = ExtResource("15_4divw")
-icon_call_missed = ExtResource("16_ojm1d")
-icon_call_incoming = ExtResource("17_1dog2")
-icon_call_outgoing = ExtResource("18_7vs3c")
-icon_contact = ExtResource("19_cc02l")
-icon_avatar = ExtResource("20_not0s")
-icon_warning = ExtResource("21_tic0y")
-icon_boot_logo = ExtResource("22_xcrwa")
-signal_strip = ExtResource("23_bpuxi")
-battery_strip = ExtResource("24_doluk")
 
 [node name="Body" type="TextureRect" parent="PhoneUI" unique_id=1730984047]
 layout_mode = 1
@@ -646,3 +552,4 @@ color = Color(0.49803922, 0.69803923, 1, 1)
 [node name="BootSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1374915010]
 unique_name_in_owner = true
 stream = ExtResource("26_p88io")
+volume_db = -40.0

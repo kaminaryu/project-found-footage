@@ -64,7 +64,6 @@ opens = "gallery"
 [sub_resource type="Resource" id="Resource_y5pcr"]
 script = ExtResource("4_rjvtr")
 title = "Call"
-color = Color(0.19607843, 0.4392157, 0.8392157, 1)
 icon = ExtResource("9_dial")
 opens = "dial"
 
@@ -654,30 +653,37 @@ color = Color(0.49803922, 0.69803923, 1, 1)
 [node name="BootSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=443344335]
 unique_name_in_owner = true
 stream = ExtResource("26_mb35u")
+volume_db = -15.0
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1373182081]
 unique_name_in_owner = true
 stream = ExtResource("27_yqmkd")
+volume_db = -15.0
 
-[node name="KeySound" type="AudioStreamPlayer" parent="PhoneUI"]
+[node name="KeySound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1276051872]
 unique_name_in_owner = true
 stream = ExtResource("28_key")
+volume_db = -15.0
 
-[node name="RingSound" type="AudioStreamPlayer" parent="PhoneUI"]
+[node name="RingSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=156]
 unique_name_in_owner = true
 stream = ExtResource("29_ring")
+volume_db = -15.0
 
-[node name="UnavailableSound" type="AudioStreamPlayer" parent="PhoneUI"]
+[node name="UnavailableSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1858155570]
 unique_name_in_owner = true
 stream = ExtResource("30_unavailable")
+volume_db = -15.0
 
-[node name="SmsSound" type="AudioStreamPlayer" parent="PhoneUI"]
+[node name="SmsSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1269244773]
 unique_name_in_owner = true
 stream = ExtResource("31_sms")
+volume_db = -15.0
 
-[node name="CallerSound" type="AudioStreamPlayer" parent="PhoneUI"]
+[node name="CallerSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1216013832]
 unique_name_in_owner = true
+volume_db = -15.0
 
-[node name="ScreamSound" type="AudioStreamPlayer" parent="PhoneUI"]
+[node name="ScreamSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=946933982]
 unique_name_in_owner = true
 stream = ExtResource("32_scream")
