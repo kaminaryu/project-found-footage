@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://vpvb46eouey8"]
 
-[ext_resource type="Texture2D" uid="uid://bxpsll5wirrua" path="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/GameSprite.png" id="1_6si4i"]
+[ext_resource type="Texture2D" uid="uid://bxpsll5wirrua" path="res://Assets/UI/Desktop/Sokoban/Game/GameSprite.png" id="1_6si4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5rbi"]
 texture = ExtResource("1_6si4i")

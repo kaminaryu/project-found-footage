@@ -42,7 +42,7 @@ metadata/_custom_type_script = "uid://dmklceuvapesk"
 
 [sub_resource type="Resource" id="Resource_48mao"]
 script = ExtResource("3_subtask")
-text = "Insert "
+text = "Insert the data into the pc."
 flag = &"monitor_opened"
 metadata/_custom_type_script = "uid://dmklceuvapesk"
 
@@ -55,8 +55,15 @@ metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 [sub_resource type="Resource" id="Resource_w1xia"]
 script = ExtResource("2_task")
 text = "Complete all 5 levels "
+flag = &"sokoban_completed"
+metadata/_custom_type_script = "uid://b2dro6hkki0ke"
+
+[sub_resource type="Resource" id="Resource_v6g3i"]
+script = ExtResource("2_task")
+text = "???"
+flag = &"rerun_the_game"
 metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 
 [resource]
 script = ExtResource("1_data")
-tasks = Array[ExtResource("2_task")]([SubResource("Resource_nbh3q"), SubResource("Resource_l6vau"), SubResource("Resource_sunfp"), SubResource("Resource_w1xia")])
+tasks = Array[ExtResource("2_task")]([SubResource("Resource_nbh3q"), SubResource("Resource_l6vau"), SubResource("Resource_sunfp"), SubResource("Resource_w1xia"), SubResource("Resource_v6g3i")])

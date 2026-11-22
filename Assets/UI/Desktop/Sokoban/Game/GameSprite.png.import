@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwasgvyvpisg5"
-path="res://.godot/imported/Box.png-1715cca25d8fa891ab5aeb2a9de27c93.ctex"
+uid="uid://bxpsll5wirrua"
+path="res://.godot/imported/GameSprite.png-7a93d653ff93e6d8429c13c33f035fcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/Box.png"
-dest_files=["res://.godot/imported/Box.png-1715cca25d8fa891ab5aeb2a9de27c93.ctex"]
+source_file="res://Assets/UI/Desktop/Sokoban/Game/GameSprite.png"
+dest_files=["res://.godot/imported/GameSprite.png-7a93d653ff93e6d8429c13c33f035fcc.ctex"]
 
 [params]
 

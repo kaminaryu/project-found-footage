@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://ciiu0qbcxdc4c"]
 
 [ext_resource type="TileSet" uid="uid://vpvb46eouey8" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_tileset.tres" id="1_stp5j"]
-[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_box.tscn" id="2_b1uxc"]
-[ext_resource type="Texture2D" uid="uid://cwasgvyvpisg5" path="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/Box.png" id="3_l7w8q"]
+[ext_resource type="PackedScene" uid="uid://bcecbh4ccxrye" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_box.tscn" id="2_b1uxc"]
+[ext_resource type="Texture2D" uid="uid://cwasgvyvpisg5" path="res://Assets/UI/Desktop/Sokoban/Game/Box.png" id="3_l7w8q"]
 [ext_resource type="PackedScene" uid="uid://du0wdt73xfmga" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_player.tscn" id="3_sqvit"]
-[ext_resource type="Texture2D" uid="uid://cfiu78ekxd2pw" path="res://Assets/UI/Desktop/Sokoban/Bountiful-Bits-v1.0/Player.png" id="5_o166i"]
+[ext_resource type="Texture2D" uid="uid://cfiu78ekxd2pw" path="res://Assets/UI/Desktop/Sokoban/Game/Player.png" id="5_o166i"]
 
 [node name="Level4" type="Node2D" unique_id=511485388]
 
