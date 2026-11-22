@@ -102,28 +102,28 @@ custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
 focus_mode = 0
-text = "Lef"
+text = "←"
 
 [node name="Down" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=1462700338]
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
 focus_mode = 0
-text = "Dwn"
+text = "↓"
 
 [node name="Up" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=1813430875]
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
 focus_mode = 0
-text = "Up"
+text = "↑"
 
 [node name="Right" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=586119763]
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
 focus_mode = 0
-text = "Rgt"
+text = "→"
 
 [node name="Undo" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer" unique_id=1449772633]
 custom_minimum_size = Vector2(64, 64)

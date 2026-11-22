@@ -110,7 +110,6 @@ func _sync_save_progress() -> void:
 	_save_save_data(saved_data)
 	get_tree().call_group("desktop_icon", "refresh_visibility")
 	
-	GameMaster.raise_flag(&"ctf_completed")
 
 
 func _load_flags() -> Array:
@@ -165,3 +164,4 @@ func _normalize_flag(value: String) -> String:
 
 func handle_demo_end() -> void :
 	_scream_mp3.play()
+	GameMaster.raise_flag(&"ctf_completed")

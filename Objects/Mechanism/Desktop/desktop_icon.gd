@@ -131,10 +131,6 @@ func reveal() -> void :
 	get_tree().call_group("desktop_icon", "refresh_visibility")
 
 
-func reveal_and_launch() -> void :
-	reveal()
-	_run_program()
-
 
 func refresh_visibility() -> void:
 	var saved_data := _load_save_data()
