@@ -1046,7 +1046,7 @@ follow_viewport_enabled = true
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1951878830 instance=ExtResource("3_jmp2u")]
 
 [node name="Customer" parent="." unique_id=2090849478 instance=ExtResource("13_customer")]
-transform = Transform3D(0.010331284, 0, -0.99994665, 0, 1, 0, 0.99994665, 0, 0.010331284, 6.272659, -0.0035892725, -1.5860918)
+transform = Transform3D(0.010331284, 0, -0.99994665, 0, 1, 0, 0.99994665, 0, 0.010331284, 10.779011, 0.065570116, -1.5860918)
 
 [node name="IntroCutscene" type="Node3D" parent="." unique_id=906228335 node_paths=PackedStringArray("player", "customer", "box", "door_left", "door_right", "hide_while_playing")]
 script = ExtResource("20_intro")
@@ -1083,6 +1083,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6, 0, -1.65)
 
 [node name="Inside" type="Marker3D" parent="IntroCutscene/CustomerPath" unique_id=1979572656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1, 0, -1.65)
+
+[node name="StandingSpot" type="Marker3D" parent="IntroCutscene/CustomerPath" unique_id=1043994188]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.272659, -0.0035892725, -1.5860918)
 
 [node name="BoxOnCounter" type="Marker3D" parent="IntroCutscene" unique_id=1117215726]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 5.315, 1.283, -2.42)

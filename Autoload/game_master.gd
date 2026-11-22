@@ -20,6 +20,11 @@ func freeze_player(state: bool) -> void:
 
 #start of the game
 func start_game() -> void:
+	if (not is_flag_raised(&"intro_completed")) :
+		play_intro()
+
+
+func play_intro() -> void :
 	freeze_player(true);
 	Dialogue.play("Intro");
 

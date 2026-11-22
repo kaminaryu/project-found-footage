@@ -42,6 +42,7 @@ const CONVERSATION := "Intro"
 @onready var _outside: Marker3D = $CustomerPath/Outside
 @onready var _inside: Marker3D = $CustomerPath/Inside
 @onready var _box_spot: Marker3D = $BoxOnCounter
+@onready var _customer_spot: Marker3D = $CustomerPath/StandingSpot
 @onready var _bell: AudioStreamPlayer = $BellSound
 @onready var _writing: AudioStreamPlayer = $WritingSound
 
@@ -57,7 +58,6 @@ var _anim: AnimationPlayer
 var _skeleton: Skeleton3D
 var _head := -1
 var _player_camera: Camera3D
-var _customer_spot: Transform3D        # where he stands at the counter = his place in the level
 var _box_home: Transform3D             # the box's place on the floor
 var _box_layer := 1
 var _doors: Array[Node3D] = []
@@ -74,7 +74,6 @@ func _ready() -> void:
 	_skeleton = customer.find_children("*", "Skeleton3D", true, false)[0]
 	_head = _skeleton.find_bone("mixamorig_Head")
 	_player_camera = player.find_children("*", "Camera3D", true, false)[0]
-	_customer_spot = customer.global_transform
 	_box_home = box.global_transform
 	_find_door_hinges()
 
@@ -86,7 +85,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not _running:
+		customer.hide()
 		return
+
+	customer.show()
+
 	_time += delta
 	var target: Variant = _look_point()
 	if target != null:
@@ -137,6 +140,8 @@ func _on_finished(conversation: String) -> void:
 	# dialogue.gd lets the player move whenever any conversation ends, but the customer
 	# may still be walking out: keep the player still until the cutscene is really over.
 	GameMaster.freeze_player(true)
+	GameMaster.raise_flag(&"intro_completed")
+
 	while _customer_busy:   # let him finish walking out first
 		await get_tree().process_frame
 	_end()
@@ -214,14 +219,14 @@ func _walk_in() -> void:
 	_bell.play()
 	_swing_door(true)
 	customer.global_transform = Transform3D(_facing(_inside.global_position - _outside.global_position), _outside.global_position)
-	customer.global_position.y = _customer_spot.origin.y
+	customer.global_position.y = _customer_spot.global_position.y
 	customer.show()
 	_anim.play("walk")
 	_look_target = customer
 	await _sleep(0.4)   # the door is half open before he steps in
 	await _walk_to(_inside.global_position)
 	_swing_door(false)
-	await _walk_to(_customer_spot.origin)
+	await _walk_to(_customer_spot.global_position)
 	_anim.play("idle", 0.4)
 	await _turn_to(_customer_spot.basis, 0.4)
 	_customer_busy = false
@@ -309,7 +314,7 @@ func _find_door_hinges() -> void:
 	for door in _doors:
 		_door_home.append(door.global_transform)
 		boxes.append(_global_box(door))
-	var inward := _customer_spot.origin - (boxes[0].get_center() + boxes[1].get_center()) * 0.5
+	var inward: Vector3 = _customer_spot.global_position - (boxes[0].get_center() + boxes[1].get_center()) * 0.5
 	inward.y = 0.0
 	for i in 2:
 		var mine := boxes[i]

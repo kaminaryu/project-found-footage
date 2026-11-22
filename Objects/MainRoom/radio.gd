@@ -16,7 +16,7 @@ func play_music() -> void :
 func stop_music() -> void :
 	$AudioStreamPlayer.stop()
 	$CPUParticles3D.emitting = false
-	$AnimationPlayer.stop("MusicPlaying")
+	$AnimationPlayer.stop()
 
 
 func _on_audio_stream_player_finished() -> void:
