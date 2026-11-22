@@ -15,7 +15,6 @@ func run(_player: Node) -> void :
 	else :
 		$AnimationPlayer.play("DoorOpen")
 		_is_door_open = true
-		GameMaster.raise_flag(&"door_opened")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

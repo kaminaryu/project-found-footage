@@ -28,9 +28,6 @@ func _ready() -> void:
 	_refresh(false)
 
 
-func reset_progress() -> void:
-	GameMaster.clear_flags()
-
 
 func _on_flag_raised(flag: StringName) -> void:
 	if not _uses_flag(flag):

@@ -21,7 +21,7 @@ func freeze_player(state: bool) -> void:
 #start of the game
 func start_game() -> void:
 	freeze_player(true);
-	Dialogue.play("Close_Shop");
+	Dialogue.play("Intro");
 
 func freeze_main_window(frozen: bool) -> void:
 	freezing_main_window.emit(frozen)
@@ -62,12 +62,9 @@ func get_raised_flags() -> Array[StringName]:
 	return flags
 
 
-func clear_flags(save := true) -> void:
+func start_new_game() -> void:
 	_raised_flags.clear()
-
-	if save:
-		_save_flags()
-
+	_write_save({})
 	flags_cleared.emit()
 
 

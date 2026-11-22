@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_label_pressed() -> void:
+	GameMaster.start_new_game()
 	get_tree().change_scene_to_file("res://Scenes/main_walk.tscn")

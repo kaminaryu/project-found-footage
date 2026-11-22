@@ -4,42 +4,59 @@
 [ext_resource type="Script" uid="uid://b2dro6hkki0ke" path="res://UI/TodoList/todo_task.gd" id="2_task"]
 [ext_resource type="Script" uid="uid://dmklceuvapesk" path="res://UI/TodoList/todo_subtask.gd" id="3_subtask"]
 
-[sub_resource type="Resource" id="Resource_scrap"]
-script = ExtResource("3_subtask")
-text = "Collect scraps from the box"
+[sub_resource type="Resource" id="Resource_nbh3q"]
+script = ExtResource("2_task")
+text = "Collect the Scraps"
 flag = &"scrap_collected"
+metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 
-[sub_resource type="Resource" id="Resource_workbench"]
+[sub_resource type="Resource" id="Resource_fj06e"]
 script = ExtResource("3_subtask")
-text = "Open the workbench"
+text = "Go to the Workbench"
 flag = &"workbench_opened"
+metadata/_custom_type_script = "uid://dmklceuvapesk"
 
-[sub_resource type="Resource" id="Resource_phone"]
+[sub_resource type="Resource" id="Resource_c3jp4"]
 script = ExtResource("3_subtask")
-text = "Open your flip phone"
+text = "Extract Memory Card"
+flag = &"extracted_memcard"
+metadata/_custom_type_script = "uid://dmklceuvapesk"
+
+[sub_resource type="Resource" id="Resource_f846x"]
+script = ExtResource("3_subtask")
+text = "Fix the FlipPhone"
+flag = &"fixed_phone"
+metadata/_custom_type_script = "uid://dmklceuvapesk"
+
+[sub_resource type="Resource" id="Resource_l6vau"]
+script = ExtResource("2_task")
+text = "Work on the Bench"
+subtasks = Array[ExtResource("3_subtask")]([SubResource("Resource_fj06e"), SubResource("Resource_c3jp4"), SubResource("Resource_f846x")])
+metadata/_custom_type_script = "uid://b2dro6hkki0ke"
+
+[sub_resource type="Resource" id="Resource_pud25"]
+script = ExtResource("3_subtask")
+text = "Inspect the phone [Tab]"
 flag = &"phone_opened"
+metadata/_custom_type_script = "uid://dmklceuvapesk"
 
-[sub_resource type="Resource" id="Resource_task1"]
-script = ExtResource("2_task")
-text = "GET YOUR BEARINGS"
-subtasks = Array[ExtResource("3_subtask")]([SubResource("Resource_scrap"), SubResource("Resource_workbench"), SubResource("Resource_phone")])
-
-[sub_resource type="Resource" id="Resource_task2"]
-script = ExtResource("2_task")
-text = "CHECK THE DESKTOP"
+[sub_resource type="Resource" id="Resource_48mao"]
+script = ExtResource("3_subtask")
+text = "Insert "
 flag = &"monitor_opened"
+metadata/_custom_type_script = "uid://dmklceuvapesk"
 
-[sub_resource type="Resource" id="Resource_task3"]
+[sub_resource type="Resource" id="Resource_sunfp"]
 script = ExtResource("2_task")
-text = "LEAVE THE ROOM"
-flag = &"door_opened"
+text = "Curiousity"
+subtasks = Array[ExtResource("3_subtask")]([SubResource("Resource_pud25"), SubResource("Resource_48mao")])
+metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 
-[sub_resource type="Resource" id="Resource_l4r2v"]
+[sub_resource type="Resource" id="Resource_w1xia"]
 script = ExtResource("2_task")
-text = "SKibidi Toilter"
-flag = &"toilet_skibidi"
+text = "Complete all 5 levels "
 metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 
 [resource]
 script = ExtResource("1_data")
-tasks = Array[ExtResource("2_task")]([SubResource("Resource_task1"), SubResource("Resource_task2"), SubResource("Resource_task3"), SubResource("Resource_l4r2v")])
+tasks = Array[ExtResource("2_task")]([SubResource("Resource_nbh3q"), SubResource("Resource_l6vau"), SubResource("Resource_sunfp"), SubResource("Resource_w1xia")])

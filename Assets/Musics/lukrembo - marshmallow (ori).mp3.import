@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxku2p3yjhks4"
+path="res://.godot/imported/lukrembo - marshmallow (ori).mp3-d5041d5283a32f2da783538a30ab0566.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musics/lukrembo - marshmallow (ori).mp3"
+dest_files=["res://.godot/imported/lukrembo - marshmallow (ori).mp3-d5041d5283a32f2da783538a30ab0566.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

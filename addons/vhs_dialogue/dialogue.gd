@@ -132,6 +132,7 @@ func _process(delta: float) -> void :
 
 
 func stop_dialogue(conversation) -> void :
+	stop()
 	_current = ""
 	_playing = false
 	print("stopping dialog", _playing)

@@ -22,4 +22,4 @@ func _check_fixed() -> void :
 
 	if (battery is PlaceablePart and (battery as PlaceablePart).fixes_phone) :
 		GameMaster.show_hint("Flip Phone fixed. Press tab to use it.")
-		GameMaster.raise_flag(&"Fixed_Phone")
+		GameMaster.raise_flag(&"fixed_phone")

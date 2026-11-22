@@ -70,7 +70,7 @@ func _physics_process(delta:float)-> void:
 		update_crouch(delta)
 		update_interaction()
 
-		if GameMaster.is_flag_raised(&"Fixed_Phone") and Input.is_action_just_pressed("use_phone"):
+		if GameMaster.is_flag_raised(&"fixed_phone") and Input.is_action_just_pressed("use_phone"):
 			use_phone()
 
 

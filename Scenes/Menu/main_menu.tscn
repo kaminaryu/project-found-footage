@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bce1vyyaassui" path="res://Scenes/Menu/play_button.gd" id="5_ab7fb"]
 [ext_resource type="Script" uid="uid://cvfd7uajrffjs" path="res://Scenes/Menu/exit_button.gd" id="6_1di0l"]
 [ext_resource type="Texture2D" uid="uid://cwihiafwpcc2" path="res://Assets/3dswatch.png" id="6_17gaq"]
+[ext_resource type="Script" uid="uid://byaclsgcotlqi" path="res://Scenes/Menu/continue_button.gd" id="6_w1xia"]
 [ext_resource type="Script" uid="uid://b8uivajxtj187" path="res://Objects/Mechanism/Phone/flip_phone.gd" id="7_1di0l"]
 [ext_resource type="Material" uid="uid://rhc1pyuphad" path="res://Assets/Shaders/interactable_highlight.tres" id="8_w1xia"]
 
@@ -378,13 +379,6 @@ size = Vector3(0.3, 0.2, 0.3)
 
 [node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("1_l6cm7")]
 
-[node name="FlipPhone" parent="scaryroom" index="39" unique_id=1279445078]
-transform = Transform3D(1, 0, 0, 0, 0.5819464, 0.8132273, 0, -0.8132273, 0.5819464, 5.4171433, 1.0120014, -1.971276)
-visible = true
-
-[node name="FlipPhoneTop" parent="scaryroom/FlipPhone" index="0" unique_id=554474369]
-transform = Transform3D(1, 0, 0, 0, 0.9351623, 0.3542195, 0, -0.3542195, 0.9351623, 0, 0.0113966465, 0.09836489)
-
 [node name="Box_004" type="MeshInstance3D" parent="scaryroom" unique_id=453092843]
 transform = Transform3D(1.1424826, 0, -0.36706057, 0, 1.2, 0, 0.36706057, 0, 1.1424826, 5.3931403, 1.0600183, -1.6396062)
 mesh = SubResource("ArrayMesh_hv48y")
@@ -434,17 +428,25 @@ theme_override_constants/margin_right = 33
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/Buttons" unique_id=1696468779]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 32
 
-[node name="Play" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer" unique_id=1652507557 instance=ExtResource("4_ab7fb")]
+[node name="New Game" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer" unique_id=1652507557 instance=ExtResource("4_ab7fb")]
 layout_mode = 2
 alignment = 2
 script = ExtResource("5_ab7fb")
 
-[node name="Label" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Play" index="1" unique_id=1652507557]
-text = "play"
+[node name="Label" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game" index="1" unique_id=1652507557]
+text = "new game"
 
-[node name="Exit" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer" unique_id=976781313 instance=ExtResource("4_ab7fb")]
+[node name="Continue" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer" unique_id=976781313 instance=ExtResource("4_ab7fb")]
+layout_mode = 2
+alignment = 2
+script = ExtResource("6_w1xia")
+
+[node name="Label" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Continue" index="1" unique_id=1652507557]
+text = "continue"
+
+[node name="Exit" parent="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer" unique_id=859808522 instance=ExtResource("4_ab7fb")]
 layout_mode = 2
 alignment = 2
 script = ExtResource("6_1di0l")
@@ -453,6 +455,7 @@ script = ExtResource("6_1di0l")
 text = "exit"
 
 [node name="OpeningTransition" type="Panel" parent="UI" unique_id=925982261]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -502,9 +505,11 @@ highlight_material = ExtResource("8_w1xia")
 transform = Transform3D(1, 0, 0, 0, 0.905, 0, 0, 0, 1.859, -0.03705597, 0.100237906, -0.06201172)
 shape = SubResource("BoxShape3D_7sb5i")
 
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Play/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Play" method="_on_label_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game" method="_on_label_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Continue/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Continue" method="_on_label_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Exit/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Exit" method="_on_label_pressed"]
 
 [editable path="scaryroom"]
-[editable path="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Play"]
+[editable path="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game"]
+[editable path="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Continue"]
 [editable path="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Exit"]
