@@ -127,7 +127,7 @@ func _play_steps(conversation: String, steps: Array) -> void:
 
 
 func _process(delta: float) -> void :
-	if (Input.is_action_pressed("stop_dialogue")) :
+	if (Input.is_action_pressed("stop_dialogue") and _playing) :
 		stop_dialogue(_current)
 
 
