@@ -8,7 +8,7 @@ func run(_player: Node) -> void :
 
 
 func play_music() -> void :
-	GameMaster.show_hint("Playing: Lukrembo - Marshmallow")
+	GameMaster.show_hint("Playing: A Chipped Reed - Gentle Groove")
 	$AudioStreamPlayer.play()
 	$CPUParticles3D.emitting = true
 	$AnimationPlayer.play("MusicPlaying")
