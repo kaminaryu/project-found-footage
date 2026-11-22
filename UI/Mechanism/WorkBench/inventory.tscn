@@ -64,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.9124
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot1" unique_id=1537534342]
 layout_mode = 2
@@ -94,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.9124
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot2" unique_id=435666462]
 layout_mode = 2
@@ -124,7 +124,7 @@ transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.9124
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot3" unique_id=31196433]
 layout_mode = 2
@@ -154,7 +154,7 @@ transform = Transform3D(1, 0, 0, 0, 0.91249454, -0.4090887, 0, 0.4090887, 0.9124
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot4" unique_id=515537119]
 layout_mode = 2

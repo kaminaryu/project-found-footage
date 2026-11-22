@@ -161,10 +161,14 @@ func hide_insert_hint() -> void :
 
 
 func display_wrong_obj_hint(slot: PanelContainer) -> void :
-	hovered_slot = slot
-	hover_hint.text = "Can't insert part into this object."
+	var item = get_slot_item(slot)
+	var item_name = get_item_display_name(item)
+
+	hover_hint.text = "Can't insert %s into this object." % item_name
 	hover_hint.reset_size()
 	hover_hint.show()
+
+	hovered_slot = slot
 	update_hover_hint_position()
 
 

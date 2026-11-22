@@ -91,15 +91,18 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241949235]
 
 [node name="PutDownButton" type="MarginContainer" parent="CanvasLayer" unique_id=903987360]
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -131.5
+offset_top = -100.0
 offset_right = 131.5
-offset_bottom = 57.0
 grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
-theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 128
 
 [node name="PutDownButton" type="Button" parent="CanvasLayer/PutDownButton" unique_id=1325034599]
 layout_mode = 2
