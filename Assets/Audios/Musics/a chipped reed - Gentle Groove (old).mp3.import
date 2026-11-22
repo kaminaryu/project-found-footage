@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cs3bjwxdb4rbv"
+path="res://.godot/imported/a chipped reed - Gentle Groove (old).mp3-9fc4ed57e48a10d260e0318e856f12ea.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audios/Musics/a chipped reed - Gentle Groove (old).mp3"
+dest_files=["res://.godot/imported/a chipped reed - Gentle Groove (old).mp3-9fc4ed57e48a10d260e0318e856f12ea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

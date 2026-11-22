@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnd3r55xfljd5"
-path="res://.godot/imported/call_ringing.wav-6f14cc463ee1e3e18981f8e8df89a6ab.sample"
+path="res://.godot/imported/call_ringing.wav-8f53dea962efce88518a2b143fe807e1.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/call_ringing.wav"
-dest_files=["res://.godot/imported/call_ringing.wav-6f14cc463ee1e3e18981f8e8df89a6ab.sample"]
+source_file="res://Assets/Audios/SFX/call_ringing.wav"
+dest_files=["res://.godot/imported/call_ringing.wav-8f53dea962efce88518a2b143fe807e1.sample"]
 
 [params]
 

@@ -2,7 +2,7 @@ extends GameWindow
 
 const FLAGS_PATH := "res://Resources/Data/CTF/ctf_flags.json"
 const SAVE_PATH := "user://save.json"
-const FLAG_FORMAT := "game{%s}"
+const FLAG_FORMAT := "%s"
 
 @export var _flag_input: LineEdit
 @export var _submit:     Button

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cqp6dvddp0mjj" path="res://Assets/UI/phone_theme.tres" id="2_p88io"]
 [ext_resource type="Shader" uid="uid://c1hvxdklbgmc3" path="res://Assets/UI/phone_lcd.gdshader" id="25_qgd46"]
-[ext_resource type="AudioStream" uid="uid://1uf7ci4yhboo" path="res://Assets/SFX/phone_boot.wav" id="26_p88io"]
+[ext_resource type="AudioStream" uid="uid://1uf7ci4yhboo" path="res://Assets/Audios/SFX/phone_boot.wav" id="26_p88io"]
 
 [sub_resource type="Gradient" id="Gradient_sl82c"]
 interpolation_mode = 1

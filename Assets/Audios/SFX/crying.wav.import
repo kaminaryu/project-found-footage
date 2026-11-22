@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bd1b0qo0u7l46"
-path="res://.godot/imported/Audio-000.wav-7078d495ef30d923b7da92b6b97fe59f.sample"
+uid="uid://cfpgw7cxcp0gu"
+path="res://.godot/imported/crying.wav-a75d93dc46578881aafb441d5320eb3b.sample"
 
 [deps]
 
-source_file="res://Assets/Audios/Audio-000.wav"
-dest_files=["res://.godot/imported/Audio-000.wav-7078d495ef30d923b7da92b6b97fe59f.sample"]
+source_file="res://Assets/Audios/SFX/crying.wav"
+dest_files=["res://.godot/imported/crying.wav-a75d93dc46578881aafb441d5320eb3b.sample"]
 
 [params]
 

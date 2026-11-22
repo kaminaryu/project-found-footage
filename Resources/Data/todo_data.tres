@@ -64,6 +64,18 @@ text = "???"
 flag = &"rerun_the_game"
 metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 
+[sub_resource type="Resource" id="Resource_ukjqe"]
+script = ExtResource("3_subtask")
+text = "Find all secret codes"
+flag = &"ctf_completed"
+metadata/_custom_type_script = "uid://dmklceuvapesk"
+
+[sub_resource type="Resource" id="Resource_b5rbi"]
+script = ExtResource("2_task")
+text = "Enter the portal"
+subtasks = Array[ExtResource("3_subtask")]([SubResource("Resource_ukjqe")])
+metadata/_custom_type_script = "uid://b2dro6hkki0ke"
+
 [resource]
 script = ExtResource("1_data")
-tasks = Array[ExtResource("2_task")]([SubResource("Resource_nbh3q"), SubResource("Resource_l6vau"), SubResource("Resource_sunfp"), SubResource("Resource_w1xia"), SubResource("Resource_v6g3i")])
+tasks = Array[ExtResource("2_task")]([SubResource("Resource_nbh3q"), SubResource("Resource_l6vau"), SubResource("Resource_sunfp"), SubResource("Resource_w1xia"), SubResource("Resource_v6g3i"), SubResource("Resource_b5rbi")])

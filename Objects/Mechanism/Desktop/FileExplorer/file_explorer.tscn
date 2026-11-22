@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://b8qr6tj5eb3lm" path="res://Assets/UI/Desktop/Icons/Music64.svg" id="4_music"]
 [ext_resource type="PackedScene" uid="uid://6xvexej7yo1q" path="res://UI/Mechanism/PhotoEditor/photo_editor.tscn" id="5_d7qql"]
 [ext_resource type="Texture2D" uid="uid://b8737nhqjq3au" path="res://Assets/UI/Desktop/Icons/Image64.png" id="6_2e1nu"]
-[ext_resource type="AudioStream" uid="uid://bd1b0qo0u7l46" path="res://Assets/Audios/Audio-000.wav" id="8_2kves"]
-[ext_resource type="AudioStream" uid="uid://b026f3npa2b1i" path="res://Assets/Audios/Audio-001.wav" id="9_d3364"]
-[ext_resource type="AudioStream" uid="uid://dgkkaywvh4r66" path="res://Assets/Audios/Audio-002.wav" id="10_fcaew"]
-[ext_resource type="AudioStream" uid="uid://bi7q1rb5bew8e" path="res://Assets/Audios/Audio-003.wav" id="11_ehiih"]
+[ext_resource type="AudioStream" uid="uid://bd1b0qo0u7l46" path="res://Assets/Audios/Recordings/Audio-000.wav" id="8_2kves"]
+[ext_resource type="AudioStream" uid="uid://b026f3npa2b1i" path="res://Assets/Audios/Recordings/Audio-001.wav" id="9_d3364"]
+[ext_resource type="AudioStream" uid="uid://dgkkaywvh4r66" path="res://Assets/Audios/Recordings/Audio-002.wav" id="10_fcaew"]
+[ext_resource type="AudioStream" uid="uid://bi7q1rb5bew8e" path="res://Assets/Audios/Recordings/Audio-003.wav" id="11_ehiih"]
 
 [node name="FileExplorer" type="Window" unique_id=1240173975]
 oversampling_override = 1.0

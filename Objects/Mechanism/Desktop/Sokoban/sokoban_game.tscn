@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://beeqdpqvm3fs5" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_2.tscn" id="3_5v005"]
 [ext_resource type="PackedScene" uid="uid://owqaylkkxq0r" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_3.tscn" id="4_jnkp4"]
 [ext_resource type="PackedScene" uid="uid://m4173v05ihn3" path="res://Objects/Mechanism/Desktop/Sokoban/Levels/level_5.tscn" id="6_jnkp4"]
-[ext_resource type="AudioStream" uid="uid://bkjhmbfbdqxpr" path="res://Assets/SFX/GlitchSounds.mp3" id="7_1xgnn"]
+[ext_resource type="AudioStream" uid="uid://bkjhmbfbdqxpr" path="res://Assets/Audios/SFX/GlitchSounds.mp3" id="7_1xgnn"]
 
 [node name="SokobanGame" type="Node2D" unique_id=707352675]
 script = ExtResource("1_game")

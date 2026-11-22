@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://3cv5bbcv8c28" path="res://Objects/MainRoom/pc.gd" id="5_kavjp"]
 [ext_resource type="Texture2D" uid="uid://cwihiafwpcc2" path="res://Assets/3dswatch.png" id="7_8viqo"]
 [ext_resource type="Script" uid="uid://drjehjghwlvqq" path="res://Objects/MainRoom/bean_bag.gd" id="8_m8vig"]
-[ext_resource type="AudioStream" uid="uid://dfl1cerash783" path="res://Assets/Musics/lukrembo - marshmallow.wav" id="8_w77qj"]
-[ext_resource type="AudioStream" uid="uid://do7mwg3v6b46m" path="res://Assets/SFX/BeanBag.wav" id="9_6bi8x"]
+[ext_resource type="AudioStream" uid="uid://bn0ufw7nro8hb" path="res://Assets/Audios/Musics/a chipped reed - Gentle Groove.wav" id="8_w77qj"]
+[ext_resource type="AudioStream" uid="uid://do7mwg3v6b46m" path="res://Assets/Audios/SFX/BeanBag.wav" id="9_6bi8x"]
 [ext_resource type="Script" uid="uid://ky0f8ouuocyy" path="res://Objects/MainRoom/door.gd" id="10_m8vig"]
 [ext_resource type="Script" uid="uid://se144jw1i7lo" path="res://Objects/MainRoom/box_of_scraps.gd" id="11_6bi8x"]
 [ext_resource type="AudioStream" uid="uid://bocudrxei65v4" path="res://Assets/Audios/SFX/normal opening door.mp3" id="12_ghubp"]
@@ -20,9 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://oh0axnljt4g2" path="res://Assets/Audios/SFX/fall soft.mp3" id="13_i6ego"]
 [ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
 [ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
-[ext_resource type="AudioStream" uid="uid://dqnvrhiqymef5" path="res://Assets/SFX/shop_bell.wav" id="21_bell"]
+[ext_resource type="AudioStream" uid="uid://dqnvrhiqymef5" path="res://Assets/Audios/SFX/shop_bell.wav" id="21_bell"]
 [ext_resource type="AudioStream" uid="uid://c7o0r6hgkbd8" path="res://Assets/Audios/SFX/quiet room ambience with traffic.mp3" id="21_i6ego"]
-[ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/SFX/writing.wav" id="22_writing"]
+[ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/writing.wav" id="22_writing"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -926,7 +926,7 @@ transform = Transform3D(8.40529, -9.876544e-13, 6.67572e-06, 7.6028073e-13, -5.3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="Radio" unique_id=2106653693]
 stream = ExtResource("8_w77qj")
-volume_db = -10.0
+volume_db = 20.0
 max_distance = 15.0
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Radio" unique_id=1233142296]

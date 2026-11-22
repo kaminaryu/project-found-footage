@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://do7mwg3v6b46m"
-path="res://.godot/imported/BeanBag.wav-95f1cae6d584e6a81f7d1aa9f0a52638.sample"
+path="res://.godot/imported/BeanBag.wav-d832cbe974a9f54db43416a243a0821d.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/BeanBag.wav"
-dest_files=["res://.godot/imported/BeanBag.wav-95f1cae6d584e6a81f7d1aa9f0a52638.sample"]
+source_file="res://Assets/Audios/SFX/BeanBag.wav"
+dest_files=["res://.godot/imported/BeanBag.wav-d832cbe974a9f54db43416a243a0821d.sample"]
 
 [params]
 
