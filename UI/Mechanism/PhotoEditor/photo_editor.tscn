@@ -47,6 +47,8 @@ shader_parameter/exposure = 0.0
 shader_parameter/contrast = 1.0
 shader_parameter/noise = 0.0
 shader_parameter/filter_mode = 0
+shader_parameter/zoom = 1.0
+shader_parameter/pan = Vector2(0.5, 0.5)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_mdygd"]
 
@@ -384,6 +386,11 @@ Filters change the whole look of the photo.
 [ul][color=#ffd27f]Exposure[/color] – brighter or darker
 [color=#ffd27f]Contrast[/color] – stronger or flatter colours
 [color=#ffd27f]Noise[/color] – old film grain[/ul]
+
+[b]Zoom[/b]
+[ul][color=#ffd27f]Scroll[/color] – zoom in where the mouse points
+[color=#ffd27f]Drag[/color] – move around the photo
+[color=#ffd27f]Double-click[/color] – see the whole photo again[/ul]
 
 [i]Hint: Play around to reveal the secret behind the image![/i]"
 
