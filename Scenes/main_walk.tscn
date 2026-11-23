@@ -9,9 +9,11 @@
 [ext_resource type="Script" uid="uid://cxxrc7ynywjgt" path="res://Objects/MainRoom/radio.gd" id="5_6jfsw"]
 [ext_resource type="Script" uid="uid://3cv5bbcv8c28" path="res://Objects/MainRoom/pc.gd" id="5_kavjp"]
 [ext_resource type="Texture2D" uid="uid://cwihiafwpcc2" path="res://Assets/3dswatch.png" id="7_8viqo"]
+[ext_resource type="AudioStream" uid="uid://c40k2spi4718a" path="res://Assets/Audios/SFX/pc_interact.mp3" id="8_b7g64"]
 [ext_resource type="Script" uid="uid://drjehjghwlvqq" path="res://Objects/MainRoom/bean_bag.gd" id="8_m8vig"]
 [ext_resource type="AudioStream" uid="uid://bn0ufw7nro8hb" path="res://Assets/Audios/Musics/a chipped reed - Gentle Groove.wav" id="8_w77qj"]
 [ext_resource type="AudioStream" uid="uid://do7mwg3v6b46m" path="res://Assets/Audios/SFX/BeanBag.wav" id="9_6bi8x"]
+[ext_resource type="AudioStream" uid="uid://dcbwe5xrxphyo" path="res://Assets/Audios/SFX/thud.mp3" id="9_lljtp"]
 [ext_resource type="AudioStream" uid="uid://d3y4nhcnslm2o" path="res://Assets/Audios/Musics/After You Get What You Want, You Don't Want It (1920).mp3" id="9_qoxir"]
 [ext_resource type="AudioStream" uid="uid://c07481injlrrq" path="res://Assets/Audios/Musics/Undertaker's Blues.mp3" id="10_4ktnl"]
 [ext_resource type="Script" uid="uid://ky0f8ouuocyy" path="res://Objects/MainRoom/door.gd" id="10_m8vig"]
@@ -25,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cv8ewtalgo5wa" path="res://Assets/Audios/Musics/Gladys Rice - One Loving Caress (1920).mp3" id="13_jgv1g"]
 [ext_resource type="PackedScene" uid="uid://bpcbf3u5tmarx" path="res://Helpers/sfx_player.tscn" id="13_yjbsp"]
 [ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
+[ext_resource type="AudioStream" uid="uid://f4uts6vrqr1w" path="res://Assets/Audios/SFX/radio_button_click.mp3" id="16_gh3nu"]
 [ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
 [ext_resource type="AudioStream" uid="uid://daqx58l4u7ofb" path="res://Assets/Audios/SFX/bell_open.mp3" id="21_bell"]
 [ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/writing.wav" id="22_writing"]
@@ -952,6 +955,15 @@ script = ExtResource("5_kavjp")
 [node name="InteractionCube" parent="pc" unique_id=2116996655 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(0.3183327, 0, 4.440892e-13, 0, 0.78057104, 0, -1.2789769e-13, 0, 2.7227988, 0.92092925, -0.22695243, 1.2752228)
 
+[node name="DataInserted" parent="pc" unique_id=1623321793 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("8_b7g64")
+volume_db = -10.0
+
+[node name="Rejected" parent="pc" unique_id=163163569 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("9_lljtp")
+volume_db = -5.0
+default_pitch = 0.5
+
 [node name="Radio" type="MeshInstance3D" parent="." unique_id=1647210138]
 transform = Transform3D(0.07375703, 0, 0.030982256, 0, -0.15, 0, -0.030982256, 0, 0.07375703, 2.5305197, 1.6234726, 10.408796)
 mesh = SubResource("ArrayMesh_m8vig")
@@ -979,6 +991,11 @@ scale_amount_min = 0.25
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Radio" unique_id=1883390851]
 libraries/ = SubResource("AnimationLibrary_w77qj")
 
+[node name="ButtonClick" parent="Radio" unique_id=1823878074 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("16_gh3nu")
+volume_db = -10.0
+default_pitch = 0.7
+
 [node name="BeanBag" type="MeshInstance3D" parent="." unique_id=761616482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8239174, 0.5775002, 5.1709)
 mesh = SubResource("ArrayMesh_tde24")
@@ -1001,7 +1018,7 @@ shape = SubResource("BoxShape3D_kavjp")
 [node name="InteractionCube" parent="BeanBag" unique_id=897421130 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(1.5326353, 0, 0, 0, 1.1144894, 0, 0, 0, 1.8770788, -0.013400316, 0, 0)
 
-[node name="SfxPlayer" parent="BeanBag" unique_id=1623321793 instance=ExtResource("13_yjbsp")]
+[node name="SfxPlayer" parent="BeanBag" unique_id=204054351 instance=ExtResource("13_yjbsp")]
 audio_stream = ExtResource("9_6bi8x")
 
 [node name="Door" type="MeshInstance3D" parent="." unique_id=1042098466]

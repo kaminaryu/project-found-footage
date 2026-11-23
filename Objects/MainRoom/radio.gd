@@ -7,6 +7,7 @@ var current_song := -1 #This will decide which song will be played (btw -1 means
 
 func run(_player: Node) -> void:
 	next_song()
+	$ButtonClick.play()
 
 #Func tht allows next song to be in the lsit aftr the last song
 func next_song() -> void:
