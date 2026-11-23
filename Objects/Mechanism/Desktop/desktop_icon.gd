@@ -88,7 +88,7 @@ func _run_program() -> void :
 		return
 
 	var app := application.instantiate()
-	get_tree().root.add_child(app)
+	get_window().add_child(app)  #this allows app to open INSIDE the desktop window and not the main game window
 
 	if not launch_file.is_empty() and app.has_method("open_file"):
 		app.call("open_file", launch_file)

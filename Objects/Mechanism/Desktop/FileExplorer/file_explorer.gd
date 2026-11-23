@@ -56,7 +56,7 @@ func _on_entry_activated(entry: FileExplorerEntry) -> void:
 
 func _open_audio_player(entry: FileExplorerEntry) -> void:
 	var player := AUDIO_PLAYER_SCENE.instantiate() as AudioPlayer
-	get_tree().root.add_child(player)
+	get_parent().add_child(player) #open music inside the desktop too
 	player.play_stream(entry.audio_stream, entry.file_name)
 	player.grab_focus()
 

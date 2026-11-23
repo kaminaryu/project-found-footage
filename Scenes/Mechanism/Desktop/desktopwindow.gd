@@ -38,3 +38,14 @@ func set_wallpaper(sokoban_finished: bool) -> void :
 func _on_close_requested() -> void:
 	GameMaster.freezing_main_window.emit(false)
 	super()
+
+func _window_process(_delta:float) -> void:
+	_keep_apps_inside_plz()
+
+#IT MAKES THE APP TO STAYYYY INSIIIIDE
+func _keep_apps_inside_plz() -> void:
+	for child in get_children():
+		if child is Window:
+			var app:= child as Window
+			var furthest := size - app.size
+			app.position = app.position.clamp(Vector2i.ZERO, furthest)
