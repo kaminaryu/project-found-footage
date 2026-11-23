@@ -30,6 +30,8 @@ func store_rotation_from_world(obj: Node3D) -> void :
 
 
 func layout_children() -> void :
+	if not is_inside_tree():
+		return
 	var cursor := left_anchor
 
 	for child in get_children() :
