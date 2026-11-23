@@ -184,7 +184,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=552116334 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 627.0
 offset_top = 352.0
@@ -198,7 +198,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 1
 
-[node name="ReadmeIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=372084808 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=372084808 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 925.0
 offset_top = 324.0
@@ -212,7 +212,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 2
 
-[node name="ReadmeIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=1124866041 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1124866041 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 725.0
 offset_top = 515.0
@@ -226,7 +226,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 3
 
-[node name="ReadmeIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=1940885511 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1940885511 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 888.0
 offset_top = 671.0
@@ -240,7 +240,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 4
 
-[node name="ReadmeIcon5" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=754127801 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon5" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=754127801 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 516.0
 offset_top = 683.0
