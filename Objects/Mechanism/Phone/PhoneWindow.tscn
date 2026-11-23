@@ -32,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://c8aibp0gbtdof" path="res://Assets/Audios/SFX/call_unavailable.wav" id="30_unavailable"]
 [ext_resource type="AudioStream" uid="uid://cy0l51vf0gp7b" path="res://Assets/Audios/SFX/sms_received.wav" id="31_sms"]
 [ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/WomanScreaming.mp3" id="32_scream"]
+[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="33_drag"]
 
 [sub_resource type="Resource" id="Resource_e1ove"]
 script = ExtResource("4_rjvtr")
@@ -687,3 +688,9 @@ volume_db = -15.0
 [node name="ScreamSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=946933982]
 unique_name_in_owner = true
 stream = ExtResource("32_scream")
+
+[node name="DragArea" type="Control" parent="PhoneUI"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 21.0
+script = ExtResource("33_drag")

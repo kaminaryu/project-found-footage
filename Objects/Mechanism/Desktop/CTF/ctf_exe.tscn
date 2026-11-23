@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc0uts2x0cll3" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.gd" id="1_ctf"]
 [ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/WomanScreaming.mp3" id="2_6rfkd"]
+[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="3_drag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_normal"]
 bg_color = Color(1, 0, 0, 1)
@@ -58,9 +59,11 @@ grow_vertical = 2
 
 [node name="TopBar" type="PanelContainer" parent="WindowSkeleton" unique_id=679244285]
 layout_mode = 2
+script = ExtResource("3_drag")
 
 [node name="MarginContainer" type="MarginContainer" parent="WindowSkeleton/TopBar" unique_id=573002184]
 layout_mode = 2
+mouse_filter = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="12_roya5"]
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="13_hsarr"]
 [ext_resource type="PackedScene" uid="uid://crmyfoshsn37b" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
+[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)
@@ -82,9 +83,11 @@ grow_vertical = 2
 
 [node name="TopBar" type="PanelContainer" parent="DesktopSkeleton" unique_id=478386382]
 layout_mode = 2
+script = ExtResource("15_drag")
 
 [node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/TopBar" unique_id=392474075]
 layout_mode = 2
+mouse_filter = 2
 size_flags_horizontal = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8

@@ -1154,6 +1154,7 @@ vertical_alignment = 1
 stream = ExtResource("23_w77qj")
 volume_db = -10.0
 autoplay = true
+parameters/looping = false
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]

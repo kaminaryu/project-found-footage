@@ -1,5 +1,5 @@
 class_name WindowTopBar
-extends PanelContainer
+extends WindowDragHandle
 
 signal close_pressed
 
