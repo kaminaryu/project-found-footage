@@ -25,7 +25,7 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="CTFExe" type="Window" unique_id=49404748 node_paths=PackedStringArray("_flag_input", "_submit", "_status", "_progress", "_subtitle", "_scream_mp3")]
+[node name="CTFExe" type="Window" unique_id=49404748 node_paths=PackedStringArray("_flag_input", "_submit", "_status", "_progress", "_scream_mp3")]
 oversampling_override = 1.0
 title = "Portal.exe"
 initial_position = 1
@@ -39,7 +39,6 @@ _flag_input = NodePath("WindowSkeleton/Content/Layout/FlagRow/FlagInput")
 _submit = NodePath("WindowSkeleton/Content/Layout/FlagRow/Submit")
 _status = NodePath("WindowSkeleton/Content/Layout/Status")
 _progress = NodePath("WindowSkeleton/Content/Layout/Progress")
-_subtitle = NodePath("")
 _scream_mp3 = NodePath("Scream_mp3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1676768113]

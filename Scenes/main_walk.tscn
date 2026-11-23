@@ -21,8 +21,8 @@
 [ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
 [ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
 [ext_resource type="AudioStream" uid="uid://dqnvrhiqymef5" path="res://Assets/Audios/SFX/shop_bell.wav" id="21_bell"]
-[ext_resource type="AudioStream" uid="uid://c7o0r6hgkbd8" path="res://Assets/Audios/SFX/quiet room ambience with traffic.mp3" id="21_i6ego"]
 [ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/writing.wav" id="22_writing"]
+[ext_resource type="AudioStream" uid="uid://bysxtq3s32e2c" path="res://Assets/Audios/Musics/RoomAmbience.mp3" id="23_w77qj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -1097,7 +1097,8 @@ stream = ExtResource("21_bell")
 stream = ExtResource("22_writing")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=728410576]
-stream = ExtResource("21_i6ego")
+stream = ExtResource("23_w77qj")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]

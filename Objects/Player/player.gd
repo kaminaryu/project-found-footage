@@ -106,7 +106,12 @@ func update_interaction() -> void:
 
 
 func _process(_delta: float) -> void:
-	interact_label.visible = looked_at != null
+	if (looked_at != null) :
+		interact_label.visible = true
+		interact_label.text = "Press [E] to Interact"
+		print(looked_at)
+	else :
+		interact_label.visible = false
 
 
 
