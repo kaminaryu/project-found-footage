@@ -28,13 +28,22 @@ func _ready() -> void :
 	fade_rect.modulate.a = 0.0
 	_cache_room_blockers()
 	_update_put_down_button()
+	_update_scraps()
+	GameMaster.flag_raised.connect(_on_flag_raised)
 
 	if (start_inactive) :
 		process_mode = Node.PROCESS_MODE_DISABLED
 	else :
 		call_deferred("activate")
 
+func _update_scraps() -> void: #This shit will fix when the scraps only appears on the workbench ONLY ONCE they have been collected from the box
+	var collected := GameMaster.is_flag_raised(&"scrap_collected")
+	placed_objects_container.visible = collected
+	placed_objects_container.process_mode = Node.PROCESS_MODE_INHERIT if collected else Node.PROCESS_MODE_DISABLED
 
+func _on_flag_raised(flag:StringName) -> void:
+	if(flag == &"scrap_collected") :
+		_update_scraps()
 func run(_player: Node) -> void :
 	activate()
 
