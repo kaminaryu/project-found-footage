@@ -8,9 +8,7 @@ func run(_player: Node) -> void :
 		return
 
 	_is_animation_running = true
-	var sound := $AudioStreamPlayer as AudioStreamPlayer
-	$AudioStreamPlayer.pitch_scale = randf_range(0.9, 1.1)
-	$AudioStreamPlayer.play()
+	$SfxPlayer.play()
 	if (_is_door_open) :
 		$AnimationPlayer.play("DoorClose")
 		_is_door_open = false

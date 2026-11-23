@@ -735,16 +735,16 @@ func _show_calling(_focus: int, number: String) -> void:
 			_call_tween.tween_interval(ONE_RING_TIME)
 			_call_tween.tween_callback(_start_scare)
 			return
-		_call_tween.tween_interval(_sound_length(%RingSound))
+		_call_tween.tween_interval(%RingSound.get_length())
 		_call_tween.tween_callback(_set_call_status.bind("Number unavailable", MISSED))
 		_call_tween.tween_callback(%UnavailableSound.play)
-		_call_tween.tween_interval(_sound_length(%UnavailableSound))
+		_call_tween.tween_interval(%UnavailableSound.get_length())
 	else:
 		_call_tween.tween_interval(ONE_RING_TIME)
 		_call_tween.tween_callback(%RingSound.stop)
 		var sound := _load_sound(str(secret.get("sound", "")))
 		if sound:   # someone picks up: the line is quiet for a moment, then the sound plays
-			%CallerSound.stream = sound
+			%CallerSound.audio_stream = sound
 			_call_tween.tween_callback(_connect_call)
 			_call_tween.tween_interval(float(secret.get("wait", 0.0)))
 			_call_tween.tween_callback(%CallerSound.play)
@@ -777,11 +777,6 @@ func _end_call() -> void:
 	%RingSound.stop()
 	%UnavailableSound.stop()
 	%CallerSound.stop()
-
-
-## How long a sound plays, or 2 seconds when no sound file is set yet.
-func _sound_length(player: AudioStreamPlayer) -> float:
-	return player.stream.get_length() if player.stream else 2.0
 
 
 ## The sound a secret code plays on the call ("sound" in phone_data.json), or null.
@@ -1131,6 +1126,7 @@ func _show_crash_message() -> void:
 	%DialogOk.grab_focus()
 	_set_softkeys("", "OK", "")
 	_buzz()
+	%ErrorPopupSound.play()
 
 
 ## The little window in the middle of the screen, with a coloured title bar.

@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cyccm0vqbwimc" path="res://Assets/Models/Customer/Customer.tscn" id="13_customer"]
 [ext_resource type="AudioStream" uid="uid://oh0axnljt4g2" path="res://Assets/Audios/SFX/fall soft.mp3" id="13_i6ego"]
 [ext_resource type="AudioStream" uid="uid://cv8ewtalgo5wa" path="res://Assets/Audios/Musics/Gladys Rice - One Loving Caress (1920).mp3" id="13_jgv1g"]
+[ext_resource type="PackedScene" uid="uid://bpcbf3u5tmarx" path="res://Helpers/sfx_player.tscn" id="13_yjbsp"]
 [ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
 [ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
 [ext_resource type="AudioStream" uid="uid://daqx58l4u7ofb" path="res://Assets/Audios/SFX/bell_open.mp3" id="21_bell"]
@@ -31,6 +32,9 @@
 [ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="24_fla1i"]
 [ext_resource type="AudioStream" uid="uid://ch5tipxvej4cd" path="res://Assets/Audios/SFX/bell_close.mp3" id="28_bell_close"]
 [ext_resource type="AudioStream" uid="uid://bysxtq3s32e2c" path="res://Assets/Audios/SFX/RoomAmbience.mp3" id="28_vi3sg"]
+[ext_resource type="AudioStream" uid="uid://yspwioe3hcyw" path="res://Assets/Audios/SFX/carpet_walk.mp3" id="33_pqphn"]
+[ext_resource type="Script" uid="uid://dkfw4b2sidnyg" path="res://Scenes/walking_sfx.gd" id="33_xbfty"]
+[ext_resource type="AudioStream" uid="uid://bopddl375iflm" path="res://Assets/Audios/SFX/wood_walk.mp3" id="34_xbfty"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -896,6 +900,21 @@ font_size = 20
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljyij"]
+size = Vector3(4.095459, 1, 5.8450317)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b7g64"]
+size = Vector3(2.1352844, 1, 5.0151024)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbfty"]
+size = Vector3(2.1270218, 1, 4.936262)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gh3nu"]
+size = Vector3(2.1270218, 1, 4.936262)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lljtp"]
+size = Vector3(2.1270218, 1, 4.936262)
+
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 script = ExtResource("1_eea32")
 
@@ -982,8 +1001,8 @@ shape = SubResource("BoxShape3D_kavjp")
 [node name="InteractionCube" parent="BeanBag" unique_id=897421130 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(1.5326353, 0, 0, 0, 1.1144894, 0, 0, 0, 1.8770788, -0.013400316, 0, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BeanBag" unique_id=2076156623]
-stream = ExtResource("9_6bi8x")
+[node name="SfxPlayer" parent="BeanBag" unique_id=1623321793 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("9_6bi8x")
 
 [node name="Door" type="MeshInstance3D" parent="." unique_id=1042098466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7988832, -0.02083841, 2.5585296)
@@ -1014,8 +1033,9 @@ transform = Transform3D(1.2016671, 0, 0, 0, 1.8763483, 0, 0, 0, 0.40146554, -0.6
 root_node = NodePath("../Door")
 libraries/ = SubResource("AnimationLibrary_5183e")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Door" unique_id=1431203890]
-stream = ExtResource("12_ghubp")
+[node name="SfxPlayer" parent="Door" unique_id=36996418 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("12_ghubp")
+volume_db = -10.0
 
 [node name="BoxOfScraps" type="MeshInstance3D" parent="." unique_id=269796254 node_paths=PackedStringArray("pile")]
 transform = Transform3D(0.27045217, 0, -0.96273345, 0, 1, 0, 0.96273345, 0, 0.27045217, 6.3254414, 0.3425644, -0.9341446)
@@ -1035,8 +1055,8 @@ shape = SubResource("ConvexPolygonShape3D_ern13")
 [node name="InteractionCube" parent="BoxOfScraps" unique_id=721345843 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(0.8667456, 0, -1.4901161e-08, 0, 0.8064046, 0, 2.9802322e-08, 0, 1.0124017, -0.013400555, 0, -9.536743e-07)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BoxOfScraps" unique_id=506471083]
-stream = ExtResource("13_i6ego")
+[node name="SfxPlayer" parent="BoxOfScraps" unique_id=1786339530 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("13_i6ego")
 
 [node name="cash register" parent="." unique_id=311263691 instance=ExtResource("12_tde24")]
 transform = Transform3D(0.24999999, 0, -0.43301272, 0, 0.5, 0, 0.43301272, 0, 0.24999999, 5.364916, 1.1246004, -3.2510345)
@@ -1156,14 +1176,70 @@ label_settings = SubResource("LabelSettings_2hrbt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=728410576]
+[node name="BackgroundAmbience" type="AudioStreamPlayer" parent="." unique_id=728410576]
 stream = ExtResource("28_vi3sg")
 volume_db = -10.0
 autoplay = true
-parameters/looping = false
+parameters/looping = true
+
+[node name="WalkingSFX" type="Node3D" parent="." unique_id=1803423995 node_paths=PackedStringArray("player")]
+script = ExtResource("33_xbfty")
+player = NodePath("../Player")
+
+[node name="CarpetArea" type="Area3D" parent="WalkingSFX" unique_id=1381316255]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WalkingSFX/CarpetArea" unique_id=213343707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7775545, 0.5172484, 7.537173)
+shape = SubResource("BoxShape3D_ljyij")
+
+[node name="CarpetArea2" type="Area3D" parent="WalkingSFX" unique_id=1213750960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.689065, 0, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WalkingSFX/CarpetArea2" unique_id=586346340]
+transform = Transform3D(0.9355152, 0, 0.3532863, 0, 1, 0, -0.3532863, 0, 0.9355152, 6.475071, 0.5172484, 6.785693)
+shape = SubResource("BoxShape3D_b7g64")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WalkingSFX/CarpetArea2" unique_id=1651936970]
+transform = Transform3D(0.3462213, 0, -0.9381529, 0, 1, 0, 0.9381529, 0, 0.3462213, 6.400843, 0.5172484, 6.6984167)
+shape = SubResource("BoxShape3D_xbfty")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WalkingSFX/CarpetArea2" unique_id=130528492]
+transform = Transform3D(-0.33031395, 0, -0.9438712, 0, 1, 0, 0.9438712, 0, -0.33031395, 6.379056, 0.5172484, 6.9155583)
+shape = SubResource("BoxShape3D_gh3nu")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="WalkingSFX/CarpetArea2" unique_id=476368854]
+transform = Transform3D(-0.935772, 0, 0.3526058, 0, 1, 0, -0.3526058, 0, -0.935772, 6.501684, 0.5172484, 6.7991076)
+shape = SubResource("BoxShape3D_lljtp")
+
+[node name="CarpetWalkSound" parent="WalkingSFX" unique_id=1988069537 instance=ExtResource("13_yjbsp")]
+unique_name_in_owner = true
+audio_stream = ExtResource("33_pqphn")
+volume_db = -10.0
+default_pitch = 0.8
+
+[node name="WoodWalkSound" parent="WalkingSFX" unique_id=1614383100 instance=ExtResource("13_yjbsp")]
+unique_name_in_owner = true
+audio_stream = ExtResource("34_xbfty")
+volume_db = -10.0
+default_pitch = 0.75
+
+[node name="Label" type="Label" parent="WalkingSFX" unique_id=775881081]
+offset_left = 966.0
+offset_top = 306.0
+offset_right = 1006.0
+offset_bottom = 329.0
+theme_override_font_sizes/font_size = 32
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="WalkingSFX/CarpetArea" to="WalkingSFX" method="_on_carpet_area_body_entered"]
+[connection signal="body_exited" from="WalkingSFX/CarpetArea" to="WalkingSFX" method="_on_carpet_area_body_exited"]
+[connection signal="body_entered" from="WalkingSFX/CarpetArea2" to="WalkingSFX" method="_on_carpet_area_body_entered"]
+[connection signal="body_exited" from="WalkingSFX/CarpetArea2" to="WalkingSFX" method="_on_carpet_area_body_exited"]
 
 [editable path="monitor/InteractionCube"]
 [editable path="pc/InteractionCube"]

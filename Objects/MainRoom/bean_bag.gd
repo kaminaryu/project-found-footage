@@ -10,7 +10,7 @@ func run(player: Node) -> void :
 	if (target == null) :
 		return
 
-	$AudioStreamPlayer.play()
+	$SfxPlayer.play()
 	trigger(target)
 
 

@@ -45,6 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotate_x(-event.screen_relative.y * mouse_sensitivty)
 		camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-80.0), deg_to_rad(80.0))
 
+
 func _physics_process(delta:float)-> void:
 		#if frozen, ignore
 		if is_frozen:
@@ -66,6 +67,7 @@ func _physics_process(delta:float)-> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, speed)
 			velocity.z = move_toward(velocity.z, 0.0, speed)
+		
 		move_and_slide()
 		update_crouch(delta)
 		update_interaction()

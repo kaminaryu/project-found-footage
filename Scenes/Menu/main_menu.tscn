@@ -508,7 +508,7 @@ shape = SubResource("BoxShape3D_7sb5i")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=816819624]
 stream = ExtResource("11_nbh3q")
-volume_db = -8.0
+volume_db = -15.0
 autoplay = true
 
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game" method="_on_label_pressed"]

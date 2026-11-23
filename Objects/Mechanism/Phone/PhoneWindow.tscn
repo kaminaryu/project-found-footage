@@ -26,13 +26,15 @@
 [ext_resource type="Texture2D" uid="uid://3ann8pnc8kpb" path="res://Assets/UI/PhoneIcons/battery.png" id="24_8up3g"]
 [ext_resource type="Shader" uid="uid://c1hvxdklbgmc3" path="res://Assets/UI/phone_lcd.gdshader" id="25_vt1cm"]
 [ext_resource type="AudioStream" uid="uid://1uf7ci4yhboo" path="res://Assets/Audios/SFX/phone_boot.wav" id="26_mb35u"]
-[ext_resource type="AudioStream" uid="uid://dwpgum54j54t8" path="res://Assets/Audios/SFX/ButtonSelect.wav" id="27_yqmkd"]
+[ext_resource type="AudioStream" uid="uid://2xauh1e0rffe" path="res://Assets/Audios/SFX/novakia_hover.mp3" id="27_ucq31"]
 [ext_resource type="AudioStream" uid="uid://cb3tjkrj52r5j" path="res://Assets/Audios/SFX/phone_key.wav" id="28_key"]
 [ext_resource type="AudioStream" uid="uid://cnd3r55xfljd5" path="res://Assets/Audios/SFX/call_ringing.wav" id="29_ring"]
 [ext_resource type="AudioStream" uid="uid://c8aibp0gbtdof" path="res://Assets/Audios/SFX/call_unavailable.wav" id="30_unavailable"]
 [ext_resource type="AudioStream" uid="uid://cy0l51vf0gp7b" path="res://Assets/Audios/SFX/sms_received.wav" id="31_sms"]
 [ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/WomanScreaming.mp3" id="32_scream"]
-[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="33_drag"]
+[ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="33_drag"]
+[ext_resource type="AudioStream" uid="uid://b1tkit8qudsty" path="res://Assets/Audios/SFX/error_popup.mp3" id="34_4ggnj"]
+[ext_resource type="PackedScene" uid="uid://bpcbf3u5tmarx" path="res://Helpers/sfx_player.tscn" id="34_sfx"]
 
 [sub_resource type="Resource" id="Resource_e1ove"]
 script = ExtResource("4_rjvtr")
@@ -651,46 +653,63 @@ offset_right = 2.0
 offset_bottom = 5.0
 color = Color(0.49803922, 0.69803923, 1, 1)
 
-[node name="BootSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=443344335]
+[node name="BootSound" parent="PhoneUI" unique_id=443344335 instance=ExtResource("34_sfx")]
 unique_name_in_owner = true
-stream = ExtResource("26_mb35u")
+audio_stream = ExtResource("26_mb35u")
+volume_db = -15.0
+randomize_pitch = false
+polyphony = 1
+
+[node name="SelectSound" parent="PhoneUI" unique_id=1373182081 instance=ExtResource("34_sfx")]
+unique_name_in_owner = true
+audio_stream = ExtResource("27_ucq31")
+volume_db = -5.0
+
+[node name="KeySound" parent="PhoneUI" unique_id=1276051872 instance=ExtResource("34_sfx")]
+unique_name_in_owner = true
+audio_stream = ExtResource("28_key")
 volume_db = -15.0
 
-[node name="SelectSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1373182081]
+[node name="RingSound" parent="PhoneUI" unique_id=156 instance=ExtResource("34_sfx")]
 unique_name_in_owner = true
-stream = ExtResource("27_yqmkd")
+audio_stream = ExtResource("29_ring")
 volume_db = -15.0
+randomize_pitch = false
+polyphony = 1
 
-[node name="KeySound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1276051872]
+[node name="UnavailableSound" parent="PhoneUI" unique_id=1858155570 instance=ExtResource("34_sfx")]
 unique_name_in_owner = true
-stream = ExtResource("28_key")
+audio_stream = ExtResource("30_unavailable")
 volume_db = -15.0
+randomize_pitch = false
+polyphony = 1
 
-[node name="RingSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=156]
+[node name="SmsSound" parent="PhoneUI" unique_id=1269244773 instance=ExtResource("34_sfx")]
 unique_name_in_owner = true
-stream = ExtResource("29_ring")
+audio_stream = ExtResource("31_sms")
 volume_db = -15.0
+polyphony = 4
 
-[node name="UnavailableSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1858155570]
-unique_name_in_owner = true
-stream = ExtResource("30_unavailable")
-volume_db = -15.0
-
-[node name="SmsSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1269244773]
-unique_name_in_owner = true
-stream = ExtResource("31_sms")
-volume_db = -15.0
-
-[node name="CallerSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=1216013832]
+[node name="CallerSound" parent="PhoneUI" unique_id=1216013832 instance=ExtResource("34_sfx")]
 unique_name_in_owner = true
 volume_db = -15.0
+randomize_pitch = false
+polyphony = 1
 
-[node name="ScreamSound" type="AudioStreamPlayer" parent="PhoneUI" unique_id=946933982]
+[node name="ScreamSound" parent="PhoneUI" unique_id=946933982 instance=ExtResource("34_sfx")]
 unique_name_in_owner = true
-stream = ExtResource("32_scream")
+audio_stream = ExtResource("32_scream")
+randomize_pitch = false
+polyphony = 1
 
-[node name="DragArea" type="Control" parent="PhoneUI"]
-layout_mode = 0
+[node name="ErrorPopupSound" parent="PhoneUI" unique_id=1623321793 instance=ExtResource("34_sfx")]
+unique_name_in_owner = true
+audio_stream = ExtResource("34_4ggnj")
+randomize_pitch = false
+polyphony = 1
+
+[node name="DragArea" type="Control" parent="PhoneUI" unique_id=1530059098]
+anchors_preset = 0
 offset_right = 192.0
 offset_bottom = 21.0
 script = ExtResource("33_drag")
