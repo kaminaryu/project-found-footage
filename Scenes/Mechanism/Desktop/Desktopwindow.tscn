@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="13_hsarr"]
 [ext_resource type="PackedScene" uid="uid://crmyfoshsn37b" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
+[ext_resource type="Texture2D" uid="uid://bgjo7muwiv8t1" path="res://Assets/UI/Desktop/JumpscareEyes.png" id="18_6b82k"]
+[ext_resource type="AudioStream" uid="uid://fk8gewtr2yuk" path="res://Assets/Audios/SFX/tv_static.wav" id="19_0muut"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)
@@ -40,7 +42,7 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe")]
+[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe", "jumpscare_screen", "static_sound")]
 transparent_bg = true
 gui_embed_subwindows = true
 oversampling_override = 1.0
@@ -55,6 +57,8 @@ script = ExtResource("1_ih84g")
 normal_wallpaper = NodePath("Wallpaper")
 EVIL_wallpaper = NodePath("WallpaperEVIL")
 game_exe = NodePath("DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon")
+jumpscare_screen = NodePath("JumpscareScreen")
+static_sound = NodePath("StaticSound")
 
 [node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
 anchors_preset = 15
@@ -255,6 +259,29 @@ custom_minimum_size = Vector2(0, 118.22)
 layout_mode = 2
 
 [node name="ErrorPopup" parent="." unique_id=2027122457 instance=ExtResource("13_hsarr")]
+
+[node name="JumpscareScreen" type="ColorRect" parent="." unique_id=828006257]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+
+[node name="Eyes" type="TextureRect" parent="JumpscareScreen" unique_id=1982309939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_6b82k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StaticSound" type="AudioStreamPlayer" parent="." unique_id=1064130212]
+stream = ExtResource("19_0muut")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
