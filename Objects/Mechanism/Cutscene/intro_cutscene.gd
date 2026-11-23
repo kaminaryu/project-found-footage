@@ -26,7 +26,8 @@ const CONVERSATION := "Intro"
 @onready var _inside: Marker3D = $CustomerPath/Inside
 @onready var _box_spot: Marker3D = $BoxOnCounter
 @onready var _customer_spot: Marker3D = $CustomerPath/StandingSpot
-@onready var _bell: AudioStreamPlayer = $BellSound
+@onready var _bell_open: AudioStreamPlayer = $BellOpenSound     # plays when the main door opens
+@onready var _bell_close: AudioStreamPlayer = $BellCloseSound   # plays when it closes
 @onready var _writing: AudioStreamPlayer = $WritingSound
 @onready var _skip_ui: CanvasLayer = $HoldToSkip
 
@@ -216,8 +217,7 @@ func _look_point() -> Variant:
 
 func _walk_in() -> void:
 	_customer_busy = true
-	_bell.play()
-	_swing_door(true)
+	_swing_door(true)   # rings bell_open
 	customer.global_transform = Transform3D(_facing(_inside.global_position - _outside.global_position), _outside.global_position)
 	customer.global_position.y = _customer_spot.global_position.y
 	customer.show()
@@ -339,6 +339,12 @@ func _global_box(node: Node3D) -> AABB:
 
 
 func _swing_door(open: bool) -> void:
+	# The shop bell: bell_open when the door starts opening, bell_close when it starts closing.
+	# (Quiet if the door is already there, or once the intro is over or skipped.)
+	if _running and open and _door_open < 1.0:
+		_bell_open.play()
+	elif _running and not open and _door_open > 0.0:
+		_bell_close.play()
 	if _door_tween:
 		_door_tween.kill()   # a new swing takes over from the one still moving
 	_door_tween = create_tween()

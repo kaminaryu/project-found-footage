@@ -20,7 +20,8 @@
 [ext_resource type="AudioStream" uid="uid://oh0axnljt4g2" path="res://Assets/Audios/SFX/fall soft.mp3" id="13_i6ego"]
 [ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
 [ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
-[ext_resource type="AudioStream" uid="uid://dqnvrhiqymef5" path="res://Assets/Audios/SFX/shop_bell.wav" id="21_bell"]
+[ext_resource type="AudioStream" path="res://Assets/Audios/SFX/bell_open.mp3" id="21_bell"]
+[ext_resource type="AudioStream" path="res://Assets/Audios/SFX/bell_close.mp3" id="28_bell_close"]
 [ext_resource type="AudioStream" uid="uid://c7o0r6hgkbd8" path="res://Assets/Audios/SFX/quiet room ambience with traffic.mp3" id="21_i6ego"]
 [ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/writing.wav" id="22_writing"]
 [ext_resource type="Script" uid="uid://6wq665a385ml" path="res://Scenes/hold_to_skip.gd" id="23_fla1i"]
@@ -1104,8 +1105,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.27
 [node name="BoxOnCounter" type="Marker3D" parent="IntroCutscene" unique_id=1117215726]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 5.315, 1.283, -2.42)
 
-[node name="BellSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=2121999359]
+[node name="BellOpenSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=2121999359]
 stream = ExtResource("21_bell")
+
+[node name="BellCloseSound" type="AudioStreamPlayer" parent="IntroCutscene"]
+stream = ExtResource("28_bell_close")
 
 [node name="WritingSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=1529783436]
 stream = ExtResource("22_writing")

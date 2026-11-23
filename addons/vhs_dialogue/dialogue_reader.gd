@@ -1,18 +1,6 @@
 @tool
 extends RefCounted
-## Reads the dialogue .txt files. Used by the Dialogue autoload, DialogueTrigger and the exporter.
-##
-## File format (see the example file in FOLDER):
-##   [name]              starts a conversation called "name"
-##   NAME: text          a subtitle said by NAME (speaker names in CAPITALS)
-##   text                a subtitle with no speaker
-##   NAME: text | 4      this subtitle stays up for 4 seconds
-##   @wait 1.5           1.5 seconds with no subtitle
-##   @event lights_off   sends Dialogue.event("lights_off") to your scripts
-##   # note              ignored, on its own line or at the end of a line ("... | 2  # note")
-##   \#                  a real # inside a subtitle
 
-## Where the dialogue files live. Subfolders are read too.
 const FOLDER := "res://Resources/Data/Dialogue"
 
 
@@ -86,6 +74,8 @@ static func _read_line(line: String, where: String, quiet: bool) -> Dictionary:
 			return {"type": "wait", "time": value.to_float()}
 		if command == "event" and value != "":
 			return {"type": "event", "name": value}
+		if command == "voice" and value != "":
+			return {"type": "voice", "path":value} #This is for the voice of the customer
 		if not quiet:
 			push_warning("Dialogue: %s: \"%s\" is not a command I know (use @wait 1.5 or @event name)." % [where, line])
 		return {}

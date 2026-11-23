@@ -17,36 +17,50 @@ YOU: ...Maybe Mom was right. I can't carry Dad's business\nas well as I thought 
 YOU: ... | 1
 @event look_door
 YOU: Alright, enough wallowing. Time to close up the shop! | 3.5
-@wait 3
+@wait 0.1
 @event Customer_walk_in    # bell rings, the main door opens, the customer walks to the counter
 (bell rings) | 1.5
 YOU: !... A customer? Hello, sir! | 2
 @wait 1                    # gives him time to reach the counter (then he idles)
-CUSTOMER: ...Ah, were you about to close up already? | 3
+@voice res://Assets/Voice/Customer/cust_1.wav
+@wait 0.8
+CUSTOMER: ...Ah, were you about to close up already? | 2.2
 YOU: No, no, it's fine! We can take in one more customer! | 3.5
 YOU: What are you looking for, sir? | 2
+@voice res://Assets/Voice/Customer/cust_2.wav
 @event box_on_table        # his box of scraps lands on the counter (not interactable yet)
-CUSTOMER: Here's a bunch of junk I'm looking to sell off. | 3
+CUSTOMER: Here's a bunch of junk I'm looking to sell off. | 2.8
+@voice res://Assets/Voice/Customer/cust_3.wav
 CUSTOMER: Just bought a house 'round here for a pretty good deal. | 3.5
-CUSTOMER: Got all this stuff lying around up in the attic.\nProbably from the previous owners of the house. | 5.5
-CUSTOMER: Well, how much can I get for these? | 2.5
+CUSTOMER: Got all this stuff lying around up in the attic.\nProbably from the previous owners of the house. | 5
+@voice res://Assets/Voice/Customer/cust_4.wav
+@wait 0.3
+CUSTOMER: It's all broken up though. So I got no use for them. | 2.37
+CUSTOMER: Better being sold off than hit the landfill | 2.32
+@voice res://Assets/Voice/Customer/cust_5.wav
+CUSTOMER: Well, how much can I get for these? | 5
 YOU: I see... Let me take a look, sir. | 2
 @event look_box
 @wait 2
 @event look_customer
 YOU: Hmm... I'd say about RM 60. | 2
 @event cust_angry          # he points angrily (angry_point), then idles again
-CUSTOMER: RM 60?! What?! These are all antiques right here! | 3
-CUSTOMER: Surely they go for a higher price, no? | 2.5
+@voice res://Assets/Voice/Customer/cust_6.wav
+CUSTOMER: RM 60?! What?! These are all antiques right here! | 4
+CUSTOMER: Surely they go for a higher price, no? | 3
 YOU: I'm really sorry, sir, but as you said, these are all broken. | 4
 YOU: We'll have to repair them before we can even begin\nto put them on the shelves. | 5
 @event cust_argue          # angry point again
-CUSTOMER: Tch, fine. Just get this junk off my hands. | 3
+@voice res://Assets/Voice/Customer/cust_7.wav
+@wait 1.3
+CUSTOMER: Tch, fine. Just get this junk off my hands. | 3.2
 YOU: We'll also need you to fill in your name and contact information.\nJust for record keeping, sir. | 6
+@voice res://Assets/Voice/Customer/cust_8.wav
+@wait 1.2
 CUSTOMER: Alright, whatever. | 1.5
 @event writing             # writing sound effect
-(writing sounds) | 2.5
-CUSTOMER: There. | 1
+(writing sounds) | 2
+CUSTOMER: There. | 1.5
 @wait 1
 (You hand him the money) | 2
 YOU: Thank you, sir! Come again! | 2

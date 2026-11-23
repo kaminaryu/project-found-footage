@@ -29,3 +29,6 @@ label_settings = ExtResource("2_style")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+
+[node name="Voice" type="AudioStreamPlayer" parent="." unique_id=1377860329]
+unique_name_in_owner = true

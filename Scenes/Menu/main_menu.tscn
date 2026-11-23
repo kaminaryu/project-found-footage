@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://byaclsgcotlqi" path="res://Scenes/Menu/continue_button.gd" id="6_w1xia"]
 [ext_resource type="Script" uid="uid://b8uivajxtj187" path="res://Objects/Mechanism/Phone/flip_phone.gd" id="7_1di0l"]
 [ext_resource type="Material" uid="uid://rhc1pyuphad" path="res://Assets/Shaders/interactable_highlight.tres" id="8_w1xia"]
+[ext_resource type="AudioStream" uid="uid://cs3bjwxdb4rbv" path="res://Assets/Audios/Musics/a chipped reed - Gentle Groove (old).mp3" id="11_nbh3q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7thv"]
 resource_name = "Box"
@@ -504,6 +505,11 @@ highlight_material = ExtResource("8_w1xia")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlipPhone/Interactable" unique_id=1699926540]
 transform = Transform3D(1, 0, 0, 0, 0.905, 0, 0, 0, 1.859, -0.03705597, 0.100237906, -0.06201172)
 shape = SubResource("BoxShape3D_7sb5i")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=816819624]
+stream = ExtResource("11_nbh3q")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/New Game" method="_on_label_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Continue/Label" to="UI/MarginContainer/VBoxContainer/Buttons/VBoxContainer/Continue" method="_on_label_pressed"]

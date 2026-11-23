@@ -1,16 +1,5 @@
 extends CanvasLayer
-## VHS-style subtitles for the story. This is the "Dialogue" autoload.
-##
-## Write conversations in .txt files in res://Resources/Data/Dialogue (see example.txt there),
-## then from any script:
-##     Dialogue.play("intro")            # starts it, your code keeps going
-##     await Dialogue.play("intro")      # your code waits until the conversation is over
-##     Dialogue.say("I need a key.")     # one quick subtitle, no file needed
-##
-## To change the colour, size or font: open subtitle_style.tres in this folder.
-## To change the timing: open dialogue.tscn and select the Dialogue node.
 
-## A conversation started / reached its end (not sent when it was cut off by stop() or another play()).
 signal started(conversation: String)
 signal finished(conversation: String)
 ## A subtitle appeared.
@@ -39,6 +28,7 @@ const Reader := preload("res://addons/vhs_dialogue/dialogue_reader.gd")
 @export var skip_action := ""
 
 @onready var _subtitle: Label = %Subtitle
+@onready var _voice: AudioStreamPlayer = %Voice
 
 var _conversations := {}   # name -> list of steps (see dialogue_reader.gd)
 var _played := {}          # name -> true once it has started playing
@@ -80,8 +70,15 @@ func stop() -> void:
 	_playing = false
 	_skip = false
 	_hide()
+	_voice.stop()
 
-
+func _play_voice(path:String) -> void:
+	var sound:= load(path) as AudioStream
+	if sound == null:
+		push_warning("No Voice Dialogue")
+		return
+	_voice.stream = sound
+	_voice.play()
 func is_playing() -> bool:
 	return _playing
 
@@ -123,6 +120,8 @@ func _play_steps(conversation: String, steps: Array) -> void:
 				event.emit(step.name)
 				if run != _run:
 					return   # whoever listened to the event started something else
+			"voice":
+				_play_voice(step.path)
 	stop_dialogue(conversation)
 
 
