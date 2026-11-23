@@ -54,7 +54,7 @@ metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 
 [sub_resource type="Resource" id="Resource_w1xia"]
 script = ExtResource("2_task")
-text = "Complete all 5 levels "
+text = "Complete all 5 levels of the game"
 flag = &"sokoban_completed"
 metadata/_custom_type_script = "uid://b2dro6hkki0ke"
 

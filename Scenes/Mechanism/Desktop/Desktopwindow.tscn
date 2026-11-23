@@ -255,4 +255,4 @@ layout_mode = 2
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
 [connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" method="hide_icon"]
-[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/CTF" method="reveal_and_launch"]
+[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/CTF" method="reveal"]

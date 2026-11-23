@@ -25,7 +25,7 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="CTFExe" type="Window" unique_id=49404748 node_paths=PackedStringArray("_flag_input", "_submit", "_status", "_progress", "_subtitle", "_scream_mp3")]
+[node name="CTFExe" type="Window" unique_id=49404748 node_paths=PackedStringArray("_flag_input", "_submit", "_status", "_progress", "_scream_mp3")]
 oversampling_override = 1.0
 title = "Portal.exe"
 initial_position = 1
@@ -39,7 +39,6 @@ _flag_input = NodePath("WindowSkeleton/Content/Layout/FlagRow/FlagInput")
 _submit = NodePath("WindowSkeleton/Content/Layout/FlagRow/Submit")
 _status = NodePath("WindowSkeleton/Content/Layout/Status")
 _progress = NodePath("WindowSkeleton/Content/Layout/Progress")
-_subtitle = NodePath("WindowSkeleton/Content/Layout/Subtitle")
 _scream_mp3 = NodePath("Scream_mp3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1676768113]
@@ -92,14 +91,8 @@ alignment = 1
 
 [node name="Title" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=1232064012]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 38
 text = "Portal.exe"
-horizontal_alignment = 1
-
-[node name="Subtitle" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=1708867876]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
-text = "Flag format: ..."
 horizontal_alignment = 1
 
 [node name="FlagRow" type="HBoxContainer" parent="WindowSkeleton/Content/Layout" unique_id=344918789]
@@ -120,7 +113,7 @@ text = "Submit"
 [node name="Status" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=922509699]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
-text = "Awaiting flag."
+text = "Awaiting flag..."
 horizontal_alignment = 1
 
 [node name="Progress" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=1815760652]

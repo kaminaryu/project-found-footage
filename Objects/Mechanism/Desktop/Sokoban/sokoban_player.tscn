@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dupvo0eldcdpq" path="res://Assets/UI/Desktop/Sokoban/WhiteSquare.png" id="1_x1wth"]
 
-[node name="SokobanPlayer" type="Sprite2D"]
+[node name="SokobanPlayer" type="Sprite2D" unique_id=1429835767]
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_x1wth")

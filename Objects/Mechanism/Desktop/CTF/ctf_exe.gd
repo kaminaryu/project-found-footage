@@ -8,7 +8,6 @@ const FLAG_FORMAT := "%s"
 @export var _submit:     Button
 @export var _status:     Label
 @export var _progress:   Label
-@export var _subtitle:   Label
 @export var _scream_mp3: AudioStreamPlayer
 
 var _flags: Array = []
@@ -18,7 +17,6 @@ var _flag_index := 0
 func _window_ready() -> void:
 	_flags = _load_flags()
 	var flag_example := _format_flag("...")
-	_subtitle.text = "Flag format: %s" % flag_example
 	_flag_input.placeholder_text = flag_example
 
 	var saved_data := _load_save_data()
@@ -109,6 +107,7 @@ func _sync_save_progress() -> void:
 	saved_data["ctf_complete"] = should_complete
 	_save_save_data(saved_data)
 	get_tree().call_group("desktop_icon", "refresh_visibility")
+	
 
 
 func _load_flags() -> Array:
@@ -163,3 +162,15 @@ func _normalize_flag(value: String) -> String:
 
 func handle_demo_end() -> void :
 	_scream_mp3.play()
+	await _scream_mp3.finished
+
+	for window in get_tree().get_nodes_in_group("glitchable_window"):
+		if window != self and window.has_method("glitch_and_close"):
+			window.glitch_and_close(1.2, 1.0)
+
+	glitch_and_close(1.2, 0.8)
+	await get_tree().create_timer(1.0).timeout
+
+	GameMaster.freeze_main_window(true)
+	GameMaster.raise_flag(&"ctf_completed")
+	

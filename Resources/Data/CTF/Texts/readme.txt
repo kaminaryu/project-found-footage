@@ -9,4 +9,4 @@ To uncover the mysteries of the world -- more interesting than whatever is going
 
 Get what it take? Find all the codes and feed it to *Portal.exe*
 Here, I give you the first one for free:
-Game{h3ll0w_0rld}
+{h3ll0w_0rld}
