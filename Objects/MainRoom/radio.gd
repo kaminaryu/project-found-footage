@@ -28,6 +28,7 @@ func play_music() -> void:
 	$AnimationPlayer.play("MusicPlaying")
 	
 func stop_music() -> void :
+	GameMaster.show_hint("Stopped playing.")
 	$AudioStreamPlayer.stop()
 	$CPUParticles3D.emitting = false
 	$AnimationPlayer.stop()
