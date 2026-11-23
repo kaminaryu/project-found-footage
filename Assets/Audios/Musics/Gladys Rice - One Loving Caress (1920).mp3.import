@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv8ewtalgo5wa"
+path="res://.godot/imported/Gladys Rice - One Loving Caress (1920).mp3-7963995df315c083f0c7f5d947cb4ec6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audios/Musics/Gladys Rice - One Loving Caress (1920).mp3"
+dest_files=["res://.godot/imported/Gladys Rice - One Loving Caress (1920).mp3-7963995df315c083f0c7f5d947cb4ec6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
