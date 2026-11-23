@@ -57,3 +57,17 @@ func _apply_state(won: bool) -> void:
 		_action.remove_theme_color_override("font_color")
 		_action.remove_theme_color_override("font_hover_color")
 		_action.remove_theme_color_override("font_pressed_color")
+		
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_left"):
+		_game.try_move(Vector2i.LEFT)
+	elif event.is_action_pressed("ui_right"):
+		_game.try_move(Vector2i.RIGHT)
+	elif event.is_action_pressed("ui_up"):
+		_game.try_move(Vector2i.UP)
+	elif event.is_action_pressed("ui_down"):
+		_game.try_move(Vector2i.DOWN)
+	else: 
+		return
+	get_viewport().set_input_as_handled()
+	
