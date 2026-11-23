@@ -17,6 +17,8 @@ func _ready() -> void :
 # this setting highlight around the object
 func set_highlight(on:bool) -> void:
 	for mesh in meshes:
+		if not is_instance_valid(mesh):
+			return
 		mesh.material_overlay = highlight_material if on else null
 
 # This will open window when the player interact on em

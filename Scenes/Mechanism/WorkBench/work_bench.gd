@@ -30,6 +30,7 @@ func _ready() -> void :
 	_update_put_down_button()
 	_update_scraps()
 	GameMaster.flag_raised.connect(_on_flag_raised)
+	selected_object_container.child_exiting_tree.connect(_on_selected_object_left)
 
 	if (start_inactive) :
 		process_mode = Node.PROCESS_MODE_DISABLED
@@ -247,3 +248,6 @@ func _on_exit_button_pressed() -> void :
 
 func _update_put_down_button() -> void :
 	put_down_button.visible = get_selected_object() != null
+
+func _on_selected_object_left(_node: Node) -> void:
+	_update_put_down_button.call_deferred()

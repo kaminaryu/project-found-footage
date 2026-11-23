@@ -168,7 +168,7 @@ render_target_update_mode = 4
 
 [node name="Camera" parent="Skeleton/Scraps/VBoxContainer3/ScrapSlot3/SubViewport" unique_id=588382207 instance=ExtResource("4_sgu5d")]
 script = ExtResource("4_62mn0")
-speed = 14.0
+speed = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="Skeleton/Scraps/VBoxContainer3/ScrapSlot3/SubViewport" unique_id=1685179928]
 transform = Transform3D(1, 0, 0, 0, 0.75355744, 0.65738213, 0, -0.65738213, 0.75355744, 0, 1.0737214, 1.3683733)

@@ -7,6 +7,8 @@ extends Node3D
 func _ready() -> void :
 	battery_slot.part_attached.connect(_on_part_attached)
 	cover_slot.part_attached.connect(_on_part_attached)
+	if(GameMaster.is_flag_raised(&"fixed_phone")):
+		queue_free() 
 
 
 func _on_part_attached(_part: Node3D) -> void :
@@ -23,3 +25,4 @@ func _check_fixed() -> void :
 	if (battery is PlaceablePart and (battery as PlaceablePart).fixes_phone) :
 		GameMaster.show_hint("Flip Phone fixed. Press tab to use it.")
 		GameMaster.raise_flag(&"fixed_phone")
+		queue_free() #this will leave the workbench when player takes it
