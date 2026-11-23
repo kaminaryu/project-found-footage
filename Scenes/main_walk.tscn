@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://dqnvrhiqymef5" path="res://Assets/Audios/SFX/shop_bell.wav" id="21_bell"]
 [ext_resource type="AudioStream" uid="uid://c7o0r6hgkbd8" path="res://Assets/Audios/SFX/quiet room ambience with traffic.mp3" id="21_i6ego"]
 [ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/writing.wav" id="22_writing"]
+[ext_resource type="Script" uid="uid://6wq665a385ml" path="res://Scenes/hold_to_skip.gd" id="23_fla1i"]
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="24_fla1i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -876,6 +878,18 @@ shader_parameter/vignette_strength = 0.5
 shader_parameter/levels = 3
 shader_parameter/spread = 0.01
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13qdw"]
+bg_color = Color(0, 0, 0, 0.007843138)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrivr"]
+bg_color = Color(0.710149, 0.5857378, 0.22870657, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2hrbt"]
+font = ExtResource("24_fla1i")
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Main Walk" type="Node3D" unique_id=1377530203]
 script = ExtResource("1_eea32")
 
@@ -1095,6 +1109,42 @@ stream = ExtResource("21_bell")
 
 [node name="WritingSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=1529783436]
 stream = ExtResource("22_writing")
+
+[node name="HoldToSkip" type="CanvasLayer" parent="IntroCutscene" unique_id=195019736]
+layer = 3
+script = ExtResource("23_fla1i")
+
+[node name="BoxSkip" type="VBoxContainer" parent="IntroCutscene/HoldToSkip" unique_id=653753036]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -284.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_constants/separation = 6
+
+[node name="Bar" type="ProgressBar" parent="IntroCutscene/HoldToSkip/BoxSkip" unique_id=1527718813]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_13qdw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xrivr")
+show_percentage = false
+
+[node name="Hint" type="Label" parent="IntroCutscene/HoldToSkip/BoxSkip/Bar" unique_id=539217185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HOLD BACKSPACE TO SKIP"
+label_settings = SubResource("LabelSettings_2hrbt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=728410576]
 stream = ExtResource("21_i6ego")

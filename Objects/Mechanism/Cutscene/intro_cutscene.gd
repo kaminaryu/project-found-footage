@@ -1,22 +1,5 @@
 extends Node3D
-## Chapter One intro. Plays along with the [Intro] conversation in ChapterOne.txt
-## (GameMaster.start_game() freezes the player and starts it).
-##
-## The camera stays at the player's eyes and turns on its own. The @event lines in the
-## dialogue file decide what happens and when:
-##   @event look_door          turn the camera to the marker LookAt/door (any LookAt child works)
-##   @event look_customer      follow the customer's face
-##   @event look_box           look at the box of scraps
-##   @event Customer_walk_in   bell rings, the main door opens, the customer walks to the counter
-##   @event box_on_table       the box of scraps lands on the counter
-##   @event cust_angry         the customer points angrily once (cust_argue does the same)
-##   @event writing            writing sound
-##   @event cust_leave         the customer walks out, then the box goes back on the floor
-## When the conversation is over (and the customer is gone) the player can move again,
-## looking the same way the camera did.
-##
-## To change where things happen, move the Marker3D children of this node in main_walk.
-## The customer stops where the Customer node stands in the level.
+
 
 const CONVERSATION := "Intro"
 
@@ -45,6 +28,7 @@ const CONVERSATION := "Intro"
 @onready var _customer_spot: Marker3D = $CustomerPath/StandingSpot
 @onready var _bell: AudioStreamPlayer = $BellSound
 @onready var _writing: AudioStreamPlayer = $WritingSound
+@onready var _skip_ui: CanvasLayer = $HoldToSkip
 
 var _running := false
 var _look_target: Node3D               # what the camera turns towards (null = keep still)
@@ -67,6 +51,7 @@ var _door_sign: Array[float] = []
 var _door_open := 0.0                  # 0 = closed, 1 = open
 var _door_tween: Tween
 var _hidden: Array[CanvasItem] = []    # what we hid, to show again at the end
+var _box_tween: Tween #box HoldtoSkip animation
 
 
 func _ready() -> void:
@@ -80,6 +65,7 @@ func _ready() -> void:
 	Dialogue.started.connect(_on_started)
 	Dialogue.event.connect(_on_event)
 	Dialogue.finished.connect(_on_finished)
+	_skip_ui.skipped.connect(skip)
 	_check_intro_exists.call_deferred()
 
 
@@ -128,6 +114,7 @@ func _on_started(conversation: String) -> void:
 	_look_basis = _camera.global_basis
 	_look_target = null
 	_camera.make_current()
+	_skip_ui.show()
 	for item in hide_while_playing:
 		if item and item.visible:
 			item.hide()
@@ -146,9 +133,20 @@ func _on_finished(conversation: String) -> void:
 		await get_tree().process_frame
 	_end()
 
+#BACKSPACE SKIP that jumps straight to the end of the intro
+func skip() -> void:
+	if not _running:
+		return
+	Dialogue.stop()
+	GameMaster.raise_flag(&"intro_completed")
+	_end()
 
 func _end() -> void:
+	if not _running:
+		return
+	
 	_running = false
+	_skip_ui.hide()
 	# Give the view back to the player, facing where the camera ended up.
 	var forward := -_look_basis.z
 	player.rotation.y = atan2(-forward.x, -forward.z)
@@ -160,6 +158,8 @@ func _end() -> void:
 	if _door_tween:
 		_door_tween.kill()
 	_set_door(0.0)
+	if _box_tween:
+		_box_tween.kill()
 	box.global_transform = _box_home
 	box.show()
 	_set_box_interactable(true)
@@ -250,8 +250,8 @@ func _put_box_on_counter() -> void:
 	var spot := _box_spot.global_transform
 	box.global_transform = spot.translated(Vector3(0.0, 0.25, 0.0))
 	box.show()
-	var drop := create_tween()
-	drop.tween_property(box, "global_position", spot.origin, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	_box_tween = create_tween()
+	_box_tween.tween_property(box, "global_position", spot.origin, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	# Glance at it, then back at him.
 	_look_target = box
 	await _sleep(2.0)
