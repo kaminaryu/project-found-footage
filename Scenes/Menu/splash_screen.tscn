@@ -198,7 +198,7 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_le4d4"]
 resource_name = "new_animation"
-length = 6.0
+length = 6.3333335
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -233,7 +233,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(1.5333333, 2.2666667, 2.4),
 "transitions": PackedFloat32Array(2.7320802, 1, 1),
 "update": 0,
-"values": [Vector2(-1920, 65), Vector2(40, 65), Vector2(0, 65)]
+"values": [Vector2(-1986.225, 65), Vector2(40, 65), Vector2(0, 65)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -350,7 +350,7 @@ tracks/12/path = NodePath("Chant:playing")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 3.0666666, 5.9333334),
+"times": PackedFloat32Array(0, 3.0666666, 6.233333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -409,7 +409,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -40.0
+offset_left = 31.5
+offset_right = -8.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
@@ -444,7 +445,7 @@ texture = ExtResource("4_ddc4p")
 layout_mode = 0
 offset_left = 732.0
 offset_top = 79.0
-offset_right = 1238.0023
+offset_right = 1238.0028
 offset_bottom = 452.0
 pivot_offset_ratio = Vector2(0, 0.5)
 texture = ExtResource("4_38oju")
