@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://crmyfoshsn37b" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
 [ext_resource type="Texture2D" uid="uid://bgjo7muwiv8t1" path="res://Assets/UI/Desktop/JumpscareEyes.png" id="18_6b82k"]
-[ext_resource type="AudioStream" uid="uid://fk8gewtr2yuk" path="res://Assets/Audios/SFX/tv_static.wav" id="19_0muut"]
+[ext_resource type="AudioStream" uid="uid://fk8gewtr2yuk" path="res://Assets/Audios/SFX/Novakia/tv_static.wav" id="19_0muut"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dfgv76qrdoe7f"]
 
 [ext_resource type="Script" uid="uid://dc0uts2x0cll3" path="res://Objects/Mechanism/Desktop/CTF/ctf_exe.gd" id="1_ctf"]
-[ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/WomanScreaming.mp3" id="2_6rfkd"]
-[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="3_drag"]
+[ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/Misc/WomanScreaming.mp3" id="2_6rfkd"]
+[ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="3_drag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_normal"]
 bg_color = Color(1, 0, 0, 1)
