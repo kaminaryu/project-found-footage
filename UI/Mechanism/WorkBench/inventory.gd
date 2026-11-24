@@ -7,12 +7,16 @@ extends Control
 @export var new_battery: MeshInstance3D
 @export var old_battery: MeshInstance3D
 
-var hovered_slot: PanelContainer = null
+@onready var part_insert_audio: Node = %InsertPartAudio
+@onready var part_extract_audio: Node = %ExtractPartAudio
 
+var hovered_slot: PanelContainer = null
+var is_first_init := true
 
 
 func _ready() -> void :
 	InventoryManager.adding_item.connect(add_item)
+	InventoryManager.successfully_remove_item.connect(_on_item_removed)
 	attach_slot_buttons()
 	visibility_changed.connect(_on_visibility_changed)
 	hover_hint.hide()
@@ -22,8 +26,10 @@ func _ready() -> void :
 
 	if (GameMaster.is_flag_raised(&"fixed_phone")) :
 		InventoryManager.add_item(old_battery)
+		is_first_init = false
 	else :
 		InventoryManager.add_item(new_battery)
+		is_first_init = false
 
 
 func attach_slot_buttons() -> void :
@@ -55,6 +61,9 @@ func remove_item(slot: PanelContainer) -> void :
 			show_insert_hint(slot)
 
 
+func _on_item_removed() -> void :
+	part_insert_audio.play()
+
 
 func _process(delta: float) -> void :
 	for slot in slot_container.get_children() :
@@ -75,6 +84,9 @@ func add_item(obj: Node3D) -> void :
 		return
 
 	add_obj_to_slot(obj, slot)
+
+	if (not is_first_init) :
+		part_extract_audio.play()
 
 
 func find_free_slot() -> PanelContainer :

@@ -13,6 +13,9 @@ const FADE_DURATION := 0.22
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var put_down_button: Button = $CanvasLayer/PutDownButton/PutDownButton
 @onready var fade_rect: ColorRect = $TransitionLayer/Fade
+@onready var item_pickup_audio: Node = %PickupItemAudio
+@onready var item_putdown_audio: Node = %PickupItemAudio
+
 
 var is_active := false
 var is_transitioning := false
@@ -218,7 +221,9 @@ func select_placed_object(obj: Node3D) -> void :
 	obj.reparent(selected_object_container, false)
 	obj.position = Vector3.ZERO
 	obj.global_basis = world_basis
+
 	_update_put_down_button()
+	item_pickup_audio.play()
 
 
 func get_selected_object() -> Node3D :
@@ -239,7 +244,9 @@ func _on_put_down_button_pressed() -> void:
 	selected_obj.reparent(placed_objects_container, false)
 	selected_obj.remove_from_group("selected_item")
 	placed_objects_container.layout_children()
+
 	_update_put_down_button()
+	item_putdown_audio.play()
 
 
 func _on_exit_button_pressed() -> void :

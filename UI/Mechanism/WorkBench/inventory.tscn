@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Scraps/Placeable/placeable_part.gd" id="4_8ukiw"]
 [ext_resource type="Script" uid="uid://bcd0xnkpsifjh" path="res://Objects/Scraps/hover_detector.gd" id="5_rj0s5"]
 [ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_hint.tscn" id="6_mbrq3"]
+[ext_resource type="PackedScene" uid="uid://bpcbf3u5tmarx" path="res://Helpers/sfx_player.tscn" id="7_i2g50"]
+[ext_resource type="AudioStream" uid="uid://ilhumy7jviiq" path="res://Assets/Audios/SFX/Workbench/collect_part.mp3" id="8_16wjx"]
+[ext_resource type="AudioStream" uid="uid://d4ijcfoofwjn1" path="res://Assets/Audios/SFX/Workbench/insert_part.mp3" id="9_3misd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iukjw"]
 albedo_color = Color(0.044733394, 0.008799992, 0.44, 1)
@@ -258,3 +261,12 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.3711392e-08, 0, 0, -1.776356
 visible = false
 text = "Press [Left Click]
 to remove Flip Phone Battery"
+
+[node name="ExtractPartAudio" parent="." unique_id=1623321793 instance=ExtResource("7_i2g50")]
+unique_name_in_owner = true
+audio_stream = ExtResource("8_16wjx")
+volume_db = -5.0
+
+[node name="InsertPartAudio" parent="." unique_id=1005996048 instance=ExtResource("7_i2g50")]
+unique_name_in_owner = true
+audio_stream = ExtResource("9_3misd")

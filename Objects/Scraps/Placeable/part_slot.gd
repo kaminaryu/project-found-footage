@@ -42,6 +42,7 @@ func _try_attach(mesh: Node3D) -> void :
 	mesh.transform = attached_transform
 
 	part_attached.emit(mesh)
+	InventoryManager.successfully_remove_item.emit()
 
 
 func is_owner_selected() -> bool :
