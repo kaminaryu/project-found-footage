@@ -5,6 +5,7 @@ extends Control
 @export var hover_hint: Label
 @export var preview_max_extent := 2.0
 @export var new_battery: MeshInstance3D
+@export var old_battery: MeshInstance3D
 
 var hovered_slot: PanelContainer = null
 
@@ -19,7 +20,10 @@ func _ready() -> void :
 	for slot in slot_container.get_children() :
 		get_item_pivot(slot)
 
-	InventoryManager.add_item(new_battery)	
+	if (GameMaster.is_flag_raised(&"fixed_phone")) :
+		InventoryManager.add_item(old_battery)
+	else :
+		InventoryManager.add_item(new_battery)
 
 
 func attach_slot_buttons() -> void :
