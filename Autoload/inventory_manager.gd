@@ -11,4 +11,3 @@ func add_item(obj: Node3D) -> void :
 
 func remove_item(obj: Node3D) -> void :
 	removing_item.emit(obj)
-
