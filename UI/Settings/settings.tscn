@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cvc24g2jb35ov" path="res://UI/Settings/brightness_screen.tscn" id="5_bright"]
 [ext_resource type="Script" uid="uid://db224n01210yi" path="res://UI/Settings/display_settings_section.gd" id="6_wnv0n"]
 [ext_resource type="Script" uid="uid://djoqw81cpt64l" path="res://UI/Settings/keybinds_settings_section.gd" id="7_v3ito"]
-[ext_resource type="Script" path="res://UI/Settings/settings.gd" id="8_settings"]
+[ext_resource type="Script" uid="uid://bnoncf234814g" path="res://UI/Settings/settings.gd" id="8_settings"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0yitp"]
 font = ExtResource("1_7iqql")
@@ -126,6 +126,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_icons/grabber = ExtResource("2_vbc7n")
 theme_override_icons/grabber_highlight = ExtResource("3_wgjsl")
 theme_override_styles/slider = SubResource("StyleBoxFlat_hnc8t")
@@ -150,6 +151,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_icons/grabber = ExtResource("2_vbc7n")
 theme_override_icons/grabber_highlight = ExtResource("3_wgjsl")
 theme_override_styles/slider = SubResource("StyleBoxFlat_hnc8t")
@@ -174,6 +176,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_icons/grabber = ExtResource("2_vbc7n")
 theme_override_icons/grabber_highlight = ExtResource("3_wgjsl")
 theme_override_styles/slider = SubResource("StyleBoxFlat_hnc8t")
@@ -198,6 +201,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_icons/grabber = ExtResource("2_vbc7n")
 theme_override_icons/grabber_highlight = ExtResource("3_wgjsl")
 theme_override_styles/slider = SubResource("StyleBoxFlat_hnc8t")
@@ -245,9 +249,9 @@ text = "Brightness"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="AdjustButton" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DisplaySettings/VBoxContainer/MarginContainer/SettingsList/BrightnessEntry" unique_id=954779655]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 text = "Adjust"
 
 [node name="KeybindsSettings" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=629740653]
@@ -279,11 +283,11 @@ size_flags_vertical = 0
 theme_override_constants/margin_top = 12
 
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/HBoxContainer/ResetContainer" unique_id=2076905539]
-mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 20
 text = "Reset"
 
@@ -309,10 +313,10 @@ text = "Move Forward"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/MoveForward" unique_id=76774899]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "W"
 
 [node name="MoveLeft" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=546535888]
@@ -328,10 +332,10 @@ text = "Move Left"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/MoveLeft" unique_id=688638681]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "A"
 
 [node name="MoveRight" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=1626595517]
@@ -347,10 +351,10 @@ text = "Move Right"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/MoveRight" unique_id=909064982]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "D"
 
 [node name="MoveBack" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=563938568]
@@ -366,10 +370,10 @@ text = "Move Back"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/MoveBack" unique_id=839932407]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "S"
 
 [node name="Crouch" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=973457352]
@@ -385,10 +389,10 @@ text = "Crouch"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/Crouch" unique_id=290633099]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "Shift"
 
 [node name="Interact" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=1513055944]
@@ -404,10 +408,10 @@ text = "Interact"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/Interact" unique_id=861677231]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "E"
 
 [node name="UsePhone" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=1714686765]
@@ -423,10 +427,10 @@ text = "Use Phone"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/UsePhone" unique_id=390146937]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "Tab"
 
 [node name="TakeItem" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=452249789]
@@ -442,10 +446,10 @@ text = "Take Item"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/TakeItem" unique_id=1860120789]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "Left Click"
 
 [node name="Quit" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=1058841287]
@@ -461,10 +465,10 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/Quit" unique_id=1527813304]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "Escape"
 
 [node name="SkipCutscene" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList" unique_id=869072966]
@@ -480,10 +484,10 @@ text = "Skip Cutscene"
 label_settings = SubResource("LabelSettings_0yitp")
 
 [node name="Keybind" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/KeybindsSettings/VBoxContainer/MarginContainer/KeybindList/SkipCutscene" unique_id=930615844]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 text = "Backspace"
 
 [node name="CloseButtonContainer" type="MarginContainer" parent="MarginContainer" unique_id=709401347]
@@ -493,10 +497,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 64
 
 [node name="Button" type="Button" parent="MarginContainer/CloseButtonContainer" unique_id=364434817]
-mouse_default_cursor_shape = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+mouse_default_cursor_shape = 2
 text = "Close"
 
 [node name="BrightnessScreen" parent="." unique_id=729967731 instance=ExtResource("5_bright")]
