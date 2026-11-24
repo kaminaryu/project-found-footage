@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://brqscmg7p4w07"]
 
+[ext_resource type="Script" uid="uid://ckm2eaumxkg3n" path="res://Scenes/Menu/main_menu.gd" id="1_aqd3c"]
 [ext_resource type="Texture2D" uid="uid://kxrol86mirp7" path="res://Assets/UI/Menu/halfhouse_1.png" id="1_le4d4"]
 [ext_resource type="Texture2D" uid="uid://dl3qa32ku311k" path="res://Assets/UI/Menu/halfhouselogo.png" id="2_aqd3c"]
 [ext_resource type="Texture2D" uid="uid://idak27w88c45" path="res://Assets/UI/Menu/halfhouse_2.png" id="4_38oju"]
@@ -268,6 +269,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aqd3c")
 
 [node name="BG" type="Panel" parent="." unique_id=1595068258]
 layout_mode = 1
