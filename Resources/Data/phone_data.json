@@ -201,28 +201,28 @@
 	"dial": {
 		"_readme": "The Call app. Any number that is not a code below rings, then says the number is unavailable (the 3rd wrong number in a game sets off the I SEE YOU scare instead, only once). A code rings once, then: sound = someone picks up, the line stays quiet for wait seconds, then that sound file plays. text = after the call that text arrives in Messages (once per game), from = who sends it (a new name gets its own chat at the top), with its date and time. A code can be digits or a WORD: each letter is typed with multi-tap, like old phones (WOLF = 9666555333).",
 		"secrets": [
-			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0lf_is_4sl33p}" },
-			{ "code": "7812", "sound": "res://Assets/SFX/crying.wav", "wait": 3 }
+			{ "code": "WOLF", "from": "NOVATEL", "date": "13/11/2002", "time": "11:32 PM", "text": "{ w0lf_is_4sl33p }" },
+			{ "code": "7812", "sound": "res://Assets/Audios/SFX/Novakia/crying.wav", "wait": 3 }
 		]
 	},
 
 	"gallery": [
-		{ "title": "IMG_1123", "date": "4 APR 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1123.png" },
-		{ "title": "IMG_1232", "date": "1 MAY 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1232.png" },
-		{ "title": "IMG_1623", "date": "6 JUNE 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1623.png" },
-		{ "title": "IMG_1722", "date": "17 JUNE 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1722.png" },
-		{ "title": "IMG_1723", "date": "8 AUG 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1723.png" },
-		{ "title": "IMG_1782", "date": "27 AUG 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1782.png" },
-		{ "title": "IMG_2371", "date": "23 SEP 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img2371.png" },
-		{ "title": "IMG_1337", "date": "13 NOV 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img5232.png" },
-		{ "title": "IMG_7734", "date": "7 DEC 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img7734.png" },
-		{ "title": "IMG_1231", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176547_w.png" },
-		{ "title": "IMG_7812", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176546_w.png" },
-		{ "title": "IMG_7862", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176544_w.png" },
-		{ "title": "IMG_6428", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176543_w.png" },
-		{ "title": "IMG_6482", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176542_w.png" },
-		{ "title": "IMG_9172", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176541_w.png" },
-		{ "title": "IMG_0178", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176540_w.png" },
-		{ "title": "IMG_0133", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176548_w.png" }
+		{ "title": "IMG_1123", "date": "4 APR 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1123.jpeg" },
+		{ "title": "IMG_1232", "date": "1 MAY 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1232.jpeg" },
+		{ "title": "IMG_1623", "date": "6 JUNE 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1623.jpeg" },
+		{ "title": "IMG_1722", "date": "17 JUNE 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1722.jpeg" },
+		{ "title": "IMG_1723", "date": "8 AUG 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1723.jpeg" },
+		{ "title": "IMG_1782", "date": "27 AUG 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img1782.jpeg" },
+		{ "title": "IMG_2371", "date": "23 SEP 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img2371.jpeg" },
+		{ "title": "IMG_1337", "date": "13 NOV 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img5232.jpeg" },
+		{ "title": "IMG_7734", "date": "7 DEC 2001", "image": "res://Objects/Mechanism/Phone/PhonePicture/img7734.jpeg" },
+		{ "title": "IMG_1231", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176547_w.jpg" },
+		{ "title": "IMG_7812", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176546_w.jpg" },
+		{ "title": "IMG_7862", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176544_w.jpg" },
+		{ "title": "IMG_6428", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176543_w.jpg" },
+		{ "title": "IMG_6482", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176542_w.jpg" },
+		{ "title": "IMG_9172", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176541_w.jpg" },
+		{ "title": "IMG_0178", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176540_w.jpg" },
+		{ "title": "IMG_0133", "date": "2 FEB 2002", "image": "res://Objects/Mechanism/Phone/PhonePicture/photo_6052958429313176548_w.jpg" }
 	]
 }

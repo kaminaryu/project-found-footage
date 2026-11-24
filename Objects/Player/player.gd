@@ -3,6 +3,7 @@ extends CharacterBody3D
 #Some variable bla bla
 @export var walk_speed: float = 3.0
 @export var crouch_speed: float = 1.5
+@export var sit_eye_height: float = 0.45
 @export var crouch_transition: float = 10.0 #This is basically signifies how fast you go from crouch to uncrouch
 @export var mouse_sensitivty: float = 0.002
 @export var phone_window_scene: PackedScene
@@ -77,7 +78,11 @@ func _physics_process(delta:float)-> void:
 
 func update_crouch(delta:float)-> void:
 	#eye height: 1.6 standing, 1.0 crouching 
-	var target_eye: float = 1.0 if is_crouching else 1.6
+	var target_eye: float = 1.6
+	if is_sitting:
+		target_eye = sit_eye_height
+	elif is_crouching:
+		target_eye = 1.0
 	camera.position.y = lerpf(camera.position.y, target_eye, crouch_transition * delta)
 
 

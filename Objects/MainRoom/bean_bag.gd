@@ -21,7 +21,6 @@ func sit_its_ass_down(target: Node3D) -> void:
 	if _tween:
 		_tween.kill()
 
-	target.sit_down()
 
 	var start_pos := target.global_position
 	var start_quat := target.global_basis.get_rotation_quaternion()
@@ -42,7 +41,7 @@ func sit_its_ass_down(target: Node3D) -> void:
 	_tween.tween_method(func(t: float) -> void:
 		target.global_position = start_pos.lerp(end_flat_pos, t)
 	, 0.0, 1.0, move_time)
-
+	_tween.tween_callback(target.sit_down)
 	# 3. drop to the exact Y position
 	_tween.tween_method(func(t: float) -> void:
 		target.global_position.y = lerpf(start_pos.y, end_pos.y, t)

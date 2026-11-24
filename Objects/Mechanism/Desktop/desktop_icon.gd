@@ -110,8 +110,6 @@ func _get_desktop_window() -> Window:
 	return get_window()
 
 
-
-
 func _blocked_by_save_flag() -> bool:
 	if blocked_save_flag.is_empty():
 		return false
