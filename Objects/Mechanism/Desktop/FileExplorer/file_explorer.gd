@@ -48,10 +48,7 @@ func _on_entry_activated(entry: FileExplorerEntry) -> void:
 
 	if entry.audio_stream != null:
 		_open_audio_player(entry)
-		return
 
-	# TODO: replace placeholder with the real open-file logic.
-	print("TODO: open %s" % entry.file_name)
 
 
 func _open_audio_player(entry: FileExplorerEntry) -> void:

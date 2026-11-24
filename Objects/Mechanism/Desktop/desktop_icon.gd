@@ -89,7 +89,7 @@ func _run_program() -> void :
 		return
 
 	var app := application.instantiate()
-	get_window().add_child(app)  # this allows app to open INSIDE the desktop window and not the main game window
+	_get_desktop_window().add_child(app)  # this allows app to open INSIDE the desktop window and not the main game window
 
 
 	# for txt reader
@@ -99,6 +99,15 @@ func _run_program() -> void :
 	# for photo editor
 	if photo_index != -1 and app.has_method("set_selected_photo") :
 		app.set_selected_photo(photo_index)
+
+
+func _get_desktop_window() -> Window:
+	var node: Node = get_parent()
+	while node != null:
+		if node is DesktopWindow:
+			return node
+		node = node.get_parent()
+	return get_window()
 
 
 
