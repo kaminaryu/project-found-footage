@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c8u3m01o3ygrb"]
+
+[ext_resource type="Script" uid="uid://nntf135cx435" path="res://UI/HUD/hud_inventory.gd" id="1_inv"]
+[ext_resource type="Script" uid="uid://bb1wufjeyxtrg" path="res://UI/HUD/hud_item.gd" id="2_item"]
+[ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="3_label"]
+[ext_resource type="PackedScene" uid="uid://ca5guyu6ju62h" path="res://Objects/Scraps/floppy_disk.tscn" id="4_floppy"]
+[ext_resource type="PackedScene" uid="uid://boqa1mbupdrxn" path="res://Objects/Scraps/flip_phone.tscn" id="5_phone"]
+[ext_resource type="PackedScene" uid="uid://ev3tha4llmm7" path="res://Objects/Scraps/camera.tscn" id="6_camera"]
+[ext_resource type="AudioStream" uid="uid://bsvtyqwg1su7d" path="res://Assets/Audios/SFX/Workbench/put_down_stuff.mp3" id="7_uqr1y"]
+
+[sub_resource type="Resource" id="Item_floppy"]
+script = ExtResource("2_item")
+display_name = "Floppy Disk"
+model = ExtResource("4_floppy")
+model_rotation = Vector3(-75, 0, 0)
+show_flag = &"scrap_collected"
+place_flag = &"placed_floppy"
+
+[sub_resource type="Resource" id="Item_phone"]
+script = ExtResource("2_item")
+display_name = "Flip Phone"
+model = ExtResource("5_phone")
+model_rotation = Vector3(0, 180, 0)
+show_flag = &"scrap_collected"
+place_flag = &"placed_phone"
+
+[sub_resource type="Resource" id="Item_camera"]
+script = ExtResource("2_item")
+display_name = "Digicam"
+model = ExtResource("6_camera")
+show_flag = &"scrap_collected"
+place_flag = &"placed_camera"
+
+[sub_resource type="Resource" id="Item_fixed_phone"]
+script = ExtResource("2_item")
+display_name = "NovaKia Phone"
+model = ExtResource("5_phone")
+model_rotation = Vector3(0, 180, 0)
+show_flag = &"fixed_phone"
+
+[node name="HudInventory" type="Control" unique_id=403310212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_inv")
+items = Array[ExtResource("2_item")]([SubResource("Item_floppy"), SubResource("Item_phone"), SubResource("Item_camera"), SubResource("Item_fixed_phone")])
+
+[node name="Slots" type="VBoxContainer" parent="." unique_id=2067242879]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -24.0
+offset_right = 88.0
+offset_bottom = -24.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="PlaceHint" type="Label" parent="." unique_id=278473801]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 28.0
+offset_right = 300.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press P to place"
+label_settings = ExtResource("3_label")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="PlaceSound" type="AudioStreamPlayer" parent="." unique_id=1562423497]
+stream = ExtResource("7_uqr1y")

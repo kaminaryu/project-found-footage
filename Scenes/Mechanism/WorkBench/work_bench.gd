@@ -55,14 +55,27 @@ func _update_exit_hints() -> void:
 		exit_hint.text = "Press %s or %s to leave" % [quit_key, cancel_key]
 
 
-func _update_scraps() -> void: #This shit will fix when the scraps only appears on the workbench ONLY ONCE they have been collected from the box
-	var collected := GameMaster.is_flag_raised(&"scrap_collected")
-	placed_objects_container.visible = collected
-	placed_objects_container.process_mode = Node.PROCESS_MODE_INHERIT if collected else Node.PROCESS_MODE_DISABLED
+## Which device on the workbench table belongs to which "placed" flag (raised with P).
+const DEVICE_FLAGS := {
+	"FloppyDisk": &"placed_floppy",
+	"FlipPhone": &"placed_phone",
+	"Camera": &"placed_camera",
+}
+
+func _update_scraps() -> void: #each device only appears on the workbench once the player placed it with P
+	for device_name in DEVICE_FLAGS:
+		var device := placed_objects_container.get_node_or_null(device_name) as Node3D
+		if device == null:
+			continue #e.g. the phone after it was fixed
+		var placed := GameMaster.is_flag_raised(DEVICE_FLAGS[device_name])
+		device.visible = placed
+		device.process_mode = Node.PROCESS_MODE_INHERIT if placed else Node.PROCESS_MODE_DISABLED
+	placed_objects_container.layout_children()
 
 func _on_flag_raised(flag:StringName) -> void:
-	if(flag == &"scrap_collected") :
+	if flag in DEVICE_FLAGS.values():
 		_update_scraps()
+
 func run(_player: Node) -> void :
 	activate()
 

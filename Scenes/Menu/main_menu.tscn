@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://sdm4yfj3wgm2"]
 
-[ext_resource type="Script" uid="uid://ckm2eaumxkg3n" path="res://Scenes/Menu/main_menu.gd" id="1_3ko7u"]
 [ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/Main/scaryroom.scn" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://l6wfdhsh35m5" path="res://Scenes/Menu/main_menu_camera.gd" id="2_vmek6"]
 [ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_7jtkx"]
@@ -12,7 +11,6 @@
 [ext_resource type="Script" uid="uid://b8uivajxtj187" path="res://Objects/Mechanism/Phone/flip_phone.gd" id="7_1di0l"]
 [ext_resource type="Script" uid="uid://bc85d5hvlfm0x" path="res://Scenes/Menu/settings_button.gd" id="8_jqrnd"]
 [ext_resource type="Material" uid="uid://rhc1pyuphad" path="res://Assets/Shaders/interactable_highlight.tres" id="8_w1xia"]
-[ext_resource type="PackedScene" uid="uid://brqscmg7p4w07" path="res://Scenes/Menu/splash_screen.tscn" id="9_jqrnd"]
 [ext_resource type="PackedScene" uid="uid://cawh82bjmfpdr" path="res://UI/Settings/settings.tscn" id="11_2sy2r"]
 [ext_resource type="AudioStream" uid="uid://cs3bjwxdb4rbv" path="res://Assets/Audios/Musics/a chipped reed - Gentle Groove.mp3" id="11_nbh3q"]
 
@@ -194,10 +192,10 @@ tracks/2/path = NodePath("OpeningTransition:mouse_filter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 3.1666665),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 2]
+"values": [2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -405,7 +403,6 @@ shadow_mesh = SubResource("ArrayMesh_83jm6")
 size = Vector3(0.3, 0.2, 0.3)
 
 [node name="MainMenu" type="Node3D" unique_id=1174019499]
-script = ExtResource("1_3ko7u")
 
 [node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("1_l6cm7")]
 
@@ -503,8 +500,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xrivr")
 
 [node name="Opening" type="AnimationPlayer" parent="UI" unique_id=12984631]
 libraries/ = SubResource("AnimationLibrary_pn3xf")
-
-[node name="SplashScreen" parent="UI" unique_id=1949489344 instance=ExtResource("9_jqrnd")]
+autoplay = &"opening"
 
 [node name="Settings" parent="UI" unique_id=1156565521 instance=ExtResource("11_2sy2r")]
 visible = false
