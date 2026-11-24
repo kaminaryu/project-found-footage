@@ -90,7 +90,7 @@ var _start_at: Control = null           # where a chat with new messages opens
 var _popup_focus := 0
 var _popup_tween: Tween
 var _clock := 0.0
-var _photo_cache := {}
+static var _photo_cache := {}
 var _lcd_material: ShaderMaterial
 var _static_material: ShaderMaterial
 var _header_style: StyleBoxFlat
@@ -140,6 +140,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	_warm_next_photo()
 	_clock += delta
 	# The ":" in the clock blinks every half second.
 	%ClockColon.modulate.a = 1.0 if fmod(_clock, 1.0) < 0.5 else 0.0
@@ -1470,3 +1471,11 @@ func _missed_count() -> int:
 		if str(call.get("type", "")) == "missed":
 			count += 1
 	return count
+
+var _warm_index:= 0
+ #it loads when the boot plays
+func _warm_next_photo() -> void:
+	var photos: Array = _data.get("gallery", [])
+	if _warm_index < photos.size():
+		_photo_texture(str(photos[_warm_index].get("image", "")), Vector2i(51,51))
+		_warm_index+=1

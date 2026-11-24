@@ -1564,7 +1564,7 @@ mesh = SubResource("ArrayMesh_sn7rs")
 shape = SubResource("ConvexPolygonShape3D_336br")
 
 [node name="CutterFloorIDK" type="MeshInstance3D" parent="Workbench" unique_id=328543065]
-transform = Transform3D(-0.06975649, 0, 0.997564, 0, 1, 0, -0.997564, 0, -0.06975649, -0.062280297, 0.2756713, -0.050691843)
+transform = Transform3D(-0.06975649, 0, 0.997564, 0, 1, 0, -0.997564, 0, -0.06975649, -0.13145006, 0.25, -0.051)
 mesh = SubResource("ArrayMesh_hq3pu")
 
 [node name="scaryroom" parent="." unique_id=1464608254 instance=ExtResource("2_7nbji")]

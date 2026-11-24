@@ -70,5 +70,7 @@ func eyes_jumpscare() -> void:
 	await get_tree().create_timer(2.0).timeout
 	
 	static_sound.stop()
+	_on_close_requested()
+	GameMaster.raise_flag(&"desktop_jumpscare_over")
 	GameMaster.show_hint("YOU: What... was that?")
 	_on_close_requested()

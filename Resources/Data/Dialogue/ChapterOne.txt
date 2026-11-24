@@ -4,7 +4,8 @@
 #   @event look_<name>   turn the camera to the marker IntroCutscene/LookAt/<name> in main_walk
 #                        (look_customer follows his face, look_box looks at the box of scraps)
 @event look_counter
-@wait 4
+@voice res://Assets/Voice/Player/sigh.mp3
+@wait 2
 @event look_door
 YOU: What a long day. | 2
 @event look_shelves
