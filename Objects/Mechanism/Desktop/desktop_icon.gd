@@ -22,6 +22,7 @@ signal blocked_launch_attempted
 		_apply_visuals()
 @export var application: PackedScene
 @export_file("*.txt") var launch_file: String = ""
+@export var photo_index := -1
 
 @export_group("Launch Guard")
 @export var blocked_save_flag: String = ""
@@ -88,10 +89,18 @@ func _run_program() -> void :
 		return
 
 	var app := application.instantiate()
-	get_window().add_child(app)  #this allows app to open INSIDE the desktop window and not the main game window
+	get_window().add_child(app)  # this allows app to open INSIDE the desktop window and not the main game window
 
+
+	# for txt reader
 	if not launch_file.is_empty() and app.has_method("open_file"):
 		app.call("open_file", launch_file)
+
+	# for photo editor
+	if photo_index != -1 and app.has_method("set_selected_photo") :
+		app.set_selected_photo(photo_index)
+
+
 
 
 func _blocked_by_save_flag() -> bool:

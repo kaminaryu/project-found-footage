@@ -1542,6 +1542,12 @@ mesh = SubResource("ArrayMesh_1ctum")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Workbench/StaticBody3D" unique_id=2135864999]
 shape = SubResource("ConvexPolygonShape3D_hk1ti")
 
+[node name="WorkbenchLight" type="SpotLight3D" parent="Workbench/StaticBody3D" unique_id=1493552273]
+transform = Transform3D(1, 0, 0, 0, -0.09656752, 0.99532646, 0, -0.99532646, -0.09656752, -0.069829464, 1.3899775, -0.18936396)
+light_energy = 2.0
+shadow_enabled = true
+spot_attenuation = 0.5
+
 [node name="InteractionCube" parent="Workbench" unique_id=1642190805 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(1.2745578, 0, 0, 0, 1.6875428, 0, 0, 0, 2.8598862, 0, 0.11096823, 0)
 

@@ -17,21 +17,24 @@ var pan := Vector2(0.5, 0.5) #the point of the photo is in the middle of the vie
 @onready var filter_tabs: Array[Button] = [%NormalTab, %GrayscaleTab, %NegativeTab, %SepiaTab, %BlurTab]
 
 func _window_ready() -> void:
+	_init_thumbnails()
+	_add_shitton_of_signals()
+
+
+func _init_thumbnails() -> void :
 	for entry in photos:
 		if entry == null:
 			continue
 		var thumb: PhotoThumbnail = THUMBNAIL_SCENE.instantiate()
+
 		thumb.button_group = thumbnail_group
 		gallery_list.add_child(thumb) #this will add more thumbnail child in the gallery
 		thumb.setup(entry)
 		thumb.picked.connect(_on_photo_picked)
 
-	if gallery_list.get_child_count() > 0:
-		var first: PhotoThumbnail = gallery_list.get_child(0)
-		first.button_pressed = true
-		if current_entry == null:
-			_on_photo_picked(first.entry)
 
+
+func _add_shitton_of_signals() -> void :
 	%ExposureSlider.value_changed.connect(_on_slider_changed.bind("exposure"))
 	%ContrastSlider.value_changed.connect(_on_slider_changed.bind("contrast"))
 	%NoiseSlider.value_changed.connect(_on_slider_changed.bind("noise"))
@@ -44,7 +47,22 @@ func _window_ready() -> void:
 	%GuideButton.pressed.connect(_on_guide_pressed)
 	%ResetButton.pressed.connect(_on_reset_pressed)
 	photo.gui_input.connect(_on_photo_gui_input)
-	
+
+
+
+func set_selected_photo(index: int) -> void :
+	var is_index_out_of_bounds := index > gallery_list.get_child_count() - 1
+	if (is_index_out_of_bounds) :
+		return
+
+	var selected_thumb: PhotoThumbnail = gallery_list.get_child(index)
+
+	selected_thumb.button_pressed = true
+	if current_entry == null:
+		_on_photo_picked(selected_thumb.entry)
+
+
+
 func _on_photo_picked(entry: PhotoEntry) -> void:
 	current_entry = entry
 	photo.texture = entry.image
