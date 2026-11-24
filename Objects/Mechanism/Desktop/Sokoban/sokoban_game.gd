@@ -210,23 +210,17 @@ func _cell_center(cell: Vector2i) -> Vector2:
 
 
 func jumpscare() -> void :
+	set_desktop_flags()
+
 	var window := _find_parent_window()
 	if window == null:
 		return
 
-	for other in get_tree().get_nodes_in_group("glitchable_window"):
-		if other != window and other.has_method("glitch_and_close"):
-			other.glitch_and_close(1.2, 1.0)
+	var desktop := window.get_parent() as DesktopWindow
+	if desktop == null:
+		return
 
-
-	if window.has_method("glitch_and_close"):
-		window.glitch_and_close(1.2, 0.8)
-	else:
-		window.queue_free()
-
-	set_desktop_flags()
-	await get_tree().create_timer(2.0).timeout
-	GameMaster.show_hint("Maybe I should re-run the game..")
+	desktop.eyes_jumpscare()
 
 
 func _find_parent_window() -> Window:

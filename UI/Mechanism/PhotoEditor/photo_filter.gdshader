@@ -4,20 +4,23 @@ uniform float exposure : hint_range(-1.0, 1.0) = 0.0;
 uniform float contrast : hint_range(0.0, 2.0) = 1.0;
 uniform float noise : hint_range(0.0, 1.0) = 0.0;
 uniform int filter_mode = 0;
+uniform float zoom = 1.0; 
+uniform vec2 pan = vec2(0.5);
 
 float random(vec2 point) {
 	return fract(sin(dot(point, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void fragment() {
-	vec4 color = texture(TEXTURE, UV);
+	vec2 uv = (UV - 0.5) / zoom + pan;
+	vec4 color = texture(TEXTURE, uv);
 
 	if (filter_mode == 4) {
 		vec4 total = vec4(0.0);
 		for (int x = -2; x <= 2; x++) {
 			for (int y = -2; y <= 2; y++) {
 				vec2 offset = vec2(float(x), float(y)) * 0.004;
-				total += texture(TEXTURE, UV + offset);
+				total += texture(TEXTURE, uv + offset);
 			}
 		}
 		color = total / 25.0;

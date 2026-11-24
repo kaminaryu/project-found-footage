@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.tscn" id="12_roya5"]
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Objects/Mechanism/Desktop/ErrorPopup.tscn" id="13_hsarr"]
 [ext_resource type="PackedScene" uid="uid://crmyfoshsn37b" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.tscn" id="14_fileexp"]
-[ext_resource type="Script" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
+[ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
+[ext_resource type="Texture2D" uid="uid://bgjo7muwiv8t1" path="res://Assets/UI/Desktop/JumpscareEyes.png" id="18_6b82k"]
+[ext_resource type="AudioStream" uid="uid://fk8gewtr2yuk" path="res://Assets/Audios/SFX/tv_static.wav" id="19_0muut"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yitp"]
 bg_color = Color(1, 0, 0, 1)
@@ -40,8 +42,9 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe")]
+[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe", "jumpscare_screen", "static_sound")]
 transparent_bg = true
+gui_embed_subwindows = true
 oversampling_override = 1.0
 title = "Desktop"
 initial_position = 1
@@ -54,6 +57,8 @@ script = ExtResource("1_ih84g")
 normal_wallpaper = NodePath("Wallpaper")
 EVIL_wallpaper = NodePath("WallpaperEVIL")
 game_exe = NodePath("DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon")
+jumpscare_screen = NodePath("JumpscareScreen")
+static_sound = NodePath("StaticSound")
 
 [node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
 anchors_preset = 15
@@ -87,8 +92,8 @@ script = ExtResource("15_drag")
 
 [node name="MarginContainer" type="MarginContainer" parent="DesktopSkeleton/TopBar" unique_id=392474075]
 layout_mode = 2
-mouse_filter = 2
 size_flags_horizontal = 8
+mouse_filter = 2
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
@@ -179,7 +184,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=552116334 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 627.0
 offset_top = 352.0
@@ -193,7 +198,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 1
 
-[node name="ReadmeIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=372084808 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=372084808 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 925.0
 offset_top = 324.0
@@ -207,7 +212,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 2
 
-[node name="ReadmeIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=1124866041 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1124866041 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 725.0
 offset_top = 515.0
@@ -221,7 +226,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 3
 
-[node name="ReadmeIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=1940885511 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1940885511 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 888.0
 offset_top = 671.0
@@ -235,7 +240,7 @@ hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 show_from_flag_stage = 4
 
-[node name="ReadmeIcon5" parent="DesktopSkeleton/DesktopIconsField/IconsField/Control" unique_id=754127801 instance=ExtResource("5_t60eu")]
+[node name="ReadmeIcon5" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=754127801 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 516.0
 offset_top = 683.0
@@ -254,6 +259,29 @@ custom_minimum_size = Vector2(0, 118.22)
 layout_mode = 2
 
 [node name="ErrorPopup" parent="." unique_id=2027122457 instance=ExtResource("13_hsarr")]
+
+[node name="JumpscareScreen" type="ColorRect" parent="." unique_id=828006257]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+
+[node name="Eyes" type="TextureRect" parent="JumpscareScreen" unique_id=1982309939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_6b82k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StaticSound" type="AudioStreamPlayer" parent="." unique_id=1064130212]
+stream = ExtResource("19_0muut")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]

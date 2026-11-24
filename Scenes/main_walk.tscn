@@ -1201,7 +1201,7 @@ vertical_alignment = 1
 
 [node name="BackgroundAmbience" type="AudioStreamPlayer" parent="." unique_id=728410576]
 stream = ExtResource("28_vi3sg")
-volume_db = -10.0
+volume_db = -4.395
 autoplay = true
 parameters/looping = true
 
