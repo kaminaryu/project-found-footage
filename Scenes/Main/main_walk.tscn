@@ -1548,7 +1548,7 @@ light_energy = 2.0
 shadow_enabled = true
 spot_attenuation = 0.5
 
-[node name="InteractionCube" parent="Workbench" unique_id=1642190805 instance=ExtResource("4_yoy7x")]
+[node name="InteractionCube" parent="Workbench" unique_id=1642190805 instance=ExtResource("4_yoy7x") groups=["workbench"]]
 transform = Transform3D(1.2745578, 0, 0, 0, 1.6875428, 0, 0, 0, 2.8598862, 0, 0.11096823, 0)
 
 [node name="WorkBench" parent="Workbench" unique_id=1899705844 instance=ExtResource("7_bgl6x")]

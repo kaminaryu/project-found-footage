@@ -39,6 +39,8 @@ func layout_children() -> void :
 			continue
 
 		var obj := child as Node3D
+		if not obj.visible:
+			continue #not placed on the workbench yet
 		_remember_rotation(obj)
 
 		var placed_rotation: Quaternion = obj.get_meta(PLACED_ROTATION_META, Quaternion.IDENTITY)

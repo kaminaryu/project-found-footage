@@ -24,12 +24,26 @@ func _ready() -> void :
 	for slot in slot_container.get_children() :
 		get_item_pivot(slot)
 
+	old_battery.queue_free() #not needed anymore (the broken battery comes out of the phone itself)
 	if (GameMaster.is_flag_raised(&"fixed_phone")) :
-		InventoryManager.add_item(old_battery)
-		is_first_init = false
+		new_battery.queue_free() #the phone is already fixed: no batteries left in the inventory
 	else :
 		InventoryManager.add_item(new_battery)
-		is_first_init = false
+	is_first_init = false
+	GameMaster.flag_raised.connect(_on_flag_raised)
+
+
+func _on_flag_raised(flag: StringName) -> void:
+	if flag == &"fixed_phone":
+		_throw_away_old_batteries()
+
+
+## The phone is fixed: the broken battery is useless now, so it leaves the inventory.
+func _throw_away_old_batteries() -> void:
+	for slot in slot_container.get_children():
+		var item := get_slot_item(slot)
+		if item is PlaceablePart and item.part_type == &"FlipPhoneBattery" and not item.fixes_phone:
+			item.queue_free()
 
 
 func attach_slot_buttons() -> void :

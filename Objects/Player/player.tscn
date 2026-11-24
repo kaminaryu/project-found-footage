@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://u7duxc4btjgm" path="res://UI/TodoList/todo_list.tscn" id="8_todo"]
 [ext_resource type="Resource" uid="uid://chymbebf8pogw" path="res://Resources/Data/todo_data.tres" id="9_todo_data"]
 [ext_resource type="PackedScene" uid="uid://b2f4xrsir7i4y" path="res://UI/demo_end_screen.tscn" id="10_thffa"]
+[ext_resource type="PackedScene" path="res://UI/HUD/hud_inventory.tscn" id="90_hudinv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_13qdw"]
 radius = 0.35
@@ -484,6 +485,9 @@ offset_top = 24.0
 offset_right = 364.0
 offset_bottom = 24.0
 data = ExtResource("9_todo_data")
+
+[node name="HudInventory" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("90_hudinv")]
+player = NodePath("../..")
 
 [node name="InteractLabel" type="Label" parent="CanvasLayer" unique_id=2098897655]
 visible = false
