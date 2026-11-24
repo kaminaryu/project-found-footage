@@ -42,6 +42,11 @@
 [ext_resource type="Script" uid="uid://dkfw4b2sidnyg" path="res://Scenes/Main/walking_sfx.gd" id="33_xbfty"]
 [ext_resource type="AudioStream" uid="uid://bopddl375iflm" path="res://Assets/Audios/SFX/MainRoomObjects/wood_walk.mp3" id="34_xbfty"]
 [ext_resource type="Script" uid="uid://dnehwwliiniu" path="res://Scenes/Main/random_ass_sfx.gd" id="39_hj3so"]
+[ext_resource type="AudioStream" uid="uid://c43qjw8mkjh7n" path="res://Assets/Audios/SFX/Ambience/EerieSfx2.mp3" id="43_ibi2u"]
+[ext_resource type="AudioStream" uid="uid://8ip64a7ne54f" path="res://Assets/Audios/SFX/Ambience/DoorKnocking.mp3" id="44_hvrx1"]
+[ext_resource type="AudioStream" uid="uid://cmbxobrc8ivj6" path="res://Assets/Audios/SFX/Ambience/DoorCreaking.mp3" id="45_ipvlp"]
+[ext_resource type="AudioStream" uid="uid://6fkd80lfu2eh" path="res://Assets/Audios/SFX/Ambience/LoudThunder.mp3" id="46_tnj2e"]
+[ext_resource type="AudioStream" uid="uid://8h8idsp8ae7g" path="res://Assets/Audios/SFX/Ambience/WalkingOnDirt.mp3" id="47_wfy3x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lxj2"]
 resource_name = "CounterTop"
@@ -1914,6 +1919,35 @@ theme_override_font_sizes/font_size = 32
 [node name="RandomAssSFX" type="Node" parent="." unique_id=648868072]
 script = ExtResource("39_hj3so")
 
+[node name="Timer" type="Timer" parent="RandomAssSFX" unique_id=508308638]
+
+[node name="SFXList" type="Node" parent="RandomAssSFX" unique_id=1112943167]
+
+[node name="Eerie" parent="RandomAssSFX/SFXList" unique_id=210403856 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("43_ibi2u")
+volume_db = -5.0
+
+[node name="DoorKnock" parent="RandomAssSFX/SFXList" unique_id=765791474 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("44_hvrx1")
+volume_db = -5.0
+
+[node name="DoorCreak" parent="RandomAssSFX/SFXList" unique_id=1098855445 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("45_ipvlp")
+volume_db = -10.0
+
+[node name="Eerie2" parent="RandomAssSFX/SFXList" unique_id=561174116 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("43_ibi2u")
+volume_db = -10.0
+default_pitch = 0.8
+
+[node name="Thunder" parent="RandomAssSFX/SFXList" unique_id=1426685781 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("46_tnj2e")
+volume_db = -5.0
+
+[node name="WalkingOnDirt" parent="RandomAssSFX/SFXList" unique_id=1907333621 instance=ExtResource("13_yjbsp")]
+audio_stream = ExtResource("47_wfy3x")
+volume_db = 10.0
+
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="body_exited" from="BeanBag/BeanBagArea" to="BeanBag" method="_on_bean_bag_area_body_exited"]
 [connection signal="animation_finished" from="Door/AnimationPlayer" to="Door" method="_on_animation_player_animation_finished"]
@@ -1921,6 +1955,7 @@ script = ExtResource("39_hj3so")
 [connection signal="body_exited" from="WalkingSFX/CarpetArea" to="WalkingSFX" method="_on_carpet_area_body_exited"]
 [connection signal="body_entered" from="WalkingSFX/CarpetArea2" to="WalkingSFX" method="_on_carpet_area_body_entered"]
 [connection signal="body_exited" from="WalkingSFX/CarpetArea2" to="WalkingSFX" method="_on_carpet_area_body_exited"]
+[connection signal="timeout" from="RandomAssSFX/Timer" to="RandomAssSFX" method="_on_timer_timeout"]
 
 [editable path="monitor/InteractionCube"]
 [editable path="pc/InteractionCube"]
