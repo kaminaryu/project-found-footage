@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://sdm4yfj3wgm2"]
 
-[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/Main/scaryroom.scn" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://l6wfdhsh35m5" path="res://Scenes/Menu/main_menu_camera.gd" id="2_vmek6"]
 [ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_7jtkx"]
 [ext_resource type="PackedScene" uid="uid://d0apmagpe61a" path="res://Scenes/Menu/menu_button.tscn" id="4_ab7fb"]

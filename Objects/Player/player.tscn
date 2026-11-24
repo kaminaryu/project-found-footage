@@ -6,7 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="3_l2ya6"]
 [ext_resource type="Texture2D" uid="uid://cwihiafwpcc2" path="res://Assets/3dswatch.png" id="3_o1rty"]
 [ext_resource type="Script" uid="uid://bxtv6sklpappb" path="res://Objects/Player/canvas_layer.gd" id="5_u7612"]
-[ext_resource type="PackedScene" uid="uid://c7x0bsrp6ghss" path="res://Scenes/showcase_scraps.tscn" id="7_bpp7x"]
+[ext_resource type="PackedScene" uid="uid://c7x0bsrp6ghss" path="res://Scenes/Main/showcase_scraps.tscn" id="7_bpp7x"]
 [ext_resource type="PackedScene" uid="uid://u7duxc4btjgm" path="res://UI/TodoList/todo_list.tscn" id="8_todo"]
 [ext_resource type="Resource" uid="uid://chymbebf8pogw" path="res://Resources/Data/todo_data.tres" id="9_todo_data"]
 [ext_resource type="PackedScene" uid="uid://b2f4xrsir7i4y" path="res://UI/demo_end_screen.tscn" id="10_thffa"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7x0bsrp6ghss"]
 
 [ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_62mn0"]
-[ext_resource type="Script" uid="uid://caccrtlin3qbr" path="res://Scenes/showcase_scraps.gd" id="1_lbrjt"]
+[ext_resource type="Script" uid="uid://caccrtlin3qbr" path="res://Scenes/Main/showcase_scraps.gd" id="1_lbrjt"]
 [ext_resource type="PackedScene" uid="uid://ca5guyu6ju62h" path="res://Objects/Scraps/floppy_disk.tscn" id="1_qpb4t"]
 [ext_resource type="PackedScene" uid="uid://boqa1mbupdrxn" path="res://Objects/Scraps/flip_phone.tscn" id="3_ipe5y"]
 [ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="3_sgu5d"]

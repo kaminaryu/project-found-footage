@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://detum0opvrvf2"]
 
 [ext_resource type="PackedScene" uid="uid://u81g5owet5ls" path="res://Objects/Player/player.tscn" id="1_2cquo"]
-[ext_resource type="Script" uid="uid://bxidlob8jslr1" path="res://Scenes/main_walk.gd" id="1_eea32"]
-[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/scaryroom.scn" id="2_7nbji"]
+[ext_resource type="Script" uid="uid://bxidlob8jslr1" path="res://Scenes/Main/main_walk.gd" id="1_eea32"]
+[ext_resource type="PackedScene" uid="uid://bgeml13xugend" path="res://Scenes/Main/scaryroom.scn" id="2_7nbji"]
 [ext_resource type="Script" uid="uid://cf7b8mxsiovk" path="res://Objects/MainRoom/monitor.gd" id="3_a38jh"]
 [ext_resource type="PackedScene" uid="uid://3tkk8jmhphx7" path="res://Scenes/Menu/pause_menu.tscn" id="3_jmp2u"]
 [ext_resource type="PackedScene" uid="uid://egqbwamw85dm" path="res://Objects/Interactable/interaction_cube.tscn" id="4_yoy7x"]
@@ -26,18 +26,19 @@
 [ext_resource type="AudioStream" uid="uid://oh0axnljt4g2" path="res://Assets/Audios/SFX/MainRoomObjects/box_fall.mp3" id="13_i6ego"]
 [ext_resource type="AudioStream" uid="uid://cv8ewtalgo5wa" path="res://Assets/Audios/Musics/Gladys Rice - One Loving Caress (1920).mp3" id="13_jgv1g"]
 [ext_resource type="PackedScene" uid="uid://bpcbf3u5tmarx" path="res://Helpers/sfx_player.tscn" id="13_yjbsp"]
-[ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Scenes/game_effect.gdshader" id="14_nx73i"]
+[ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Assets/Shaders/game_effect.gdshader" id="14_nx73i"]
 [ext_resource type="AudioStream" uid="uid://f4uts6vrqr1w" path="res://Assets/Audios/SFX/MainRoomObjects/radio_button_click.mp3" id="16_gh3nu"]
 [ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
 [ext_resource type="AudioStream" uid="uid://daqx58l4u7ofb" path="res://Assets/Audios/SFX/Cutscene/Intro/bell_open.mp3" id="21_bell"]
 [ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/Cutscene/Intro/writing.wav" id="22_writing"]
-[ext_resource type="Script" uid="uid://6wq665a385ml" path="res://Scenes/hold_to_skip.gd" id="23_fla1i"]
+[ext_resource type="Script" uid="uid://6wq665a385ml" path="res://Scenes/Main/hold_to_skip.gd" id="23_fla1i"]
 [ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="24_fla1i"]
 [ext_resource type="AudioStream" uid="uid://ch5tipxvej4cd" path="res://Assets/Audios/SFX/Cutscene/Intro/bell_close.mp3" id="28_bell_close"]
 [ext_resource type="AudioStream" uid="uid://bysxtq3s32e2c" path="res://Assets/Audios/SFX/Ambience/RoomAmbience.mp3" id="28_vi3sg"]
 [ext_resource type="AudioStream" uid="uid://yspwioe3hcyw" path="res://Assets/Audios/SFX/MainRoomObjects/carpet_walk.mp3" id="33_pqphn"]
-[ext_resource type="Script" uid="uid://dkfw4b2sidnyg" path="res://Scenes/walking_sfx.gd" id="33_xbfty"]
+[ext_resource type="Script" uid="uid://dkfw4b2sidnyg" path="res://Scenes/Main/walking_sfx.gd" id="33_xbfty"]
 [ext_resource type="AudioStream" uid="uid://bopddl375iflm" path="res://Assets/Audios/SFX/MainRoomObjects/wood_walk.mp3" id="34_xbfty"]
+[ext_resource type="Script" uid="uid://dnehwwliiniu" path="res://Scenes/Main/random_ass_sfx.gd" id="39_hj3so"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304v3"]
 resource_name = "Material.011"
@@ -1270,6 +1271,9 @@ offset_top = 306.0
 offset_right = 1006.0
 offset_bottom = 329.0
 theme_override_font_sizes/font_size = 32
+
+[node name="RandomAssSFX" type="Node" parent="." unique_id=648868072]
+script = ExtResource("39_hj3so")
 
 [connection signal="finished" from="Radio/AudioStreamPlayer" to="Radio" method="_on_audio_stream_player_finished"]
 [connection signal="body_exited" from="BeanBag/BeanBagArea" to="BeanBag" method="_on_bean_bag_area_body_exited"]
