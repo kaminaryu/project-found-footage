@@ -983,9 +983,11 @@ action_name = "play music"
 transform = Transform3D(8.40529, -9.876544e-13, 6.67572e-06, 7.6028073e-13, -5.360979, -1.4210855e-13, -3.0994415e-06, -1.9895197e-13, 12.892517, -2.7642746, -1.7123766, -6.5785675)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="Radio" unique_id=2106653693]
-stream = ExtResource("8_w77qj")
-volume_db = 20.0
+attenuation_model = 2
+volume_db = 10.0
+unit_size = 5.0
 max_distance = 15.0
+panning_strength = 3.0
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Radio" unique_id=1233142296]
 emitting = false
