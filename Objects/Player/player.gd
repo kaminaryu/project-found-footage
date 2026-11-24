@@ -109,9 +109,9 @@ func update_interaction() -> void:
 
 func _process(_delta: float) -> void:
 	if (looked_at != null) :
+		var interaction_cube: Area3D = looked_at
 		interact_label.visible = true
-		interact_label.text = "Press [E] to Interact"
-		print(looked_at)
+		interact_label.text = "Press [E] to %s." % interaction_cube.action_name
 	else :
 		interact_label.visible = false
 

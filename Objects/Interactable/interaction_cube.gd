@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var highlight_material := preload("res://Assets/Shaders/interactable_highlight.tres")
-
+@export var action_name: String = "interact"
 
 var meshes: Array[MeshInstance3D] = []
 

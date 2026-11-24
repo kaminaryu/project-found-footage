@@ -946,6 +946,7 @@ shape = SubResource("ConvexPolygonShape3D_8viqo")
 
 [node name="InteractionCube" parent="monitor" unique_id=1642190805 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(0.74, 0, 8.100187e-13, 0, 0.75, 0, -3.410605e-13, 0, 4.8050003, 0.31309354, -0.22695267, 1.6024017)
+action_name = "use the PC"
 
 [node name="pc" type="MeshInstance3D" parent="." unique_id=1166301873]
 transform = Transform3D(-1.125, 0, 2.2351742e-08, 0, 0.8295, 0, -1.1920929e-07, 0, -0.18450001, 0.09077883, 1.2551908, 10.570392)
@@ -954,6 +955,7 @@ script = ExtResource("5_kavjp")
 
 [node name="InteractionCube" parent="pc" unique_id=2116996655 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(0.3183327, 0, 4.440892e-13, 0, 0.78057104, 0, -1.2789769e-13, 0, 2.7227988, 0.92092925, -0.22695243, 1.2752228)
+action_name = "insert storage devices"
 
 [node name="DataInserted" parent="pc" unique_id=1623321793 instance=ExtResource("13_yjbsp")]
 audio_stream = ExtResource("8_b7g64")
@@ -972,6 +974,7 @@ songs = Array[AudioStream]([ExtResource("8_w77qj"), ExtResource("9_qoxir"), ExtR
 
 [node name="InteractionCube" parent="Radio" unique_id=1919214683 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(1, -8.742278e-08, -3.8941437e-07, -8.742278e-08, -1, 0, -3.8941437e-07, 3.4043684e-14, -1, 3.903736, -1.7024565, -6.8358383)
+action_name = "play music"
 
 [node name="CollisionShape3D" parent="Radio/InteractionCube" index="0" unique_id=347223418]
 transform = Transform3D(8.40529, -9.876544e-13, 6.67572e-06, 7.6028073e-13, -5.360979, -1.4210855e-13, -3.0994415e-06, -1.9895197e-13, 12.892517, -2.7642746, -1.7123766, -6.5785675)
@@ -1017,6 +1020,7 @@ shape = SubResource("BoxShape3D_kavjp")
 
 [node name="InteractionCube" parent="BeanBag" unique_id=897421130 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(1.5326353, 0, 0, 0, 1.1144894, 0, 0, 0, 1.8770788, -0.013400316, 0, 0)
+action_name = "sit down"
 
 [node name="SfxPlayer" parent="BeanBag" unique_id=204054351 instance=ExtResource("13_yjbsp")]
 audio_stream = ExtResource("9_6bi8x")
@@ -1045,6 +1049,7 @@ shape = SubResource("BoxShape3D_orvro")
 
 [node name="InteractionCube" parent="Door" unique_id=592803559 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(1.2016671, 0, 0, 0, 1.8763483, 0, 0, 0, 0.40146554, -0.6656053, 0.89942014, 0.027683735)
+action_name = "open"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door" unique_id=198252697]
 root_node = NodePath("../Door")
@@ -1071,6 +1076,7 @@ shape = SubResource("ConvexPolygonShape3D_ern13")
 
 [node name="InteractionCube" parent="BoxOfScraps" unique_id=721345843 instance=ExtResource("4_yoy7x")]
 transform = Transform3D(0.8667456, 0, -1.4901161e-08, 0, 0.8064046, 0, 2.9802322e-08, 0, 1.0124017, -0.013400555, 0, -9.536743e-07)
+action_name = "take scraps"
 
 [node name="SfxPlayer" parent="BoxOfScraps" unique_id=1786339530 instance=ExtResource("13_yjbsp")]
 audio_stream = ExtResource("13_i6ego")

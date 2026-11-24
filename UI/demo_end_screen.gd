@@ -1,5 +1,9 @@
 extends Control
 
+func _ready() -> void :
+	hide()
+
+
 func _process(delta: float) -> void :
 	if (GameMaster.is_flag_raised(&"ctf_completed")) :
 		show()
