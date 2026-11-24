@@ -16,9 +16,8 @@ extends CharacterBody3D
 @onready var held_phone: Node3D= $CameraPivot/SpringArm3D/Camera3D/HeldPhone
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-#initial value for crouching
 var is_crouching: bool = false
-#value if the player is frozen and what the player is lookat
+var is_sitting: bool = false
 var is_frozen: bool = false
 var looked_at: Node = null
 
@@ -54,7 +53,7 @@ func _physics_process(delta:float)-> void:
 		if not is_on_floor():
 			velocity += get_gravity()*delta
 		#Crouch while the key is held
-		is_crouching = Input.is_action_pressed("crouch")
+		is_crouching = Input.is_action_pressed("crouch") or is_sitting
 				
 		#Basic movement control
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -79,7 +78,15 @@ func _physics_process(delta:float)-> void:
 func update_crouch(delta:float)-> void:
 	#eye height: 1.6 standing, 1.0 crouching 
 	var target_eye: float = 1.0 if is_crouching else 1.6
-	camera.position.y = lerpf(camera.position.y, target_eye, crouch_transition*delta)
+	camera.position.y = lerpf(camera.position.y, target_eye, crouch_transition * delta)
+
+
+func sit_down() -> void :
+	is_sitting = true
+
+func stand_up() -> void :
+	is_sitting = false
+
 
 #function for updating interactions tuf tuff
 func update_interaction() -> void:

@@ -5,13 +5,11 @@ extends MeshInstance3D
 var _tween: Tween
 
 func run(player: Node) -> void :
-	var target := player as Node3D
-
-	if (target == null) :
+	if (player == null) :
 		return
 
 	$SfxPlayer.play()
-	trigger(target)
+	sit_its_ass_down(player)
 
 
 @export var rotation_offset: int = -90
@@ -19,9 +17,11 @@ func run(player: Node) -> void :
 @export var move_time: float = 0.8
 @export var drop_time: float = 0.3
 
-func trigger(target: Node3D) -> void:
+func sit_its_ass_down(target: Node3D) -> void:
 	if _tween:
 		_tween.kill()
+
+	target.sit_down()
 
 	var start_pos := target.global_position
 	var start_quat := target.global_basis.get_rotation_quaternion()
@@ -47,3 +47,8 @@ func trigger(target: Node3D) -> void:
 	_tween.tween_method(func(t: float) -> void:
 		target.global_position.y = lerpf(start_pos.y, end_pos.y, t)
 	, 0.0, 1.0, drop_time)
+
+
+func _on_bean_bag_area_body_exited(body: Node3D) -> void:
+	if (body.has_method("stand_up")) :
+		body.stand_up()
