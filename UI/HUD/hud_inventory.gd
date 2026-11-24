@@ -10,6 +10,10 @@ const MODEL_SIZE := 2.6      #how big the model is inside its little 3D world
 
 @onready var slots_box: VBoxContainer = $Slots
 @onready var place_hint: Label = $PlaceHint
+@onready var place_sound: AudioStreamPlayer = $PlaceSound
+
+const THUD_THUD: Array[float] = [1.17, 3.29, 5.65, 7.03, 8.37]
+const THUD_lENGTH:=0.6
 
 var selected := 0                          #which slot is highlighted (0 = the top one)
 var _borders: Array[StyleBoxFlat] = []     #one border per slot, so we can recolour the selected one
@@ -162,6 +166,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var item := list[selected]
 		if _can_place(item):
 			GameMaster.raise_flag(item.place_flag)   #the workbench hears this and shows the device
+			_play_place_sound()
 			GameMaster.show_hint("You placed the %s on the workbench." % item.display_name)
 
 
@@ -181,3 +186,7 @@ func _can_place(item: HudItem) -> bool:
 func _looking_at_workbench() -> bool:
 	var target = player.looked_at
 	return target != null and is_instance_valid(target) and target.is_in_group("workbench")
+
+func _play_place_sound() -> void:
+	place_sound.play(THUD_THUD.pick_random())
+	get_tree().create_timer(THUD_lENGTH).timeout.connect(place_sound.stop)
