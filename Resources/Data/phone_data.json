@@ -174,27 +174,27 @@
 	],
 
 	"calls": [
-		{ "name": "Unknown",  "number": "PRIVATE",  "type": "incoming",   "time": "6:21 PM" },
-		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "8:20 PM" },
-		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "10:10 PM" },
-		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
-		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
-		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
-		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",   "time": "11:10 PM" },
-		{ "name": "Troy", "number": "+6017-1727-1717", "type": "missed", "time": "9:40 PM" },
-		{ "name": "Troy", "number": "+6017-1727-1717", "type": "missed", "time": "10:02 PM" },
-		{ "name": "Afif", "number": "+6012-4664-1823", "type": "missed", "time": "4:11 PM" },
-		{ "name": "Dad",      "number": "+6011-1721-1827", "type": "missed", "time": "3:02 PM" }
+		{ "name": "Unknown",  "number": "PRIVATE",         "type": "incoming",   "time": "6:21 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",     "time": "8:20 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",     "time": "10:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",     "time": "11:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",     "time": "11:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",     "time": "11:10 PM" },
+		{ "name": "Mom",      "number": "+6011-1721-1222", "type": "missed",     "time": "11:10 PM" },
+		{ "name": "Troy",     "number": "+6017-1727-1717", "type": "missed",     "time": "9:40 PM" },
+		{ "name": "Troy",     "number": "+6017-1727-1717", "type": "missed",     "time": "10:02 PM" },
+		{ "name": "Afif",     "number": "+6012-4664-1823", "type": "missed",     "time": "4:11 PM" },
+		{ "name": "Dad",      "number": "+6011-1721-1827", "type": "missed",     "time": "3:02 PM" }
 	],
 
 	"contacts": {
-		"me": { "name": "My Profile", "number": "+6011-2716-3472", "note": "I am that girl! Y2K!" },
+		"me": { "name": "My Profile", "number": "+6011-2716-3472", "note": "i am that girl! y2k!" },
 		"friends": [
-			{ "name": "Mom",      "number": "+6011-1721-1222", "note": "my Queen <3" },
-			{ "name": "Troy", "number": "+6017-1727-1717", "note": "My Bestie. always with me" },
-			{ "name": "Afif", "number": "+6012-4664-1823", "note": "Classmate from High school" },
-			{ "name": "Izz", "number": "+6011-2713-1128", "note": "Classmate from University." },
-			{ "name": "Dad", "number": "+6011-1721-1827", "note": "The Lone Wolf, My dad" }
+			{ "name": "Mom",  "number": "+6011-1721-1222", "note": "my queen <3" },
+			{ "name": "Troy", "number": "+6017-1727-1717", "note": "my bestie. always with me" },
+			{ "name": "Afif", "number": "+6012-4664-1823", "note": "classmate from high school" },
+			{ "name": "Izz",  "number": "+6011-2713-1128", "note": "classmate from university." },
+			{ "name": "Dad",  "number": "No Number Set",   "note": "the lone WOLF, my dad. i should call him sometimes" }
 		]
 	},
 
