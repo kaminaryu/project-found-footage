@@ -103,6 +103,7 @@ mouse_filter = 2
 color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot1" unique_id=1537534342]
+mouse_default_cursor_shape = 2
 layout_mode = 2
 flat = true
 
@@ -133,6 +134,7 @@ mouse_filter = 2
 color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot2" unique_id=435666462]
+mouse_default_cursor_shape = 2
 layout_mode = 2
 flat = true
 
@@ -163,6 +165,7 @@ mouse_filter = 2
 color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot3" unique_id=31196433]
+mouse_default_cursor_shape = 2
 layout_mode = 2
 flat = true
 
@@ -193,6 +196,7 @@ mouse_filter = 2
 color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 
 [node name="Button" type="Button" parent="MarginContainer/SlotsContainer/Slot4" unique_id=515537119]
+mouse_default_cursor_shape = 2
 layout_mode = 2
 flat = true
 

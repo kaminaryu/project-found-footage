@@ -32,3 +32,4 @@ autowrap_mode = 3
 
 [node name="Voice" type="AudioStreamPlayer" parent="." unique_id=1377860329]
 unique_name_in_owner = true
+bus = &"Voice"

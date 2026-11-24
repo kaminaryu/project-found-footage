@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://cvc24g2jb35ov"]
+
+[ext_resource type="Theme" uid="uid://bwwbyc3neuqsw" path="res://UI/settings_theme.tres" id="1_i8b3r"]
+[ext_resource type="Script" uid="uid://d24nmwr4882ii" path="res://UI/Settings/brightness_screen.gd" id="1_script"]
+[ext_resource type="Shader" uid="uid://0b5838dmhm1f" path="res://UI/Settings/brightness_panel.gdshader" id="2_shader"]
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://bx8ump0euoil6" path="res://Assets/UI/slider_grabber.png" id="5_grabber"]
+[ext_resource type="Texture2D" uid="uid://c5guwn845tuuw" path="res://Assets/halfhouselogo.png" id="5_vtpe1"]
+[ext_resource type="Texture2D" uid="uid://ddm3gmwf1q8ro" path="res://Assets/UI/slider_grabber_highlight.png" id="6_grabber_highlight"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dark"]
+shader = ExtResource("2_shader")
+shader_parameter/brightness = 1.0
+shader_parameter/base_level = 0.01999999955296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mid"]
+shader = ExtResource("2_shader")
+shader_parameter/brightness = 1.0
+shader_parameter/base_level = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bright"]
+shader = ExtResource("2_shader")
+shader_parameter/brightness = 1.0
+shader_parameter/base_level = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider"]
+bg_color = Color(0.2662123, 0.39565596, 0.6162291, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grabber_area"]
+bg_color = Color(0.75, 0.75, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grabber_area_highlight"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="BrightnessScreen" type="Control" unique_id=2143483794]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i8b3r")
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2066393764]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1693129672]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=39253647]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1068483906]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_font")
+theme_override_font_sizes/normal_font_size = 54
+bbcode_enabled = true
+text = "[wave]Brightness[/wave]"
+horizontal_alignment = 1
+
+[node name="Instruction" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=511924897]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[wave]Adjust the slider until the images are.."
+horizontal_alignment = 1
+
+[node name="Panels" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1937851923]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panels" unique_id=1135616513]
+layout_mode = 2
+
+[node name="PanelDark" type="TextureRect" parent="MarginContainer/VBoxContainer/Panels/VBoxContainer" unique_id=1428916467]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_dark")
+custom_minimum_size = Vector2(300, 180)
+layout_mode = 2
+texture = ExtResource("5_vtpe1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panels/VBoxContainer" unique_id=1123681728]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Barely Visible"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panels" unique_id=588506780]
+layout_mode = 2
+
+[node name="PanelMid" type="TextureRect" parent="MarginContainer/VBoxContainer/Panels/VBoxContainer2" unique_id=2147144860]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_mid")
+custom_minimum_size = Vector2(300, 180)
+layout_mode = 2
+texture = ExtResource("5_vtpe1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panels/VBoxContainer2" unique_id=494650382]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Visible"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panels" unique_id=2029059619]
+layout_mode = 2
+
+[node name="PanelBright" type="TextureRect" parent="MarginContainer/VBoxContainer/Panels/VBoxContainer3" unique_id=1667698859]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_bright")
+custom_minimum_size = Vector2(300, 180)
+layout_mode = 2
+texture = ExtResource("5_vtpe1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panels/VBoxContainer3" unique_id=1579224306]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Very Visible"
+horizontal_alignment = 1
+
+[node name="SliderRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2136548926]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SliderRow" unique_id=740792954]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SliderRow" unique_id=820485271]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("5_grabber")
+theme_override_icons/grabber_highlight = ExtResource("6_grabber_highlight")
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_grabber_area")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_grabber_area_highlight")
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1133862642]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=396225952]
+mouse_default_cursor_shape = 2
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons" unique_id=230902037]
+mouse_default_cursor_shape = 2
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"

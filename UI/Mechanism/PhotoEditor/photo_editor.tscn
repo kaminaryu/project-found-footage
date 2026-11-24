@@ -230,6 +230,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="NormalTab" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/FilterTabs" unique_id=2081953494]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -241,6 +242,7 @@ button_group = SubResource("ButtonGroup_mdygd")
 text = "Normal"
 
 [node name="GrayscaleTab" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/FilterTabs" unique_id=1200491629]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -251,6 +253,7 @@ button_group = SubResource("ButtonGroup_mdygd")
 text = "Grayscale"
 
 [node name="NegativeTab" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/FilterTabs" unique_id=2083060452]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -261,6 +264,7 @@ button_group = SubResource("ButtonGroup_mdygd")
 text = "Negative"
 
 [node name="SepiaTab" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/FilterTabs" unique_id=1332559809]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -271,6 +275,7 @@ button_group = SubResource("ButtonGroup_mdygd")
 text = "Sepia"
 
 [node name="BlurTab" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/FilterTabs" unique_id=621271207]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -343,6 +348,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="GuideButton" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/ControlsMargin/Controls" unique_id=847300475]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 30)
 layout_mode = 2
@@ -352,6 +358,7 @@ theme_type_variation = &"GuideButton"
 text = "GUIDE"
 
 [node name="ResetButton" type="Button" parent="AppWindow/Layout/BodyMargin/Body/RightSide/AnalysisPanel/AnalysisBody/AnalysisStack/ControlsMargin/Controls" unique_id=514020966]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 30)
 layout_mode = 2

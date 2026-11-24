@@ -12,6 +12,8 @@ const FADE_DURATION := 0.22
 @onready var inventory: Control = $Inventory
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var put_down_button: Button = $CanvasLayer/PutDownButton/PutDownButton
+@onready var exit_button: Button = $CanvasLayer/ExitButton
+@onready var exit_hint: Label = $CanvasLayer/MarginContainer/ExitHint
 @onready var fade_rect: ColorRect = $TransitionLayer/Fade
 @onready var item_pickup_audio: Node = %PickupItemAudio
 @onready var item_putdown_audio: Node = %PickupItemAudio
@@ -31,6 +33,7 @@ func _ready() -> void :
 	fade_rect.modulate.a = 0.0
 	_cache_room_blockers()
 	_update_put_down_button()
+	_update_exit_hints()
 	_update_scraps()
 	GameMaster.flag_raised.connect(_on_flag_raised)
 	selected_object_container.child_exiting_tree.connect(_on_selected_object_left)
@@ -39,6 +42,18 @@ func _ready() -> void :
 		process_mode = Node.PROCESS_MODE_DISABLED
 	else :
 		call_deferred("activate")
+
+func _update_exit_hints() -> void:
+	var quit_key := KeybindSettings.get_action_key_label(&"quit")
+	var cancel_key := KeybindSettings.get_action_key_label(&"ui_cancel")
+
+	exit_button.text = "Exit [%s]" % quit_key
+
+	if quit_key == cancel_key:
+		exit_hint.text = "Press %s to leave" % quit_key
+	else:
+		exit_hint.text = "Press %s or %s to leave" % [quit_key, cancel_key]
+
 
 func _update_scraps() -> void: #This shit will fix when the scraps only appears on the workbench ONLY ONCE they have been collected from the box
 	var collected := GameMaster.is_flag_raised(&"scrap_collected")

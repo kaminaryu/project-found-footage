@@ -14,6 +14,7 @@ extends CharacterBody3D
 @onready var body: Node3D = $Body
 @onready var interact_Ray: RayCast3D = $CameraPivot/SpringArm3D/Camera3D/InteractRay
 @onready var interact_label: Label = $CanvasLayer/InteractLabel
+@onready var popup_hint: Label = $CanvasLayer/PopUpHint
 @onready var held_phone: Node3D= $CameraPivot/SpringArm3D/Camera3D/HeldPhone
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -29,6 +30,7 @@ func freeze(state: bool) -> void:
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	held_phone.visible = false
+	popup_hint.text = "Press %s to use phone" % KeybindSettings.get_action_key_label(&"use_phone")
 	GameMaster.freezing_main_window.connect(_on_main_window_freezing)
 	GameMaster.freezeplayer.connect(freeze)
 
@@ -123,7 +125,7 @@ func _process(_delta: float) -> void:
 	if (looked_at != null) :
 		var interaction_cube: Area3D = looked_at
 		interact_label.visible = true
-		interact_label.text = "Press [E] to %s." % interaction_cube.action_name
+		interact_label.text = "Press [%s] to %s." % [KeybindSettings.get_action_key_label(&"interact"), interaction_cube.action_name]
 	else :
 		interact_label.visible = false
 

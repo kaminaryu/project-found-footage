@@ -16,6 +16,7 @@ theme = ExtResource("1_aih7k")
 text = ">"
 
 [node name="Label" type="Button" parent="." unique_id=1652507557]
+mouse_default_cursor_shape = 2
 layout_mode = 2
 theme = ExtResource("1_aih7k")
 text = "Button"

@@ -395,6 +395,7 @@ offset_bottom = 13.0
 theme_override_constants/separation = 0
 
 [node name="TabAll" type="Button" parent="PhoneUI/Screen/Pages/AppPage/Tabs" unique_id=2046293671]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -403,6 +404,7 @@ theme_type_variation = &"TabButton"
 text = "ALL"
 
 [node name="TabMissed" type="Button" parent="PhoneUI/Screen/Pages/AppPage/Tabs" unique_id=133977813]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -462,6 +464,7 @@ offset_bottom = 256.0
 theme_type_variation = &"SoftBar"
 
 [node name="SoftLeft" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=389528316]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 1.0
@@ -472,6 +475,7 @@ theme_type_variation = &"SoftKey"
 alignment = 0
 
 [node name="SoftCenter" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=1827115703]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 58.0
@@ -483,6 +487,7 @@ theme_type_variation = &"SoftKey"
 text = "MENU"
 
 [node name="SoftRight" type="Button" parent="PhoneUI/Screen/SoftBar" unique_id=347483784]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 118.0
@@ -586,6 +591,7 @@ text = "App stopped working."
 autowrap_mode = 3
 
 [node name="DialogOk" type="Button" parent="PhoneUI/Screen/Popup/DialogHolder/Dialog/DialogBox/DialogMargin/DialogInner" unique_id=1141581870]
+mouse_default_cursor_shape = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2

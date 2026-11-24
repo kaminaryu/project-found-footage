@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cmom8pwqudho" path="res://UI/Mechanism/PhotoEditor/photo_thumbnail.gd" id="2_yjp8v"]
 
 [node name="PhotoThumbnail" type="Button" unique_id=766262252]
+mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(0, 182)
 focus_mode = 0
 theme = ExtResource("1_v6ic8")

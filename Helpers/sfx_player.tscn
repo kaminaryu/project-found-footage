@@ -6,3 +6,4 @@
 script = ExtResource("1_1owmx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1342984292]
+bus = &"SFX"

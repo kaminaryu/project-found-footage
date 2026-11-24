@@ -7,11 +7,13 @@ signal skipped
 @export var hold_time := 2.0
 
 @onready var _bar: ProgressBar = $BoxSkip/Bar
+@onready var _hint: Label = $BoxSkip/Bar/Hint
 
 var _held := 0.0 #to keep track how long the player has held the button
 var _done := false #Initial flag , it will return true once the player held long enough
 
 func _ready () -> void:
+	_hint.text = "HOLD %s TO SKIP" % KeybindSettings.get_action_key_label(&"skip_cutscene").to_upper()
 	hide() #at first the progress bar will hide
 
 func _process(delta:float) -> void:

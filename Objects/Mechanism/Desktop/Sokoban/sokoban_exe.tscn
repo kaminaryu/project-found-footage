@@ -98,6 +98,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Left" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=1064906401]
+mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
@@ -105,6 +106,7 @@ focus_mode = 0
 text = "←"
 
 [node name="Down" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=1462700338]
+mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
@@ -112,6 +114,7 @@ focus_mode = 0
 text = "↓"
 
 [node name="Up" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=1813430875]
+mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
@@ -119,6 +122,7 @@ focus_mode = 0
 text = "↑"
 
 [node name="Right" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer/Movement" unique_id=586119763]
+mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
@@ -126,6 +130,7 @@ focus_mode = 0
 text = "→"
 
 [node name="Undo" type="Button" parent="WindowSkeleton/PlayArea/SubViewport/GameControl/MarginContainer/HBoxContainer" unique_id=1449772633]
+mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2

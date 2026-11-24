@@ -11,7 +11,7 @@ func _ready() -> void :
 		var object := get_parent() as Node3D
 
 		if (object is PlaceablePart) :
-			hover_label.text = "Press [Left Click]\nto remove %s" % (object as PlaceablePart).get_friendly_name()
+			hover_label.text = "Press [%s]\nto remove %s" % [KeybindSettings.get_action_key_label(&"take_item"), (object as PlaceablePart).get_friendly_name()]
 
 
 func _physics_process(_delta: float) -> void:

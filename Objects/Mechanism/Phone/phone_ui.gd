@@ -392,6 +392,7 @@ func _build_menu() -> void:
 	var cell: Vector2 = (%MenuGrid.size / 3.0).floor()   # 3x3 cells fill the grid area
 	for app: PhoneApp in apps:
 		var button := Button.new()
+		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		button.theme_type_variation = "PhoneItem"
 		button.custom_minimum_size = cell
 		button.focus_mode = Control.FOCUS_ALL
@@ -634,6 +635,7 @@ func _show_dial(focus: int) -> void:
 ## A keypad key you can highlight and press: a big character with small letters under it.
 func _add_key(parent: Control, top: String, bottom: String, height: int, colour := TEXT) -> Button:
 	var key := Button.new()
+	key.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	key.theme_type_variation = "PhoneItem"
 	key.focus_mode = Control.FOCUS_ALL
 	key.custom_minimum_size.y = height
@@ -1009,6 +1011,7 @@ func _show_gallery(focus: int) -> void:
 
 	for i in photos.size():
 		var tile := Button.new()
+		tile.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		tile.theme_type_variation = "PhoneItem"
 		tile.focus_mode = Control.FOCUS_ALL
 		tile.custom_minimum_size = Vector2(55, 55)
@@ -1203,6 +1206,7 @@ func _set_softkeys(left: String, center: String, right: String) -> void:
 ## A list row you can highlight: icon, title, optional second line and right-hand text.
 func _add_row(title: String, sub := "", right := "", icon: Texture2D = null, title_colour := TEXT) -> Button:
 	var row := Button.new()
+	row.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	row.theme_type_variation = "PhoneItem"
 	row.focus_mode = Control.FOCUS_ALL
 	row.custom_minimum_size.y = 24 if sub != "" else 15

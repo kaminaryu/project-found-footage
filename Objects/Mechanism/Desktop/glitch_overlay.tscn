@@ -28,5 +28,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=278260047]
+bus = &"SFX"
 stream = ExtResource("3_audio")
 volume_db = -8.0

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cc3titvugpmtf" path="res://Scenes/Menu/pause_menu.gd" id="1_mux1j"]
 [ext_resource type="Theme" uid="uid://b75gwc06xe8kx" path="res://Themes/main_menu.tres" id="2_jnmi5"]
 [ext_resource type="PackedScene" uid="uid://d0apmagpe61a" path="res://Scenes/Menu/menu_button.tscn" id="3_mux1j"]
+[ext_resource type="PackedScene" uid="uid://cawh82bjmfpdr" path="res://UI/Settings/settings.tscn" id="4_settings"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xrivr"]
 shader = ExtResource("1_i0al5")
@@ -193,6 +194,12 @@ layout_mode = 2
 [node name="Label" parent="MarginContainer/VBoxContainer/Buttons/Resume" index="1" unique_id=1652507557]
 text = "resume"
 
+[node name="Settings" parent="MarginContainer/VBoxContainer/Buttons" instance=ExtResource("3_mux1j")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/VBoxContainer/Buttons/Settings" index="1"]
+text = "settings"
+
 [node name="Exit" parent="MarginContainer/VBoxContainer/Buttons" unique_id=157554636 instance=ExtResource("3_mux1j")]
 layout_mode = 2
 
@@ -202,7 +209,12 @@ text = "exit to main menu"
 [node name="Transition" type="AnimationPlayer" parent="." unique_id=1719839414]
 libraries/ = SubResource("AnimationLibrary_0km3y")
 
+[node name="SettingsScreen" parent="." instance=ExtResource("4_settings")]
+visible = false
+process_mode = 3
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Resume/Label" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Settings/Label" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Exit/Label" to="." method="_on_exit_pressed"]
 
 [editable path="MarginContainer/VBoxContainer/Buttons/Resume"]

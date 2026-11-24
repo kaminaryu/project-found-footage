@@ -1,0 +1,70 @@
+[gd_resource type="Theme" format=3 uid="uid://bwwbyc3neuqsw"]
+
+[ext_resource type="FontFile" uid="uid://bldyuen4eb8l2" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_eq1f6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yuh4y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtpe1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3ito"]
+bg_color = Color(0.67, 0.58345836, 0.5025, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.3529412)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfoeg"]
+bg_color = Color(0.67, 0.58345836, 0.5025, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.63, 0.63, 0.63, 0.3529412)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ang8"]
+bg_color = Color(0.67, 0.58345836, 0.5025, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.63, 0.63, 0.63, 0.2)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 12.0
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_eq1f6")
+Button/styles/disabled = SubResource("StyleBoxEmpty_yuh4y")
+Button/styles/focus = SubResource("StyleBoxFlat_vtpe1")
+Button/styles/hover = SubResource("StyleBoxFlat_v3ito")
+Button/styles/normal = SubResource("StyleBoxFlat_hfoeg")
+Button/styles/pressed = SubResource("StyleBoxFlat_4ang8")
+Label/fonts/font = ExtResource("1_eq1f6")
+RichTextLabel/fonts/bold_font = ExtResource("1_eq1f6")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_eq1f6")
+RichTextLabel/fonts/italics_font = ExtResource("1_eq1f6")
+RichTextLabel/fonts/mono_font = ExtResource("1_eq1f6")
+RichTextLabel/fonts/normal_font = ExtResource("1_eq1f6")

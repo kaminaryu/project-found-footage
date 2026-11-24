@@ -9,6 +9,7 @@ var splash_screen_finished := false;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	splash_screen.get_node("AnimationPlayer").animation_finished.connect(_splash_screen_end);
+	DisplaySettings.apply_to_scene(self)
 
 
 func _splash_screen_end(anim := 'non') -> void:

@@ -1628,6 +1628,7 @@ action_name = "play music"
 transform = Transform3D(8.40529, -9.876544e-13, 6.67572e-06, 7.6028073e-13, -5.360979, -1.4210855e-13, -3.0994415e-06, -1.9895197e-13, 12.892517, -2.7642746, -1.7123766, -6.5785675)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="Radio" unique_id=2106653693]
+bus = &"Music"
 attenuation_model = 2
 volume_db = 10.0
 unit_size = 5.0
@@ -1814,12 +1815,15 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.27
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 5.315, 1.283, -2.42)
 
 [node name="BellOpenSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=2121999359]
+bus = &"SFX"
 stream = ExtResource("21_bell")
 
 [node name="BellCloseSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=918139109]
+bus = &"SFX"
 stream = ExtResource("28_bell_close")
 
 [node name="WritingSound" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=1529783436]
+bus = &"SFX"
 stream = ExtResource("22_writing")
 
 [node name="HoldToSkip" type="CanvasLayer" parent="IntroCutscene" unique_id=195019736]
@@ -1859,6 +1863,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackgroundAmbience" type="AudioStreamPlayer" parent="." unique_id=728410576]
+bus = &"SFX"
 stream = ExtResource("28_vi3sg")
 volume_db = -4.395
 autoplay = true

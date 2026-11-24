@@ -78,6 +78,7 @@ func _make_editor(value: Variant) -> Control:
 	match typeof(value):
 		TYPE_BOOL:
 			var box := CheckBox.new()
+			box.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 			box.button_pressed = value
 			return box
 		TYPE_INT, TYPE_FLOAT:
@@ -113,6 +114,7 @@ func _make_array_editor(items: Array) -> VBoxContainer:
 		_add_array_row(list, item)
 
 	var add_button := Button.new()
+	add_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	add_button.text = "+ Add"
 	add_button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	add_button.pressed.connect(_on_add_item.bind(list))
@@ -148,6 +150,7 @@ func _add_array_row(list: VBoxContainer, item: Variant) -> HBoxContainer:
 	row.add_child(item_editor)
 
 	var remove_button := Button.new()
+	remove_button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	remove_button.text = "X"
 	remove_button.pressed.connect(row.queue_free)
 	row.add_child(remove_button)

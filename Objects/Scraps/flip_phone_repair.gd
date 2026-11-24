@@ -23,6 +23,6 @@ func _check_fixed() -> void :
 		return
 
 	if (battery is PlaceablePart and (battery as PlaceablePart).fixes_phone) :
-		GameMaster.show_hint("Flip Phone fixed. Press tab to use it.")
+		GameMaster.show_hint("Flip Phone fixed. Press %s to use it." % KeybindSettings.get_action_key_label(&"use_phone"))
 		GameMaster.raise_flag(&"fixed_phone")
 		queue_free() #this will leave the workbench when player takes it
