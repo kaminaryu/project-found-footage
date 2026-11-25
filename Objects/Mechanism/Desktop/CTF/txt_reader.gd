@@ -10,7 +10,7 @@ var _content_text := ""
 
 func _ready() -> void:
 	_top_bar.close_pressed.connect(_on_close_pressed)
-	close_requested.connect(_on_close_pressed)
+	#close_requested.connect(_on_close_pressed)
 
 	if not file_path.is_empty():
 		open_file(file_path)

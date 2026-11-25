@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://r0uglbxc2bo"]
 
+[ext_resource type="Texture2D" uid="uid://bws2ufahpeg6f" path="res://Assets/UI/Desktop/TextViewer.png" id="1_qbxb5"]
 [ext_resource type="Script" uid="uid://bmitxonhcwtlu" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.gd" id="1_reader"]
-[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="2_topbar"]
+[ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="2_topbar"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s364a"]
+texture = ExtResource("1_qbxb5")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reader_panel"]
 bg_color = Color(0.12, 0.12, 0.135, 1)
@@ -11,17 +15,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="TxtReader" type="Window" unique_id=1051936517]
+transparent_bg = true
 oversampling_override = 1.0
-title = "readme.txt"
 initial_position = 1
 size = Vector2i(640, 480)
-unresizable = true
-borderless = true
 always_on_top = true
-sharp_corners = true
+transparent = true
+theme_override_styles/embedded_border = SubResource("StyleBoxTexture_s364a")
 script = ExtResource("1_reader")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1639880539]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,19 +33,26 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.20152658, 0.20152658, 0.20152658, 1)
 
-[node name="WindowSkeleton" type="VBoxContainer" parent="." unique_id=1672866079]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1341216543]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 18
 
-[node name="TopBar" parent="WindowSkeleton" unique_id=1502497925 instance=ExtResource("2_topbar")]
+[node name="WindowSkeleton" type="VBoxContainer" parent="MarginContainer" unique_id=1672866079]
+layout_mode = 2
+
+[node name="TopBar" parent="MarginContainer/WindowSkeleton" unique_id=1502497925 instance=ExtResource("2_topbar")]
 unique_name_in_owner = true
 layout_mode = 2
 title_text = "readme.txt"
 
-[node name="Content" type="MarginContainer" parent="WindowSkeleton" unique_id=1531098906]
+[node name="Content" type="MarginContainer" parent="MarginContainer/WindowSkeleton" unique_id=1531098906]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -49,23 +60,23 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Layout" type="VBoxContainer" parent="WindowSkeleton/Content" unique_id=1040607245]
+[node name="Layout" type="VBoxContainer" parent="MarginContainer/WindowSkeleton/Content" unique_id=1040607245]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TextPanel" type="PanelContainer" parent="WindowSkeleton/Content/Layout" unique_id=1339988029]
+[node name="TextPanel" type="PanelContainer" parent="MarginContainer/WindowSkeleton/Content/Layout" unique_id=1339988029]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_reader_panel")
 
-[node name="TextMargin" type="MarginContainer" parent="WindowSkeleton/Content/Layout/TextPanel" unique_id=746251566]
+[node name="TextMargin" type="MarginContainer" parent="MarginContainer/WindowSkeleton/Content/Layout/TextPanel" unique_id=746251566]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="TextView" type="RichTextLabel" parent="WindowSkeleton/Content/Layout/TextPanel/TextMargin" unique_id=1426639821]
+[node name="TextView" type="RichTextLabel" parent="MarginContainer/WindowSkeleton/Content/Layout/TextPanel/TextMargin" unique_id=1426639821]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 2
