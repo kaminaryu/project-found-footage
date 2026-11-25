@@ -4,6 +4,16 @@
 [ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/Misc/WomanScreaming.mp3" id="2_6rfkd"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="3_drag"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwikg"]
+load_path = "res://.godot/imported/TextViewer.png-1bcc594511c1240c2f5870430d713fc2.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yujma"]
+texture = SubResource("CompressedTexture2D_wwikg")
+texture_margin_left = 24.0
+texture_margin_top = 58.0
+texture_margin_right = 25.0
+texture_margin_bottom = 27.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_normal"]
 bg_color = Color(1, 0, 0, 1)
 corner_radius_top_left = 32
@@ -35,6 +45,7 @@ unresizable = true
 borderless = true
 always_on_top = true
 sharp_corners = true
+theme_override_styles/embedded_border = SubResource("StyleBoxTexture_yujma")
 script = ExtResource("1_ctf")
 _flag_input = NodePath("WindowSkeleton/Content/Layout/FlagRow/FlagInput")
 _submit = NodePath("WindowSkeleton/Content/Layout/FlagRow/Submit")
@@ -63,17 +74,17 @@ script = ExtResource("3_drag")
 
 [node name="MarginContainer" type="MarginContainer" parent="WindowSkeleton/TopBar" unique_id=573002184]
 layout_mode = 2
-mouse_filter = 2
 size_flags_horizontal = 8
+mouse_filter = 2
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Close" type="Button" parent="WindowSkeleton/TopBar/MarginContainer" unique_id=1001130095]
-mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_close_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_close_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_close_hover")
@@ -110,9 +121,9 @@ size_flags_horizontal = 3
 placeholder_text = "..."
 
 [node name="Submit" type="Button" parent="WindowSkeleton/Content/Layout/FlagRow" unique_id=1135135566]
-mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(96, 36)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Submit"
 
 [node name="Status" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=922509699]
@@ -129,9 +140,9 @@ text = "FLAG 1 / 1"
 horizontal_alignment = 1
 
 [node name="Scream_mp3" type="AudioStreamPlayer" parent="." unique_id=386330689]
-bus = &"SFX"
 stream = ExtResource("2_6rfkd")
 volume_db = -30.0
+bus = &"SFX"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="WindowSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]

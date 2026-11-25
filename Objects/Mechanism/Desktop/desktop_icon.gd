@@ -90,7 +90,10 @@ func _run_program() -> void :
 
 	var app := application.instantiate()
 	_get_desktop_window().add_child(app)  # this allows app to open INSIDE the desktop window and not the main game window
-	create_tween().tween_property(app,"modulate:a", 1.0, 0.3);
+	var sb = app.get_theme_stylebox('embedded_border')
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT);
+	if not app.has_theme_stylebox('embedded_border'): tween.tween_property(sb,"modulate_color:a", 1.0, 0.3).from(0.0);
+	tween.tween_property(app, "size", Vector2i(764,538), 0.3).from(Vector2i(764-100,538-100))
 
 	# for txt reader
 	if not launch_file.is_empty() and app.has_method("open_file"):

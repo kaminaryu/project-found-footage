@@ -99,10 +99,10 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Close" type="Button" parent="DesktopSkeleton/TopBar/MarginContainer" unique_id=136315678]
-mouse_default_cursor_shape = 2
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_0yitp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ljyij")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2u6u5")
@@ -282,8 +282,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="StaticSound" type="AudioStreamPlayer" parent="." unique_id=1064130212]
-bus = &"SFX"
 stream = ExtResource("19_0muut")
+bus = &"SFX"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
