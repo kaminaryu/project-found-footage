@@ -90,7 +90,7 @@ func _run_program() -> void :
 
 	var app := application.instantiate()
 	_get_desktop_window().add_child(app)  # this allows app to open INSIDE the desktop window and not the main game window
-
+	
 
 	# for txt reader
 	if not launch_file.is_empty() and app.has_method("open_file"):

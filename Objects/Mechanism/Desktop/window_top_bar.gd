@@ -6,7 +6,7 @@ signal close_pressed
 @export var title_text: String = ""
 
 @onready var _title: Label = %TitleLabel
-@onready var _close: Button = %Close
+@onready var _close: TextureButton = %Close
 
 
 func _ready() -> void:
@@ -22,3 +22,11 @@ func set_title(value: String) -> void:
 
 func _on_close_pressed() -> void:
 	close_pressed.emit()
+
+
+func _on_close_mouse_entered() -> void:
+	_close.material.set_shader_parameter("flash_value", 0.2)
+
+
+func _on_close_mouse_exited() -> void:
+	_close.material.set_shader_parameter("flash_value", 0.0)

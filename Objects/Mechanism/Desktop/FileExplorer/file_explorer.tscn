@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlftdhwgy53n6" path="res://Objects/Mechanism/Desktop/FileExplorer/file_explorer.gd" id="1_explorer"]
 [ext_resource type="Texture2D" uid="uid://c2fg0r20fk52y" path="res://Assets/UI/Desktop/FileExplorer.png" id="2_background"]
-[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/FileExplorer/file_entry.tscn" id="3_entry"]
+[ext_resource type="PackedScene" uid="uid://dcf0fk1t26wkj" path="res://Objects/Mechanism/Desktop/FileExplorer/file_entry.tscn" id="3_entry"]
 [ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Objects/Mechanism/Desktop/desktop_icon.tscn" id="3_wenfk"]
 [ext_resource type="Texture2D" uid="uid://b8qr6tj5eb3lm" path="res://Assets/UI/Desktop/Icons/Music64.svg" id="4_music"]
 [ext_resource type="PackedScene" uid="uid://6xvexej7yo1q" path="res://UI/Mechanism/PhotoEditor/photo_editor.tscn" id="5_d7qql"]
@@ -43,7 +43,7 @@ texture_margin_left = 152.0
 texture_margin_top = 116.0
 texture_margin_right = 20.0
 texture_margin_bottom = 19.0
-modulate_color = Color(0.8776157, 0.8776158, 0.87761563, 1)
+modulate_color = Color(0.8784314, 0.8784314, 0.8784314, 0.78431374)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ehiih"]
 resource_local_to_scene = true
