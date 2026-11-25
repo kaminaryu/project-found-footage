@@ -12,6 +12,14 @@
 [ext_resource type="AudioStream" uid="uid://dgkkaywvh4r66" path="res://Assets/Audios/Recordings/Audio-002.wav" id="10_fcaew"]
 [ext_resource type="AudioStream" uid="uid://bi7q1rb5bew8e" path="res://Assets/Audios/Recordings/Audio-003.wav" id="11_ehiih"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Objects/Mechanism/Desktop/window_drag_handle.gd" id="12_drag"]
+[ext_resource type="Shader" uid="uid://dig1o0hfd4xnb" path="res://Objects/Mechanism/Desktop/desktop_icon.gdshader" id="13_ehiih"]
+[ext_resource type="Texture2D" uid="uid://cy5gvpv8xsgte" path="res://Assets/UI/Desktop/Icons/CloseButton.png" id="13_fcaew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehiih"]
+resource_local_to_scene = true
+shader = ExtResource("13_ehiih")
+shader_parameter/flash_color = Color(1, 0.46922415, 0.40370226, 1)
+shader_parameter/flash_value = 0.0
 
 [node name="FileExplorer" type="Window" unique_id=1240173975]
 oversampling_override = 1.0
@@ -145,17 +153,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseButton" type="Button" parent="." unique_id=1374464353]
+material = SubResource("ShaderMaterial_ehiih")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -51.0
-offset_top = 3.0
-offset_right = -11.0
-offset_bottom = 43.0
+offset_left = -48.515015
+offset_top = 5.84
+offset_right = -8.515015
+offset_bottom = 45.84
 grow_horizontal = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+icon = ExtResource("13_fcaew")
 flat = true
+icon_alignment = 1
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="mouse_entered" from="CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="." method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_pressed"]
