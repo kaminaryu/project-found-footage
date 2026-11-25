@@ -8,7 +8,7 @@ const AUDIO_PLAYER_SCENE := preload("res://Objects/Mechanism/Desktop/AudioPlayer
 
 @onready var _grid: GridContainer = %FileGrid
 @onready var _empty_label: Label = %EmptyLabel
-
+@onready var _close_button: Button = $CloseButton
 
 func _window_ready() -> void:
 	_grid.child_entered_tree.connect(_on_grid_child_entered)
@@ -60,3 +60,11 @@ func _open_audio_player(entry: FileExplorerEntry) -> void:
 
 func _update_empty_state() -> void:
 	_empty_label.visible = _grid.get_child_count() == 0
+
+
+func _on_close_button_mouse_entered() -> void:
+	_close_button.material.set_shader_parameter("flash_value", 0.2)
+
+
+func _on_close_button_mouse_exited() -> void:
+	_close_button.material.set_shader_parameter("flash_value", 0.0)

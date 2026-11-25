@@ -211,7 +211,6 @@ func _on_thumbnail_pressed() -> void:
 		return
 
 	click_counter += 1
-
 	var timer = Timer.new()
 	timer.wait_time = CLICK_BUFFER_TIME_S
 	timer.timeout.connect(_click_no_longer_double_clicking_idk_what_to_name.bind(timer))
@@ -224,3 +223,11 @@ func _click_no_longer_double_clicking_idk_what_to_name(timer: Timer) -> void :
 	click_counter -= 1
 	click_counter = max(click_counter, 0)
 	timer.queue_free()
+
+
+func _on_thumbnail_button_down() -> void:
+	thumbnail.material.set_shader_parameter("flash_value", 0.5);
+
+
+func _on_thumbnail_button_up() -> void:
+	thumbnail.material.set_shader_parameter("flash_value", 0);
