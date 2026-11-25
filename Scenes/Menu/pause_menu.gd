@@ -4,6 +4,7 @@ extends Control
 @onready var settings_screen: Control = $SettingsScreen;
 
 var paused := false;
+var mouse_before_pause: Input.MouseMode = Input.MOUSE_MODE_CAPTURED #Show the mouse was before paused
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 
 func pause() -> void:
 	if !paused:
+		mouse_before_pause = Input.mouse_mode
 		if settings_screen != null:
 			settings_screen.hide()
 		transitionPlayer.play("open");
@@ -32,7 +34,7 @@ func pause() -> void:
 			settings_screen.hide()
 		transitionPlayer.play("close");
 		get_tree().paused = false;
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Input.mouse_mode = mouse_before_pause
 		paused = false;
 
 
