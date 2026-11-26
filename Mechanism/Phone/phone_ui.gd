@@ -51,6 +51,8 @@ const WASD := {
 const KEYPAD := ["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"]
 const KEY_LETTERS := {"2": "ABC", "3": "DEF", "4": "GHI", "5": "JKL", "6": "MNO", "7": "PQRS", "8": "TUV", "9": "WXYZ"}
 const MAX_DIGITS := 20
+const KEY_LOWEST_PITCH := 0.8
+const KEY_PITCH_STEP := 0.05
 ## How long a secret code rings before someone picks up (and before the scare starts).
 const ONE_RING_TIME := 2.2
 ## The scare: after this many wrong numbers, for about this many seconds. Once per game.
@@ -691,6 +693,7 @@ func _update_dial_display() -> void:
 func _dial_press(key: String) -> void:
 	if _dialed.length() < MAX_DIGITS:
 		_dialed += key
+		%KeySound.default_pitch = KEY_LOWEST_PITCH + KEYPAD.find(key) * KEY_PITCH_STEP
 		%KeySound.play()
 	_update_dial_display()
 
