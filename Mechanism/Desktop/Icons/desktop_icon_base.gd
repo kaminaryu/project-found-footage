@@ -75,3 +75,6 @@ func _get_main_window() -> DesktopWindow :
 			assert(false, "Icon is somehow not attached to any DesktopWindow node!!")
 
 	return node
+
+
+@abstract func _on_program_ran(app: Node) -> void

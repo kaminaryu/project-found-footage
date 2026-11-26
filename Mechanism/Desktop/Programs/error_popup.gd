@@ -21,7 +21,7 @@ func _ready() -> void:
 	hide()
 
 
-func run(custom_message: String = "", custom_icon: Texture2D = null, custom_header: String = "") -> void:
+func run(custom_header: String = "", custom_message: String = "", custom_icon: Texture2D = null) -> void:
 	_apply_content(custom_message, custom_icon, custom_header)
 
 	if _is_open:
