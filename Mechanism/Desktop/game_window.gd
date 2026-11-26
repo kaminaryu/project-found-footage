@@ -77,13 +77,17 @@ func _update_shake(delta: float) -> void:
 	)
 
 func _play_open_animation() -> void:
-	var target_size = size;
+	var target_size = self.size;
 	var size_delta = Vector2i(100,100);
+	var duration = 0.3
 	var sb = get_theme_stylebox('embedded_border')
 	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT);
-	if get_theme_stylebox('embedded_border') is StyleBoxTexture: tween.tween_property(sb,"modulate_color:a", 1.0, 0.3).from(0.0);
-	tween.tween_property(self, "size", target_size, 0.3).from(target_size - size_delta) 
-	tween.tween_property(self, "position", position - (size_delta / 2), 0.3);
+	if get_theme_stylebox('embedded_border') is StyleBoxTexture: tween.tween_property(sb,"modulate_color:a", 1.0, duration).from(0.0);
+	tween.tween_property(self, "size", target_size, duration).from(target_size - size_delta) 
+	tween.tween_property(self, "position", position - (size_delta / 2), duration);
+	for node in get_children():
+		if not node is Control: return
+		tween.tween_property(node, "modulate:a", 1, duration).from(0);
 
 func _start_shake(duration: float) -> void:
 	_shake_base_position = position
