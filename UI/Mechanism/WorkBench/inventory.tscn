@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8f35v5pmedig" path="res://UI/Mechanism/WorkBench/inventory.gd" id="1_tu4p1"]
 [ext_resource type="LabelSettings" uid="uid://cpki6obufybp4" path="res://Assets/UI/FoundFootageLabel.tres" id="2_hint"]
-[ext_resource type="PackedScene" uid="uid://cemhwonajq17w" path="res://Objects/Mechanism/Workbench/new_battery.tscn" id="3_iukjw"]
+[ext_resource type="PackedScene" uid="uid://cemhwonajq17w" path="res://Mechanism/Workbench/new_battery.tscn" id="3_iukjw"]
 [ext_resource type="Script" uid="uid://c5w7pf41kuxg1" path="res://Objects/Scraps/Placeable/placeable_part.gd" id="4_8ukiw"]
 [ext_resource type="Script" uid="uid://bcd0xnkpsifjh" path="res://Objects/Scraps/hover_detector.gd" id="5_rj0s5"]
 [ext_resource type="PackedScene" uid="uid://byebhuic5a6ig" path="res://Objects/InteractionDialog/interaction_hint.tscn" id="6_mbrq3"]

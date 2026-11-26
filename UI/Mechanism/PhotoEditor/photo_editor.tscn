@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://doftwquijh778" path="res://UI/Mechanism/PhotoEditor/photo_editor.gd" id="1_1wgmq"]
 [ext_resource type="Theme" uid="uid://c7u17ufe863ta" path="res://UI/Mechanism/PhotoEditor/photo_editor_theme.tres" id="1_cvkhc"]
 [ext_resource type="Script" uid="uid://ciahgydn4fvj4" path="res://Assets/UI/Mechanism/PhotoEditor/photo_entry.gd" id="2_v7s4r"]
-[ext_resource type="PackedScene" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="3_topbar"]
+[ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Mechanism/Desktop/window_top_bar.tscn" id="3_topbar"]
 [ext_resource type="Texture2D" uid="uid://dy8t0u50nho64" path="res://Assets/Photos/coffee.png" id="3_tuteu"]
 [ext_resource type="Texture2D" uid="uid://bpc78c15m3ewo" path="res://Assets/Photos/Foods.jpg" id="4_57x68"]
 [ext_resource type="Texture2D" uid="uid://hhmv6j47eshk" path="res://Assets/Photos/Golf.jpg" id="5_lkb6o"]
