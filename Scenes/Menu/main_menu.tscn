@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cvfd7uajrffjs" path="res://Scenes/Menu/exit_button.gd" id="6_1di0l"]
 [ext_resource type="Texture2D" uid="uid://cwihiafwpcc2" path="res://Assets/3dswatch.png" id="6_17gaq"]
 [ext_resource type="Script" uid="uid://byaclsgcotlqi" path="res://Scenes/Menu/continue_button.gd" id="6_w1xia"]
-[ext_resource type="Script" uid="uid://b8uivajxtj187" path="res://Objects/Mechanism/Phone/flip_phone.gd" id="7_1di0l"]
+[ext_resource type="Script" uid="uid://b8uivajxtj187" path="res://Mechanism/Phone/flip_phone.gd" id="7_1di0l"]
 [ext_resource type="Script" uid="uid://bc85d5hvlfm0x" path="res://Scenes/Menu/settings_button.gd" id="8_jqrnd"]
 [ext_resource type="Material" uid="uid://rhc1pyuphad" path="res://Assets/Shaders/interactable_highlight.tres" id="8_w1xia"]
 [ext_resource type="PackedScene" uid="uid://cawh82bjmfpdr" path="res://UI/Settings/settings.tscn" id="11_2sy2r"]

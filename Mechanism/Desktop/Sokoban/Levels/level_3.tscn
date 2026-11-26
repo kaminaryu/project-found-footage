@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://owqaylkkxq0r"]
+
+[ext_resource type="TileSet" uid="uid://vpvb46eouey8" path="res://Mechanism/Desktop/Sokoban/Objects/sokoban_tileset.tres" id="1_sxs71"]
+[ext_resource type="PackedScene" uid="uid://bcecbh4ccxrye" path="res://Mechanism/Desktop/Sokoban/Objects/sokoban_box.tscn" id="2_d16vc"]
+[ext_resource type="PackedScene" uid="uid://du0wdt73xfmga" path="res://Mechanism/Desktop/Sokoban/Objects/sokoban_player.tscn" id="3_y6oyx"]
+[ext_resource type="Texture2D" uid="uid://cfiu78ekxd2pw" path="res://Assets/UI/Desktop/Sokoban/Game/Player.png" id="5_uagts"]
+
+[node name="Level3" type="Node2D" unique_id=511485388]
+
+[node name="Terrain" type="TileMapLayer" parent="." unique_id=2115181966]
+texture_filter = 1
+position = Vector2(192, 64)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAABAAAAAAABAAAAAAABAAMAAAACAAAAAAABAAUAAAABAAAAAAACAAAAAAABAAAAAAACAAQAAAACAAAAAAACAAUAAAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAAEAAEAAAABAAAAAAAEAAQAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAA=")
+tile_set = ExtResource("1_sxs71")
+
+[node name="Boxes" type="Node2D" parent="." unique_id=441163965]
+
+[node name="Box1" parent="Boxes" unique_id=344144912 instance=ExtResource("2_d16vc")]
+position = Vector2(272, 176)
+
+[node name="Box2" parent="Boxes" unique_id=1239864760 instance=ExtResource("2_d16vc")]
+position = Vector2(240, 176)
+
+[node name="Player" parent="." unique_id=1665978972 instance=ExtResource("3_y6oyx")]
+position = Vector2(272, 208)
+scale = Vector2(1, 1)
+texture = ExtResource("5_uagts")

@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcbf3u5tmarx" path="res://Helpers/sfx_player.tscn" id="13_yjbsp"]
 [ext_resource type="Shader" uid="uid://bmql6fdnnp8mx" path="res://Assets/Shaders/game_effect.gdshader" id="14_nx73i"]
 [ext_resource type="AudioStream" uid="uid://f4uts6vrqr1w" path="res://Assets/Audios/SFX/MainRoomObjects/radio_button_click.mp3" id="16_gh3nu"]
-[ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Objects/Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
+[ext_resource type="Script" uid="uid://brxvttj2i5pjw" path="res://Mechanism/Cutscene/intro_cutscene.gd" id="20_intro"]
 [ext_resource type="AudioStream" uid="uid://daqx58l4u7ofb" path="res://Assets/Audios/SFX/Cutscene/Intro/bell_open.mp3" id="21_bell"]
 [ext_resource type="AudioStream" uid="uid://o6y3ov8o0pwf" path="res://Assets/Audios/SFX/Cutscene/Intro/writing.wav" id="22_writing"]
 [ext_resource type="Script" uid="uid://6wq665a385ml" path="res://Scenes/Main/hold_to_skip.gd" id="23_fla1i"]
