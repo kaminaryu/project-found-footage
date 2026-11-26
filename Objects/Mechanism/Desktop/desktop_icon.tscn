@@ -12,7 +12,7 @@ shader = ExtResource("3_o74po")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
-[node name="DesktopIcon" type="VBoxContainer" unique_id=1524986701 node_paths=PackedStringArray("thumbnail", "name_label")]
+[node name="DesktopIconOld" type="VBoxContainer" unique_id=1524986701 node_paths=PackedStringArray("thumbnail", "name_label")]
 offset_right = 90.0
 offset_bottom = 90.0
 theme_override_constants/separation = 10

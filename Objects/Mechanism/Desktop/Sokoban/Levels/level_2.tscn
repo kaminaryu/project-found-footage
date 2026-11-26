@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://beeqdpqvm3fs5"]
 
-[ext_resource type="TileSet" uid="uid://vpvb46eouey8" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_tileset.tres" id="1_ortm5"]
-[ext_resource type="PackedScene" uid="uid://bcecbh4ccxrye" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_box.tscn" id="2_sqg08"]
-[ext_resource type="PackedScene" uid="uid://du0wdt73xfmga" path="res://Objects/Mechanism/Desktop/Sokoban/sokoban_player.tscn" id="3_y7th8"]
+[ext_resource type="TileSet" uid="uid://vpvb46eouey8" path="res://Objects/Mechanism/Desktop/Sokoban/Objects/sokoban_tileset.tres" id="1_ortm5"]
+[ext_resource type="PackedScene" uid="uid://bcecbh4ccxrye" path="res://Objects/Mechanism/Desktop/Sokoban/Objects/sokoban_box.tscn" id="2_sqg08"]
+[ext_resource type="PackedScene" uid="uid://du0wdt73xfmga" path="res://Objects/Mechanism/Desktop/Sokoban/Objects/sokoban_player.tscn" id="3_y7th8"]
 [ext_resource type="Texture2D" uid="uid://cfiu78ekxd2pw" path="res://Assets/UI/Desktop/Sokoban/Game/Player.png" id="5_5jctm"]
 
 [node name="Level2" type="Node2D" unique_id=573334959]

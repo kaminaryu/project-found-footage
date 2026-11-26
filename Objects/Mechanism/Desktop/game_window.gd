@@ -1,11 +1,9 @@
-class_name GameWindow
+class_name  GameWindow
 extends Window
 
 const GlitchOverlayScene := preload("res://Objects/Mechanism/Desktop/glitch_overlay.tscn")
 const SHAKE_RANGE := 4
 const SHAKE_INTERVAL := 0.035
-
-@export var glitch_test_key: Key = KEY_F2
 
 var _glitch_overlay
 var _is_glitching := false
@@ -31,8 +29,7 @@ func glitch(duration: float = 1.0, strength: float = 1.0) -> void:
 
 
 func glitch_and_close(duration: float = 1.0, strength: float = 1.0) -> void:
-	glitch(duration, strength)
-	await get_tree().create_timer(duration + 0.15).timeout
+	await glitch(duration, strength)
 	_on_close_requested()
 
 
@@ -51,20 +48,6 @@ func _window_key_input(_event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	_update_shake(delta)
 	_window_process(delta)
-
-
-func _unhandled_key_input(event: InputEvent) -> void:
-	if (
-		event is InputEventKey
-		and event.pressed
-		and not event.echo
-		and event.keycode == glitch_test_key
-	):
-		glitch(1.0, 1.0)
-		get_viewport().set_input_as_handled()
-		return
-
-	_window_key_input(event)
 
 
 func _setup_shared() -> void:

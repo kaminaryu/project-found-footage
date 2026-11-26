@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://do4tkxjp6bml1"]
+
+[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/desktop_icon_visuals.tscn" id="1_ofml5"]
+[ext_resource type="Script" uid="uid://gohiq78ipnby" path="res://Mechanism/Desktop/Icons/audio_icon.gd" id="1_xrnk6"]
+[ext_resource type="Texture2D" uid="uid://b8qr6tj5eb3lm" path="res://Assets/UI/Desktop/Icons/Music64.svg" id="2_xrnk6"]
+[ext_resource type="AudioStream" uid="uid://bd1b0qo0u7l46" path="res://Assets/Audios/Recordings/Audio-000.wav" id="2_yc6rm"]
+[ext_resource type="PackedScene" uid="uid://0lc8103h3p8c" path="res://Objects/Mechanism/Desktop/AudioPlayer/audio_player.tscn" id="4_yc6rm"]
+
+[node name="AudioIcon" type="Control" unique_id=260247116 node_paths=PackedStringArray("desktop_icon_visuals")]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_xrnk6")
+audio_file = ExtResource("2_yc6rm")
+desktop_icon_visuals = NodePath("DesktopIconVisuals")
+icon_texture = ExtResource("2_xrnk6")
+icon_name = "Audio-XXX.mp3"
+program_to_run = ExtResource("4_yc6rm")
+
+[node name="DesktopIconVisuals" parent="." unique_id=1524986701 instance=ExtResource("1_ofml5")]
+layout_mode = 0

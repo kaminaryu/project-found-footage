@@ -3,20 +3,15 @@ extends GameWindow
 
 @export_group("Audio")
 @export var stream: AudioStream
-@export var autoplay := true
 @export_range(-80.0, 24.0, 0.1) var volume_db := 0.0
 
-@export_group("Presentation")
-@export var default_title := "audio_player.exe"
-
 @onready var _audio: AudioStreamPlayer = %Audio
-@onready var _top_bar: WindowTopBar = %TopBar
 @onready var _track_label: Label = %TrackLabel
 @onready var _progress: ProgressBar = %Progress
 @onready var _time_label: Label = %TimeLabel
 @onready var _play_pause: Button = %PlayPause
 
-var _track_title := ""
+const NO_TRACK_LABEL := "NO TRACK SELECTED"
 
 
 func _window_ready() -> void:
@@ -27,10 +22,6 @@ func _window_ready() -> void:
 		_apply_stream(stream, "")
 
 	_refresh_ui()
-
-	if autoplay and stream != null:
-		_audio.play()
-		_refresh_ui()
 
 
 func play_stream(new_stream: AudioStream, display_name: String = "") -> void:
@@ -49,9 +40,8 @@ func _apply_stream(new_stream: AudioStream, display_name: String) -> void:
 	_audio.volume_db = volume_db
 	_audio.stream_paused = false
 
-	_track_title = display_name if not display_name.is_empty() else _stream_name(new_stream)
-	_track_label.text = _track_title if not _track_title.is_empty() else "NO TRACK"
-	_top_bar.set_title(_track_title if not _track_title.is_empty() else default_title)
+	var track_title = display_name if not display_name.is_empty() else _get_stream_name(new_stream)
+	_track_label.text = track_title if not track_title.is_empty() else NO_TRACK_LABEL
 
 	_progress.value = 0.0
 	_progress.max_value = maxf(_stream_length(new_stream), 0.001)
@@ -70,6 +60,7 @@ func _toggle_playback() -> void:
 		_audio.play()
 
 	_refresh_ui()
+
 
 
 func _window_process(_delta: float) -> void:
@@ -107,7 +98,7 @@ func _stream_length(audio_stream: AudioStream) -> float:
 	return audio_stream.get_length() if audio_stream != null else 0.0
 
 
-func _stream_name(audio_stream: AudioStream) -> String:
+func _get_stream_name(audio_stream: AudioStream) -> String:
 	if audio_stream == null:
 		return ""
 

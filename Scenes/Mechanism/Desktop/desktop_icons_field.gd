@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 const SNAP_DURATION := 0.08
 const INVALID_CELL := Vector2i(-1, -1)
