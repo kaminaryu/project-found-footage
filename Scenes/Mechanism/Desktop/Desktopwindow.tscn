@@ -56,6 +56,7 @@ EVIL_wallpaper = NodePath("WallpaperEVIL")
 game_exe = NodePath("DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon")
 jumpscare_screen = NodePath("JumpscareScreen")
 static_sound = NodePath("StaticSound")
+skip_open_animation = true
 
 [node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
 anchors_preset = 15

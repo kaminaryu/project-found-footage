@@ -10,11 +10,13 @@ var _is_glitching := false
 var _shake_time := 0.0
 var _shake_tick := 0.0
 var _shake_base_position := Vector2i.ZERO
+@export var skip_open_animation := false;
 
-
+## Base ready function for all programs
 func _ready() -> void:
 	_setup_shared()
 	_window_ready()
+	if !skip_open_animation: _play_open_animation();
 
 
 func glitch(duration: float = 1.0, strength: float = 1.0) -> void:
@@ -32,10 +34,9 @@ func glitch_and_close(duration: float = 1.0, strength: float = 1.0) -> void:
 	await glitch(duration, strength)
 	_on_close_requested()
 
-
+## Ready function for anything specific to the program.
 func _window_ready() -> void:
 	pass
-
 
 func _window_process(_delta: float) -> void:
 	pass
@@ -75,6 +76,14 @@ func _update_shake(delta: float) -> void:
 		randi_range(-SHAKE_RANGE, SHAKE_RANGE)
 	)
 
+func _play_open_animation() -> void:
+	var target_size = size;
+	var size_delta = Vector2i(100,100);
+	var sb = get_theme_stylebox('embedded_border')
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT);
+	if get_theme_stylebox('embedded_border') is StyleBoxTexture: tween.tween_property(sb,"modulate_color:a", 1.0, 0.3).from(0.0);
+	tween.tween_property(self, "size", target_size, 0.3).from(target_size - size_delta) 
+	tween.tween_property(self, "position", position - (size_delta / 2), 0.3);
 
 func _start_shake(duration: float) -> void:
 	_shake_base_position = position

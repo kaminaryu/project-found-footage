@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://r0uglbxc2bo"]
 
 [ext_resource type="Texture2D" uid="uid://bws2ufahpeg6f" path="res://Assets/UI/Desktop/TextViewer.png" id="1_qbxb5"]
-[ext_resource type="Script" uid="uid://bmitxonhcwtlu" path="res://Objects/Mechanism/Desktop/CTF/txt_reader.gd" id="1_reader"]
-[ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Objects/Mechanism/Desktop/window_top_bar.tscn" id="2_topbar"]
+[ext_resource type="Script" uid="uid://bmitxonhcwtlu" path="res://Mechanism/Desktop/Programs/txt_reader.gd" id="1_reader"]
+[ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Mechanism/Desktop/window_top_bar.tscn" id="2_topbar"]
 [ext_resource type="FontFile" uid="uid://cu6qv4lrv04o1" path="res://Assets/UI/Desktop/Frutiger.ttf" id="4_p65yw"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g6qhb"]
