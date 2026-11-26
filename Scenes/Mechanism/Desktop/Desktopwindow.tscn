@@ -6,11 +6,10 @@
 [ext_resource type="Script" uid="uid://bcpi6wrhl6u17" path="res://Scenes/Mechanism/Desktop/desktop_icons_field.gd" id="5_nu7vc"]
 [ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Mechanism/DesktopOld/desktop_icon.tscn" id="5_t60eu"]
 [ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="6_olv04"]
-[ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="7_6b82k"]
-[ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="8_0muut"]
 [ext_resource type="PackedScene" uid="uid://dfgv76qrdoe7f" path="res://Mechanism/Desktop/Programs/ctf_exe.tscn" id="10_dk0mw"]
 [ext_resource type="Texture2D" uid="uid://do5m6poe7jobb" path="res://Assets/UI/Desktop/Icons/Trash64.png" id="10_kp0gs"]
 [ext_resource type="Texture2D" uid="uid://b14o3rxsoecjx" path="res://Assets/UI/Desktop/Icons/Error64.png" id="13_6b82k"]
+[ext_resource type="PackedScene" uid="uid://dn2oyjcg4sisv" path="res://Mechanism/Desktop/Icons/sokoban_icon.tscn" id="15_6b82k"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
 [ext_resource type="PackedScene" uid="uid://cef58qrpg5ofx" path="res://Mechanism/Desktop/Icons/dummy_icon.tscn" id="15_olv04"]
 [ext_resource type="PackedScene" uid="uid://cv2m7v210uq3n" path="res://Mechanism/Desktop/Icons/text_reader_icon.tscn" id="15_t60eu"]
@@ -122,20 +121,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=196024873 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 189.0
-offset_top = 204.0
-offset_right = 296.0
-offset_bottom = 294.0
-icon_texture = ExtResource("7_6b82k")
-icon_name = "game_final.exe"
-application = ExtResource("8_0muut")
-blocked_save_flag = "sokoban_finished"
-blocked_message = "game_final.exe has stopped working.
-The file may be corrupted."
-hide_if_save_flag = "ctf_revealed"
-
 [node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("5_t60eu")]
 layout_mode = 1
 offset_left = 205.0
@@ -191,6 +176,18 @@ offset_top = 105.0
 offset_right = -16.0
 offset_bottom = 105.0
 
+[node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=403003422 instance=ExtResource("15_6b82k")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 196.0
+offset_top = 242.0
+offset_right = 196.0
+offset_bottom = 242.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)
 layout_mode = 2
@@ -222,5 +219,3 @@ bus = &"SFX"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
-[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" method="hide_icon"]
-[connection signal="blocked_launch_attempted" from="DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon" to="DesktopSkeleton/DesktopIconsField/IconsField/CTF" method="reveal"]
