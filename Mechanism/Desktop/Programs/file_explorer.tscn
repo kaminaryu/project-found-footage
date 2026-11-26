@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crmyfoshsn37b"]
 
-[ext_resource type="Script" uid="uid://dlftdhwgy53n6" path="res://Mechanism/Desktop/FileExplorer/file_explorer.gd" id="1_explorer"]
+[ext_resource type="Script" uid="uid://dlftdhwgy53n6" path="res://Mechanism/Desktop/Programs/file_explorer.gd" id="1_explorer"]
 [ext_resource type="Texture2D" uid="uid://c2fg0r20fk52y" path="res://Assets/UI/Desktop/FileExplorer.png" id="2_background"]
 [ext_resource type="PackedScene" uid="uid://dcf0fk1t26wkj" path="res://Mechanism/Desktop/FileExplorer/file_entry.tscn" id="3_entry"]
 [ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Mechanism/DesktopOld/desktop_icon.tscn" id="3_wenfk"]

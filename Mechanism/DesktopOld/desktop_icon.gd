@@ -2,7 +2,7 @@
 extends Control
 
 const CLICK_BUFFER_TIME_S := 0.3
-const ERROR_POPUP_SCENE := preload("res://Objects/Mechanism/Desktop/ErrorPopup.tscn")
+const ERROR_POPUP_SCENE := preload("res://Mechanism/Desktop/Programs/ErrorPopup.tscn")
 const DEFAULT_TEXTURE := preload("res://Assets/UI/Desktop/Icons/DefaultIcon64.png")
 
 signal blocked_launch_attempted

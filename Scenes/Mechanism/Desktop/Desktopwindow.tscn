@@ -8,12 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="6_olv04"]
 [ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="7_6b82k"]
 [ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="8_0muut"]
-[ext_resource type="PackedScene" uid="uid://dfgv76qrdoe7f" path="res://Mechanism/Desktop/CTF/ctf_exe.tscn" id="10_dk0mw"]
+[ext_resource type="PackedScene" uid="uid://dfgv76qrdoe7f" path="res://Mechanism/Desktop/Programs/ctf_exe.tscn" id="10_dk0mw"]
 [ext_resource type="Texture2D" uid="uid://do5m6poe7jobb" path="res://Assets/UI/Desktop/Icons/Trash64.png" id="10_kp0gs"]
-[ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Mechanism/Desktop/CTF/txt_reader.tscn" id="12_roya5"]
 [ext_resource type="Texture2D" uid="uid://b14o3rxsoecjx" path="res://Assets/UI/Desktop/Icons/Error64.png" id="13_6b82k"]
-[ext_resource type="Texture2D" uid="uid://du8dnba8fbrl1" path="res://Assets/UI/Desktop/Icons/TextFile64.png" id="15_6b82k"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
+[ext_resource type="PackedScene" uid="uid://cv2m7v210uq3n" path="res://Mechanism/Desktop/Icons/text_reader_icon.tscn" id="15_t60eu"]
 [ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/desktop_icon_visuals.tscn" id="17_0muut"]
 [ext_resource type="Texture2D" uid="uid://bgjo7muwiv8t1" path="res://Assets/UI/Desktop/JumpscareEyes.png" id="18_6b82k"]
 [ext_resource type="AudioStream" uid="uid://fk8gewtr2yuk" path="res://Assets/Audios/SFX/Novakia/tv_static.wav" id="19_0muut"]
@@ -167,76 +166,6 @@ application = ExtResource("10_dk0mw")
 hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 
-[node name="ReadmeIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=552116334 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 627.0
-offset_top = 352.0
-offset_right = 693.0
-offset_bottom = 437.0
-icon_texture = ExtResource("15_6b82k")
-icon_name = "readme.txt"
-application = ExtResource("12_roya5")
-launch_file = "res://Resources/Data/CTF/Texts/readme.txt"
-hidden_until_revealed = true
-reveal_save_flag = "ctf_revealed"
-show_from_flag_stage = 1
-
-[node name="ReadmeIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=372084808 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 925.0
-offset_top = 324.0
-offset_right = 991.0
-offset_bottom = 409.0
-icon_texture = ExtResource("15_6b82k")
-icon_name = "word.txt"
-application = ExtResource("12_roya5")
-launch_file = "res://Resources/Data/CTF/Texts/word.txt"
-hidden_until_revealed = true
-reveal_save_flag = "ctf_revealed"
-show_from_flag_stage = 2
-
-[node name="ReadmeIcon3" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1124866041 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 725.0
-offset_top = 515.0
-offset_right = 791.0
-offset_bottom = 600.0
-icon_texture = ExtResource("15_6b82k")
-icon_name = "favourite.txt"
-application = ExtResource("12_roya5")
-launch_file = "res://Resources/Data/CTF/Texts/favourite.txt"
-hidden_until_revealed = true
-reveal_save_flag = "ctf_revealed"
-show_from_flag_stage = 3
-
-[node name="ReadmeIcon4" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1940885511 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 888.0
-offset_top = 671.0
-offset_right = 954.0
-offset_bottom = 756.0
-icon_texture = ExtResource("15_6b82k")
-icon_name = "media.txt"
-application = ExtResource("12_roya5")
-launch_file = "res://Resources/Data/CTF/Texts/media.txt"
-hidden_until_revealed = true
-reveal_save_flag = "ctf_revealed"
-show_from_flag_stage = 4
-
-[node name="ReadmeIcon5" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=754127801 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 516.0
-offset_top = 683.0
-offset_right = 582.0
-offset_bottom = 768.0
-icon_texture = ExtResource("15_6b82k")
-icon_name = "canine.txt"
-application = ExtResource("12_roya5")
-launch_file = "res://Resources/Data/CTF/Texts/canine.txt"
-hidden_until_revealed = true
-reveal_save_flag = "ctf_revealed"
-show_from_flag_stage = 5
-
 [node name="DesktopIcon2" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=22635187 instance=ExtResource("17_0muut")]
 layout_mode = 0
 offset_left = 159.0
@@ -250,6 +179,15 @@ offset_left = 291.0
 offset_top = 181.0
 offset_right = 291.0
 offset_bottom = 181.0
+
+[node name="TextReaderIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=945425594 instance=ExtResource("15_t60eu")]
+layout_mode = 1
+offset_left = 335.0
+offset_top = 495.0
+offset_right = 335.0
+offset_bottom = 495.0
+file_path = "res://Resources/Data/CTF/Texts/canine.txt"
+icon_name = "canine.txt"
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0lc8103h3p8c"]
 
-[ext_resource type="Script" uid="uid://bntcnhkp7l4bi" path="res://Mechanism/Desktop/AudioPlayer/audio_player.gd" id="1_audio"]
+[ext_resource type="Script" uid="uid://bntcnhkp7l4bi" path="res://Mechanism/Desktop/Programs/audio_player.gd" id="1_audio"]
 [ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Mechanism/Desktop/window_top_bar.tscn" id="2_topbar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_progress_bg"]

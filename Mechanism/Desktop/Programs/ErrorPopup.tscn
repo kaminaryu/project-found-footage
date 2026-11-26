@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b28wd28db6vja"]
 
-[ext_resource type="Script" uid="uid://02soml3iof2i" path="res://Mechanism/Desktop/Overlays/error_popup.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://02soml3iof2i" path="res://Mechanism/Desktop/Programs/error_popup.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dw34foohkfjpj" path="res://Assets/UI/Desktop/Icons/Error64.svg" id="2_icon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialog"]

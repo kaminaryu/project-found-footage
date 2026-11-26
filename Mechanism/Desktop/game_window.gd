@@ -1,7 +1,7 @@
 class_name  GameWindow
 extends Window
 
-const GlitchOverlayScene := preload("res://Objects/Mechanism/Desktop/glitch_overlay.tscn")
+const GlitchOverlayScene := preload("res://Mechanism/Desktop/Overlays/glitch_overlay.tscn")
 const SHAKE_RANGE := 4
 const SHAKE_INTERVAL := 0.035
 
