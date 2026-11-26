@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
 [ext_resource type="PackedScene" uid="uid://cef58qrpg5ofx" path="res://Mechanism/Desktop/Icons/dummy_icon.tscn" id="15_olv04"]
 [ext_resource type="PackedScene" uid="uid://cv2m7v210uq3n" path="res://Mechanism/Desktop/Icons/text_reader_icon.tscn" id="15_t60eu"]
+[ext_resource type="PackedScene" uid="uid://d08bvwdrdeeme" path="res://Mechanism/Desktop/Icons/file_explorer_icon.tscn" id="16_olv04"]
 [ext_resource type="Texture2D" uid="uid://bgjo7muwiv8t1" path="res://Assets/UI/Desktop/JumpscareEyes.png" id="18_6b82k"]
 [ext_resource type="AudioStream" uid="uid://fk8gewtr2yuk" path="res://Assets/Audios/SFX/Novakia/tv_static.wav" id="19_0muut"]
 [ext_resource type="PackedScene" uid="uid://do4tkxjp6bml1" path="res://Mechanism/Desktop/Icons/audio_icon.tscn" id="19_nu7vc"]
@@ -182,6 +183,13 @@ offset_right = -4.0
 offset_bottom = 674.0
 icon_texture = ExtResource("10_kp0gs")
 icon_name = "Trash"
+
+[node name="FileExplorerIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=115547862 instance=ExtResource("16_olv04")]
+layout_mode = 1
+offset_left = -16.0
+offset_top = 105.0
+offset_right = -16.0
+offset_bottom = 105.0
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)
