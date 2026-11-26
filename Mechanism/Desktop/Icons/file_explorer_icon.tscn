@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d08bvwdrdeeme"]
+
+[ext_resource type="Script" uid="uid://dgkeh3d1upd66" path="res://Mechanism/Desktop/Icons/file_explorer_icon.gd" id="1_meaom"]
+[ext_resource type="Texture2D" uid="uid://cem7qjjdo2jui" path="res://Assets/UI/Desktop/Icons/Explorer64.png" id="2_5u4pe"]
+[ext_resource type="PackedScene" uid="uid://crmyfoshsn37b" path="res://Mechanism/Desktop/Programs/file_explorer.tscn" id="3_xxkcm"]
+[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/desktop_icon_visuals.tscn" id="4_v6srl"]
+
+[node name="FileExplorerIcon" type="Control" unique_id=178140045 node_paths=PackedStringArray("desktop_icon_visuals")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_meaom")
+desktop_icon_visuals = NodePath("DesktopIconVisuals")
+icon_texture = ExtResource("2_5u4pe")
+icon_name = "homework"
+program_to_run = ExtResource("3_xxkcm")
+
+[node name="DesktopIconVisuals" parent="." unique_id=1524986701 instance=ExtResource("4_v6srl")]
+layout_mode = 0
