@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dnq65qxxccqw3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ypbq5"]
+load_path = "res://.godot/imported/TextViewer.png-1bcc594511c1240c2f5870430d713fc2.ctex"
+
+[resource]
+texture = SubResource("CompressedTexture2D_ypbq5")
+texture_margin_left = 24.0
+texture_margin_top = 58.0
+texture_margin_right = 25.0
+texture_margin_bottom = 27.0
+region_rect = Rect2(0, 0, 534, 428)
+modulate_color = Color(0.80784315, 0.80784315, 0.80784315, 0.78431374)

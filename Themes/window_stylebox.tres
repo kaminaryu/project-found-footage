@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://ccv40r7ww4fkj"]
+
+[ext_resource type="Texture2D" uid="uid://bws2ufahpeg6f" path="res://Assets/UI/Desktop/TextViewer.png" id="1_xrhr5"]
+
+[resource]
+texture = ExtResource("1_xrhr5")
+texture_margin_left = 24.0
+texture_margin_top = 58.0
+texture_margin_right = 25.0
+texture_margin_bottom = 27.0
