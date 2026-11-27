@@ -4,11 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bgy1fc55dq437" path="res://Assets/UI/Desktop/DesktopWallpaper.png" id="2_oflmd"]
 [ext_resource type="Texture2D" uid="uid://3oeh2epjap3h" path="res://Assets/UI/Desktop/DesktopWallpaperEVIL.png" id="3_kp0gs"]
 [ext_resource type="Script" uid="uid://bcpi6wrhl6u17" path="res://Scenes/Mechanism/Desktop/desktop_icons_field.gd" id="5_nu7vc"]
-[ext_resource type="PackedScene" uid="uid://bkmccuuyfk5qu" path="res://Mechanism/DesktopOld/desktop_icon.tscn" id="5_t60eu"]
 [ext_resource type="Texture2D" uid="uid://boh6jtja6le16" path="res://Assets/UI/Desktop/Icons/computer64.png" id="6_olv04"]
-[ext_resource type="PackedScene" uid="uid://dfgv76qrdoe7f" path="res://Mechanism/Desktop/Programs/ctf_exe.tscn" id="10_dk0mw"]
 [ext_resource type="Texture2D" uid="uid://do5m6poe7jobb" path="res://Assets/UI/Desktop/Icons/Trash64.png" id="10_kp0gs"]
-[ext_resource type="Texture2D" uid="uid://b14o3rxsoecjx" path="res://Assets/UI/Desktop/Icons/Error64.png" id="13_6b82k"]
+[ext_resource type="PackedScene" uid="uid://dtog00hhlxro3" path="res://Mechanism/Desktop/Icons/portal_icon.tscn" id="13_kp0gs"]
 [ext_resource type="PackedScene" uid="uid://dn2oyjcg4sisv" path="res://Mechanism/Desktop/Icons/sokoban_icon.tscn" id="15_6b82k"]
 [ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Mechanism/Desktop/window_drag_handle.gd" id="15_drag"]
 [ext_resource type="PackedScene" uid="uid://cef58qrpg5ofx" path="res://Mechanism/Desktop/Icons/dummy_icon.tscn" id="15_olv04"]
@@ -120,17 +118,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CTF" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1528960646 instance=ExtResource("5_t60eu")]
-layout_mode = 1
-offset_left = 205.0
-offset_top = 357.0
-offset_right = 276.0
-offset_bottom = 447.0
-icon_texture = ExtResource("13_6b82k")
-icon_name = "Portal.exe"
-application = ExtResource("10_dk0mw")
-reveal_save_flag = "ctf_revealed"
-
 [node name="AudioIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=260247116 instance=ExtResource("19_nu7vc")]
 layout_mode = 0
 offset_left = 936.0
@@ -160,10 +147,10 @@ icon_name = "Desktop"
 
 [node name="TrashIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1990100099 instance=ExtResource("15_olv04")]
 layout_mode = 1
-offset_left = 755.0
-offset_top = 437.0
-offset_right = 863.0
-offset_bottom = 533.0
+offset_left = 564.0
+offset_top = 322.0
+offset_right = 672.0
+offset_bottom = 418.0
 icon_texture = ExtResource("10_kp0gs")
 icon_name = "Trash"
 
@@ -180,6 +167,13 @@ offset_left = 329.0
 offset_top = 238.0
 offset_right = 359.0
 offset_bottom = 328.0
+
+[node name="PortalIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=964585422 instance=ExtResource("13_kp0gs")]
+layout_mode = 1
+offset_left = 513.0
+offset_top = 434.0
+offset_right = 621.0
+offset_bottom = 530.0
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)

@@ -22,8 +22,9 @@ texture_margin_bottom = 27.0
 [node name="CTFExe" type="Window" unique_id=49404748 node_paths=PackedStringArray("_flag_input", "_submit", "_status", "_progress", "_scream_mp3")]
 transparent_bg = true
 oversampling_override = 1.0
-initial_position = 1
+initial_position = 2
 size = Vector2i(600, 400)
+unresizable = true
 always_on_top = true
 transparent = true
 sharp_corners = true
@@ -40,6 +41,7 @@ _submit = NodePath("MarginContainer/WindowSkeleton/Content/Layout/FlagRow/Submit
 _status = NodePath("MarginContainer/WindowSkeleton/Content/Layout/Status")
 _progress = NodePath("MarginContainer/WindowSkeleton/Content/Layout/Progress")
 _scream_mp3 = NodePath("Scream_mp3")
+skip_open_animation = true
 
 [node name="TopBarMargin" type="MarginContainer" parent="." unique_id=654661280]
 anchors_preset = 10
