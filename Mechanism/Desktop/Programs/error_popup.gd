@@ -1,5 +1,5 @@
 class_name ErrorPopup
-extends CanvasLayer
+extends GameWindow
 
 @export_multiline var message: String = "Something went wrong."
 @export var icon: Texture2D = preload("res://Assets/UI/Desktop/Icons/Error64.svg")
@@ -7,15 +7,15 @@ extends CanvasLayer
 @export var free_instance_on_close := true # for sokoban
 
 @onready var _icon: TextureRect = %Icon
-@onready var _title: Label = %TitleLabel
+#@onready var _title: Label = %TitleLabel
 @onready var _message: Label = %MessageLabel
 @onready var _ok_button: Button = %OkButton
-@onready var _close_button: Button = %CloseButton
+@onready var _top_bar: WindowTopBar = $TopBarMargin/WindowTopBar
 
 var _is_open := false
 
-func _ready() -> void:
-	_close_button.pressed.connect(close)
+func _window_ready() -> void:
+	_top_bar.close_pressed.connect(close)
 	_ok_button.pressed.connect(close)
 	_apply_content("", null, "")
 	hide()
@@ -45,7 +45,7 @@ func close() -> void:
 
 func _apply_content(custom_message: String, custom_icon: Texture2D, custom_header: String) -> void:
 	_message.text = message if custom_message.is_empty() else custom_message
-	_title.text = header_text if custom_header.is_empty() else custom_header
+	_top_bar.title_text = header_text if custom_header.is_empty() else custom_header
 
 	var texture: Texture2D = icon if custom_icon == null else custom_icon
 	_icon.texture = texture

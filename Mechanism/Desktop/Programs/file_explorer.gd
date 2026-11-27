@@ -3,8 +3,8 @@ extends GameWindow
 
 signal file_activated(entry: FileExplorerEntry)
 
-const FILE_ENTRY_SCENE := preload("res://Objects/Mechanism/Desktop/FileExplorer/file_entry.tscn")
-const AUDIO_PLAYER_SCENE := preload("res://Objects/Mechanism/Desktop/AudioPlayer/audio_player.tscn")
+const FILE_ENTRY_SCENE := preload("res://Mechanism/Desktop/FileExplorer/file_entry.tscn")
+const AUDIO_PLAYER_SCENE := preload("res://Mechanism/Desktop/Programs/audio_player.tscn")
 
 @onready var _grid: GridContainer = %FileGrid
 @onready var _empty_label: Label = %EmptyLabel

@@ -90,8 +90,9 @@ func _run_program() -> void :
 
 	var app := application.instantiate()
 	_get_desktop_window().add_child(app)  # this allows app to open INSIDE the desktop window and not the main game window
-
-
+	
+	_play_open_animation(app);
+	
 	# for txt reader
 	if not launch_file.is_empty() and app.has_method("open_file"):
 		app.call("open_file", launch_file)
@@ -100,6 +101,14 @@ func _run_program() -> void :
 	if photo_index != -1 and app.has_method("set_selected_photo") :
 		app.set_selected_photo(photo_index)
 
+func _play_open_animation(app: Node) -> void:
+	var target_size = Vector2i(764,538);
+	var size_delta = Vector2i(100,100);
+	var sb = app.get_theme_stylebox('embedded_border')
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT);
+	if app.get_theme_stylebox('embedded_border') is StyleBoxTexture: tween.tween_property(sb,"modulate_color:a", 1.0, 0.3).from(0.0);
+	tween.tween_property(app, "size", target_size, 0.3).from(target_size - size_delta) 
+	tween.tween_property(app, "position", app.position - (size_delta / 2), 0.3);
 
 func _get_desktop_window() -> Window:
 	var node: Node = get_parent()

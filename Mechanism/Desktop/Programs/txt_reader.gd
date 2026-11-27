@@ -4,7 +4,7 @@ extends GameWindow
 @onready var _content: RichTextLabel = %TextView
 
 
-func _ready() -> void:
+func _window_ready() -> void:
 	_top_bar.close_pressed.connect(_on_close_pressed)
 	close_requested.connect(_on_close_pressed)
 

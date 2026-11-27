@@ -3,7 +3,7 @@ extends GameWindow
 
 @export var normal_wallpaper: TextureRect
 @export var EVIL_wallpaper: TextureRect
-@export var game_exe: VBoxContainer
+@export var game_exe: DesktopIconBase
 @export var jumpscare_screen: ColorRect
 @export var static_sound: AudioStreamPlayer
 
