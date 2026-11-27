@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c1xl5j50remtp"]
+
+[ext_resource type="Theme" uid="uid://d2l02gv7kimjr" path="res://Themes/desktop.tres" id="1_tacb5"]
+[ext_resource type="Script" uid="uid://c771v0yc88v3" path="res://Mechanism/Desktop/game_window.gd" id="1_v6dk4"]
+[ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Mechanism/Desktop/window_top_bar.tscn" id="3_5as6t"]
+[ext_resource type="StyleBox" uid="uid://ccv40r7ww4fkj" path="res://Themes/window_stylebox.tres" id="4_u1385"]
+
+[node name="GameWindow" type="Window" unique_id=567997648]
+transparent_bg = true
+oversampling_override = 1.0
+title = "GameWindow"
+initial_position = 1
+size = Vector2i(300, 200)
+nonclient_area = Rect2i(12, 58, 300, 200)
+borderless = true
+transparent = true
+min_size = Vector2i(200, 200)
+theme = ExtResource("1_tacb5")
+script = ExtResource("1_v6dk4")
+metadata/_custom_type_script = "uid://c771v0yc88v3"
+
+[node name="Border" type="PanelContainer" parent="." unique_id=1469777321]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_u1385")
+
+[node name="TopBar" type="MarginContainer" parent="." unique_id=1354930305]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.01
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="WindowTopBar" parent="TopBar" unique_id=1233246370 instance=ExtResource("3_5as6t")]
+layout_mode = 2
+title_text = "test"

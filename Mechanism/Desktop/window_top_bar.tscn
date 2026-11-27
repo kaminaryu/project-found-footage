@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dqjnt6l72cg16"]
 
-[ext_resource type="Script" uid="uid://bjsxlol4qu2gl" path="res://Objects/Mechanism/Desktop/window_top_bar.gd" id="1_topbar"]
+[ext_resource type="Script" uid="uid://bjsxlol4qu2gl" path="res://Mechanism/Desktop/window_top_bar.gd" id="1_topbar"]
 [ext_resource type="Theme" uid="uid://d2l02gv7kimjr" path="res://Themes/desktop.tres" id="2_nhxhs"]
 [ext_resource type="Texture2D" uid="uid://cy5gvpv8xsgte" path="res://Assets/UI/Desktop/Icons/CloseButton.png" id="3_g6qhb"]
-[ext_resource type="Shader" uid="uid://dig1o0hfd4xnb" path="res://Objects/Mechanism/Desktop/desktop_icon.gdshader" id="3_ui71p"]
+[ext_resource type="Shader" uid="uid://dig1o0hfd4xnb" path="res://Mechanism/DesktopOld/desktop_icon.gdshader" id="3_ui71p"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frtrr"]
 
@@ -19,11 +19,9 @@ script = ExtResource("1_topbar")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=790292299]
 layout_mode = 2
+size_flags_vertical = 8
 mouse_filter = 2
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1305619412]
 layout_mode = 2

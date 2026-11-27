@@ -11,11 +11,13 @@ var _shake_time := 0.0
 var _shake_tick := 0.0
 var _shake_base_position := Vector2i.ZERO
 @export var skip_open_animation := false;
+@onready var _top_bar := $TopBar/WindowTopBar
 
 ## Base ready function for all programs
 func _ready() -> void:
 	_setup_shared()
 	_window_ready()
+	_top_bar.close_pressed.connect(_on_close_pressed);
 	if !skip_open_animation: _play_open_animation();
 
 
@@ -80,14 +82,25 @@ func _play_open_animation() -> void:
 	var target_size = self.size;
 	var size_delta = Vector2i(100,100);
 	var duration = 0.3
-	var sb = get_theme_stylebox('embedded_border')
 	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT);
-	if get_theme_stylebox('embedded_border') is StyleBoxTexture: tween.tween_property(sb,"modulate_color:a", 1.0, duration).from(0.0);
 	tween.tween_property(self, "size", target_size, duration).from(target_size - size_delta) 
 	tween.tween_property(self, "position", position - (size_delta / 2), duration);
 	for node in get_children():
 		if not node is Control: return
 		tween.tween_property(node, "modulate:a", 1, duration).from(0);
+
+func _play_close_animation() -> void:
+	var target_size = self.size;
+	var size_delta = Vector2i(100,100);
+	var duration = 0.3
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN);
+	tween.tween_property(self, "size", target_size - size_delta, duration)
+	tween.tween_property(self, "position", position + (size_delta / 2), duration);
+	for node in get_children():
+		if not node is Control: continue
+		tween.tween_property(node, "modulate:a", 0, duration).from(1);
+	
+	await tween.finished
 
 func _start_shake(duration: float) -> void:
 	_shake_base_position = position
@@ -100,4 +113,5 @@ func _on_close_pressed() -> void:
 
 
 func _on_close_requested() -> void:
+	await _play_close_animation()
 	queue_free()
