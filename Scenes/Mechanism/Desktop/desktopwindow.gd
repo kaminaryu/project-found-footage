@@ -17,6 +17,9 @@ func _window_ready() -> void:
 	set_wallpaper(sokoban_finished)
 	game_exe.visible = GameMaster.is_flag_raised(&"uploaded_data_to_pc") and not ctf_revealed
 
+	if (not Engine.is_editor_hint()) :
+		initial_position = Window.WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN   
+
 
 func load_data_from_saves() -> Dictionary :
 	if not FileAccess.file_exists("user://save.json"):

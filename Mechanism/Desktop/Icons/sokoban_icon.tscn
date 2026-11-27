@@ -2,16 +2,12 @@
 
 [ext_resource type="Script" uid="uid://rqf7aia3ytne" path="res://Mechanism/Desktop/Icons/sokoban_icon.gd" id="1_bauoq"]
 [ext_resource type="Texture2D" uid="uid://dqsoi2k4ypwbd" path="res://Assets/UI/Desktop/Icons/Sokoban64.png" id="2_8nef7"]
-[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/desktop_icon_visuals.tscn" id="2_pc5m1"]
+[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/Components/desktop_icon_visuals.tscn" id="2_pc5m1"]
 [ext_resource type="PackedScene" uid="uid://djmeefab4wd08" path="res://Mechanism/Desktop/Sokoban/sokoban_exe.tscn" id="3_yfdoa"]
 
-[node name="SokobanIcon" type="Control" unique_id=403003422 node_paths=PackedStringArray("desktop_icon_visuals")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SokobanIcon" type="MarginContainer" unique_id=498419511 node_paths=PackedStringArray("desktop_icon_visuals")]
+offset_right = 108.0
+offset_bottom = 96.0
 script = ExtResource("1_bauoq")
 desktop_icon_visuals = NodePath("DesktopIconVisuals")
 icon_texture = ExtResource("2_8nef7")
@@ -19,4 +15,4 @@ icon_name = "game_final.exe"
 program_to_run = ExtResource("3_yfdoa")
 
 [node name="DesktopIconVisuals" parent="." unique_id=1524986701 instance=ExtResource("2_pc5m1")]
-layout_mode = 0
+layout_mode = 2

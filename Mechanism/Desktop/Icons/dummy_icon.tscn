@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cef58qrpg5ofx"]
 
 [ext_resource type="Script" uid="uid://bdnef15spy80" path="res://Mechanism/Desktop/Icons/dummy_icon.gd" id="1_o413j"]
-[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/desktop_icon_visuals.tscn" id="2_uwuio"]
+[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/Components/desktop_icon_visuals.tscn" id="2_uwuio"]
 [ext_resource type="Texture2D" uid="uid://bib1j72nk2v3q" path="res://Assets/UI/Desktop/Icons/DefaultIcon64.png" id="2_vruo6"]
 [ext_resource type="PackedScene" uid="uid://b28wd28db6vja" path="res://Mechanism/Desktop/Programs/ErrorPopup.tscn" id="3_0sk6b"]
 
-[node name="DummyIcon" type="Control" unique_id=178140045 node_paths=PackedStringArray("desktop_icon_visuals")]
-layout_mode = 3
-anchors_preset = 0
+[node name="DummyIcon" type="MarginContainer" unique_id=2133410901 node_paths=PackedStringArray("desktop_icon_visuals")]
+offset_right = 108.0
+offset_bottom = 96.0
 script = ExtResource("1_o413j")
 desktop_icon_visuals = NodePath("DesktopIconVisuals")
 icon_texture = ExtResource("2_vruo6")
 program_to_run = ExtResource("3_0sk6b")
 
 [node name="DesktopIconVisuals" parent="." unique_id=1524986701 instance=ExtResource("2_uwuio")]
-layout_mode = 0
+layout_mode = 2

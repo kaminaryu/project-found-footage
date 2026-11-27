@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cv2m7v210uq3n"]
 
 [ext_resource type="Script" uid="uid://d3ulx6r1abshq" path="res://Mechanism/Desktop/Icons/text_reader_icon.gd" id="1_jy2rd"]
-[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/desktop_icon_visuals.tscn" id="2_nyj88"]
+[ext_resource type="PackedScene" uid="uid://d2bve73602k66" path="res://Mechanism/Desktop/Icons/Components/desktop_icon_visuals.tscn" id="2_nyj88"]
 [ext_resource type="Texture2D" uid="uid://du8dnba8fbrl1" path="res://Assets/UI/Desktop/Icons/TextFile64.png" id="2_slcu0"]
 [ext_resource type="PackedScene" uid="uid://r0uglbxc2bo" path="res://Mechanism/Desktop/Programs/txt_reader.tscn" id="3_slcu0"]
 
-[node name="TextReaderIcon" type="Control" unique_id=945425594 node_paths=PackedStringArray("desktop_icon_visuals")]
-layout_mode = 3
-anchors_preset = 0
+[node name="TextReaderIcon" type="MarginContainer" unique_id=2136376269 node_paths=PackedStringArray("desktop_icon_visuals")]
+offset_right = 108.0
+offset_bottom = 96.0
 script = ExtResource("1_jy2rd")
 desktop_icon_visuals = NodePath("DesktopIconVisuals")
 icon_texture = ExtResource("2_slcu0")
@@ -15,4 +15,4 @@ icon_name = "untitled.txt"
 program_to_run = ExtResource("3_slcu0")
 
 [node name="DesktopIconVisuals" parent="." unique_id=1524986701 instance=ExtResource("2_nyj88")]
-layout_mode = 0
+layout_mode = 2

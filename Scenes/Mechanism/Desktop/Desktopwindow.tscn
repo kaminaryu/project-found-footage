@@ -40,12 +40,9 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="DesktopWindow" type="Window" unique_id=1278800956 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe", "jumpscare_screen", "static_sound")]
-transparent_bg = true
-gui_embed_subwindows = true
+[node name="DesktopWindow" type="Window" unique_id=294532780 node_paths=PackedStringArray("normal_wallpaper", "EVIL_wallpaper", "game_exe", "jumpscare_screen", "static_sound")]
 oversampling_override = 1.0
-title = "Desktop"
-initial_position = 2
+initial_position = 1
 size = Vector2i(1280, 960)
 unresizable = true
 always_on_top = true
@@ -57,6 +54,7 @@ game_exe = NodePath("DesktopSkeleton/DesktopIconsField/IconsField/SokobanIcon")
 jumpscare_screen = NodePath("JumpscareScreen")
 static_sound = NodePath("StaticSound")
 skip_open_animation = true
+metadata/_custom_type_script = "uid://c2oriqeni18c2"
 
 [node name="Wallpaper" type="TextureRect" parent="." unique_id=1734586397]
 anchors_preset = 15
@@ -115,6 +113,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 script = ExtResource("5_nu7vc")
+cell_size = Vector2(128, 128)
 
 [node name="IconsField" type="Control" parent="DesktopSkeleton/DesktopIconsField" unique_id=882039910]
 layout_mode = 2
@@ -134,19 +133,19 @@ reveal_save_flag = "ctf_revealed"
 
 [node name="AudioIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=260247116 instance=ExtResource("19_nu7vc")]
 layout_mode = 0
-offset_left = 802.0
-offset_top = 232.0
-offset_right = 802.0
-offset_bottom = 232.0
-audio_name = "Audio-6767.mp3"
-icon_name = "Audio-6767.mp3"
+offset_left = 936.0
+offset_top = 439.0
+offset_right = 1044.0
+offset_bottom = 535.0
+audio_name = "Audio-000.mp3"
+icon_name = "Audio-000.mp3"
 
 [node name="TextReaderIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=945425594 instance=ExtResource("15_t60eu")]
 layout_mode = 1
-offset_left = 819.0
-offset_top = 430.0
-offset_right = 819.0
-offset_bottom = 430.0
+offset_left = 834.0
+offset_top = 439.0
+offset_right = 942.0
+offset_bottom = 535.0
 file_path = "res://Resources/Data/CTF/Texts/canine.txt"
 icon_name = "canine.txt"
 
@@ -161,31 +160,26 @@ icon_name = "Desktop"
 
 [node name="TrashIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=1990100099 instance=ExtResource("15_olv04")]
 layout_mode = 1
-offset_left = -4.0
-offset_top = 674.0
-offset_right = -4.0
-offset_bottom = 674.0
+offset_left = 755.0
+offset_top = 437.0
+offset_right = 863.0
+offset_bottom = 533.0
 icon_texture = ExtResource("10_kp0gs")
 icon_name = "Trash"
 
 [node name="FileExplorerIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=115547862 instance=ExtResource("16_olv04")]
 layout_mode = 1
-offset_left = -16.0
-offset_top = 105.0
-offset_right = -16.0
-offset_bottom = 105.0
+offset_left = 1039.0
+offset_top = 440.0
+offset_right = 1147.0
+offset_bottom = 536.0
 
 [node name="SokobanIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=403003422 instance=ExtResource("15_6b82k")]
 layout_mode = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 196.0
-offset_top = 242.0
-offset_right = 196.0
-offset_bottom = 242.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_left = 329.0
+offset_top = 238.0
+offset_right = 359.0
+offset_bottom = 328.0
 
 [node name="TaskbarArea" type="Control" parent="DesktopSkeleton" unique_id=593891721]
 custom_minimum_size = Vector2(0, 118.22)
@@ -216,5 +210,4 @@ stretch_mode = 5
 stream = ExtResource("19_0muut")
 bus = &"SFX"
 
-[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="DesktopSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
