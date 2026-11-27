@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dfgv76qrdoe7f"]
 
 [ext_resource type="Script" uid="uid://dc0uts2x0cll3" path="res://Mechanism/Desktop/Programs/ctf_exe.gd" id="1_ctf"]
+[ext_resource type="StyleBox" uid="uid://dnq65qxxccqw3" path="res://Themes/window_unfocused_stylebox.tres" id="1_d4hwe"]
 [ext_resource type="AudioStream" uid="uid://ci48xdt7gbtb" path="res://Assets/Audios/SFX/Misc/WomanScreaming.mp3" id="2_6rfkd"]
-[ext_resource type="Script" uid="uid://cwkibkkw0b3lb" path="res://Mechanism/Desktop/window_drag_handle.gd" id="3_drag"]
+[ext_resource type="PackedScene" uid="uid://dqjnt6l72cg16" path="res://Mechanism/Desktop/window_top_bar.tscn" id="3_v3c26"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrivr"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_13qdw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwikg"]
 load_path = "res://.godot/imported/TextViewer.png-1bcc594511c1240c2f5870430d713fc2.ctex"
@@ -14,83 +19,62 @@ texture_margin_top = 58.0
 texture_margin_right = 25.0
 texture_margin_bottom = 27.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_normal"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-corner_detail = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_pressed"]
-bg_color = Color(0.735357, 0, 0, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_close_hover"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
-
 [node name="CTFExe" type="Window" unique_id=49404748 node_paths=PackedStringArray("_flag_input", "_submit", "_status", "_progress", "_scream_mp3")]
+transparent_bg = true
 oversampling_override = 1.0
-title = "Portal.exe"
 initial_position = 1
-size = Vector2i(560, 320)
-unresizable = true
-borderless = true
+size = Vector2i(600, 400)
 always_on_top = true
+transparent = true
 sharp_corners = true
+min_size = Vector2i(600, 400)
+theme_override_constants/title_height = 0
+theme_override_constants/resize_margin = 10
+theme_override_icons/close = SubResource("PlaceholderTexture2D_xrivr")
+theme_override_icons/close_pressed = SubResource("PlaceholderTexture2D_13qdw")
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_yujma")
+theme_override_styles/embedded_unfocused_border = ExtResource("1_d4hwe")
 script = ExtResource("1_ctf")
-_flag_input = NodePath("WindowSkeleton/Content/Layout/FlagRow/FlagInput")
-_submit = NodePath("WindowSkeleton/Content/Layout/FlagRow/Submit")
-_status = NodePath("WindowSkeleton/Content/Layout/Status")
-_progress = NodePath("WindowSkeleton/Content/Layout/Progress")
+_flag_input = NodePath("MarginContainer/WindowSkeleton/Content/Layout/FlagRow/FlagInput")
+_submit = NodePath("MarginContainer/WindowSkeleton/Content/Layout/FlagRow/Submit")
+_status = NodePath("MarginContainer/WindowSkeleton/Content/Layout/Status")
+_progress = NodePath("MarginContainer/WindowSkeleton/Content/Layout/Progress")
 _scream_mp3 = NodePath("Scream_mp3")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1676768113]
+[node name="TopBarMargin" type="MarginContainer" parent="." unique_id=654661280]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+
+[node name="WindowTopBar" parent="TopBarMargin" unique_id=1233246370 instance=ExtResource("3_v3c26")]
+layout_mode = 2
+title_text = "Portal.exe"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2087315488]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 52
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1676768113]
+layout_mode = 2
 color = Color(0.1, 0.1, 0.12, 1)
 
-[node name="WindowSkeleton" type="VBoxContainer" parent="." unique_id=156856099]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TopBar" type="PanelContainer" parent="WindowSkeleton" unique_id=679244285]
+[node name="WindowSkeleton" type="VBoxContainer" parent="MarginContainer" unique_id=156856099]
 layout_mode = 2
-script = ExtResource("3_drag")
 
-[node name="MarginContainer" type="MarginContainer" parent="WindowSkeleton/TopBar" unique_id=573002184]
-layout_mode = 2
-size_flags_horizontal = 8
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Close" type="Button" parent="WindowSkeleton/TopBar/MarginContainer" unique_id=1001130095]
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(32, 32)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_close_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_close_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_close_hover")
-text = "X"
-
-[node name="Content" type="MarginContainer" parent="WindowSkeleton" unique_id=1772748784]
+[node name="Content" type="MarginContainer" parent="MarginContainer/WindowSkeleton" unique_id=1772748784]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 32
@@ -98,41 +82,41 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 24
 
-[node name="Layout" type="VBoxContainer" parent="WindowSkeleton/Content" unique_id=971070640]
+[node name="Layout" type="VBoxContainer" parent="MarginContainer/WindowSkeleton/Content" unique_id=971070640]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Title" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=1232064012]
+[node name="Title" type="Label" parent="MarginContainer/WindowSkeleton/Content/Layout" unique_id=1232064012]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Portal.exe"
 horizontal_alignment = 1
 
-[node name="FlagRow" type="HBoxContainer" parent="WindowSkeleton/Content/Layout" unique_id=344918789]
+[node name="FlagRow" type="HBoxContainer" parent="MarginContainer/WindowSkeleton/Content/Layout" unique_id=344918789]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="FlagInput" type="LineEdit" parent="WindowSkeleton/Content/Layout/FlagRow" unique_id=1638940720]
+[node name="FlagInput" type="LineEdit" parent="MarginContainer/WindowSkeleton/Content/Layout/FlagRow" unique_id=1638940720]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "..."
 
-[node name="Submit" type="Button" parent="WindowSkeleton/Content/Layout/FlagRow" unique_id=1135135566]
+[node name="Submit" type="Button" parent="MarginContainer/WindowSkeleton/Content/Layout/FlagRow" unique_id=1135135566]
 custom_minimum_size = Vector2(96, 36)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Submit"
 
-[node name="Status" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=922509699]
+[node name="Status" type="Label" parent="MarginContainer/WindowSkeleton/Content/Layout" unique_id=922509699]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.75, 1)
 text = "Awaiting flag..."
 horizontal_alignment = 1
 
-[node name="Progress" type="Label" parent="WindowSkeleton/Content/Layout" unique_id=1815760652]
+[node name="Progress" type="Label" parent="MarginContainer/WindowSkeleton/Content/Layout" unique_id=1815760652]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.45, 0.45, 0.5, 1)
 theme_override_font_sizes/font_size = 14
@@ -144,5 +128,4 @@ stream = ExtResource("2_6rfkd")
 volume_db = -30.0
 bus = &"SFX"
 
-[connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="WindowSkeleton/TopBar/MarginContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="close_pressed" from="TopBarMargin/WindowTopBar" to="." method="_on_close_pressed"]

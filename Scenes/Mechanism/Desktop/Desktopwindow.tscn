@@ -130,7 +130,6 @@ offset_bottom = 447.0
 icon_texture = ExtResource("13_6b82k")
 icon_name = "Portal.exe"
 application = ExtResource("10_dk0mw")
-hidden_until_revealed = true
 reveal_save_flag = "ctf_revealed"
 
 [node name="AudioIcon" parent="DesktopSkeleton/DesktopIconsField/IconsField" unique_id=260247116 instance=ExtResource("19_nu7vc")]
